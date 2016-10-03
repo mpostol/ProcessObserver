@@ -1,0 +1,42 @@
+﻿<#@ template debug="false" hostspecific="false" language="C#" #>
+<#@ output extension=".nuspec" #>
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id><#=m_AssemblyTitle#></id>
+    <version><#= CASCommServerDAItemDescriberVersion #><#= CASCommServerDAItemDescriberPrerelease #></version>
+    <title>Item Describer Editor and Library</title>
+    <authors><#=AssemblyCompany#></authors>
+    <owners><#=Owner#></owners>
+    <projectUrl>svn://svnserver.hq.cas.com.pl/VS/trunk/CommServer.DA</projectUrl>
+    <licenseUrl>http://www.commsvr.com/DownloadCenter/ProductSoftware/LicenseAgreement.aspx</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <developmentDependency>false</developmentDependency>
+    <description>
+      Item Describer Editor and Library
+    </description>
+    <summary>
+      Item Describer Editor and Library
+    </summary>
+    <releaseNotes>
+      Maintenace 2016 release
+    </releaseNotes>
+    <copyright><#=AssemblyCopyright#></copyright>
+    <tags>CommServer, OPC DA, OPC Client, OPC Server.</tags>
+        <dependencies>
+            <dependency id="CAS.CommServer.OPCClassic.SDK.Core" version="2.01.106" />
+            <dependency id="CAS.RealTime" version="5.0.2" />
+            <dependency id="CAS.CodeProtect" version="5.0.2" />
+        </dependencies>
+  </metadata>
+  <files>
+        <file src="bin\Release\CAS.CommServer.DA.ItemDescriber.dll" target="lib\net451\CAS.CommServer.DA.ItemDescriber.dll" />
+        <file src="bin\Release\CAS.CommServer.DA.ItemDescriber.XML" target="lib\net451\CAS.CommServer.DA.ItemDescriber.XML" />
+        <file src="bin\Release\item_dsc.xml" target="lib\net451\item_dsc.xml" />
+  </files>
+</package>
+
+<#@ include file = "..\PR39-CommonResources\T4Definitions\CAS.OPC.t4" #>
+<#+
+string m_AssemblyTitle = "CAS.CommServer.DA.ItemDescriber";
+  #>
