@@ -45,7 +45,7 @@
     <Reference Include="System.Windows.Forms" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DA.ItemDescriberEditor\DA.ItemDescriberEditor.csproj">
+    <ProjectReference Include="..\ProtocolHub.ItemDescriberEditor\DA.ItemDescriberEditor.csproj">
       <Project>{d5ab197f-7133-4bd0-a6db-f9375db33aca}</Project>
       <Name>DA.ItemDescriberEditor</Name>
     </ProjectReference>
