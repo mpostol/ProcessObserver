@@ -23,42 +23,39 @@ namespace BaseStation.ItemDescriber
   /// </summary>
   public class CSVManagement
   {
-    /// <summary>
-    /// constructor for csv management
-    /// </summary>
-    public CSVManagement()
-    {
-    }
     public void SaveCSV(ItemDecriberDataSet config, string filename)
     {
-      using (StreamWriter sw = File.CreateText(filename))
+      using (StreamWriter _sw = File.CreateText(filename))
       {
         //zapisujemy najpierw pierwsza linie:
-        sw.Write("ItemID;ItemName;");
-        foreach (ItemDecriberDataSet.PropertyRow row in config.Property.Rows)
+        _sw.Write("ItemID;ItemName;");
+        foreach (ItemDecriberDataSet.PropertyRow _row in config.Property.Rows)
         {
-          sw.Write(row.Name + ";");
+          _sw.Write(_row.Name + ";");
         }
-        sw.WriteLine();
+        _sw.WriteLine();
         //teraz zapisujemy w³aœciwe dane
-        foreach (ItemDecriberDataSet.ItemsRow itemrow in config.Items.Rows)
+        foreach (ItemDecriberDataSet.ItemsRow _itemRow in config.Items.Rows)
         {
-          sw.Write(itemrow.ItemID.ToString() + ";");
-          sw.Write(itemrow.ItemName + ";");
+          _sw.Write(_itemRow.ItemID.ToString() + ";");
+          _sw.Write(_itemRow.ItemName + ";");
           foreach (ItemDecriberDataSet.PropertyRow row in config.Property.Rows)
           {
-            ItemDecriberDataSet.ItemPropertyRow[] itemproperties = itemrow.GetItemPropertyRows();
-            foreach (ItemDecriberDataSet.ItemPropertyRow itemprop in itemproperties)
-            {
-              if (itemprop.PropertyCode.Equals(row.Code)) sw.Write(itemprop.Value);
-            }
-            sw.Write(";");
+            ItemDecriberDataSet.ItemPropertyRow[] itemProperties = _itemRow.GetItemPropertyRows();
+            foreach (ItemDecriberDataSet.ItemPropertyRow _property in itemProperties)
+              if (_property.PropertyCode.Equals(row.Code)) _sw.Write(_property.Value);
+            _sw.Write(";");
           }
-          sw.WriteLine("ENDLINE;");
+          _sw.WriteLine("ENDLINE;");
         }
-        sw.Close();
+        _sw.Close();
       }
     }
+    /// <summary>
+    /// Loads the <see cref="ItemDecriberDataSet"/> form CSV file.
+    /// </summary>
+    /// <param name="config">The configuration.</param>
+    /// <param name="filename">The filename.</param>
     public void LoadCSV(ItemDecriberDataSet config, string filename)
     {
       StreamReader plik = new StreamReader(filename);//,System.Text.Encoding.Default);
