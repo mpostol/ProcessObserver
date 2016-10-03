@@ -155,15 +155,15 @@
     <Compile Include="XMLManagement.cs">
       <SubType>Code</SubType>
     </Compile>
-    <None Include="CAS.CommServer.DA.ItemDescriber.nuspec">
-      <DependentUpon>CAS.CommServer.DA.ItemDescriber.tt</DependentUpon>
+    <None Include="ProtocolHub.ItemDescriber.nuspec">
+      <DependentUpon>ProtocolHub.ItemDescriber.tt</DependentUpon>
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <SubType>Designer</SubType>
     </None>
-    <None Include="CAS.CommServer.DA.ItemDescriber.tt">
+    <None Include="ProtocolHub.ItemDescriber.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>CAS.CommServer.DA.ItemDescriber.nuspec</LastGenOutput>
+      <LastGenOutput>ProtocolHub.ItemDescriber.nuspec</LastGenOutput>
       <SubType>Designer</SubType>
     </None>
     <Content Include="Properties\AssemblyInfo.tt">
