@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<xs:schema id="ItemDecriberDataSet" targetNamespace="http://tempuri.org/ItemDecriberDataSet.xsd"
+	elementFormDefault="qualified" attributeFormDefault="qualified" xmlns="http://tempuri.org/ItemDecriberDataSet.xsd"
+	xmlns:mstns="http://tempuri.org/ItemDecriberDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema"
+	xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+	<xs:element name="ItemDecriberDataSet" msdata:IsDataSet="true">
+		<xs:complexType>
+			<xs:choice maxOccurs="unbounded">
+				<xs:element name="Property">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="Code" type="xs:int" minOccurs="0" />
+							<xs:element name="Name" type="xs:string" minOccurs="0" />
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="Items">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="ItemID" type="xs:int" minOccurs="0" />
+							<xs:element name="ItemName" type="xs:string" minOccurs="0" />
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="ItemProperty">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="ItemID" type="xs:int" minOccurs="0" />
+							<xs:element name="PropertyCode" type="xs:int" minOccurs="0" />
+							<xs:element name="Value" type="xs:string" minOccurs="0" />
+						</xs:sequence>
+					</xs:complexType>
+				</xs:element>
+			</xs:choice>
+		</xs:complexType>
+		<xs:key name="ItemDecriberDataSetKey2">
+			<xs:selector xpath=".//mstns:Items" />
+			<xs:field xpath="mstns:ItemID" />
+		</xs:key>
+		<xs:key name="ItemDecriberDataSetKey3">
+			<xs:selector xpath=".//mstns:Property" />
+			<xs:field xpath="mstns:Code" />
+		</xs:key>
+		<xs:key name="ItemDecriberDataSetKey1">
+			<xs:selector xpath=".//mstns:ItemProperty" />
+			<xs:field xpath="mstns:ItemID" />
+			<xs:field xpath="mstns:PropertyCode" />
+		</xs:key>
+		<xs:keyref name="ItemsItemProperty" refer="ItemDecriberDataSetKey2">
+			<xs:selector xpath=".//mstns:ItemProperty" />
+			<xs:field xpath="mstns:ItemID" />
+		</xs:keyref>
+		<xs:keyref name="PropertyItemProperty" refer="ItemDecriberDataSetKey3">
+			<xs:selector xpath=".//mstns:ItemProperty" />
+			<xs:field xpath="mstns:PropertyCode" />
+		</xs:keyref>
+	</xs:element>
+</xs:schema>
