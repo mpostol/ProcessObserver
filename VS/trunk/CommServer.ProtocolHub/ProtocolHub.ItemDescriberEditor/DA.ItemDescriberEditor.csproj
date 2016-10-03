@@ -117,7 +117,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\DA.ItemDescriber\DA.ItemDescriber.csproj">
+    <ProjectReference Include="..\ProtocolHub.ItemDescriber\DA.ItemDescriber.csproj">
       <Project>{4d16da6f-cacb-40b7-820a-704f9141fe8e}</Project>
       <Name>DA.ItemDescriber</Name>
     </ProjectReference>
