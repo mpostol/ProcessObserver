@@ -2,8 +2,8 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
   <metadata>
     <id>CAS.CommServer.DA.ItemDescriber</id>
-    <version>1.00.2-Echo</version>
-    <title>Item Describer Editor and Library</title>
+    <version>1.00.2-Foxtrot</version>
+    <title>Obsolete use: CAS.CommServer.DA.ItemDescriber; Item Describer Editor and Library</title>
     <authors>CAS</authors>
     <owners>commsvr.com</owners>
     <projectUrl>svn://svnserver.hq.cas.com.pl/VS/trunk/CommServer.DA</projectUrl>
@@ -11,9 +11,11 @@
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
     <developmentDependency>false</developmentDependency>
     <description>
+      Obsolete use: CAS.CommServer.DA.ItemDescriber;
       Item Describer Editor and Library
     </description>
     <summary>
+      Obsolete use: CAS.CommServer.DA.ItemDescriber;
       Item Describer Editor and Library
     </summary>
     <releaseNotes>
@@ -28,9 +30,6 @@
         </dependencies>
   </metadata>
   <files>
-        <file src="bin\Release\CAS.CommServer.DA.ItemDescriber.dll" target="lib\net451\CAS.CommServer.DA.ItemDescriber.dll" />
-        <file src="bin\Release\CAS.CommServer.DA.ItemDescriber.XML" target="lib\net451\CAS.CommServer.DA.ItemDescriber.XML" />
-        <file src="bin\Release\item_dsc.xml" target="lib\net451\item_dsc.xml" />
   </files>
 </package>
 
