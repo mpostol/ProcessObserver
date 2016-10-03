@@ -49,7 +49,7 @@ namespace CAS.CommServer.DA.ItemDescriberEditor
     {
       this.components = new System.ComponentModel.Container();
       System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainFormItemDescriber));
-      this.itemDecriberDataSet1 = new BaseStation.ItemDescriber.ItemDecriberDataSet();
+      this.m_ItemDescriberDataSet = new BaseStation.ItemDescriber.ItemDecriberDataSet();
       this.dataGrid_items = new System.Windows.Forms.DataGrid();
       this.mainMenu_form = new System.Windows.Forms.MainMenu(this.components);
       this.menuItem1 = new System.Windows.Forms.MenuItem();
@@ -67,21 +67,21 @@ namespace CAS.CommServer.DA.ItemDescriberEditor
       this.menuItem12 = new System.Windows.Forms.MenuItem();
       this.dataGrid_Property = new System.Windows.Forms.DataGrid();
       this.menuItem14 = new System.Windows.Forms.MenuItem();
-      ((System.ComponentModel.ISupportInitialize)(this.itemDecriberDataSet1)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.m_ItemDescriberDataSet)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.dataGrid_items)).BeginInit();
       ((System.ComponentModel.ISupportInitialize)(this.dataGrid_Property)).BeginInit();
       this.SuspendLayout();
       // 
       // itemDecriberDataSet1
       // 
-      this.itemDecriberDataSet1.DataSetName = "ItemDecriberDataSet";
-      this.itemDecriberDataSet1.Locale = new System.Globalization.CultureInfo("en-US");
-      this.itemDecriberDataSet1.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
+      this.m_ItemDescriberDataSet.DataSetName = "ItemDecriberDataSet";
+      this.m_ItemDescriberDataSet.Locale = new System.Globalization.CultureInfo("en-US");
+      this.m_ItemDescriberDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
       // 
       // dataGrid_items
       // 
       this.dataGrid_items.DataMember = "";
-      this.dataGrid_items.DataSource = this.itemDecriberDataSet1.Items;
+      this.dataGrid_items.DataSource = this.m_ItemDescriberDataSet.Items;
       this.dataGrid_items.HeaderForeColor = System.Drawing.SystemColors.ControlText;
       this.dataGrid_items.Location = new System.Drawing.Point(24, 16);
       this.dataGrid_items.Name = "dataGrid_items";
@@ -186,7 +186,7 @@ namespace CAS.CommServer.DA.ItemDescriberEditor
       // 
       this.dataGrid_Property.AllowNavigation = false;
       this.dataGrid_Property.DataMember = "";
-      this.dataGrid_Property.DataSource = this.itemDecriberDataSet1.Property;
+      this.dataGrid_Property.DataSource = this.m_ItemDescriberDataSet.Property;
       this.dataGrid_Property.HeaderForeColor = System.Drawing.SystemColors.ControlText;
       this.dataGrid_Property.Location = new System.Drawing.Point(488, 16);
       this.dataGrid_Property.Name = "dataGrid_Property";
@@ -210,7 +210,7 @@ namespace CAS.CommServer.DA.ItemDescriberEditor
       this.Menu = this.mainMenu_form;
       this.Name = "MainFormItemDescriber";
       this.Text = "ItemDescriber";
-      ((System.ComponentModel.ISupportInitialize)(this.itemDecriberDataSet1)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.m_ItemDescriberDataSet)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.dataGrid_items)).EndInit();
       ((System.ComponentModel.ISupportInitialize)(this.dataGrid_Property)).EndInit();
       this.ResumeLayout(false);

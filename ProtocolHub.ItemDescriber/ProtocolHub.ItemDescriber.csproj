@@ -221,8 +221,8 @@
   <PropertyGroup>
     <PreBuildEvent>
     </PreBuildEvent>
-    <PostBuildEvent>copy /y "$(TargetDir)$(TargetName).*" "$(SolutionDir)bin\$(ConfigurationName)\"
-xcopy /y "$(ProjectDir)item_dsc.xml" "$(SolutionDir)bin\$(ConfigurationName)\"
+    <PostBuildEvent>rem copy /y "$(TargetDir)$(TargetName).*" "$(SolutionDir)bin\$(ConfigurationName)\"
+rem xcopy /y "$(ProjectDir)item_dsc.xml" "$(SolutionDir)bin\$(ConfigurationName)\"
 rem xcopy /y "$(ProjectDir)ToBeCopiedToSolutionTarget\*.*" "$(TargetDir)"</PostBuildEvent>
   </PropertyGroup>
 </Project>

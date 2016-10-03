@@ -32,6 +32,9 @@
         </dependencies>
   </metadata>
   <files>
+        <file src="bin\Release\CAS.CommServer.ProtocolHub.ItemDescriber.dll" target="lib\net451\CAS.CommServer.ProtocolHub.ItemDescriber.dll" />
+        <file src="bin\Release\CAS.CommServer.ProtocolHub.ItemDescriber.xml" target="lib\net451\CAS.CommServer.ProtocolHub.ItemDescriber.xml" />
+        <file src="bin\Release\item_dsc.xml" target="lib\net451\item_dsc.xml" />
   </files>
 </package>
 
