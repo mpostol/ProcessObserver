@@ -10,7 +10,7 @@
     <ApplicationIcon>CAS_ikona_02.ico</ApplicationIcon>
     <AssemblyKeyContainerName>
     </AssemblyKeyContainerName>
-    <AssemblyName>CAS.CommServer.DA.ItemDescriber</AssemblyName>
+    <AssemblyName>CAS.CommServer.ProtocolHub.ItemDescriber</AssemblyName>
     <AssemblyOriginatorKeyFile>cas.snk</AssemblyOriginatorKeyFile>
     <DefaultClientScript>JScript</DefaultClientScript>
     <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
@@ -57,7 +57,7 @@
     <ConfigurationOverrideFile>
     </ConfigurationOverrideFile>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <DocumentationFile>bin\Debug\CAS.CommServer.DA.ItemDescriber.XML</DocumentationFile>
+    <DocumentationFile>bin\Debug\CAS.CommServer.ProtocolHub.ItemDescriber.xml</DocumentationFile>
     <DebugSymbols>true</DebugSymbols>
     <FileAlignment>4096</FileAlignment>
     <NoStdLib>false</NoStdLib>
@@ -80,7 +80,7 @@
     <ConfigurationOverrideFile>
     </ConfigurationOverrideFile>
     <DefineConstants>TRACE</DefineConstants>
-    <DocumentationFile>bin\Release\CAS.CommServer.DA.ItemDescriber.XML</DocumentationFile>
+    <DocumentationFile>bin\Release\CAS.CommServer.ProtocolHub.ItemDescriber.xml</DocumentationFile>
     <DebugSymbols>false</DebugSymbols>
     <FileAlignment>4096</FileAlignment>
     <NoStdLib>false</NoStdLib>
