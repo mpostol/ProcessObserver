@@ -163,8 +163,7 @@ namespace CAS.CommServer.ProtocolHub.Communication.Diagnostic
         SignalError(sb, ex);
       }
       sb.Append(@"</table>");
-      //
-      //stopka:
+      //footer:
       sb.Append(this.getFooter());
       return sb.ToString();
     }
@@ -174,6 +173,9 @@ namespace CAS.CommServer.ProtocolHub.Communication.Diagnostic
       sb.Append(": ");
       sb.Append(ex.ToString());
     }
+    /// <summary>
+    /// Do the report
+    /// </summary>
     protected override void doReport()
     {
       using (StreamWriter sw = File.CreateText(DestFilename))
