@@ -23,6 +23,11 @@ namespace BaseStation.ItemDescriber
   /// </summary>
   public class CSVManagement
   {
+    /// <summary>
+    /// Saves the the configuration in the CSV file.
+    /// </summary>
+    /// <param name="config">The configuration.</param>
+    /// <param name="filename">The filename.</param>
     public void SaveCSV(ItemDecriberDataSet config, string filename)
     {
       using (StreamWriter _sw = File.CreateText(filename))
