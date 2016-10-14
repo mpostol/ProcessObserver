@@ -2,13 +2,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProtocolHub.ItemDescriber", "ProtocolHub.ItemDescriber\ProtocolHub.ItemDescriber.csproj", "{4D16DA6F-CACB-40B7-820A-704F9141FE8E}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{2174EF99-7D4B-45EE-87F7-D5912F3DFB5D}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProtocolHub.ItemDescriberEditor", "ProtocolHub.ItemDescriberEditor\ProtocolHub.ItemDescriberEditor.csproj", "{D5AB197F-7133-4BD0-A6DB-F9375DB33ACA}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProtocolHub.ItemDescriberEditorUnitTest", "ProtocolHub.ItemDescriberEditorUnitTest\ProtocolHub.ItemDescriberEditorUnitTest.csproj", "{E4D74DFE-36E4-4C4E-BFCB-E1C46D8877AF}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "T4Definitions", "..\PR39-CommonResources\T4Definitions\T4Definitions.csproj", "{D506423B-BA21-49E6-8C3B-88A771CA444E}"
 EndProject
@@ -32,30 +26,6 @@ Global
 		Release|x64 = Release|x64
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{4D16DA6F-CACB-40B7-820A-704F9141FE8E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4D16DA6F-CACB-40B7-820A-704F9141FE8E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4D16DA6F-CACB-40B7-820A-704F9141FE8E}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{4D16DA6F-CACB-40B7-820A-704F9141FE8E}.Debug|x64.Build.0 = Debug|Any CPU
-		{4D16DA6F-CACB-40B7-820A-704F9141FE8E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4D16DA6F-CACB-40B7-820A-704F9141FE8E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{4D16DA6F-CACB-40B7-820A-704F9141FE8E}.Release|x64.ActiveCfg = Release|Any CPU
-		{4D16DA6F-CACB-40B7-820A-704F9141FE8E}.Release|x64.Build.0 = Release|Any CPU
-		{D5AB197F-7133-4BD0-A6DB-F9375DB33ACA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D5AB197F-7133-4BD0-A6DB-F9375DB33ACA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D5AB197F-7133-4BD0-A6DB-F9375DB33ACA}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{D5AB197F-7133-4BD0-A6DB-F9375DB33ACA}.Debug|x64.Build.0 = Debug|Any CPU
-		{D5AB197F-7133-4BD0-A6DB-F9375DB33ACA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D5AB197F-7133-4BD0-A6DB-F9375DB33ACA}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D5AB197F-7133-4BD0-A6DB-F9375DB33ACA}.Release|x64.ActiveCfg = Release|Any CPU
-		{D5AB197F-7133-4BD0-A6DB-F9375DB33ACA}.Release|x64.Build.0 = Release|Any CPU
-		{E4D74DFE-36E4-4C4E-BFCB-E1C46D8877AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{E4D74DFE-36E4-4C4E-BFCB-E1C46D8877AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{E4D74DFE-36E4-4C4E-BFCB-E1C46D8877AF}.Debug|x64.ActiveCfg = Debug|Any CPU
-		{E4D74DFE-36E4-4C4E-BFCB-E1C46D8877AF}.Debug|x64.Build.0 = Debug|Any CPU
-		{E4D74DFE-36E4-4C4E-BFCB-E1C46D8877AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{E4D74DFE-36E4-4C4E-BFCB-E1C46D8877AF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{E4D74DFE-36E4-4C4E-BFCB-E1C46D8877AF}.Release|x64.ActiveCfg = Release|Any CPU
-		{E4D74DFE-36E4-4C4E-BFCB-E1C46D8877AF}.Release|x64.Build.0 = Release|Any CPU
 		{D506423B-BA21-49E6-8C3B-88A771CA444E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{D506423B-BA21-49E6-8C3B-88A771CA444E}.Debug|x64.ActiveCfg = Debug|x64
 		{D506423B-BA21-49E6-8C3B-88A771CA444E}.Debug|x64.Build.0 = Debug|x64
