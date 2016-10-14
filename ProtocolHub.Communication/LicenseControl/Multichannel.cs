@@ -26,7 +26,7 @@ namespace CAS.CommServer.ProtocolHub.Communication.LicenseControl
   /// </summary>
   [LicenseProvider( typeof( CodeProtectLP ) )]
   [GuidAttribute( "EB5CC34C-C18B-4727-AE78-8E183BEFC4A3" )]
-  internal class Multichannel: IsLicensed<Multichannel>
+  internal sealed class Multichannel: IsLicensed<Multichannel>
   {
     #region private
     private static int m_CreatedChannels = 0;
@@ -39,7 +39,7 @@ namespace CAS.CommServer.ProtocolHub.Communication.LicenseControl
         try
         {
           string fmt = "Multi-channel constrain allows you to create up to {0} channels.";
-          CommServerComponent.Tracer.TraceVerbose( 41, m_LogSourceTitle, String.Format( fmt, Volumen.ToString() ) );
+          CommServerComponent.Tracer.TraceVerbose( 41, m_LogSourceTitle, String.Format( fmt, Volume.ToString() ) );
         }
         catch ( Exception ex )
         {
@@ -66,10 +66,10 @@ namespace CAS.CommServer.ProtocolHub.Communication.LicenseControl
     /// <exception cref="LicenseException">Thrown if the license constrain does not allows for creating next channel.</exception>
     public static void NextChannnel()
     {
-      if ( License.Volumen <= m_CreatedChannels )
+      if ( License.Volume <= m_CreatedChannels )
       {
         CommServerComponent.Tracer.TraceWarning( 70, m_LogSourceTitle,
-          String.Format( "Number of channel has exceeded, only {0} of channels are allowed",License.Volumen.ToString()) );
+          String.Format( "Number of channel has exceeded, only {0} of channels are allowed",License.Volume.ToString()) );
         throw new LicenseException( License.GetType(), License, Resources.Tx_LicVolumeConstrainErr );
       }
       m_CreatedChannels++;

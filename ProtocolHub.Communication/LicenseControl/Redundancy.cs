@@ -37,7 +37,7 @@ namespace CAS.CommServer.ProtocolHub.Communication.LicenseControl
       if (Licensed)
       {
         string fmt = "Redundancy has been activated. You can use up to {0} ports per station.";
-        CommServerComponent.Tracer.TraceVerbose(132, m_Src, String.Format(fmt, Volumen));
+        CommServerComponent.Tracer.TraceVerbose(132, m_Src, String.Format(fmt, Volume));
       }
     }
     #endregion
@@ -55,7 +55,7 @@ namespace CAS.CommServer.ProtocolHub.Communication.LicenseControl
     /// <exception cref="LicenseException">If not allowe.</exception>
     public static void CheckIfAllowed(byte number, string name)
     {
-      if (License.Volumen <= number)
+      if (License.Volume <= number)
       {
         string fmt = "Port {0} cannot be created and redundancy activated because {1}.";
         throw new LicenseException(License.GetType(), License, string.Format(fmt, name, Resources.Tx_LicVolumeConstrainErr));

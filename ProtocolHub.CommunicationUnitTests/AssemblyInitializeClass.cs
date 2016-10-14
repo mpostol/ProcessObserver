@@ -20,7 +20,7 @@ namespace CAS.CommServer.ProtocolHub.CommunicationUnitTests
     {
       try
       {
-        LibInstaller.InstalLicense(false);
+        LibInstaller.InstallLicense(false);
         CommServerComponent = new CommServerComponent();
         CommServerComponent.Initialize("DefaultConfig.xml");
       }

@@ -25,7 +25,7 @@ namespace CAS.CommServer.ProtocolHub.Communication.LicenseControl
   /// </summary>
   [LicenseProvider(typeof(CodeProtectLP))]
   [GuidAttribute("F3C086DE-30EC-426d-B507-8114074A9840")]
-  public class ASALicense : IsLicensed<ASALicense>
+  internal sealed class ASALicense : IsLicensed<ASALicense>
   {
     /// <summary>
     /// Initializes a new instance of the <see cref="ASALicense"/> class.
