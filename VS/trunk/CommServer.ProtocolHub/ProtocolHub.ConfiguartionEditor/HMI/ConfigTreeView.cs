@@ -38,15 +38,13 @@ using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using CAS.Lib.CodeProtect;
 using CAS.Lib.CodeProtect.LicenseDsc;
-using CAS.Lib.CodeProtect.Properties;
 using CAS.Lib.ControlLibrary;
 using CAS.Lib.RTLib.Processes;
 using NetworkConfig.HMI.Exceptions;
 using NetworkConfig.Properties;
 using System.Diagnostics;
-using CAS.Lib.CodeProtect.Controls;
-using System.Resources;
 using CAS.Lib.RTLib.Database;
+using CAS.Windows.Forms.CodeProtectControls;
 
 namespace NetworkConfig.HMI
 {
@@ -859,7 +857,7 @@ namespace NetworkConfig.HMI
       Assembly cMyAss = Assembly.GetEntryAssembly();
       using ( LicenseForm cAboutForm = new CAS.Lib.ControlLibrary.LicenseForm( null, usr, cMyAss ) )
       {
-        using ( Licences cLicDial = new Licences() )
+        using (Licenses cLicDial = new Licenses() )
         {
           cAboutForm.SetAdditionalControl = cLicDial;
           cAboutForm.ShowDialog( this );
@@ -888,7 +886,7 @@ namespace NetworkConfig.HMI
 
     private void enterTheUnlockCodeToolStripMenuItem_Click( object sender, EventArgs e )
     {
-      using ( UlockKeyDialog dialog = new UlockKeyDialog() )
+      using (UnlockKeyDialog dialog = new UnlockKeyDialog() )
       {
         dialog.ShowDialog();
       }

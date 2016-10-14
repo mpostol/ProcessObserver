@@ -24,7 +24,7 @@ namespace CAS.CommServer.ProtocolHub.Communication.LicenseControl
   /// </summary>
   [LicenseProvider( typeof( CodeProtectLP ) )]
   [GuidAttribute( "75232B03-E9B9-41e8-9A99-A75A0D0CC21C" )]
-  internal class OTALicense: IsLicensed<OTALicense>
+  internal sealed class OTALicense: IsLicensed<OTALicense>
   {
     private const string m_Src = "CAS.Lib.CommServer.LicenseControl.OTALicense";
     private OTALicense()

@@ -31,7 +31,7 @@ namespace NetworkConfig
       if (m_CommandLine.ToLower().Contains("installic"))
         try
         {
-          LibInstaller.InstalLicense(false);
+          LibInstaller.InstallLicense(false);
         }
         catch (LicenseFileException ex)
         {

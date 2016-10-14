@@ -38,7 +38,7 @@ namespace CAS.CommServer.ProtocolHub.CommunicationUnitTests
     [ExpectedException(typeof(System.ComponentModel.LicenseException))]
     public void MultichannelTest()
     {
-      Assert.AreEqual<int?>(5, Multichannel.License.Volumen);
+      Assert.AreEqual<int?>(5, Multichannel.License.Volume);
       Assert.AreEqual<double>(TimeSpan.MaxValue.TotalHours, Multichannel.License.RunTime.Value.TotalHours);
       for (int i = 0; i < 5; i++)
         Multichannel.NextChannnel();
@@ -49,17 +49,14 @@ namespace CAS.CommServer.ProtocolHub.CommunicationUnitTests
     public void RedundancyTest()
     {
       Assert.IsTrue(Redundancy.License.Licensed);
-      Assert.AreEqual(Redundancy.License.Volumen, 2);
+      Assert.AreEqual(Redundancy.License.Volume, 2);
       Redundancy.CheckIfAllowed(2, "test name");
     }
     [TestMethod()]
     public void ASALicenseTest()
     {
-      string _message = string.Empty;
-      FacadeASALicense.m_Logger = (x) => _message = x;
-      ASALicense _ASALicense = new FacadeASALicense();
-      Assert.IsTrue(_ASALicense.Licensed, _message);
-      Assert.IsTrue(_message.Contains("CAS.CodeProtect"), _message);
+      ASALicense _ASALicense = new ASALicense();
+      Assert.IsTrue(_ASALicense.Licensed);
       Assert.IsNotNull(_ASALicense.Warning);
       Assert.AreEqual<int>(1, _ASALicense.Warning.Count);
       Assert.IsTrue(_ASALicense.Warning[0].Contains("It allows only to be used for non commercial purpose"));

@@ -26,6 +26,12 @@
 //  http://www.cas.eu
 //</summary>
 
+using BaseStation.Management;
+using CAS.CommServerConsole.Properties;
+using CAS.Lib.ControlLibrary;
+using CAS.Lib.RTLib.Management;
+using CAS.Lib.RTLib.Processes;
+using CAS.Windows.Forms.CodeProtectControls;
 using System;
 using System.Collections.Generic;
 using System.Reflection;
@@ -33,17 +39,11 @@ using System.Resources;
 using System.Runtime.Remoting.Channels;
 using System.Runtime.Remoting.Channels.Tcp;
 using System.Windows.Forms;
-using BaseStation.Management;
-using CAS.CommServerConsole.Properties;
-using CAS.Lib.CodeProtect.Controls;
-using CAS.Lib.ControlLibrary;
-using CAS.Lib.RTLib.Processes;
-using CAS.Lib.RTLib.Management;
 
 namespace CAS.CommServerConsole
 {
   /// <summary>
-  /// Main Form Class for commserver.
+  /// Main Form Class for CommServer.
   /// </summary>
   public partial class MainForm
   {
@@ -591,7 +591,7 @@ namespace CAS.CommServerConsole
       using ( LicenseForm dial = new LicenseForm
              ( null, null, Assembly.GetEntryAssembly() ) )
       {
-        Licences cLicDial = new Licences();
+        Licenses cLicDial = new Licenses();
         dial.SetAdditionalControl = cLicDial;
         dial.LicenceRequestMessageProvider
           = new LicenseForm.LicenceRequestMessageProviderDelegate(
@@ -609,7 +609,7 @@ namespace CAS.CommServerConsole
 
     private void menuItem7_Click( object sender, EventArgs e )
     {
-      using ( UlockKeyDialog dialog = new UlockKeyDialog() )
+      using (UnlockKeyDialog dialog = new UnlockKeyDialog() )
       {
         dialog.ShowDialog();
       }
