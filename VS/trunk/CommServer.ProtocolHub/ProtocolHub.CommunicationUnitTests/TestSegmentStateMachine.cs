@@ -45,6 +45,7 @@ namespace CAS.CommServer.ProtocolHub.CommunicationUnitTests
       Assert.IsNotNull(myConfig, "Problem with configuration file: null configuration");
       Assert.IsTrue(myConfig.Channels.Count > 0, "Problem with configuration file: 0 channels");
       int volumeConstrain = int.MaxValue;
+      Assert.Inconclusive();
       Station.InitStations(myConfig.Station, ref volumeConstrain);
       SetUp();
       m_OnceExecutedSetUpFinished = true;
