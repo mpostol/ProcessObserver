@@ -1,11 +1,11 @@
 ﻿//_______________________________________________________________
-//  Title   :  Assembly info for: CAS.CommServer.ProtocolHub.GraphGUI
+//  Title   :  Assembly info for: CAS.CommServer.ProtocolHub.Scripts
 //  System  : Microsoft VisualStudio 2015 / C#
-//  $LastChangedDate$
-//  $Rev$
-//  $LastChangedBy$
-//  $URL$
-//  $Id$
+//  $LastChangedDate:  $
+//  $Rev:  $
+//  $LastChangedBy: $
+//  $URL:  $
+//  $Id:  $
 //
 //  Copyright (c) 2000-2016 CAS LODZ POLAND
 //  +48 (42) 686 25 47
@@ -14,18 +14,17 @@
 //_______________________________________________________________
 
 using System.Reflection;
-using System.Resources;
 using System.Runtime.InteropServices;
 
-[assembly: AssemblyTitle("CAS.CommServer.ProtocolHub.GraphGUI")]
-[assembly: AssemblyDescription("CommServer ProtocolHub Network Config Graph GUI")]
+[assembly: AssemblyTitle("CAS.CommServer.ProtocolHub.Scripts")]
+[assembly: AssemblyDescription("Scripts Prototyping Workspace for CAS.CommServer.ProtocolHub.Scripts")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("CAS")]
 [assembly: AssemblyProduct("CAS CommServer Family")]
 [assembly: AssemblyCopyright("Copyright (c) 2000-2016 CAS LODZ POLAND")]
 [assembly: AssemblyTrademark("CommServer")]
 [assembly: AssemblyCulture("")]
-[assembly: Guid("18d193f3-7b85-4c46-8571-d607882cf969")]
+[assembly: Guid("B10767B5-B8B3-462F-83CD-768783507881")]
 [assembly: ComVisible(false)]
 [assembly: AssemblyVersion("4.00.23.*")]
 [assembly: AssemblyFileVersion("4.00.23")]

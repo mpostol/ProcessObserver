@@ -27,8 +27,8 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyCulture("")]
 [assembly: Guid("F919845E-627B-4b17-875A-09471880C266")]
 [assembly: ComVisible(false)]
-[assembly: AssemblyVersion("4.00.22.*")]
-[assembly: AssemblyFileVersion("4.00.22")]
+[assembly: AssemblyVersion("4.00.23.*")]
+[assembly: AssemblyFileVersion("4.00.23")]
 [assembly: CAS.Lib.CodeProtect.AssemblyKey( "2D0C30B3-ED45-4292-8CB3-ADB0E739E03E" )]
 [assembly: CAS.Lib.CodeProtect.AssemblyHelper
   (
