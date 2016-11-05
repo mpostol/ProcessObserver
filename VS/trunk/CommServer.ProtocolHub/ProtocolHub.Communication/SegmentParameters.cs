@@ -15,9 +15,9 @@
 //  mailto:techsupp@cas.com.pl
 //  http:\\www.cas.eu
 //</summary>
-using System;
 using CAS.Lib.CommonBus;
 using CAS.NetworkConfigLib;
+using System;
 
 namespace CAS.CommServer.ProtocolHub.Communication
 {

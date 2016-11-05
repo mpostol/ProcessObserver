@@ -14,8 +14,10 @@
 //</summary>
 
 using CAS.CommServer.ProtocolHub.Communication;
+using CAS.Lib.RTLib.Processes;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
+using System.IO;
 
 namespace CAS.CommServer.ProtocolHub.CommunicationUnitTests
 {
@@ -23,14 +25,43 @@ namespace CAS.CommServer.ProtocolHub.CommunicationUnitTests
   public class CommServerComponentTest
   {
     /// <summary>
-    ///A test for <see cref="CommServerComponent"/> Constructor - because it was created in assembly initialize class must throw an exception.
+    /// CommServerComponent is singleton but not implemented using this pattern because the development environment fails to handle it
+    /// </summary>
+    [TestMethod]
+    public void CommServerComponentExistTest()
+    {
+      Assert.IsNotNull(AssemblyInitializeClass.CommServerComponent);
+      Assert.IsNotNull(CommServerComponent.Source);
+      Assert.IsNotNull(CommServerComponent.Tracer);
+    }
+    /// <summary>
+    ///A test for <see cref="CommServerComponent"/> Constructor - because it was created in assembly initialize class creation new instance must throw an exception.
     ///</summary>
     [TestMethod()]
-    [ExpectedException(typeof(Exception))]
-    public void CommServerComponentConstructorTest()
+    [ExpectedException(typeof(ApplicationException))]
+    public void CommServerComponentConstructorExistTest()
     {
-      using (CommServerComponent target = new CommServerComponent())
-      { target.Initialize("DefaultConfig.xml"); }
+      CommServerComponent target = new CommServerComponent();
     }
+    [TestMethod()]
+    [ExpectedException(typeof(ApplicationException))]
+    public void CommServerComponentInitializeReentryTest()
+    {
+      AssemblyInitializeClass.CommServerComponent.Initialize("bleble.config");
+    }
+    [TestMethod]
+    public void LogFileExistsTest()
+    {
+      TraceEvent _tracer = CommServerComponent.Tracer;
+      FileInfo _logFileInfo = new FileInfo(@"CAS.CommServer.ProtocolHub.Communication.log");
+      Assert.IsTrue(_logFileInfo.Exists);
+      long _logFileLength = _logFileInfo.Length;
+      Assert.IsTrue(500 < _logFileInfo.Length);
+      _tracer.TraceVerbose(0, "Unit Test", "LogFileExistsTest is executed");
+      _logFileInfo.Refresh();
+      Assert.IsTrue(_logFileInfo.Exists);
+      Assert.IsTrue(_logFileInfo.Length > _logFileLength + 20);
+    }
+
   }
 }

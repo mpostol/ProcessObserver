@@ -61,44 +61,76 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="CAS.CodeProtect, Version=6.0.0.28328, Culture=neutral, PublicKeyToken=8832ff1a67ea61a3, processorArchitecture=MSIL">
-      <HintPath>..\packages\CAS.CodeProtect.6.0.0-Charlie\lib\net451\CAS.CodeProtect.dll</HintPath>
+    <Reference Include="CAS.CodeProtect, Version=6.1.3.22636, Culture=neutral, PublicKeyToken=8832ff1a67ea61a3, processorArchitecture=MSIL">
+      <HintPath>..\packages\CAS.CodeProtect.6.1.3\lib\net451\CAS.CodeProtect.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="CAS.CommServer.CommonBus, Version=5.1.2.20298, Culture=neutral, PublicKeyToken=8832ff1a67ea61a3, processorArchitecture=MSIL">
-      <HintPath>..\packages\CAS.CommServer.CommonBus.5.01.02-Echo\lib\net451\CAS.CommServer.CommonBus.dll</HintPath>
+    <Reference Include="CAS.CommServer.CommonBus, Version=5.1.6.25005, Culture=neutral, PublicKeyToken=8832ff1a67ea61a3, processorArchitecture=MSIL">
+      <HintPath>..\packages\CAS.CommServer.CommonBus.5.01.06\lib\net451\CAS.CommServer.CommonBus.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="CAS.CommServer.DAServerConfiguration, Version=4.1.2.20298, Culture=neutral, PublicKeyToken=8832ff1a67ea61a3, processorArchitecture=MSIL">
-      <HintPath>..\packages\CAS.CommServer.DAServerConfiguration.4.1.2-Echo\lib\net451\CAS.CommServer.DAServerConfiguration.dll</HintPath>
+    <Reference Include="CAS.CommServer.DAServerConfiguration, Version=5.1.6.25005, Culture=neutral, PublicKeyToken=8832ff1a67ea61a3, processorArchitecture=MSIL">
+      <HintPath>..\packages\CAS.CommServer.DAServerConfiguration.5.01.06\lib\net451\CAS.CommServer.DAServerConfiguration.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="CAS.CommServer.OPCClassicSDK.Core, Version=2.1.1061.39650, Culture=neutral, PublicKeyToken=8832ff1a67ea61a3, processorArchitecture=MSIL">
-      <HintPath>..\packages\CAS.CommServer.OPCClassic.SDK.Core.2.01.1061-Bravo\lib\net451\CAS.CommServer.OPCClassicSDK.Core.dll</HintPath>
+    <Reference Include="CAS.CommServer.DataProvider.MODBUSCore, Version=3.80.3.40027, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\CAS.CommServer.DataProvider.Package.3.80.03\lib\net451\CAS.CommServer.DataProvider.MODBUSCore.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="CAS.RTLib, Version=5.0.4.28382, Culture=neutral, PublicKeyToken=8832ff1a67ea61a3, processorArchitecture=MSIL">
-      <HintPath>..\packages\CAS.RealTime.5.0.4-Charlie\lib\net451\CAS.RTLib.dll</HintPath>
+    <Reference Include="CAS.CommServer.OPCClassicSDK.Core, Version=2.1.1062.39746, Culture=neutral, PublicKeyToken=8832ff1a67ea61a3, processorArchitecture=MSIL">
+      <HintPath>..\packages\CAS.CommServer.OPCClassic.SDK.Core.2.01.1062\lib\net451\CAS.CommServer.OPCClassicSDK.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="CAS.RTLibComm, Version=5.0.4.28381, Culture=neutral, PublicKeyToken=8832ff1a67ea61a3, processorArchitecture=MSIL">
-      <HintPath>..\packages\CAS.RealTime.5.0.4-Charlie\lib\net451\CAS.RTLibComm.dll</HintPath>
+    <Reference Include="CAS.CommSvrPlugin_DemoSimulator, Version=3.80.3.40026, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\CAS.CommServer.DataProvider.Package.3.80.03\lib\net451\CAS.CommSvrPlugin_DemoSimulator.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="CAS.Windows.Forms, Version=6.0.0.39051, Culture=neutral, PublicKeyToken=8832ff1a67ea61a3, processorArchitecture=MSIL">
-      <HintPath>..\packages\CAS.Windows.Forms.6.0.0-Delta\lib\net451\CAS.Windows.Forms.dll</HintPath>
+    <Reference Include="CAS.CommSvrPlugin_EC2-3SYM2, Version=3.80.3.40026, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\CAS.CommServer.DataProvider.Package.3.80.03\lib\net451\CAS.CommSvrPlugin_EC2-3SYM2.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CAS.CommSvrPlugin_ExcelDDE, Version=3.80.3.40025, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\CAS.CommServer.DataProvider.Package.3.80.03\lib\net451\CAS.CommSvrPlugin_ExcelDDE.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CAS.CommSvrPlugin_MBUS, Version=3.80.3.40026, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\CAS.CommServer.DataProvider.Package.3.80.03\lib\net451\CAS.CommSvrPlugin_MBUS.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CAS.CommSvrPlugin_MODBUSNet, Version=3.80.3.40027, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\CAS.CommServer.DataProvider.Package.3.80.03\lib\net451\CAS.CommSvrPlugin_MODBUSNet.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CAS.CommSvrPlugin_NULLbus, Version=3.80.3.40026, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\CAS.CommServer.DataProvider.Package.3.80.03\lib\net451\CAS.CommSvrPlugin_NULLbus.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CAS.CommSvrPlugin_SBUSNET, Version=3.80.3.40026, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\CAS.CommServer.DataProvider.Package.3.80.03\lib\net451\CAS.CommSvrPlugin_SBUSNET.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CAS.CommSvrPlugin_SBUSRS, Version=3.80.3.40026, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\CAS.CommServer.DataProvider.Package.3.80.03\lib\net451\CAS.CommSvrPlugin_SBUSRS.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CAS.RealTime, Version=5.0.6.23644, Culture=neutral, PublicKeyToken=8832ff1a67ea61a3, processorArchitecture=MSIL">
+      <HintPath>..\packages\CAS.RealTime.5.0.6\lib\net451\CAS.RealTime.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CAS.RealTime.Core, Version=5.0.6.23643, Culture=neutral, PublicKeyToken=8832ff1a67ea61a3, processorArchitecture=MSIL">
+      <HintPath>..\packages\CAS.RealTime.5.0.6\lib\net451\CAS.RealTime.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.Build.Framework, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\CAS.CodeProtect.6.0.0-Charlie\lib\net451\Microsoft.Build.Framework.dll</HintPath>
+      <HintPath>..\packages\CAS.CodeProtect.6.1.3\lib\net451\Microsoft.Build.Framework.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.Build.Tasks.Core, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\CAS.CodeProtect.6.0.0-Charlie\lib\net451\Microsoft.Build.Tasks.Core.dll</HintPath>
+      <HintPath>..\packages\CAS.CodeProtect.6.1.3\lib\net451\Microsoft.Build.Tasks.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.Build.Utilities.Core, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\CAS.CodeProtect.6.0.0-Charlie\lib\net451\Microsoft.Build.Utilities.Core.dll</HintPath>
+      <HintPath>..\packages\CAS.CodeProtect.6.1.3\lib\net451\Microsoft.Build.Utilities.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
@@ -149,19 +181,22 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="CAS.CommServer.ProtocolHub.Communication.log">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Include="CAS.License.lic">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
-    <None Include="packages.config">
-      <SubType>Designer</SubType>
-    </None>
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
     <None Include="cas.snk" />
     <None Include="DefaultConfig.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
-    <None Include="item_dsc.xml" />
+    <None Include="item_dsc.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

@@ -84,7 +84,7 @@ namespace CAS.CommServer.ProtocolHub.Communication
     {
       get
       {
-        return Stopwatch.ConvertTo_s( m_RuntimeStopWatch.Read );
+        return Lib.RTLib.Processes.Stopwatch.ConvertTo_s( m_RuntimeStopWatch.Read );
       }
     }
     /// <summary>
@@ -106,7 +106,7 @@ namespace CAS.CommServer.ProtocolHub.Communication
     {
       InitializeComponent();
       if ( m_isCreated )
-        throw new Exception( "Only one instance of CommServerComponent is allowed." );
+        throw new ApplicationException( "Only one instance of CommServerComponent is allowed." );
       m_isCreated = true;
     }
     /// <summary>
@@ -116,7 +116,7 @@ namespace CAS.CommServer.ProtocolHub.Communication
     public void Initialize( string configurationFileName )
     {
       if ( m_isInitialized )
-        throw new Exception( "Only one initialization of CommServerComponent is allowed." );
+        throw new ApplicationException( "Only one initialization of CommServerComponent is allowed." );
       m_isInitialized = true;
       int cEventID = (int)Error.CommServer_CommServerComponent;
       bool m_DemoVer = true;

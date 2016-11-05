@@ -117,48 +117,48 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="CAS.CodeProtect, Version=6.0.0.28328, Culture=neutral, PublicKeyToken=8832ff1a67ea61a3, processorArchitecture=MSIL">
-      <HintPath>..\packages\CAS.CodeProtect.6.0.0-Charlie\lib\net451\CAS.CodeProtect.dll</HintPath>
+    <Reference Include="CAS.CodeProtect, Version=6.1.3.22636, Culture=neutral, PublicKeyToken=8832ff1a67ea61a3, processorArchitecture=MSIL">
+      <HintPath>..\packages\CAS.CodeProtect.6.1.3\lib\net451\CAS.CodeProtect.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="CAS.CommServer.CommonBus, Version=5.1.2.20298, Culture=neutral, PublicKeyToken=8832ff1a67ea61a3, processorArchitecture=MSIL">
-      <HintPath>..\packages\CAS.CommServer.CommonBus.5.01.02-Echo\lib\net451\CAS.CommServer.CommonBus.dll</HintPath>
+    <Reference Include="CAS.CommServer.CommonBus, Version=5.1.6.25005, Culture=neutral, PublicKeyToken=8832ff1a67ea61a3, processorArchitecture=MSIL">
+      <HintPath>..\packages\CAS.CommServer.CommonBus.5.01.06\lib\net451\CAS.CommServer.CommonBus.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="CAS.CommServer.DAServerConfiguration, Version=4.1.2.20298, Culture=neutral, PublicKeyToken=8832ff1a67ea61a3, processorArchitecture=MSIL">
-      <HintPath>..\packages\CAS.CommServer.DAServerConfiguration.4.1.2-Echo\lib\net451\CAS.CommServer.DAServerConfiguration.dll</HintPath>
+    <Reference Include="CAS.CommServer.DAServerConfiguration, Version=5.1.6.25005, Culture=neutral, PublicKeyToken=8832ff1a67ea61a3, processorArchitecture=MSIL">
+      <HintPath>..\packages\CAS.CommServer.DAServerConfiguration.5.01.06\lib\net451\CAS.CommServer.DAServerConfiguration.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="CAS.CommServer.DeviceSimulator, Version=5.1.2.20295, Culture=neutral, PublicKeyToken=8832ff1a67ea61a3, processorArchitecture=MSIL">
-      <HintPath>..\packages\CAS.CommServer.DeviceSimulator.5.01.02-Echo\lib\net451\CAS.CommServer.DeviceSimulator.dll</HintPath>
+    <Reference Include="CAS.CommServer.DeviceSimulator, Version=5.1.6.25004, Culture=neutral, PublicKeyToken=8832ff1a67ea61a3, processorArchitecture=MSIL">
+      <HintPath>..\packages\CAS.CommServer.DeviceSimulator.5.01.06\lib\net451\CAS.CommServer.DeviceSimulator.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="CAS.CommServer.OPCClassicSDK.Core, Version=2.1.1061.39650, Culture=neutral, PublicKeyToken=8832ff1a67ea61a3, processorArchitecture=MSIL">
-      <HintPath>..\packages\CAS.CommServer.OPCClassic.SDK.Core.2.01.1061-Bravo\lib\net451\CAS.CommServer.OPCClassicSDK.Core.dll</HintPath>
+    <Reference Include="CAS.CommServer.OPCClassicSDK.Core, Version=2.1.1062.39746, Culture=neutral, PublicKeyToken=8832ff1a67ea61a3, processorArchitecture=MSIL">
+      <HintPath>..\packages\CAS.CommServer.OPCClassic.SDK.Core.2.01.1062\lib\net451\CAS.CommServer.OPCClassicSDK.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="CAS.CommServer.ProtocolHub.ItemDescriber, Version=1.0.2.20295, Culture=neutral, PublicKeyToken=8832ff1a67ea61a3, processorArchitecture=MSIL">
-      <HintPath>..\packages\CAS.CommServer.ProtocolHub.ItemDescriber.1.00.2-Hotel\lib\net451\CAS.CommServer.ProtocolHub.ItemDescriber.dll</HintPath>
+    <Reference Include="CAS.CommServer.ProtocolHub.ItemDescriber, Version=5.1.6.25004, Culture=neutral, PublicKeyToken=8832ff1a67ea61a3, processorArchitecture=MSIL">
+      <HintPath>..\packages\CAS.CommServer.ProtocolHub.ItemDescriber.5.01.06\lib\net451\CAS.CommServer.ProtocolHub.ItemDescriber.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="CAS.RTLib, Version=5.0.4.28382, Culture=neutral, PublicKeyToken=8832ff1a67ea61a3, processorArchitecture=MSIL">
-      <HintPath>..\packages\CAS.RealTime.5.0.4-Charlie\lib\net451\CAS.RTLib.dll</HintPath>
+    <Reference Include="CAS.RealTime, Version=5.0.6.23644, Culture=neutral, PublicKeyToken=8832ff1a67ea61a3, processorArchitecture=MSIL">
+      <HintPath>..\packages\CAS.RealTime.5.0.6\lib\net451\CAS.RealTime.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="CAS.RTLibComm, Version=5.0.4.28381, Culture=neutral, PublicKeyToken=8832ff1a67ea61a3, processorArchitecture=MSIL">
-      <HintPath>..\packages\CAS.RealTime.5.0.4-Charlie\lib\net451\CAS.RTLibComm.dll</HintPath>
+    <Reference Include="CAS.RealTime.Core, Version=5.0.6.23643, Culture=neutral, PublicKeyToken=8832ff1a67ea61a3, processorArchitecture=MSIL">
+      <HintPath>..\packages\CAS.RealTime.5.0.6\lib\net451\CAS.RealTime.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.Build.Framework, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\CAS.CodeProtect.6.0.0-Charlie\lib\net451\Microsoft.Build.Framework.dll</HintPath>
+      <HintPath>..\packages\CAS.CodeProtect.6.1.3\lib\net451\Microsoft.Build.Framework.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.Build.Tasks.Core, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\CAS.CodeProtect.6.0.0-Charlie\lib\net451\Microsoft.Build.Tasks.Core.dll</HintPath>
+      <HintPath>..\packages\CAS.CodeProtect.6.1.3\lib\net451\Microsoft.Build.Tasks.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.Build.Utilities.Core, Version=14.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\CAS.CodeProtect.6.0.0-Charlie\lib\net451\Microsoft.Build.Utilities.Core.dll</HintPath>
+      <HintPath>..\packages\CAS.CodeProtect.6.1.3\lib\net451\Microsoft.Build.Utilities.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System">
@@ -183,14 +183,7 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="cas.snk" />
-    <None Include="ClassDiagram1.cd" />
-    <None Include="packages.config">
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="Properties\Settings.settings">
-      <Generator>SettingsSingleFileGenerator</Generator>
-      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
-    </None>
+    <None Include="packages.config" />
     <Compile Include="BaseStation\AppConfigManagement.cs" />
     <Compile Include="BaseStation\Channel.cs" />
     <Compile Include="BaseStation\ConsoleIterface.cs" />
@@ -234,11 +227,6 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Properties\Settings.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTimeSharedInput>True</DesignTimeSharedInput>
-      <DependentUpon>Settings.settings</DependentUpon>
-    </Compile>
     <Compile Include="SegmentParameters.cs" />
     <None Include="ProtocolHub.Communication.nuspec">
       <AutoGen>True</AutoGen>
@@ -264,7 +252,6 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="CAS_ikona_02.ico" />
-    <None Include="ClassDiagram2.cd" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
