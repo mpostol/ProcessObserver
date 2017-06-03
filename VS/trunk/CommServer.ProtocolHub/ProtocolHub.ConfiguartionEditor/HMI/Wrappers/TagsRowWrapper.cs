@@ -33,6 +33,7 @@ using CAS.Lib.CommonBus;
 using CAS.Lib.RTLib;
 using CAS.NetworkConfigLib;
 using CAS.Lib.RTLib.Utils;
+using CAS.CommServer.ProtocolHub.ConfiguartionEditor.Properties;
 
 namespace NetworkConfig.HMI
 {
@@ -186,7 +187,7 @@ CategoryAttribute( "XXX debug" ),
         }
         catch ( Exception ex )
         {
-          MessageBox.Show( String.Format( Properties.Resources.tx_TagRowWrapper_AccessRights, ex.Message ) );
+          MessageBox.Show( String.Format( Resources.tx_TagRowWrapper_AccessRights, ex.Message ) );
           m_Parent.AccessRights = (sbyte)DefaultSettings.AccessRights;
           return DefaultAccessRights;
         }
@@ -216,7 +217,7 @@ CategoryAttribute( "XXX debug" ),
         }
         catch ( Exception ex )
         {
-          MessageBox.Show( String.Format( Properties.Resources.tx_TagRowWrapper_StateTrigger, ex.Message ) );
+          MessageBox.Show( String.Format( Resources.tx_TagRowWrapper_StateTrigger, ex.Message ) );
           m_Parent.StateTrigger = (sbyte)CAS.NetworkConfigLib.StateTrigger.None;
           return CAS.NetworkConfigLib.StateTrigger.None.ToString();
         }

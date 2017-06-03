@@ -23,6 +23,7 @@ using System;
 using System.Windows.Forms;
 using CAS.Lib.ControlLibrary;
 using CAS.NetworkConfigLib;
+using CAS.CommServer.ProtocolHub.ConfiguartionEditor.Properties;
 
 namespace NetworkConfig.HMI.Editors
 {
@@ -120,7 +121,7 @@ namespace NetworkConfig.HMI.Editors
       {
         if (m_ParBlock.RowState == System.Data.DataRowState.Detached)
         {
-          MessageBox.Show(Properties.Resources.tx_TagsCollection_pleasecreatedatablockfirst);
+          MessageBox.Show(Resources.tx_TagsCollection_pleasecreatedatablockfirst);
           return;
         }
         m_DB.EnforceConstraints = false;

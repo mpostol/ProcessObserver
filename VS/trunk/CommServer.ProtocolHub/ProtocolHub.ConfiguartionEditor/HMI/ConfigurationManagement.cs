@@ -28,6 +28,7 @@ using System.Globalization;
 using System.Windows.Forms;
 using CAS.NetworkConfigLib;
 using CAS.Lib.RTLib.Database;
+using CAS.CommServer.ProtocolHub.ConfiguartionEditor.Properties;
 
 namespace NetworkConfig.HMI
 {
@@ -74,7 +75,7 @@ namespace NetworkConfig.HMI
     }
     internal static void SaveDemoProc( Form form )
     {
-      MessageBox.Show( Properties.Resources.tx_DemoWriteErr, Properties.Resources.tx_licenseCap, MessageBoxButtons.OK, MessageBoxIcon.Hand );
+      MessageBox.Show( Resources.tx_DemoWriteErr, Resources.tx_licenseCap, MessageBoxButtons.OK, MessageBoxIcon.Hand );
     }
     internal static void SaveProc( Form form )
     {

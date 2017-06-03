@@ -29,8 +29,8 @@ using System.Windows.Forms.Design;
 using CAS.Lib.CommonBus;
 using CAS.NetworkConfigLib;
 using NetworkConfig.HMI.Editors;
-using NetworkConfig.Properties;
 using CAS.CommServer.CommonBus;
+using CAS.CommServer.ProtocolHub.ConfiguartionEditor.Properties;
 
 namespace NetworkConfig.HMI
 {

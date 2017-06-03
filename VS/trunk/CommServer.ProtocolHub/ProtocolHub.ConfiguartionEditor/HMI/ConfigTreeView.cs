@@ -41,10 +41,10 @@ using CAS.Lib.CodeProtect.LicenseDsc;
 using CAS.Lib.ControlLibrary;
 using CAS.Lib.RTLib.Processes;
 using NetworkConfig.HMI.Exceptions;
-using NetworkConfig.Properties;
 using System.Diagnostics;
 using CAS.Lib.RTLib.Database;
 using CAS.Windows.Forms.CodeProtectControls;
+using CAS.CommServer.ProtocolHub.ConfiguartionEditor.Properties;
 
 namespace NetworkConfig.HMI
 {
@@ -259,7 +259,7 @@ namespace NetworkConfig.HMI
       if (m_DemoVer)
       {
         MessageBox.Show
-          (Properties.Resources.tx_DemoWriteErr, Properties.Resources.tx_licenseCap, MessageBoxButtons.OK, MessageBoxIcon.Hand);
+          (Resources.tx_DemoWriteErr, Resources.tx_licenseCap, MessageBoxButtons.OK, MessageBoxIcon.Hand);
         return;
       }
       if (ConfigurationManagement.ConfigFileName == null)
@@ -272,7 +272,7 @@ namespace NetworkConfig.HMI
         catch (Exception e)
         {
           MessageBox.Show
-            (Properties.Resources.tx_SaveErr + e.Message, Properties.Resources.tx_IOErrCap, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            (Resources.tx_SaveErr + e.Message, Resources.tx_IOErrCap, MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
     #endregion
@@ -300,7 +300,7 @@ namespace NetworkConfig.HMI
         try
         {
           if (!m_configDataBase.EnforceConstraints)
-            MessageBox.Show(Properties.Resources.tx_configDataBaseEnforceConstraints_false, Properties.Resources.tx_configtreeview_error_messagebox_title, MessageBoxButtons.OK, MessageBoxIcon.Error);
+            MessageBox.Show(Resources.tx_configDataBaseEnforceConstraints_false, Resources.tx_configtreeview_error_messagebox_title, MessageBoxButtons.OK, MessageBoxIcon.Error);
           m_configDataBase.AcceptChanges();
           m_configDataBase.EnforceConstraints = false;
 #if UNDOREDO
@@ -325,7 +325,7 @@ namespace NetworkConfig.HMI
             {
               MessageBox.Show
                 ("I cannot add new object to the configuration becase: " + ex.Message,
-                Properties.Resources.tx_configtreeview_error_messagebox_title, MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Resources.tx_configtreeview_error_messagebox_title, MessageBoxButtons.OK, MessageBoxIcon.Error);
               ok = false;
             }
           }
@@ -338,20 +338,18 @@ namespace NetworkConfig.HMI
           {
             MessageBox.Show
               ("I cannot add new object to the configuration becase: " + ex.Message,
-              Properties.Resources.tx_configtreeview_error_messagebox_title, MessageBoxButtons.OK, MessageBoxIcon.Error);
+              Resources.tx_configtreeview_error_messagebox_title, MessageBoxButtons.OK, MessageBoxIcon.Error);
             m_configDataBase.RejectChanges();
             m_configDataBase.EnforceConstraints = true;
           }
         }
         catch (CreateChildObjectException ex)
         {
-          MessageBox.Show(ex.Message,
-            Properties.Resources.tx_configtreeview_error_messagebox_title, MessageBoxButtons.OK, MessageBoxIcon.Information);
+          MessageBox.Show(ex.Message, Resources.tx_configtreeview_error_messagebox_title, MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
         catch (Exception ex)
         {
-          MessageBox.Show("I cannot add new object to the configuration becase: " + ex.Message,
-            Properties.Resources.tx_configtreeview_error_messagebox_title, MessageBoxButtons.OK, MessageBoxIcon.Error);
+          MessageBox.Show("I cannot add new object to the configuration becase: " + ex.Message, Resources.tx_configtreeview_error_messagebox_title, MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
         finally
         {

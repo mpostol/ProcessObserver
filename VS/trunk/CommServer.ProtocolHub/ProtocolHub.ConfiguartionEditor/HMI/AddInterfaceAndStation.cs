@@ -17,6 +17,7 @@
 //</summary>
 
 using CAS.CommServer.ProtocolHub.Communication.BaseStation;
+using CAS.CommServer.ProtocolHub.ConfiguartionEditor.Properties;
 using CAS.Lib.ControlLibrary;
 using CAS.NetworkConfigLib;
 using System;
@@ -67,7 +68,7 @@ namespace NetworkConfig.HMI
         //musimy sprawdzic czy para - interface num, station juz jest w tabeli
         InterfacesRowWrapper currentInterfacesRowWrapper = (InterfacesRowWrapper)pgInterface.SelectedObject as InterfacesRowWrapper;
         if ( this.cmbStations.SelectedItem == null )
-          throw new Exception( Properties.Resources.tx_AddInterfaceAndStation_pleaseselectstationfirst );
+          throw new Exception( Resources.tx_AddInterfaceAndStation_pleaseselectstationfirst );
         if ( currentInterfacesRowWrapper.StationId < 0 )
           try
           {
@@ -75,7 +76,7 @@ namespace NetworkConfig.HMI
           }
           catch ( Exception )
           {
-            throw new Exception( Properties.Resources.tx_AddInterfaceAndStation_pleaseselectstationfirst );
+            throw new Exception( Resources.tx_AddInterfaceAndStation_pleaseselectstationfirst );
           }
         ulong InterfaceNum = 0;
         bool InterfaceNumIsValid = false;

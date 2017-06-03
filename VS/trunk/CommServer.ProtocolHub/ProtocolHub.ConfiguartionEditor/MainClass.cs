@@ -14,19 +14,24 @@
 //_______________________________________________________________
 
 
+using CAS.CommServer.ProtocolHub.ConfiguartionEditor.Properties;
 using CAS.Lib.CodeProtect;
 using CAS.Lib.CodeProtect.LicenseDsc;
+using NetworkConfig.HMI;
 using System;
+using System.Diagnostics;
 using System.Windows.Forms;
 
 [assembly: CLSCompliant(true)]
-namespace NetworkConfig
+
+namespace CAS.CommServer.ProtocolHub.ConfiguartionEditor
 {
   class MainClass
   {
     [STAThread]
     static void Main()
     {
+      AssemblyTraceEvent.Tracer.TraceMessage(TraceEventType.Verbose, 32, "Starting application CAS.CommServer.ProtocolHub.ConfiguartionEditor");
       string m_CommandLine = Environment.CommandLine;
       if (m_CommandLine.ToLower().Contains("installic"))
         try
@@ -38,11 +43,11 @@ namespace NetworkConfig
           MessageBox.Show("Cannot install license, error:" + ex.Message);
         }
       Application.Run(
-          new HMI.ConfigTreeView(HMI.ConfigurationManagement.configDataBase,
-          new HMI.ConfigIOHandler(HMI.ConfigurationManagement.ReadConfiguration),
-          new HMI.ConfigIOHandler(HMI.ConfigurationManagement.SaveProc),
-          new HMI.ConfigIOHandler(HMI.ConfigurationManagement.ClearConfig),
-          new Properties.Settings().ToolsMenu
+          new ConfigTreeView(ConfigurationManagement.configDataBase,
+          new ConfigIOHandler(ConfigurationManagement.ReadConfiguration),
+          new ConfigIOHandler(ConfigurationManagement.SaveProc),
+          new ConfigIOHandler(ConfigurationManagement.ClearConfig),
+          new Settings().ToolsMenu
           ));
     }
   }
