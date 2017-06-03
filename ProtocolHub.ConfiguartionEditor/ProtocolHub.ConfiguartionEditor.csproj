@@ -111,12 +111,48 @@
       <HintPath>..\packages\CAS.CommServer.DAServerConfiguration.5.01.06\lib\net451\CAS.CommServer.DAServerConfiguration.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="CAS.CommServer.DataProvider.MODBUSCore, Version=3.90.3.33834, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\CAS.CommServer.DataProvider.Package.3.90.03-Alpha\lib\net461\CAS.CommServer.DataProvider.MODBUSCore.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="CAS.CommServer.OPCClassicSDK.Core, Version=2.1.1062.39746, Culture=neutral, PublicKeyToken=8832ff1a67ea61a3, processorArchitecture=MSIL">
       <HintPath>..\packages\CAS.CommServer.OPCClassic.SDK.Core.2.01.1062\lib\net451\CAS.CommServer.OPCClassicSDK.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="CAS.CommSvrPlugin_TextReader, Version=3.90.2.18254, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\CAS.CommServer.DataProvider.Package.3.90.02\lib\net461\CAS.CommSvrPlugin_TextReader.dll</HintPath>
+    <Reference Include="CAS.CommSvrPlugin_DemoSimulator, Version=3.90.3.33834, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\CAS.CommServer.DataProvider.Package.3.90.03-Alpha\lib\net461\CAS.CommSvrPlugin_DemoSimulator.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CAS.CommSvrPlugin_EC2-3SYM2, Version=3.90.3.33834, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\CAS.CommServer.DataProvider.Package.3.90.03-Alpha\lib\net461\CAS.CommSvrPlugin_EC2-3SYM2.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CAS.CommSvrPlugin_ExcelDDE, Version=3.90.3.33834, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\CAS.CommServer.DataProvider.Package.3.90.03-Alpha\lib\net461\CAS.CommSvrPlugin_ExcelDDE.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CAS.CommSvrPlugin_MBUS, Version=3.90.3.33834, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\CAS.CommServer.DataProvider.Package.3.90.03-Alpha\lib\net461\CAS.CommSvrPlugin_MBUS.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CAS.CommSvrPlugin_MODBUSNet, Version=3.90.3.33834, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\CAS.CommServer.DataProvider.Package.3.90.03-Alpha\lib\net461\CAS.CommSvrPlugin_MODBUSNet.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CAS.CommSvrPlugin_NULLbus, Version=3.90.3.33834, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\CAS.CommServer.DataProvider.Package.3.90.03-Alpha\lib\net461\CAS.CommSvrPlugin_NULLbus.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CAS.CommSvrPlugin_SBUSNET, Version=3.90.3.33834, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\CAS.CommServer.DataProvider.Package.3.90.03-Alpha\lib\net461\CAS.CommSvrPlugin_SBUSNET.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CAS.CommSvrPlugin_SBUSRS, Version=3.90.3.33834, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\CAS.CommServer.DataProvider.Package.3.90.03-Alpha\lib\net461\CAS.CommSvrPlugin_SBUSRS.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CAS.CommSvrPlugin_TextReader, Version=3.90.3.33834, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\CAS.CommServer.DataProvider.Package.3.90.03-Alpha\lib\net461\CAS.CommSvrPlugin_TextReader.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="CAS.RealTime, Version=5.0.6.23644, Culture=neutral, PublicKeyToken=8832ff1a67ea61a3, processorArchitecture=MSIL">
@@ -266,12 +302,6 @@
       <DependentUpon>PropertyNavigator.cs</DependentUpon>
     </Compile>
     <Compile Include="MainClass.cs" />
-    <Compile Include="NetworConfigCommServerInstaller.cs">
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="NetworConfigCommServerInstaller.Designer.cs">
-      <DependentUpon>NetworConfigCommServerInstaller.cs</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -331,24 +361,11 @@
       <SubType>Designer</SubType>
       <DependentUpon>PropertyNavigator.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="NetworConfigCommServerInstaller.resx">
-      <DependentUpon>NetworConfigCommServerInstaller.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <SubType>Designer</SubType>
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\ProtocolHub.MonitorInterface\ProtocolHub.MonitorInterface.csproj">
-      <Project>{CE7BA276-5ACF-44FE-B24A-F91F6A0B0436}</Project>
-      <Name>ProtocolHub.MonitorInterface</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ProtocolHub.Communication\ProtocolHub.Communication.csproj">
-      <Project>{E1351D09-7241-44C3-A292-8D46E322A61D}</Project>
-      <Name>ProtocolHub.Communication</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Framework.2.0">
@@ -375,7 +392,12 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\ProtocolHub.Communication\ProtocolHub.Communication.csproj">
+      <Project>{E1351D09-7241-44C3-A292-8D46E322A61D}</Project>
+      <Name>ProtocolHub.Communication</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PreBuildEvent>
