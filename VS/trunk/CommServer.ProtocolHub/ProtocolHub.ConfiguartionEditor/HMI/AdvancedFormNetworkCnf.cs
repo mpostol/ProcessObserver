@@ -1,34 +1,25 @@
-  // <summary>
-  //  Title   : Part of advanced Network config form
-  //  Author  : Maciej Zbrzezny
-  //  System  : Microsoft Visual C# .NET
-  //  History :
-  //    Maciej Zbrzezny - 2006-09-19
-  //    created
-  //    <Author> - <date>:
-  //    <description>
-  //
-  //  Copyright (C)2003, CAS LODZ POLAND.
-  //  TEL: 42' 686 25 47
-  //  mailto:techsupp@cas.com.pl
-  //  http://www.cas.com.pl
-  // </summary>
-using System;
-using System.Drawing;
-using System.Collections;
-using System.ComponentModel;
-using System.Windows.Forms;
-using System.Data;
-using System.IO;
-using BaseStation;
-using CAS.NetworkConfigLib;
+// <summary>
+//  Title   : Part of advanced Network config form
+//  Author  : Maciej Zbrzezny
+//  System  : Microsoft Visual C# .NET
+//  History :
+//    Maciej Zbrzezny - 2006-09-19
+//    created
+//    <Author> - <date>:
+//    <description>
+//
+//  Copyright (C)2003, CAS LODZ POLAND.
+//  TEL: 42' 686 25 47
+//  mailto:techsupp@cas.com.pl
+//  http://www.cas.com.pl
+// </summary>
 
 namespace NetworkConfig.HMI
 {
-    /// <summary>
-    /// Summary description for Form AdvancedFormNetworkConfig.
-    /// </summary>
-    public partial class AdvancedFormNetworkConfig : System.Windows.Forms.Form
+  /// <summary>
+  /// Summary description for Form AdvancedFormNetworkConfig.
+  /// </summary>
+  public partial class AdvancedFormNetworkConfig : System.Windows.Forms.Form
     {
         #region private
         ConfigIOHandler fileread;
