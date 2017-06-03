@@ -17,9 +17,9 @@
     <DefaultTargetSchema>IE50</DefaultTargetSchema>
     <DelaySign>false</DelaySign>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>NetworkConfig</RootNamespace>
+    <RootNamespace>CAS.CommServer.ProtocolHub.ConfiguartionEditor</RootNamespace>
     <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
-    <StartupObject>NetworkConfig.MainClass</StartupObject>
+    <StartupObject>CAS.CommServer.ProtocolHub.ConfiguartionEditor.MainClass</StartupObject>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
     <UpgradeBackupLocation>
@@ -33,7 +33,7 @@
     <SignManifests>false</SignManifests>
     <IsWebBootstrapper>true</IsWebBootstrapper>
     <OldToolsVersion>3.5</OldToolsVersion>
-    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <TargetFrameworkProfile />
     <PublishUrl>http://localhost/NetworkConfig/</PublishUrl>
     <Install>true</Install>
@@ -111,44 +111,12 @@
       <HintPath>..\packages\CAS.CommServer.DAServerConfiguration.5.01.06\lib\net451\CAS.CommServer.DAServerConfiguration.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="CAS.CommServer.DataProvider.MODBUSCore, Version=3.80.3.40027, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\CAS.CommServer.DataProvider.Package.3.80.03\lib\net451\CAS.CommServer.DataProvider.MODBUSCore.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
     <Reference Include="CAS.CommServer.OPCClassicSDK.Core, Version=2.1.1062.39746, Culture=neutral, PublicKeyToken=8832ff1a67ea61a3, processorArchitecture=MSIL">
       <HintPath>..\packages\CAS.CommServer.OPCClassic.SDK.Core.2.01.1062\lib\net451\CAS.CommServer.OPCClassicSDK.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="CAS.CommSvrPlugin_DemoSimulator, Version=3.80.3.40026, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\CAS.CommServer.DataProvider.Package.3.80.03\lib\net451\CAS.CommSvrPlugin_DemoSimulator.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="CAS.CommSvrPlugin_EC2-3SYM2, Version=3.80.3.40026, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\CAS.CommServer.DataProvider.Package.3.80.03\lib\net451\CAS.CommSvrPlugin_EC2-3SYM2.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="CAS.CommSvrPlugin_ExcelDDE, Version=3.80.3.40025, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\CAS.CommServer.DataProvider.Package.3.80.03\lib\net451\CAS.CommSvrPlugin_ExcelDDE.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="CAS.CommSvrPlugin_MBUS, Version=3.80.3.40026, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\CAS.CommServer.DataProvider.Package.3.80.03\lib\net451\CAS.CommSvrPlugin_MBUS.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="CAS.CommSvrPlugin_MODBUSNet, Version=3.80.3.40027, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\CAS.CommServer.DataProvider.Package.3.80.03\lib\net451\CAS.CommSvrPlugin_MODBUSNet.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="CAS.CommSvrPlugin_NULLbus, Version=3.80.3.40026, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\CAS.CommServer.DataProvider.Package.3.80.03\lib\net451\CAS.CommSvrPlugin_NULLbus.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="CAS.CommSvrPlugin_SBUSNET, Version=3.80.3.40026, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\CAS.CommServer.DataProvider.Package.3.80.03\lib\net451\CAS.CommSvrPlugin_SBUSNET.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="CAS.CommSvrPlugin_SBUSRS, Version=3.80.3.40026, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\packages\CAS.CommServer.DataProvider.Package.3.80.03\lib\net451\CAS.CommSvrPlugin_SBUSRS.dll</HintPath>
+    <Reference Include="CAS.CommSvrPlugin_TextReader, Version=3.90.2.18254, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\CAS.CommServer.DataProvider.Package.3.90.02\lib\net461\CAS.CommSvrPlugin_TextReader.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="CAS.RealTime, Version=5.0.6.23644, Culture=neutral, PublicKeyToken=8832ff1a67ea61a3, processorArchitecture=MSIL">
@@ -187,13 +155,35 @@
       <Name>System.Drawing</Name>
     </Reference>
     <Reference Include="System.Management" />
+    <Reference Include="System.Reactive.Core, Version=3.0.3000.0, Culture=neutral, PublicKeyToken=94bc3704cddfc263, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Reactive.Core.3.1.1\lib\net46\System.Reactive.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Reactive.Interfaces, Version=3.0.1000.0, Culture=neutral, PublicKeyToken=94bc3704cddfc263, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Reactive.Interfaces.3.1.1\lib\net45\System.Reactive.Interfaces.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Reactive.Linq, Version=3.0.3000.0, Culture=neutral, PublicKeyToken=94bc3704cddfc263, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Reactive.Linq.3.1.1\lib\net46\System.Reactive.Linq.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Reactive.PlatformServices, Version=3.0.3000.0, Culture=neutral, PublicKeyToken=94bc3704cddfc263, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Reactive.PlatformServices.3.1.1\lib\net46\System.Reactive.PlatformServices.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Reactive.Windows.Threading, Version=3.0.1000.0, Culture=neutral, PublicKeyToken=94bc3704cddfc263, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Reactive.Windows.Threading.3.1.1\lib\net45\System.Reactive.Windows.Threading.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Windows" />
     <Reference Include="System.Windows.Forms">
       <Name>System.Windows.Forms</Name>
     </Reference>
     <Reference Include="System.Xml">
       <Name>System.XML</Name>
     </Reference>
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
     <BaseApplicationManifest Include="Properties\app.manifest" />
@@ -201,7 +191,10 @@
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>AssemblyInfo.cs</LastGenOutput>
     </Content>
-    <None Include="App.config" />
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <Compile Include="AssemblyTraceEvent.cs" />
     <Compile Include="HMI\Action.cs" />
     <Compile Include="HMI\AddInterfaceAndStation.cs">
       <SubType>Form</SubType>

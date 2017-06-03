@@ -1,5 +1,5 @@
 ﻿<?xml version='1.0' encoding='utf-8'?>
-<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="NetworkConfig.Properties" GeneratedClassName="Settings">
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="CAS.CommServer.ProtocolHub.ConfiguartionEditor.Properties" GeneratedClassName="Settings">
   <Profiles />
   <Settings>
     <Setting Name="DefConfigFileName" Type="System.String" Scope="User">
@@ -16,6 +16,9 @@
     </Setting>
     <Setting Name="HelpDocumentation" Type="System.String" Scope="Application">
       <Value Profile="(Default)">http://www.commsvr.com/OPC-Help/</Value>
+    </Setting>
+    <Setting Name="TraceSourceName" Type="System.String" Scope="User">
+      <Value Profile="(Default)">ProtocolHub.ConfiguartionEditor</Value>
     </Setting>
   </Settings>
 </SettingsFile>

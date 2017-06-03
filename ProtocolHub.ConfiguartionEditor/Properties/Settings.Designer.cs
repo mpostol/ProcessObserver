@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace NetworkConfig.Properties {
+namespace CAS.CommServer.ProtocolHub.ConfiguartionEditor.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
@@ -74,6 +74,18 @@ namespace NetworkConfig.Properties {
         public string HelpDocumentation {
             get {
                 return ((string)(this["HelpDocumentation"]));
+            }
+        }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("ProtocolHub.ConfiguartionEditor")]
+        public string TraceSourceName {
+            get {
+                return ((string)(this["TraceSourceName"]));
+            }
+            set {
+                this["TraceSourceName"] = value;
             }
         }
     }
