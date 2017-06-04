@@ -221,7 +221,7 @@ namespace CAS.CommServer.ProtocolHub.Communication.BaseStation
       }
       internal PipeInterface
         (
-        Interface.Parameters interfaceParameters,
+        InterfaceParameters interfaceParameters,
         Pipe myPipe,
         WaitTimeList<PipeDataBlock> segmentScanningWTL,
         IInterface2SegmentLink statSegment,

@@ -190,6 +190,7 @@
     <Compile Include="Diagnostic\OPCServer.cs" />
     <Compile Include="Diagnostic\ReportGenerator.cs" />
     <Compile Include="NetworkConfig\ProtocolHubConfiguration.cs" />
+    <Compile Include="Parameters.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

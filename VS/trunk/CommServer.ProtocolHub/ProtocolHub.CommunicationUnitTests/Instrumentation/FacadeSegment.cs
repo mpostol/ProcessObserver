@@ -13,6 +13,7 @@
 //  http://www.cas.eu
 //_______________________________________________________________
 
+using CAS.CommServer.ProtocolHub.Communication;
 using CAS.CommServer.ProtocolHub.Communication.BaseStation;
 using CAS.Lib.CommonBus.ApplicationLayer;
 using CAS.Lib.RTLib.Processes;
@@ -50,13 +51,13 @@ namespace CAS.CommServer.ProtocolHub.CommunicationUnitTests.Instrumentation
       }
       internal protected override bool WriteData( object data, IBlockDescription dataAddress )
       {
-        throw new Exception( "The method or operation is not implemented." );
+        throw new NotImplementedException( "The method or operation is not implemented." );
       }
       internal protected override bool ReadData( out object data, IBlockDescription dataAddress)
       {
         throw new Exception( "The method or operation is not implemented." );
       }
-      internal FacadePipeInterface( Interface.Parameters interfaceDSC, FacadePipe pipe, CAS.CommServer.ProtocolHub.Communication.Diagnostic.Segment segment )
+      internal FacadePipeInterface( InterfaceParameters interfaceDSC, FacadePipe pipe, CAS.CommServer.ProtocolHub.Communication.Diagnostic.Segment segment )
         :
         base( interfaceDSC, pipe, null, segment, 10 ) { }
     }//FacadePipeInterface

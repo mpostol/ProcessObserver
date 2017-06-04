@@ -16,7 +16,7 @@
 //  http://www.cas.eu
 //</summary>
 
-using CAS.CommServer.ProtocolHub.Communication.BaseStation;
+using CAS.CommServer.ProtocolHub.Communication;
 using CAS.CommServer.ProtocolHub.ConfiguartionEditor.Properties;
 using CAS.Lib.ControlLibrary;
 using CAS.NetworkConfigLib;
@@ -97,7 +97,7 @@ namespace NetworkConfig.HMI
             }
           }
         }
-        if ( InterfaceNum > Interface.Parameters.InterfaceNumberMaxValue )
+        if ( InterfaceNum > InterfaceParameters.InterfaceNumberMaxValue )
           throw new Exception( "You cannot assign more ports to this station.\n\rThis port (interface) is not added." );
         currentInterfacesRowWrapper.InterfaceNum = InterfaceNum;
         //sprawdzmy teraz nazwe:
