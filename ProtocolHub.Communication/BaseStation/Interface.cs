@@ -30,40 +30,10 @@ namespace CAS.CommServer.ProtocolHub.Communication.BaseStation
 
     #region private
     private readonly CAS.CommServer.ProtocolHub.Communication.Diagnostic.Interface myStatistics;
-    private readonly Parameters myParameters;
+    private readonly InterfaceParameters myParameters;
     #endregion
 
     #region PUBLIC
-    /// <summary>
-    /// Parameters of the interface
-    /// </summary>
-    public struct Parameters
-    {
-      internal readonly TimeSpan InactivityTime;
-      internal readonly TimeSpan InactivityAfterFailureTime;
-      internal string Name;
-      internal ushort Address;
-      internal byte InterfaceNumber;
-      /// <summary>
-      /// Gets the interface number max value.
-      /// </summary>
-      /// <value>The interface number max value.</value>
-      static public byte InterfaceNumberMaxValue { get { return 1; } }
-      /// <summary>
-      /// Initializes a new instance of the <see cref="Parameters"/> struct.
-      /// </summary>
-      /// <param name="interfacesRow">The interfaces row.</param>
-      public Parameters(InterfacesRow interfacesRow)
-      {
-        InactivityTime = TimeSpan.FromMilliseconds(interfacesRow.InactTime);
-        InactivityAfterFailureTime = TimeSpan.FromMilliseconds(interfacesRow.InactTimeAFailure);
-        Name = interfacesRow.Name;
-        Address = (ushort)Math.Min(interfacesRow.Address, ushort.MaxValue);
-        InterfaceNumber = (byte)Math.Min(interfacesRow.InterfaceNum, byte.MaxValue);
-        if (InterfaceNumber > InterfaceNumberMaxValue)
-          throw new ArgumentOutOfRangeException("InterfaceNumber > InterfaceNumberMaxValue");
-      }
-    }
     internal ushort address { get { return myParameters.Address; } }
     /// <summary>
     /// Gets the interface number.
@@ -133,7 +103,7 @@ namespace CAS.CommServer.ProtocolHub.Communication.BaseStation
     /// <param name="myWTimeList">wait time list</param>
     /// <param name="segmentStatistic">The segment statistic.</param>
     /// <param name="stationStatistic">The station statistic.</param>
-    internal Interface(Parameters parameters, WaitTimeList<Interface> myWTimeList, IInterface2SegmentLink segmentStatistic, Diagnostic.Station stationStatistic)
+    internal Interface(InterfaceParameters parameters, WaitTimeList<Interface> myWTimeList, IInterface2SegmentLink segmentStatistic, Diagnostic.Station stationStatistic)
 #endif
 #if SNIFFER
     internal Interface

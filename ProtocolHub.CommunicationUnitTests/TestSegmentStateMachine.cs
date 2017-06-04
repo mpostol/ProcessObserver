@@ -72,7 +72,7 @@ namespace CAS.CommServer.ProtocolHub.CommunicationUnitTests
       int myMaxNumberOfTags = int.MaxValue;
       BaseStation.Management.Statistics.ChannelStatistics myChanel = new BaseStation.Management.Statistics.ChannelStatistics(myConfig.Channels[0]);
       DiagnosticSegment mySegment = new DiagnosticSegment(myConfig.Segments[0], myChanel);
-      myInterface = (new FacadeSegment.FacadePipeInterface(new Interface.Parameters(myConfig.Interfaces[0]), myPipe, mySegment));
+      myInterface = (new FacadeSegment.FacadePipeInterface(new InterfaceParameters(myConfig.Interfaces[0]), myPipe, mySegment));
       myInterface.ResetCounter();
       FacadeSegment.FacadeDataDescription myDataDescription = new FacadeSegment.FacadeDataDescription(myConfig.DataBlocks[0], ref myMaxNumberOfTags);
       myDataDescription.ResetCounter();

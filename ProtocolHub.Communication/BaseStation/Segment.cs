@@ -216,7 +216,7 @@ namespace CAS.CommServer.ProtocolHub.Communication.BaseStation
       /// <param name="segment">The segment.</param>
       /// <param name="defaultNumberOfRetries">The default number of retries.</param>
       internal SegmentInterface
-        (Interface.Parameters interfaceParameters, Pipe pipe, SegmentWaitTimeList timeList, Segment segment, byte defaultNumberOfRetries)
+        (InterfaceParameters interfaceParameters, Pipe pipe, SegmentWaitTimeList timeList, Segment segment, byte defaultNumberOfRetries)
         :
         base(interfaceParameters, pipe, timeList, segment.myStatistics, defaultNumberOfRetries)
       {
@@ -240,7 +240,7 @@ namespace CAS.CommServer.ProtocolHub.Communication.BaseStation
           if (currSt != null)
             try
             {
-              var si = new SegmentInterface(new Interface.Parameters(currRow), currSt, this, mySegment, defRetries);
+              var si = new SegmentInterface(new InterfaceParameters(currRow), currSt, this, mySegment, defRetries);
               si.ResetCounter();
             }
             catch (System.ComponentModel.LicenseException ex)
