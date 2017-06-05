@@ -15,11 +15,11 @@
 //  http://www.cas.eu
 //</summary>
 
+using CAS.NetworkConfigLib;
 using System;
 using System.Windows.Forms;
-using CAS.NetworkConfigLib;
 
-namespace NetworkConfig.HMI
+namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
 {
   internal partial class PropertyNavigator: UserControl
   {

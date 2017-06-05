@@ -16,15 +16,14 @@
 //  http://www.cas.eu
 //</summary>
 
-using CAS.CommServer.ProtocolHub.Communication;
-using CAS.CommServer.ProtocolHub.ConfiguartionEditor.Properties;
+using CAS.CommServer.ProtocolHub.ConfigurationEditor.Properties;
 using CAS.Lib.ControlLibrary;
 using CAS.NetworkConfigLib;
 using System;
 using System.Data;
 using System.Windows.Forms;
 
-namespace NetworkConfig.HMI
+namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
 {
   /// <summary>
   /// Control allowing to add new Interface and station couple.

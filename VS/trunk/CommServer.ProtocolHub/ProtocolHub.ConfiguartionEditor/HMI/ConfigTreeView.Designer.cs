@@ -15,7 +15,7 @@
 
 //#define advancetools
 
-namespace NetworkConfig.HMI
+namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
 {
   internal partial class ConfigTreeView
   {

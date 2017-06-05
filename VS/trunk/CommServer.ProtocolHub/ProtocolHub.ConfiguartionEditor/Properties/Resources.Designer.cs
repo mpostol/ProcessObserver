@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CAS.CommServer.ProtocolHub.ConfiguartionEditor.Properties {
+namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.Properties {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace CAS.CommServer.ProtocolHub.ConfiguartionEditor.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("CAS.CommServer.ProtocolHub.ConfiguartionEditor.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("CAS.CommServer.ProtocolHub.ConfigurationEditor.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

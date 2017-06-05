@@ -1,4 +1,4 @@
-namespace NetworkConfig.HMI.Editors
+namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI.Editors
 {
   partial class TagsCollection
   {

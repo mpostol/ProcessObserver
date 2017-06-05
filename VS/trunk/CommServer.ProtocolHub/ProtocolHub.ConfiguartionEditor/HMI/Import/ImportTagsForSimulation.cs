@@ -23,13 +23,14 @@ using CAS.Windows.Forms;
 using System;
 using System.ComponentModel;
 
-namespace NetworkConfig.HMI.Import
+namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI.Import
 {
   /// <summary>
   /// Summary description for ImportTagsForSimulation.
   /// </summary>
   internal class ImportTagsForSimulation: ImportFunctionRootClass
   {
+
     #region ImportTagsForSimulationInfo
     internal class ImportTagsForSimulationInfo: CAS.Lib.ControlLibrary.ImportFileControll.ImportInfo
     {
@@ -130,10 +131,12 @@ namespace NetworkConfig.HMI.Import
 
     }
     #endregion
+
     #region private
     private CAS.NetworkConfigLib.ComunicationNet m_database;
     private ImportTagsForSimulationInfo m_ImportTagsForSimulationInfo;
     #endregion
+
     #region ImportFunctionRootClass
     protected override void DoTheImport()
     {
@@ -207,6 +210,7 @@ Exception
     }
 
     #endregion
+
     #region creator
     public ImportTagsForSimulation( CAS.NetworkConfigLib.ComunicationNet database, System.Windows.Forms.Form parrent_form )
       : base( parrent_form )
@@ -216,5 +220,6 @@ Exception
       SetImportInfo( m_ImportTagsForSimulationInfo );
     }
     #endregion
+
   }
 }

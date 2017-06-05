@@ -13,20 +13,20 @@
 //  http://www.cas.eu
 //_______________________________________________________________
 
-
 using CAS.Lib.ControlLibrary;
 using CAS.Lib.RTLib;
 using CAS.NetworkConfigLib;
 using CAS.Windows.Forms;
 using System;
 
-namespace NetworkConfig.HMI.Import
+namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI.Import
 {
   /// <summary>
   /// Summary description for ImportScanSettings.
   /// </summary>
   internal class ImportScanSettings : ImportFunctionRootClass
   {
+
     #region ImportScanSettingsInfo
     internal class ImportScanSettingsInfo : ImportFileControll.ImportInfo
     {

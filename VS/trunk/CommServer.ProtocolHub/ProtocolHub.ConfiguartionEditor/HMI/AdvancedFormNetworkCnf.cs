@@ -14,42 +14,46 @@
 //  http://www.cas.com.pl
 // </summary>
 
-namespace NetworkConfig.HMI
+namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
 {
   /// <summary>
   /// Summary description for Form AdvancedFormNetworkConfig.
   /// </summary>
   public partial class AdvancedFormNetworkConfig : System.Windows.Forms.Form
+  {
+
+    #region private
+    ConfigIOHandler fileread;
+    ConfigIOHandler filesave;
+    ConfigIOHandler fileclear;
+    #endregion //private
+
+    #region handlers
+    private void ReadXML_Click(object sender, System.EventArgs e)
     {
-        #region private
-        ConfigIOHandler fileread;
-        ConfigIOHandler filesave;
-        ConfigIOHandler fileclear;
-        #endregion //private
-        #region handlers
-        private void ReadXML_Click(object sender, System.EventArgs e)
-        {
-            fileread(this);
-        }
-        private void Button_SaveXML_Click(object sender, System.EventArgs e)
-        {
-            filesave(this);
-        }
-
-        #endregion //handlers
-        internal AdvancedFormNetworkConfig(CAS.NetworkConfigLib.ComunicationNet _configmanagemet, ConfigIOHandler _fileread, ConfigIOHandler _filesave, ConfigIOHandler _fileclear)
-        {
-            InitializeComponent();
-            //this.configDataBase = new NetworkConfig.ComunicationNet();
-            this.configDataBase = _configmanagemet;
-            InitConfigDataBase(false);
-            InitializeAdvanceComponent();
-            this.fileread = _fileread;
-            this.filesave = _filesave;
-            this.fileclear = _fileclear;
-            //this.configDataBase = NetworkConfig.HMI.ConfigurationManagement.configDataBase;
-        }
-
-
+      fileread(this);
     }
+    private void Button_SaveXML_Click(object sender, System.EventArgs e)
+    {
+      filesave(this);
+    }
+
+    #endregion //handlers
+
+    #region constructor
+    internal AdvancedFormNetworkConfig(CAS.NetworkConfigLib.ComunicationNet _configmanagemet, ConfigIOHandler _fileread, ConfigIOHandler _filesave, ConfigIOHandler _fileclear)
+    {
+      InitializeComponent();
+      //this.configDataBase = new NetworkConfig.ComunicationNet();
+      this.configDataBase = _configmanagemet;
+      InitConfigDataBase(false);
+      InitializeAdvanceComponent();
+      this.fileread = _fileread;
+      this.filesave = _filesave;
+      this.fileclear = _fileclear;
+      //this.configDataBase = NetworkConfig.HMI.ConfigurationManagement.configDataBase;
+    }
+    #endregion
+
+  }
 }

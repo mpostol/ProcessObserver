@@ -1,4 +1,4 @@
-namespace NetworkConfig.HMI
+namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
 {
   partial class AddInterfaceAndStation
   {

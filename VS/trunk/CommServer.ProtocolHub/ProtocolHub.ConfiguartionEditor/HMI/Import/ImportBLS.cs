@@ -25,7 +25,7 @@ using System.ComponentModel;
 using System.IO;
 using System.Text.RegularExpressions;
 
-namespace NetworkConfig.HMI.Import
+namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI.Import
 {
   /// <summary>
   /// Summary description for ImportBLS.
@@ -324,6 +324,7 @@ namespace NetworkConfig.HMI.Import
           configDataBase.Groups.RemoveGroupsRow( gr );
       }
     }
+
     #region new elements
     private void NewTag( ComunicationNet.TagsDataTable currTable, string nm, ushort tid, ushort sid,
       ushort add, short ProtocolDataType, int datablockid, string DataType )

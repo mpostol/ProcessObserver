@@ -19,19 +19,20 @@
 //  http://www.cas.eu
 //</summary>
 
-using System;
-using System.Windows.Forms;
+using CAS.CommServer.ProtocolHub.ConfigurationEditor.Properties;
 using CAS.Lib.ControlLibrary;
 using CAS.NetworkConfigLib;
-using CAS.CommServer.ProtocolHub.ConfiguartionEditor.Properties;
+using System;
+using System.Windows.Forms;
 
-namespace NetworkConfig.HMI.Editors
+namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI.Editors
 {
   /// <summary>
   /// Form that allow to sort tags
   /// </summary>
   public partial class TagsCollection: Form
   {
+
     #region private
     DataBlocksRowWrapper dataBlockRowWrapper;
     private ComunicationNet.DataBlocksRow m_ParBlock;
@@ -73,12 +74,14 @@ namespace NetworkConfig.HMI.Editors
       FillLlist( pSelIdx );
     }
     #endregion
+
+    #region constructor
     /// <summary>
     /// Creator for the Tag collection Form
     /// </summary>
     /// <param name="pBlock">Block (<see cref="ComunicationNet.DataBlocksRow"/> to dispaly</param>
     /// <param name="DataBlockRowWrapper">The data block row wrapper.</param>
-    internal TagsCollection( ComunicationNet.DataBlocksRow pBlock, DataBlocksRowWrapper DataBlockRowWrapper )
+    internal TagsCollection(ComunicationNet.DataBlocksRow pBlock, DataBlocksRowWrapper DataBlockRowWrapper)
       : this()
     {
       dataBlockRowWrapper = DataBlockRowWrapper;
@@ -87,8 +90,10 @@ namespace NetworkConfig.HMI.Editors
       m_DB.Tags.AcceptChanges();
       m_DB.TagBit.AcceptChanges();
       m_DB.ItemPropertiesTable.AcceptChanges();
-      FillLlist( 0 );
+      FillLlist(0);
     }
+    #endregion
+
     #region events handlers
     private void cn_ButtonOK_Click( object sender, EventArgs e )
     {
@@ -168,5 +173,6 @@ namespace NetworkConfig.HMI.Editors
       SetButtonsEnableProperty();
     }
     #endregion
+
   }
 }

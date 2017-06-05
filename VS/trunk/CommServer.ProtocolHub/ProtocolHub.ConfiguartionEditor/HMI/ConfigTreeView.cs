@@ -29,24 +29,25 @@
 //  http://www.cas.eu
 // </summary>
 
+using CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI.Exceptions;
+using CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI.Import;
+using CAS.CommServer.ProtocolHub.ConfigurationEditor.Properties;
+using CAS.Lib.CodeProtect;
+using CAS.Lib.CodeProtect.LicenseDsc;
+using CAS.Lib.ControlLibrary;
+using CAS.Lib.RTLib.Database;
+using CAS.Lib.RTLib.Processes;
+using CAS.Windows.Forms.CodeProtectControls;
 using System;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.IO;
 using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
-using CAS.Lib.CodeProtect;
-using CAS.Lib.CodeProtect.LicenseDsc;
-using CAS.Lib.ControlLibrary;
-using CAS.Lib.RTLib.Processes;
-using NetworkConfig.HMI.Exceptions;
-using System.Diagnostics;
-using CAS.Lib.RTLib.Database;
-using CAS.Windows.Forms.CodeProtectControls;
-using CAS.CommServer.ProtocolHub.ConfiguartionEditor.Properties;
 
-namespace NetworkConfig.HMI
+namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
 {
   /// <summary>
   /// Config tree view for Network Config
@@ -102,23 +103,23 @@ namespace NetworkConfig.HMI
       LicenseManager.IsValid(this.GetType(), this, out lic);
       m_license = lic as LicenseFile;
       if (m_license == null)
-        MessageBox.Show( CAS.Lib.CodeProtect.Properties.Resources.Tx_LicNoFileErr, CAS.Lib.CodeProtect.Properties.Resources.Tx_LicCap, MessageBoxButtons.OK, MessageBoxIcon.Hand );
+        MessageBox.Show(CAS.Lib.CodeProtect.Properties.Resources.Tx_LicNoFileErr, CAS.Lib.CodeProtect.Properties.Resources.Tx_LicCap, MessageBoxButtons.OK, MessageBoxIcon.Hand);
       else
       {
         if (m_license.FailureReason != String.Empty)
-          ScrollableMessageBox.Instance.Show( m_license.FailureReason, CAS.Lib.CodeProtect.Properties.Resources.Tx_LicCap, MessageBoxButtons.OK, MessageBoxIcon.Hand );
+          ScrollableMessageBox.Instance.Show(m_license.FailureReason, CAS.Lib.CodeProtect.Properties.Resources.Tx_LicCap, MessageBoxButtons.OK, MessageBoxIcon.Hand);
         else
           m_DemoVer = false;
       }
       if (m_DemoVer)
       {
         MessageBox.Show
-          ( CAS.Lib.CodeProtect.Properties.Resources.Tx_LicDemoModeInfo, CAS.Lib.CodeProtect.Properties.Resources.Tx_LicCap, MessageBoxButtons.OK, MessageBoxIcon.Information );
+          (CAS.Lib.CodeProtect.Properties.Resources.Tx_LicDemoModeInfo, CAS.Lib.CodeProtect.Properties.Resources.Tx_LicCap, MessageBoxButtons.OK, MessageBoxIcon.Information);
         filesave = new ConfigIOHandler(ConfigurationManagement.SaveDemoProc);
       }
       else
       {
-        m_UAPackage = m_license.Product.ShortName.ToLower().Contains( "ua" );
+        m_UAPackage = m_license.Product.ShortName.ToLower().Contains("ua");
         filesave = _filesave;
       }
       m_configDataBase = configDataBase;
@@ -168,7 +169,7 @@ namespace NetworkConfig.HMI
     }
     void configDataBaseDataTable_Changed(object sender, DataRowChangeEventArgs e)
     {
-      if ( !saveToolStripButton.Enabled )
+      if (!saveToolStripButton.Enabled)
       {
         saveToolStripMenuItem.Enabled = true;
         saveToolStripButton.Enabled = true;
@@ -605,12 +606,12 @@ namespace NetworkConfig.HMI
       saveToolStripButton.Enabled = false;
       saveToolStripMenuItem.Enabled = false;
     }
-    private void saveToolStripMenuItem_Click( object sender, EventArgs e )
+    private void saveToolStripMenuItem_Click(object sender, EventArgs e)
     {
       save();
       saveToolStripButton.Enabled = false;
       saveToolStripMenuItem.Enabled = false;
-    } 
+    }
     private void saveToolStripButton_Click(object sender, EventArgs e)
     {
       save();
@@ -782,7 +783,7 @@ namespace NetworkConfig.HMI
       if (m_UAPackage)
         System.Diagnostics.Process.Start(Settings.Default.HelpDocumentation);
       else
-        Help.ShowHelp( this, Path.Combine( AppDomain.CurrentDomain.BaseDirectory, "help\\CommServerOPCHelp.chm" ), HelpNavigator.TableOfContents );
+        Help.ShowHelp(this, Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "help\\CommServerOPCHelp.chm"), HelpNavigator.TableOfContents);
     }
     #endregion
 
@@ -790,37 +791,30 @@ namespace NetworkConfig.HMI
     {
       new AdvancedFormNetworkConfig(m_configDataBase, fileread, filesave, fileclear).ShowDialog(this);
     }
-
     private void sBLSToolStripMenuItem_Click_1(object sender, EventArgs e)
     {
-      new NetworkConfig.HMI.Import.ImportBLS(m_configDataBase, this).Import();
+      new ImportBLS(m_configDataBase, this).Import();
     }
-
     private void tagbloksToolStripMenuItem_Click_1(object sender, EventArgs e)
     {
-      new NetworkConfig.HMI.Import.ImportBlockCSV(m_configDataBase, this).Import();
+      new ImportBlockCSV(m_configDataBase, this).Import();
     }
-
     private void tagBitToolStripMenuItem_Click_1(object sender, EventArgs e)
     {
-      new NetworkConfig.HMI.Import.ImportTagBits(m_configDataBase, this).Import();
+      new ImportTagBits(m_configDataBase, this).Import();
     }
-
     private void tagToolStripMenuItem_Click_1(object sender, EventArgs e)
     {
-      new NetworkConfig.HMI.Import.ImportTagMappings(m_configDataBase, this).Import();
+      new ImportTagMappings(m_configDataBase, this).Import();
     }
-
     private void scanSettingsToolStripMenuItem_Click_1(object sender, EventArgs e)
     {
-      new NetworkConfig.HMI.Import.ImportScanSettings(m_configDataBase, this).Import();
+      new ImportScanSettings(m_configDataBase, this).Import();
     }
-
     private void tagsForSimulationToolStripMenuItem_Click_1(object sender, EventArgs e)
     {
-      new NetworkConfig.HMI.Import.ImportTagsForSimulation(m_configDataBase, this).Import();
+      new ImportTagsForSimulation(m_configDataBase, this).Import();
     }
-
     private void xBUSMeasureToolStripMenuItem_Click(object sender, EventArgs e)
     {
       StartAppAsync("CAS.DPDiagnostics.exe", "XBUS measurement (Data Provider Diagnostic tool)");
@@ -832,7 +826,7 @@ namespace NetworkConfig.HMI
     }
     private static void StartAppAsync(string appname, string longappname)
     {
-      RunMethodAsynchronously runasync = new RunMethodAsynchronously(delegate(object[] o)
+      RunMethodAsynchronously runasync = new RunMethodAsynchronously(delegate (object[] o)
       {
         try
         {
@@ -846,45 +840,44 @@ namespace NetworkConfig.HMI
       );
       runasync.RunAsync();
     }
-
-    private void licenseInformationToolStripMenuItem_Click( object sender, EventArgs e )
+    private void licenseInformationToolStripMenuItem_Click(object sender, EventArgs e)
     {
       string usr = null;
-      if ( m_license != null )
+      if (m_license != null)
         usr = m_license.User.Organization + "[" + m_license.User.Email + "]";
       Assembly cMyAss = Assembly.GetEntryAssembly();
-      using ( LicenseForm cAboutForm = new CAS.Lib.ControlLibrary.LicenseForm( null, usr, cMyAss ) )
+      using (LicenseForm cAboutForm = new CAS.Lib.ControlLibrary.LicenseForm(null, usr, cMyAss))
       {
-        using (Licenses cLicDial = new Licenses() )
+        using (Licenses cLicDial = new Licenses())
         {
           cAboutForm.SetAdditionalControl = cLicDial;
-          cAboutForm.ShowDialog( this );
+          cAboutForm.ShowDialog(this);
         }
       }
     }
 
-    private void oToolStripMenuItem_Click( object sender, EventArgs e )
+    private void oToolStripMenuItem_Click(object sender, EventArgs e)
     {
       string path = CAS.Lib.CodeProtect.InstallContextNames.ApplicationDataPath + "\\log";
       try
       {
-        using ( Process process = Process.Start( @path ) ) { }
+        using (Process process = Process.Start(@path)) { }
       }
-      catch ( Win32Exception )
+      catch (Win32Exception)
       {
-        MessageBox.Show( "No Log folder exists under this link: " + path + " You can create this folder yourself.", "No Log folder !", MessageBoxButtons.OK, MessageBoxIcon.Error );
+        MessageBox.Show("No Log folder exists under this link: " + path + " You can create this folder yourself.", "No Log folder !", MessageBoxButtons.OK, MessageBoxIcon.Error);
         return;
       }
-      catch ( Exception )
+      catch (Exception)
       {
-        MessageBox.Show( "An error during opening a log folder occurs and the log folder cannot be open", "Problem with log folder !", MessageBoxButtons.OK, MessageBoxIcon.Error );
+        MessageBox.Show("An error during opening a log folder occurs and the log folder cannot be open", "Problem with log folder !", MessageBoxButtons.OK, MessageBoxIcon.Error);
         return;
       }
     }
 
-    private void enterTheUnlockCodeToolStripMenuItem_Click( object sender, EventArgs e )
+    private void enterTheUnlockCodeToolStripMenuItem_Click(object sender, EventArgs e)
     {
-      using (UnlockKeyDialog dialog = new UnlockKeyDialog() )
+      using (UnlockKeyDialog dialog = new UnlockKeyDialog())
       {
         dialog.ShowDialog();
       }
@@ -921,6 +914,7 @@ namespace NetworkConfig.HMI
     //  }
     //}
     #endregion
+
     #endregion
   }
 }

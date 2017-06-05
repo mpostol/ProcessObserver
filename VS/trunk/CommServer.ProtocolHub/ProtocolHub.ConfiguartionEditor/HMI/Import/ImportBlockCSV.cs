@@ -20,10 +20,11 @@ using System;
 using System.ComponentModel;
 using System.Windows.Forms;
 
-namespace NetworkConfig.HMI.Import
+namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI.Import
 {
   class ImportBlockCSV : ImportFunctionRootClass
   {
+
     #region private fields
     private ImportBlockCSVInfo m_ImportBlockCSVInfo;
     private ComunicationNet m_Database;
@@ -175,5 +176,6 @@ namespace NetworkConfig.HMI.Import
       SetImportInfo(m_ImportBlockCSVInfo);
     }
     #endregion
+
   }
 }

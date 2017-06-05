@@ -22,7 +22,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Windows.Forms;
 
-namespace NetworkConfig.HMI
+namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
 {
   internal class ActionBase
   {

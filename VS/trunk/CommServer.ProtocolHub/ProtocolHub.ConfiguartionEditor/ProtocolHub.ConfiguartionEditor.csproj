@@ -10,16 +10,16 @@
     <ApplicationIcon>Konfig_Full.ico</ApplicationIcon>
     <AssemblyKeyContainerName>
     </AssemblyKeyContainerName>
-    <AssemblyName>CAS.CommServer.ProtocolHub.ConfiguartionEditor</AssemblyName>
+    <AssemblyName>CAS.CommServer.ProtocolHub.ConfigurationEditor</AssemblyName>
     <AssemblyOriginatorKeyFile>cas.snk</AssemblyOriginatorKeyFile>
     <DefaultClientScript>JScript</DefaultClientScript>
     <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
     <DefaultTargetSchema>IE50</DefaultTargetSchema>
     <DelaySign>false</DelaySign>
     <OutputType>WinExe</OutputType>
-    <RootNamespace>CAS.CommServer.ProtocolHub.ConfiguartionEditor</RootNamespace>
+    <RootNamespace>CAS.CommServer.ProtocolHub.ConfigurationEditor</RootNamespace>
     <RunPostBuildEvent>OnBuildSuccess</RunPostBuildEvent>
-    <StartupObject>CAS.CommServer.ProtocolHub.ConfiguartionEditor.MainClass</StartupObject>
+    <StartupObject>CAS.CommServer.ProtocolHub.ConfigurationEditor.MainClass</StartupObject>
     <FileUpgradeFlags>
     </FileUpgradeFlags>
     <UpgradeBackupLocation>
@@ -107,8 +107,8 @@
       <HintPath>..\packages\CAS.CommServer.CommonBus.5.01.06\lib\net451\CAS.CommServer.CommonBus.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="CAS.CommServer.DAServerConfiguration, Version=5.1.6.25005, Culture=neutral, PublicKeyToken=8832ff1a67ea61a3, processorArchitecture=MSIL">
-      <HintPath>..\packages\CAS.CommServer.DAServerConfiguration.5.01.06\lib\net451\CAS.CommServer.DAServerConfiguration.dll</HintPath>
+    <Reference Include="CAS.CommServer.DAServerConfiguration, Version=5.2.2.26942, Culture=neutral, PublicKeyToken=8832ff1a67ea61a3, processorArchitecture=MSIL">
+      <HintPath>..\packages\CAS.CommServer.DAServerConfiguration.5.02.02\lib\net451\CAS.CommServer.DAServerConfiguration.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="CAS.CommServer.DataProvider.MODBUSCore, Version=3.90.3.33834, Culture=neutral, processorArchitecture=MSIL">
@@ -391,12 +391,6 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\ProtocolHub.Communication\ProtocolHub.Communication.csproj">
-      <Project>{E1351D09-7241-44C3-A292-8D46E322A61D}</Project>
-      <Name>ProtocolHub.Communication</Name>
-    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

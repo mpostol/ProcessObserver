@@ -16,14 +16,12 @@
 //  mailto:techsupp@cas.com.pl
 //  http:\\www.cas.eu
 //</summary>
-using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Text;
-using System.Windows.Forms;
+
 using CAS.NetworkConfigLib;
+using System.ComponentModel;
 using System.Data;
-namespace NetworkConfig.HMI
+
+namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
 {
   /// <summary>
   /// Wrapper classes that wrap <see cref="ComunicationNet.StationRow"/>. It contains getters and setters to support property grid.

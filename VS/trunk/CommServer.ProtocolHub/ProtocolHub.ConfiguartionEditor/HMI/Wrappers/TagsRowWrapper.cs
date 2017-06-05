@@ -33,9 +33,9 @@ using CAS.Lib.CommonBus;
 using CAS.Lib.RTLib;
 using CAS.NetworkConfigLib;
 using CAS.Lib.RTLib.Utils;
-using CAS.CommServer.ProtocolHub.ConfiguartionEditor.Properties;
+using CAS.CommServer.ProtocolHub.ConfigurationEditor.Properties;
 
-namespace NetworkConfig.HMI
+namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
 {
   /// <summary>
   /// Wrapper classes that wrap <see cref="ComunicationNet.TagsRow"/>. It contains getters and setters to support property grid.
