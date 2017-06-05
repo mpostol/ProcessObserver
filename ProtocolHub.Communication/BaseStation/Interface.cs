@@ -16,8 +16,7 @@
 using CAS.Lib.CommonBus.ApplicationLayer;
 using CAS.Lib.CommServerConsoleInterface;
 using CAS.Lib.RTLib.Processes;
-using System;
-using InterfacesRow = CAS.NetworkConfigLib.ComunicationNet.InterfacesRow;
+using CAS.NetworkConfigLib;
 using Statistics = global::BaseStation.Management.Statistics;
 
 namespace CAS.CommServer.ProtocolHub.Communication.BaseStation

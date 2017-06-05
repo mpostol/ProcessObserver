@@ -16,12 +16,11 @@
 //  mailto:techsupp@cas.com.pl
 //  http:\\www.cas.eu
 //</summary>
-using System;
-using System.ComponentModel;
-using System.Text;
-using System.Windows.Forms;
+
 using CAS.NetworkConfigLib;
-namespace NetworkConfig.HMI
+using System.ComponentModel;
+
+namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
 {
   /// <summary>
   /// Wrapper classes that wrap <see cref="ComunicationNet.ChannelsRow"/>. It contains getters and setters to support property grid.
@@ -39,6 +38,7 @@ namespace NetworkConfig.HMI
   [DefaultProperty( "Name" )]
   internal partial class ChannelsRowWrapper: Action<ComunicationNet.ChannelsRow>
   {
+
     #region Constructor
 
     /// <summary>
@@ -49,6 +49,7 @@ namespace NetworkConfig.HMI
       : base( parent )
     { }
     #endregion
+
     #region Properties for PropertyGrid
     /// <summary>
     /// Gets or sets Channel identifier - must be unique
@@ -90,6 +91,7 @@ namespace NetworkConfig.HMI
       }
     }
     #endregion
+
     #region Override methods
     #region Object overrides
     /// <summary>
@@ -185,5 +187,6 @@ namespace NetworkConfig.HMI
     //#endregion
     #endregion
     #endregion
+
   }
 }

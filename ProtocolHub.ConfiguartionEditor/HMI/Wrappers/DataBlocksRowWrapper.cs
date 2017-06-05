@@ -18,6 +18,11 @@
 //  http://www.cas.eu
 //</summary>
 
+using CAS.CommServer.CommonBus;
+using CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI.Editors;
+using CAS.CommServer.ProtocolHub.ConfigurationEditor.Properties;
+using CAS.Lib.CommonBus;
+using CAS.NetworkConfigLib;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -26,14 +31,10 @@ using System.Data;
 using System.Drawing.Design;
 using System.Windows.Forms;
 using System.Windows.Forms.Design;
-using CAS.Lib.CommonBus;
-using CAS.NetworkConfigLib;
-using NetworkConfig.HMI.Editors;
-using CAS.CommServer.CommonBus;
-using CAS.CommServer.ProtocolHub.ConfiguartionEditor.Properties;
 
-namespace NetworkConfig.HMI
+namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
 {
+
   /// <summary>
   /// Wrapper classes that wrap <see cref="ComunicationNet.DataBlocksRow" />. It contains getters and setters to support property grid.
   /// </summary>
@@ -467,4 +468,5 @@ CategoryAttribute( "XXX debug" ),
       }
     }
   }
+
 }

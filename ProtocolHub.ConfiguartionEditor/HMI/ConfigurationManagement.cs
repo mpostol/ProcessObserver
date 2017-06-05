@@ -22,19 +22,20 @@
 //  http://www.cas.eu
 //</summary>
 
+using CAS.CommServer.ProtocolHub.ConfigurationEditor.Properties;
+using CAS.Lib.RTLib.Database;
+using CAS.NetworkConfigLib;
 using System;
 using System.Data;
 using System.Globalization;
 using System.Windows.Forms;
-using CAS.NetworkConfigLib;
-using CAS.Lib.RTLib.Database;
-using CAS.CommServer.ProtocolHub.ConfiguartionEditor.Properties;
 
-namespace NetworkConfig.HMI
+namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
 {
   internal delegate void ConfigIOHandler( Form form );
   internal class ConfigurationManagement
   {
+
     #region Fields
     private static ConfigurationManagement me;
     private static string configFileName;
@@ -62,7 +63,6 @@ namespace NetworkConfig.HMI
       configDataBase.SchemaSerializationMode = SchemaSerializationMode.IncludeSchema;
     }
     #endregion
-
 
     #region Methods
 
@@ -198,5 +198,6 @@ namespace NetworkConfig.HMI
     #endregion
 
     #endregion
+
   }
 }

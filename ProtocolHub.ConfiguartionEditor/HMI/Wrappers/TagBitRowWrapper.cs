@@ -17,13 +17,12 @@
 //  mailto:techsupp@cas.com.pl
 //  http:\\www.cas.eu
 //</summary>
-using System;
-using System.ComponentModel;
-using System.Text;
-using System.Windows.Forms;
+
+using CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI.Exceptions;
 using CAS.NetworkConfigLib;
-using NetworkConfig.HMI.Exceptions;
-namespace NetworkConfig.HMI
+using System.ComponentModel;
+
+namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
 {
   /// <summary>
   /// Wrapper classes that wrap <see cref="ComunicationNet.TagBitRow"/>. It contains getters and setters to support property grid.

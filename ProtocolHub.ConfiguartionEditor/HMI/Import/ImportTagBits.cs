@@ -18,7 +18,7 @@ using CAS.Windows.Forms;
 using System;
 using System.Windows.Forms;
 
-namespace NetworkConfig.HMI.Import
+namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI.Import
 {
   /// <summary>
   /// Summary description for ImportTagBits.

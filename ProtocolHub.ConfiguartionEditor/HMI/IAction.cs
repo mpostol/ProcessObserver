@@ -18,13 +18,14 @@
 
 using System;
 
-namespace NetworkConfig.HMI
+namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
 {
   /// <summary>
   /// Interface to support operation on the tree nodes
   /// </summary>
   interface IAction: IDisposable
   {
+
     #region Properties
     /// <summary>
     /// Get the boolean value indicated that this object can create child object. 
@@ -48,6 +49,7 @@ namespace NetworkConfig.HMI
       get;
     }
     #endregion
+
     #region Methods
     /// <summary>
     /// Adds new row to the table
@@ -96,5 +98,6 @@ namespace NetworkConfig.HMI
     /// </summary>
     void HasChanged();
     #endregion
+
   }
 }

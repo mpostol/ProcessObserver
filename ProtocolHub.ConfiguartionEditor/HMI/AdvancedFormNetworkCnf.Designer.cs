@@ -14,6 +14,7 @@
 //_______________________________________________________________
 
 
+using CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI.Import;
 using CAS.NetworkConfigLib;
 using CAS.Windows.Forms;
 using System;
@@ -22,7 +23,7 @@ using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
 
-namespace NetworkConfig.HMI
+namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
 {
   /// <summary>
   /// Summary description for Form MainInterface.
@@ -529,7 +530,7 @@ namespace NetworkConfig.HMI
       this.dataGridSerial = new System.Windows.Forms.DataGrid();
       this.SerialportsTableSyle = new System.Windows.Forms.DataGridTableStyle();
       this.Serialports_SerialNumColumn = new System.Windows.Forms.DataGridTextBoxColumn();
-      this.Serialports_ProtocolIDColumn = new NetworkConfig.HMI.AdvancedFormNetworkConfig.DataGridComboBoxColumn();
+      this.Serialports_ProtocolIDColumn = new CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI.AdvancedFormNetworkConfig.DataGridComboBoxColumn();
       this.Serialports_BaudRateColumn = new System.Windows.Forms.DataGridTextBoxColumn();
       this.Serialports_ParityColumn = new System.Windows.Forms.DataGridTextBoxColumn();
       this.Serialports_DataBitsColumn = new System.Windows.Forms.DataGridTextBoxColumn();
@@ -557,13 +558,13 @@ namespace NetworkConfig.HMI
       this.ProtocolsTableStyle = new System.Windows.Forms.DataGridTableStyle();
       this.Protocols_ProtocolIDColumn = new System.Windows.Forms.DataGridTextBoxColumn();
       this.Protocols_NameColumn = new System.Windows.Forms.DataGridTextBoxColumn();
-      this.Protocols_ChannelIDColumn = new NetworkConfig.HMI.AdvancedFormNetworkConfig.DataGridComboBoxColumn();
+      this.Protocols_ChannelIDColumn = new AdvancedFormNetworkConfig.DataGridComboBoxColumn();
       this.Protocols_ResponseTimeOutColumn = new System.Windows.Forms.DataGridTextBoxColumn();
       this.Protocols_FrameTimeOutColumn = new System.Windows.Forms.DataGridTextBoxColumn();
       this.Protocols_CharacterTimeOutColumn = new System.Windows.Forms.DataGridTextBoxColumn();
       this.Protocols_InterframeGapColumn = new System.Windows.Forms.DataGridTextBoxColumn();
       this.Protocols_MaxNumberColumn = new System.Windows.Forms.DataGridTextBoxColumn();
-      this.Protocols_ProtocolTypeColumn = new NetworkConfig.HMI.AdvancedFormNetworkConfig.DataGridComboBoxColumn();
+      this.Protocols_ProtocolTypeColumn = new CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI.AdvancedFormNetworkConfig.DataGridComboBoxColumn();
       this.dataGridChannels = new System.Windows.Forms.DataGrid();
       this.channelsBindingSource = new System.Windows.Forms.BindingSource( this.components );
       this.tabPageCommStruc = new System.Windows.Forms.TabPage();
@@ -571,9 +572,9 @@ namespace NetworkConfig.HMI
       this.dataGrid3 = new System.Windows.Forms.DataGrid();
       this.InterfacesTableStyle = new System.Windows.Forms.DataGridTableStyle();
       this.Interfaces_NameColumn = new System.Windows.Forms.DataGridTextBoxColumn();
-      this.Interfaces_SegmentIDColumn = new NetworkConfig.HMI.AdvancedFormNetworkConfig.DataGridComboBoxColumn();
-      this.Interfaces_ChannelIDColumn = new NetworkConfig.HMI.AdvancedFormNetworkConfig.DataGridComboBoxColumn();
-      this.Interfaces_StationIDColumn = new NetworkConfig.HMI.AdvancedFormNetworkConfig.DataGridComboBoxColumn();
+      this.Interfaces_SegmentIDColumn = new CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI.AdvancedFormNetworkConfig.DataGridComboBoxColumn();
+      this.Interfaces_ChannelIDColumn = new CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI.AdvancedFormNetworkConfig.DataGridComboBoxColumn();
+      this.Interfaces_StationIDColumn = new CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI.AdvancedFormNetworkConfig.DataGridComboBoxColumn();
       this.Interfaces_AddressColumn = new System.Windows.Forms.DataGridTextBoxColumn();
       this.Interfaces_InactTimeColumn = new System.Windows.Forms.DataGridTextBoxColumn();
       this.Interfaces_InactTimeAFailureColumn = new System.Windows.Forms.DataGridTextBoxColumn();
@@ -582,8 +583,8 @@ namespace NetworkConfig.HMI
       this.SegmentsTableStyle = new System.Windows.Forms.DataGridTableStyle();
       this.Segments_NameColumn = new System.Windows.Forms.DataGridTextBoxColumn();
       this.Segments_SegmentIDColumn = new System.Windows.Forms.DataGridTextBoxColumn();
-      this.Segments_ChannelIDColumn = new NetworkConfig.HMI.AdvancedFormNetworkConfig.DataGridComboBoxColumn();
-      this.Segments_ProtocolIDColumn = new NetworkConfig.HMI.AdvancedFormNetworkConfig.DataGridComboBoxColumn();
+      this.Segments_ChannelIDColumn = new AdvancedFormNetworkConfig.DataGridComboBoxColumn();
+      this.Segments_ProtocolIDColumn = new AdvancedFormNetworkConfig.DataGridComboBoxColumn();
       this.Segments_AddressColumn = new System.Windows.Forms.DataGridTextBoxColumn();
       this.Segments_TimeScanColumn = new System.Windows.Forms.DataGridTextBoxColumn();
       this.Segments_KeepConnectColumn = new System.Windows.Forms.DataGridTextBoxColumn();
@@ -599,14 +600,14 @@ namespace NetworkConfig.HMI
       this.dataGrid_datablocks = new System.Windows.Forms.DataGrid();
       this.DataBlocksTableStyle = new System.Windows.Forms.DataGridTableStyle();
       this.DataBlocks_NameColumn = new System.Windows.Forms.DataGridTextBoxColumn();
-      this.DataBlocks_StationIDColumn = new NetworkConfig.HMI.AdvancedFormNetworkConfig.DataGridComboBoxColumn();
+      this.DataBlocks_StationIDColumn = new AdvancedFormNetworkConfig.DataGridComboBoxColumn();
       this.DataBlocks_AddressColumn = new System.Windows.Forms.DataGridTextBoxColumn();
-      this.DataBlocks_GroupIDColumn = new NetworkConfig.HMI.AdvancedFormNetworkConfig.DataGridComboBoxColumn();
+      this.DataBlocks_GroupIDColumn = new AdvancedFormNetworkConfig.DataGridComboBoxColumn();
       this.DataBlocks_DataTypeColumn = new System.Windows.Forms.DataGridTextBoxColumn();
       this.dataGrid_Groups = new System.Windows.Forms.DataGrid();
       this.GroupsTableStyle = new System.Windows.Forms.DataGridTableStyle();
       this.Groups_NameColumn = new System.Windows.Forms.DataGridTextBoxColumn();
-      this.Groups_StationIDColumn = new NetworkConfig.HMI.AdvancedFormNetworkConfig.DataGridComboBoxColumn();
+      this.Groups_StationIDColumn = new AdvancedFormNetworkConfig.DataGridComboBoxColumn();
       this.Groups_GroupIDColumn = new System.Windows.Forms.DataGridTextBoxColumn();
       this.Groups_TimeScanColumn = new System.Windows.Forms.DataGridTextBoxColumn();
       this.Groups_TimeOutColumn = new System.Windows.Forms.DataGridTextBoxColumn();
@@ -1862,7 +1863,7 @@ namespace NetworkConfig.HMI
     }
     private void button1_Click( object sender, System.EventArgs e )
     {
-      ImportFunctionRootClass importer = new NetworkConfig.HMI.Import.ImportTagsForSimulation( configDataBase, this );
+      ImportFunctionRootClass importer = new ImportTagsForSimulation( configDataBase, this );
       importer.Import();
     }
     private void menuFile_Clear_All_Click( object sender, EventArgs e )
@@ -1874,35 +1875,36 @@ namespace NetworkConfig.HMI
     }
     private void menuItemSBUS_bls_Click( object sender, EventArgs e )
     {
-      new NetworkConfig.HMI.Import.ImportBLS( configDataBase, this ).Import();
+      new ImportBLS( configDataBase, this ).Import();
     }
     private void menuItemTagblosks_csv_Click( object sender, EventArgs e )
     {
-      new NetworkConfig.HMI.Import.ImportBlockCSV( configDataBase, this ).Import();
+      new ImportBlockCSV( configDataBase, this ).Import();
     }
     private void menuItemTagBit_csv_Click( object sender, EventArgs e )
     {
-      new NetworkConfig.HMI.Import.ImportTagBits( configDataBase, this ).Import();
+      new ImportTagBits( configDataBase, this ).Import();
     }
     private void menuItemTagMappings_csv_Click( object sender, EventArgs e )
     {
-      new NetworkConfig.HMI.Import.ImportTagMappings( configDataBase, this ).Import();
+      new ImportTagMappings( configDataBase, this ).Import();
     }
     private void menuItemScanSettings_txt_Click( object sender, EventArgs e )
     {
-      new NetworkConfig.HMI.Import.ImportScanSettings( configDataBase, this ).Import();
+      new ImportScanSettings( configDataBase, this ).Import();
     }
     private void menuItemMODBUS_bls_Click( object sender, EventArgs e )
     {
-      new NetworkConfig.HMI.Import.ImportBLS( configDataBase, this ).Import();
+      new ImportBLS( configDataBase, this ).Import();
     }
     private void menuItemTags_for_Simulation_Click( object sender, EventArgs e )
     {
-      new NetworkConfig.HMI.Import.ImportTagsForSimulation( configDataBase, this ).Import();
+      new Import.ImportTagsForSimulation( configDataBase, this ).Import();
     }
 
     private BindingSource dataBlocksBindingSource;
     private BindingSource comunicationNetBindingSource;
     private DataGridTextBoxColumn dataGridTextBoxColumn1;
+
   } //Form1
 }

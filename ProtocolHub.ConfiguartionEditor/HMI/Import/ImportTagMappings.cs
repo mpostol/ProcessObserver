@@ -18,14 +18,15 @@ using CAS.Windows.Forms;
 using System;
 using System.Windows.Forms;
 
-namespace NetworkConfig.HMI.Import
+namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI.Import
 {
-  
+
   /// <summary>
   /// Summary description for ImportTagMappings.
   /// </summary>
   internal class ImportTagMappings : ImportFunctionRootClass
   {
+
     #region ImportTagMappingsInfo
     internal class ImportTagMappingsInfo : CAS.Lib.ControlLibrary.ImportFileControll.ImportInfo
     {
@@ -72,10 +73,12 @@ namespace NetworkConfig.HMI.Import
       }
     }
     #endregion
+
     #region private
     private CAS.NetworkConfigLib.ComunicationNet m_database;
     private ImportTagMappingsInfo m_ImportTagMappingsInfo;
     #endregion
+
     #region ImportFunctionRootClass
     protected override void DoTheImport()
     {

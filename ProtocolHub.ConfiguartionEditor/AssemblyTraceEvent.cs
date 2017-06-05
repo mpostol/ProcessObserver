@@ -14,11 +14,11 @@
 //_______________________________________________________________
 
 
-using CAS.CommServer.ProtocolHub.ConfiguartionEditor.Properties;
+using CAS.CommServer.ProtocolHub.ConfigurationEditor.Properties;
 using System;
 using System.Diagnostics;
 
-namespace CAS.CommServer.ProtocolHub.ConfiguartionEditor
+namespace CAS.CommServer.ProtocolHub.ConfigurationEditor
 {
 
   /// <summary>

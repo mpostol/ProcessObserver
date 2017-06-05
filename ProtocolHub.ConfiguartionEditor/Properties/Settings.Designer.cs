@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CAS.CommServer.ProtocolHub.ConfiguartionEditor.Properties {
+namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.Properties {
     
     
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]

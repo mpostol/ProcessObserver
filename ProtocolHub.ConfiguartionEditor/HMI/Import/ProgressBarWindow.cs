@@ -14,14 +14,10 @@
 //_______________________________________________________________
 
 using System;
-using System.Collections.Generic;
 using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 
-namespace NetworkConfig.HMI.Import
+namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI.Import
 {
   /// <summary>
   /// Class ProgressBarWindow
@@ -58,7 +54,6 @@ namespace NetworkConfig.HMI.Import
     {
       this.label_percent.Text = String.Format("{0:0.#}%", (float)progressBar1.Value / (float)(progressBar1.Maximum - progressBar1.Minimum) * 100.0f);
     }
-
     private void backgroundWorker_DoTheJob_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
     {
       if (!e.Cancelled)
@@ -67,7 +62,6 @@ namespace NetworkConfig.HMI.Import
         this.DialogResult = DialogResult.Cancel;
       this.Close();
     }
-
     private void button_cancel_Click(object sender, EventArgs e)
     {
       CancelWork();

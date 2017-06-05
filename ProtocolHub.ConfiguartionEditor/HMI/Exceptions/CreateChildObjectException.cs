@@ -15,12 +15,11 @@
 //  mailto:techsupp@cas.com.pl
 //  http:\\www.cas.eu
 //</summary>
+
 using System;
-using System.Collections.Generic;
-using System.Text;
 using System.Runtime.Serialization;
 
-namespace NetworkConfig.HMI.Exceptions
+namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI.Exceptions
 {
   /// <summary>
   /// Exception class for exceptions occurring when cannot create child object.
@@ -28,6 +27,7 @@ namespace NetworkConfig.HMI.Exceptions
   [Serializable()]
   public class CreateChildObjectException: ApplicationException
   {
+
     #region Properties
 
     private string _parent;
@@ -99,5 +99,6 @@ namespace NetworkConfig.HMI.Exceptions
     }
 
     #endregion
+
   }
 }

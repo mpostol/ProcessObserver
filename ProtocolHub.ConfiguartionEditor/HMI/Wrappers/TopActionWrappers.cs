@@ -18,12 +18,13 @@
 //  http:\\www.cas.eu
 //</summary>
 
+using CAS.NetworkConfigLib;
 using System.Data;
 using System.Windows.Forms;
-using CAS.NetworkConfigLib;
 
-namespace NetworkConfig.HMI.Wrappers
+namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI.Wrappers
 {
+
   #region TopWrapper class
   internal abstract class TopWrapper<TRow>: Action<TRow> where TRow: DataRow
   {
@@ -42,6 +43,7 @@ namespace NetworkConfig.HMI.Wrappers
     public override bool CanBeMoved() { return false; }
   }
   #endregion
+
   #region SA_TopWrapper class (Station Action TopWrapper)
   /// <summary>
   /// SA - Station Action
@@ -95,6 +97,7 @@ namespace NetworkConfig.HMI.Wrappers
     public override void MoveChildObject( IAction objToPaste ) { }
   }
   #endregion
+
   #region CA_TopWrapper class (Channel Action TopWrapper class)
   /// <summary>
   /// CA - Channel Action
@@ -142,4 +145,5 @@ namespace NetworkConfig.HMI.Wrappers
     public override void MoveChildObject( IAction objToPaste ) { }
   }
   #endregion
+
 }

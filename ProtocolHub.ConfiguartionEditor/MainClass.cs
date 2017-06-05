@@ -14,17 +14,17 @@
 //_______________________________________________________________
 
 
-using CAS.CommServer.ProtocolHub.ConfiguartionEditor.Properties;
+using CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI;
+using CAS.CommServer.ProtocolHub.ConfigurationEditor.Properties;
 using CAS.Lib.CodeProtect;
 using CAS.Lib.CodeProtect.LicenseDsc;
-using NetworkConfig.HMI;
 using System;
 using System.Diagnostics;
 using System.Windows.Forms;
 
 [assembly: CLSCompliant(true)]
 
-namespace CAS.CommServer.ProtocolHub.ConfiguartionEditor
+namespace CAS.CommServer.ProtocolHub.ConfigurationEditor
 {
   class MainClass
   {
@@ -42,13 +42,15 @@ namespace CAS.CommServer.ProtocolHub.ConfiguartionEditor
         {
           MessageBox.Show("Cannot install license, error:" + ex.Message);
         }
-      Application.Run(
+      Application.Run
+        (
           new ConfigTreeView(ConfigurationManagement.configDataBase,
-          new ConfigIOHandler(ConfigurationManagement.ReadConfiguration),
-          new ConfigIOHandler(ConfigurationManagement.SaveProc),
-          new ConfigIOHandler(ConfigurationManagement.ClearConfig),
-          new Settings().ToolsMenu
-          ));
+                             new ConfigIOHandler(ConfigurationManagement.ReadConfiguration),
+                             new ConfigIOHandler(ConfigurationManagement.SaveProc),
+                             new ConfigIOHandler(ConfigurationManagement.ClearConfig),
+                             Settings.Default.ToolsMenu)
+         );
+      AssemblyTraceEvent.Tracer.TraceMessage(TraceEventType.Verbose, 32, "Finishing application CAS.CommServer.ProtocolHub.ConfigurationEditor");
     }
   }
 }

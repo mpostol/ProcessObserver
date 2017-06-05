@@ -15,19 +15,18 @@
 //  http://www.cas.eu
 //</summary>
 
-using System;
+using CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI;
 using System.Drawing;
 using System.Windows.Forms;
-using NetworkConfig.HMI;
-using System.Data;
 
-namespace NetworkConfig
+namespace CAS.CommServer.ProtocolHub.ConfigurationEditor
 {
   /// <summary>
   /// Class responsible for storing treeview node in buffor and operation type
   /// </summary>
   public class ClipboardOperation
   {
+
     #region private
     /// <summary>
     /// Operation type
@@ -115,5 +114,6 @@ namespace NetworkConfig
       data = null;
     }
     #endregion
+
   }
 }

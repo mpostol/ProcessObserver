@@ -6,10 +6,6 @@
 //  $LastChangedBy$
 //  $URL$
 //  $Id$
-//  History :
-//    Tomek Siwecki - February 2007 - impelementation (based on previous version)
-//    <Author> - <date>:
-//    <description>
 //
 //  Copyright (C)2006, CAS LODZ POLAND.
 //  TEL: +48 (42) 686 25 47
@@ -17,19 +13,21 @@
 //  http:\\www.cas.eu
 //</summary>
 
+using CAS.CommServer.ProtocolHub.ConfigurationEditor.Properties;
+using CAS.NetworkConfigLib;
 using System;
 using System.Windows.Forms;
-using CAS.NetworkConfigLib;
-using CAS.CommServer.ProtocolHub.ConfiguartionEditor.Properties;
 
-namespace NetworkConfig.HMI
+namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
 {
   internal static class TreeBuilder
   {
+
     #region private
     private static bool configLoadedFlag = false;
     private static TreeBuilderTreeViewType treeviewType = TreeBuilderTreeViewType.StationsAndChannels;
     #endregion
+
     #region Properties
     /// <summary>
     /// TreeView type
@@ -46,6 +44,7 @@ namespace NetworkConfig.HMI
       }
     }
     #endregion
+
     #region Methods
     #region Public methods
     /// <summary>
@@ -135,5 +134,6 @@ namespace NetworkConfig.HMI
     }
     #endregion
     #endregion
+
   }
 }

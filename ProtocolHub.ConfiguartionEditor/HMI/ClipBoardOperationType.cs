@@ -15,7 +15,8 @@
 //  mailto:techsupp@cas.com.pl
 //  http:\\www.cas.eu
 //</summary>
-namespace NetworkConfig
+
+namespace CAS.CommServer.ProtocolHub.ConfigurationEditor
 {
   /// <summary>
   /// Represents copy/paste operation type

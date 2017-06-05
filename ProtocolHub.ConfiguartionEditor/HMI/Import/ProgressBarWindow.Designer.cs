@@ -1,7 +1,8 @@
-﻿namespace NetworkConfig.HMI.Import
+﻿namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI.Import
 {
   partial class ProgressBarWindow
   {
+
     /// <summary>
     /// Required designer variable.
     /// </summary>
@@ -104,5 +105,6 @@
     private System.Windows.Forms.Label label_percent;
     private System.Windows.Forms.Label label_info;
     private System.Windows.Forms.Button button_cancel;
+
   }
 }

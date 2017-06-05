@@ -16,14 +16,13 @@
 //  mailto:techsupp@cas.com.pl
 //  http:\\www.cas.eu
 //</summary>
-using System.ComponentModel;
-using System.Text;
-using System.Windows.Forms;
+
+using CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI.Exceptions;
 using CAS.NetworkConfigLib;
-using NetworkConfig.HMI.Exceptions;
-using CAS.Lib.CommonBus;
+using System.ComponentModel;
 using System.Data;
-namespace NetworkConfig.HMI
+
+namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
 {
   /// <summary>
   /// Wrapper classes that wrap <see cref="ComunicationNet.SegmentsRow"/>. It contains getters and setters to support property grid.

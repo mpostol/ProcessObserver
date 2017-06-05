@@ -17,6 +17,10 @@
 //  http://www.cas.eu
 //</summary>
 
+using CAS.Lib.CommonBus;
+using CAS.Lib.CommonBus.Components;
+using CAS.Lib.ControlLibrary;
+using CAS.NetworkConfigLib;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -24,12 +28,8 @@ using System.Data;
 using System.Drawing.Design;
 using System.Windows.Forms;
 using System.Windows.Forms.Design;
-using CAS.Lib.CommonBus;
-using CAS.Lib.CommonBus.Components;
-using CAS.Lib.ControlLibrary;
-using CAS.NetworkConfigLib;
 
-namespace NetworkConfig.HMI
+namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
 {
   internal interface IProtocolUI
   {

@@ -17,12 +17,12 @@
 //  http://www.cas.eu
 //</summary>
 
+using CAS.NetworkConfigLib;
 using System;
 using System.ComponentModel;
 using System.Data;
-using CAS.NetworkConfigLib;
 
-namespace NetworkConfig.HMI
+namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
 {
   /// <summary>
   /// Wrapper classes that wrap <see cref="ComunicationNet.GroupsRow"/>. It contains getters and setters to support property grid.
