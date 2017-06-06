@@ -32,118 +32,107 @@ using System.Windows.Forms;
 
 namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
 {
-  internal delegate void ConfigIOHandler( Form form );
-  internal class ConfigurationManagement
-  {
 
-    #region Fields
-    private static ConfigurationManagement me;
-    private static string configFileName;
-    #endregion
+  internal delegate void ConfigIOHandler(Form form);
+  internal static class ConfigurationManagement
+  {
 
     #region Properties
     public static string ConfigFileName
     {
-      get { return configFileName; }
-      set { configFileName = value; }
+      get { return m_ProtocolHubConfigurationSIngleton; }
+      set { m_ProtocolHubConfigurationSIngleton = value; }
     }
     #endregion
 
     #region Constructors
-    private ConfigurationManagement() { }
     static ConfigurationManagement()
     {
-      me = new ConfigurationManagement();
-      // 
-      // configDataBase
-      // 
-      configDataBase = new ComunicationNet();
-      configDataBase.DataSetName = "ComunicationNet";
-      configDataBase.Locale = new CultureInfo( "en-US" );
-      configDataBase.SchemaSerializationMode = SchemaSerializationMode.IncludeSchema;
+      ProtocolHubConfiguration = new ComunicationNet();
+      ProtocolHubConfiguration.DataSetName = "ComunicationNet";
+      ProtocolHubConfiguration.Locale = new CultureInfo("en-US");
+      ProtocolHubConfiguration.SchemaSerializationMode = SchemaSerializationMode.IncludeSchema;
     }
     #endregion
 
-    #region Methods
-
     #region public
-    internal static ComunicationNet configDataBase;
-    internal static void ClearConfig( Form form )
+    internal static ComunicationNet ProtocolHubConfiguration { get; private set; }
+    internal static void ClearConfig(Form form)
     {
-      if ( MessageBox.Show( form, "Clear all datagrids???", "Clear", MessageBoxButtons.YesNo, MessageBoxIcon.Question ) == DialogResult.Yes )
-        ClearConfig_perform( form );
+      if (MessageBox.Show(form, "Clear all datagrids???", "Clear", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+        ClearProtocolHubConfiguration(form);
     }
-    internal static void SaveDemoProc( Form form )
+    internal static void SaveDemoProc(Form form)
     {
-      MessageBox.Show( Resources.tx_DemoWriteErr, Resources.tx_licenseCap, MessageBoxButtons.OK, MessageBoxIcon.Hand );
+      MessageBox.Show(Resources.tx_DemoWriteErr, Resources.tx_licenseCap, MessageBoxButtons.OK, MessageBoxIcon.Hand);
     }
-    internal static void SaveProc( Form form )
+    internal static void SaveProc(Form form)
     {
       SaveFileDialog saveXMLFileDialog = new SaveFileDialog();
       saveXMLFileDialog.OverwritePrompt = true;
       saveXMLFileDialog.Filter = "XML files|*.xml";
       saveXMLFileDialog.DefaultExt = "xml";
       saveXMLFileDialog.InitialDirectory = CAS.Lib.CodeProtect.InstallContextNames.ApplicationDataPath;
-      if ( !string.IsNullOrEmpty( ConfigurationManagement.ConfigFileName ) )
+      if (!string.IsNullOrEmpty(ConfigurationManagement.ConfigFileName))
         saveXMLFileDialog.FileName = ConfigurationManagement.ConfigFileName;
-      switch ( saveXMLFileDialog.ShowDialog() )
+      switch (saveXMLFileDialog.ShowDialog())
       {
         case DialogResult.OK:
           try
           {
-            XML2DataSetIO.writeXMLFile( configDataBase, saveXMLFileDialog.FileName );
-            UpdateFormName( form, saveXMLFileDialog.FileName );
+            XML2DataSetIO.writeXMLFile(ProtocolHubConfiguration, saveXMLFileDialog.FileName);
+            UpdateFormName(form, saveXMLFileDialog.FileName);
             ConfigFileName = saveXMLFileDialog.FileName;
-            configDataBase.Channels.AcceptChanges();
-            configDataBase.Protocol.AcceptChanges();
-            configDataBase.SerialSetings.AcceptChanges();
-            configDataBase.Station.AcceptChanges();
-            configDataBase.Segments.AcceptChanges();
-            configDataBase.Interfaces.AcceptChanges();
-            configDataBase.Groups.AcceptChanges();
-            configDataBase.Tags.AcceptChanges();
-            configDataBase.TagBit.AcceptChanges();
-            configDataBase.DataBlocks.AcceptChanges();
+            ProtocolHubConfiguration.Channels.AcceptChanges();
+            ProtocolHubConfiguration.Protocol.AcceptChanges();
+            ProtocolHubConfiguration.SerialSetings.AcceptChanges();
+            ProtocolHubConfiguration.Station.AcceptChanges();
+            ProtocolHubConfiguration.Segments.AcceptChanges();
+            ProtocolHubConfiguration.Interfaces.AcceptChanges();
+            ProtocolHubConfiguration.Groups.AcceptChanges();
+            ProtocolHubConfiguration.Tags.AcceptChanges();
+            ProtocolHubConfiguration.TagBit.AcceptChanges();
+            ProtocolHubConfiguration.DataBlocks.AcceptChanges();
           }
-          catch ( Exception e )
+          catch (Exception e)
           {
-            MessageBox.Show( "Error", "I cant save file to this location because: " + e.Message, MessageBoxButtons.OK, MessageBoxIcon.Error );
+            MessageBox.Show("Error", "I cant save file to this location because: " + e.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
           }
           break;
         default:
           break;
       }
     }
-    internal static void ReadConfiguration( Form form )
+    internal static void ReadConfiguration(Form form)
     {
       OpenFileDialog openFileDialogXMLFile = new OpenFileDialog();
-      if ( ( configDataBase.Channels.GetChanges() != null )
-        || ( configDataBase.Protocol.GetChanges() != null )
-        || ( configDataBase.SerialSetings.GetChanges() != null )
-        || ( configDataBase.Segments.GetChanges() != null )
-        || ( configDataBase.Station.GetChanges() != null )
-        || ( configDataBase.Interfaces.GetChanges() != null )
-        || ( configDataBase.Groups.GetChanges() != null )
-        || ( configDataBase.Tags.GetChanges() != null )
-        || ( configDataBase.TagBit.GetChanges() != null )
-        || ( configDataBase.DataBlocks.GetChanges() != null ) )
+      if ((ProtocolHubConfiguration.Channels.GetChanges() != null)
+        || (ProtocolHubConfiguration.Protocol.GetChanges() != null)
+        || (ProtocolHubConfiguration.SerialSetings.GetChanges() != null)
+        || (ProtocolHubConfiguration.Segments.GetChanges() != null)
+        || (ProtocolHubConfiguration.Station.GetChanges() != null)
+        || (ProtocolHubConfiguration.Interfaces.GetChanges() != null)
+        || (ProtocolHubConfiguration.Groups.GetChanges() != null)
+        || (ProtocolHubConfiguration.Tags.GetChanges() != null)
+        || (ProtocolHubConfiguration.TagBit.GetChanges() != null)
+        || (ProtocolHubConfiguration.DataBlocks.GetChanges() != null))
       {
-        if ( MessageBox.Show( form, "Save current data?", "Data changed", MessageBoxButtons.YesNo, MessageBoxIcon.Question ) == DialogResult.Yes )
-          SaveProc( form );
+        if (MessageBox.Show(form, "Save current data?", "Data changed", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+          SaveProc(form);
       }
       openFileDialogXMLFile.InitialDirectory = CAS.Lib.CodeProtect.InstallContextNames.ApplicationDataPath;
       openFileDialogXMLFile.Filter = "XML files|*.xml";
       openFileDialogXMLFile.DefaultExt = ".XML";
-      switch ( openFileDialogXMLFile.ShowDialog() )
+      switch (openFileDialogXMLFile.ShowDialog())
       {
         case DialogResult.OK:
-          ClearConfig_perform( form );
+          ClearProtocolHubConfiguration(form);
 #if UNDOREDO
           RTLib.DataBase.UndoRedo.UndoRedoMenager.SuspendLogging();
 #endif
           try
           {
-            XML2DataSetIO.readXMLFile( configDataBase, openFileDialogXMLFile.FileName );
+            XML2DataSetIO.readXMLFile(ProtocolHubConfiguration, openFileDialogXMLFile.FileName);
             //int idx = 0;
             //foreach ( ComunicationNet.DataBlocksRow cr in configDataBase.DataBlocks )
             //{
@@ -152,23 +141,23 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
             //    ctg.DatBlockID = cr.DatBlockID;
             //}
           }
-          catch ( Exception e )
+          catch (Exception e)
           {
-            MessageBox.Show( "Error", "I cant load file from this location because: " + e.Message, MessageBoxButtons.OK, MessageBoxIcon.Error );
+            MessageBox.Show("Error", "I cant load file from this location because: " + e.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
           }
           //((Button)sender).Enabled = false;
           ConfigFileName = openFileDialogXMLFile.FileName;
-          UpdateFormName( form, openFileDialogXMLFile.FileName );
-          configDataBase.Channels.AcceptChanges();
-          configDataBase.Protocol.AcceptChanges();
-          configDataBase.SerialSetings.AcceptChanges();
-          configDataBase.Station.AcceptChanges();
-          configDataBase.Segments.AcceptChanges();
-          configDataBase.Interfaces.AcceptChanges();
-          configDataBase.Groups.AcceptChanges();
-          configDataBase.Tags.AcceptChanges();
-          configDataBase.TagBit.AcceptChanges();
-          configDataBase.DataBlocks.AcceptChanges();
+          UpdateFormName(form, openFileDialogXMLFile.FileName);
+          ProtocolHubConfiguration.Channels.AcceptChanges();
+          ProtocolHubConfiguration.Protocol.AcceptChanges();
+          ProtocolHubConfiguration.SerialSetings.AcceptChanges();
+          ProtocolHubConfiguration.Station.AcceptChanges();
+          ProtocolHubConfiguration.Segments.AcceptChanges();
+          ProtocolHubConfiguration.Interfaces.AcceptChanges();
+          ProtocolHubConfiguration.Groups.AcceptChanges();
+          ProtocolHubConfiguration.Tags.AcceptChanges();
+          ProtocolHubConfiguration.TagBit.AcceptChanges();
+          ProtocolHubConfiguration.DataBlocks.AcceptChanges();
 #if UNDOREDO
           RTLib.DataBase.UndoRedo.UndoRedoMenager.ClearLog();
 #endif
@@ -177,27 +166,27 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
           break;
       }
     }
-
     #endregion //public
+
     #region private
-    private static void UpdateFormName( Form form, string filename )
+    private static string m_ProtocolHubConfigurationSIngleton;
+    private static void UpdateFormName(Form form, string filename)
     {
       form.Text = "Network configuration ";
-      if ( !string.IsNullOrEmpty( filename ) )
+      if (!string.IsNullOrEmpty(filename))
         form.Text += filename;
     }
     /// <summary>
     /// Clears curent configuration dataset
     /// </summary>
-    private static void ClearConfig_perform( Form form )
+    private static void ClearProtocolHubConfiguration(Form form)
     {
-      configDataBase.Clear();
-      UpdateFormName( form, null );
+      ProtocolHubConfiguration.Clear();
+      UpdateFormName(form, null);
       ConfigFileName = null;
     }
     #endregion
 
-    #endregion
-
   }
+
 }
