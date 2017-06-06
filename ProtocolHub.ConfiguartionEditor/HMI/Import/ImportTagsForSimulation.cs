@@ -148,7 +148,7 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI.Import
       string filename = m_ImportTagsForSimulationInfo.Filename;
       int changes_number = 0;
       //dodajemy grupe:
-      ComunicationNet.GroupsRow grow = HMI.ConfigurationManagement.configDataBase.Groups.NewGroupsRow();
+      ComunicationNet.GroupsRow grow = HMI.ConfigurationManagement.ProtocolHubConfiguration.Groups.NewGroupsRow();
       //grow.GroupID = groupid;
       grow.Name = "SimulationGR_" + grow.GroupID.ToString();
       grow.StationID = stationid;
@@ -156,15 +156,15 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI.Import
       grow.TimeScanFast = 1000;
       grow.TimeOut = 10000;
       grow.TimeOutFast = 10000;
-      HMI.ConfigurationManagement.configDataBase.Groups.AddGroupsRow( grow );
+      HMI.ConfigurationManagement.ProtocolHubConfiguration.Groups.AddGroupsRow( grow );
       //dodajemy datablock
-      ComunicationNet.DataBlocksRow drow = HMI.ConfigurationManagement.configDataBase.DataBlocks.NewDataBlocksRow();
+      ComunicationNet.DataBlocksRow drow = HMI.ConfigurationManagement.ProtocolHubConfiguration.DataBlocks.NewDataBlocksRow();
       drow.GroupID = grow.GroupID;
       //drow.SatationID = stationid;
       drow.Name = "SimulationDB_" + grow.GroupID.ToString();
       drow.Address = address;
       drow.DataType = datatype;
-      HMI.ConfigurationManagement.configDataBase.DataBlocks.AddDataBlocksRow( drow );
+      HMI.ConfigurationManagement.ProtocolHubConfiguration.DataBlocks.AddDataBlocksRow( drow );
       //teraz otworzymy plik i dodamy wszystkie tagi:
       System.IO.StreamReader plik = new System.IO.StreamReader( filename, System.Text.Encoding.Default );
       string plikzawartosc = plik.ReadToEnd();
@@ -180,7 +180,7 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI.Import
           Tagname = plikzawartosc.Substring( 0, pos );
           plikzawartosc = plikzawartosc.Remove( 0, pos + 2 );
           //dodajemy taga:
-          ComunicationNet.TagsRow trow = HMI.ConfigurationManagement.configDataBase.Tags.NewTagsRow();
+          ComunicationNet.TagsRow trow = HMI.ConfigurationManagement.ProtocolHubConfiguration.Tags.NewTagsRow();
           trow.Name = Tagname;
           trow.AccessRights = (sbyte)ItemAccessRights.ReadWrite;
           trow.DatBlockID = drow.DatBlockID;
@@ -188,7 +188,7 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI.Import
           trow.StateMask = 0;
           trow.StateTrigger = (sbyte)StateTrigger.None;
           trow.Alarm = false;
-          HMI.ConfigurationManagement.configDataBase.Tags.AddTagsRow( trow );
+          HMI.ConfigurationManagement.ProtocolHubConfiguration.Tags.AddTagsRow( trow );
           changes_number++;
         }
         catch (

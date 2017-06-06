@@ -44,7 +44,7 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor
         }
       Application.Run
         (
-          new ConfigTreeView(ConfigurationManagement.configDataBase,
+          new ConfigTreeView(ConfigurationManagement.ProtocolHubConfiguration,
                              new ConfigIOHandler(ConfigurationManagement.ReadConfiguration),
                              new ConfigIOHandler(ConfigurationManagement.SaveProc),
                              new ConfigIOHandler(ConfigurationManagement.ClearConfig),

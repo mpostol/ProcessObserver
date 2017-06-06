@@ -56,10 +56,17 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
   [GuidAttribute("577750FC-CF14-406f-B367-41CE15563265")]
   internal partial class ConfigTreeView : Form
   {
+
     #region private
+    //vars
     private static CAS.NetworkConfigLib.ComunicationNet m_configDataBase;
     private readonly bool m_DemoVer = true;
+    private bool m_UAPackage = false;
     private LicenseFile m_license = null;
+    private ConfigIOHandler m_FileRead;
+    private ConfigIOHandler m_FileSave;
+    private ConfigIOHandler m_FileClear;
+    //methods
     private void ShowAboutDialog()
     {
       string usr = null;
@@ -71,17 +78,11 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
         cAboutForm.ShowDialog(this);
       }
     }
-
     private void UpdateTagNumberInfo()
     {
       this.toolStripStatusLabel_tagamount.Text = "No. of Tags: " + m_configDataBase.Tags.Count.ToString();
     }
-    private bool m_UAPackage = false;
-    #region ConfigIOHandlers
-    ConfigIOHandler fileread;
-    ConfigIOHandler filesave;
-    ConfigIOHandler fileclear;
-    #endregion
+
 #if UNDOREDO
     #region UndoRedo fields
     private bool columnErrorOnChange;
@@ -93,11 +94,9 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
     #endregion
 #endif
     #endregion
+
     #region Constructor
-    internal ConfigTreeView
-      (CAS.NetworkConfigLib.ComunicationNet configDataBase, ConfigIOHandler _fileread, ConfigIOHandler _filesave,
-        ConfigIOHandler _fileclear, bool AdvanceMenu
-      )
+    internal ConfigTreeView(CAS.NetworkConfigLib.ComunicationNet configDataBase, ConfigIOHandler fileread, ConfigIOHandler filesave, ConfigIOHandler fileclear, bool AdvanceMenu)
     {
       License lic = null;
       LicenseManager.IsValid(this.GetType(), this, out lic);
@@ -115,16 +114,16 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
       {
         MessageBox.Show
           (CAS.Lib.CodeProtect.Properties.Resources.Tx_LicDemoModeInfo, CAS.Lib.CodeProtect.Properties.Resources.Tx_LicCap, MessageBoxButtons.OK, MessageBoxIcon.Information);
-        filesave = new ConfigIOHandler(ConfigurationManagement.SaveDemoProc);
+        this.m_FileSave = new ConfigIOHandler(ConfigurationManagement.SaveDemoProc);
       }
       else
       {
         m_UAPackage = m_license.Product.ShortName.ToLower().Contains("ua");
-        filesave = _filesave;
+        this.m_FileSave = filesave;
       }
       m_configDataBase = configDataBase;
-      fileread = _fileread;
-      fileclear = _fileclear;
+      this.m_FileRead = fileread;
+      this.m_FileClear = fileclear;
       //
       // Required for Windows Form Designer support
       //
@@ -167,7 +166,7 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
         toolsToolStripMenuItem_Tools.Visible = false;
       }
     }
-    void configDataBaseDataTable_Changed(object sender, DataRowChangeEventArgs e)
+    private void configDataBaseDataTable_Changed(object sender, DataRowChangeEventArgs e)
     {
       if (!saveToolStripButton.Enabled)
       {
@@ -175,11 +174,12 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
         saveToolStripButton.Enabled = true;
       }
     }
-    void cn_TreeView_MouseDown(object sender, MouseEventArgs e)
+    private void cn_TreeView_MouseDown(object sender, MouseEventArgs e)
     {
       m_PNavigator.cn_TreeView.SelectedNode = m_PNavigator.cn_TreeView.GetNodeAt(e.X, e.Y);
     }
     #endregion
+
     #region Methods
     #region TreeView type changing
     private void StationView()
@@ -247,7 +247,7 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
     #region Open/Save
     private void Open()
     {
-      fileread(this);
+      m_FileRead(this);
       m_PNavigator.Refresh(m_configDataBase);
       saveToolStripButton.Enabled = false;
       saveToolStripMenuItem.Enabled = false;
@@ -264,7 +264,7 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
         return;
       }
       if (ConfigurationManagement.ConfigFileName == null)
-        filesave(this);
+        m_FileSave(this);
       else
         try
         {
@@ -404,6 +404,7 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
 #endif
     #endregion
     #endregion
+
     #region EventHandlers
     #region Keyboard shortcuts
     void cn_TreeView_KeyDown(object sender, KeyEventArgs e)
@@ -602,7 +603,7 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
     }
     private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
     {
-      filesave(this);
+      m_FileSave(this);
       saveToolStripButton.Enabled = false;
       saveToolStripMenuItem.Enabled = false;
     }
@@ -620,12 +621,12 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
     }
     private void clearToolStripMenuItem_Click(object sender, EventArgs e)
     {
-      fileclear(this);
+      m_FileClear(this);
       m_PNavigator.Refresh(m_configDataBase);
     }
     private void newToolStripButton_Click(object sender, EventArgs e)
     {
-      fileclear(this);
+      m_FileClear(this);
       m_PNavigator.Refresh(m_configDataBase);
     }
     private void stationToolStripMenuItem_Click(object sender, EventArgs e)
@@ -789,7 +790,7 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
 
     private void advanceToolStripMenuItem_Click(object sender, EventArgs e)
     {
-      new AdvancedFormNetworkConfig(m_configDataBase, fileread, filesave, fileclear).ShowDialog(this);
+      new AdvancedFormNetworkConfig(m_configDataBase, m_FileRead, m_FileSave, m_FileClear).ShowDialog(this);
     }
     private void sBLSToolStripMenuItem_Click_1(object sender, EventArgs e)
     {
