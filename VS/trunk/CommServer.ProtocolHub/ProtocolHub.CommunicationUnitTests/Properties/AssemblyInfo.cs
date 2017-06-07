@@ -7,7 +7,7 @@
 //  $URL$
 //  $Id$
 //
-//  Copyright (c) 2000-2016 CAS LODZ POLAND
+//  Copyright (c) 2017 CAS LODZ POLAND
 //  +48 (42) 686 25 47
 //  techsupp@cas.eu
 //  www.cas.eu
@@ -22,11 +22,11 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("CAS")]
 [assembly: AssemblyProduct("CAS CommServer Family")]
-[assembly: AssemblyCopyright("Copyright (c) 2000-2016 CAS LODZ POLAND")]
+[assembly: AssemblyCopyright("Copyright (c) 2017 CAS LODZ POLAND")]
 [assembly: AssemblyTrademark("CommServer")]
 [assembly: AssemblyCulture("")]
 [assembly: ComVisible(false)]
 [assembly: Guid( "4bdff8b4-038c-44e4-a1c2-6191ba0c591d" )]
-[assembly: AssemblyVersion("4.00.23.*")]
-[assembly: AssemblyFileVersion("4.00.23")]
+[assembly: AssemblyVersion("4.00.24.*")]
+[assembly: AssemblyFileVersion("4.00.24")]
 

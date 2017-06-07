@@ -918,4 +918,5 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
 
     #endregion
   }
+
 }
