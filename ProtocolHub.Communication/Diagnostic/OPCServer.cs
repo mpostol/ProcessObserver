@@ -44,7 +44,7 @@ namespace CAS.CommServer.ProtocolHub.Communication.Diagnostic
         base.UpdateTag( value );
       }
     }
-    public OPCValTag( string Name, System.Type datatype )
+    public OPCValTag( string Name, Type datatype )
       : base( Name, null, Opc.Da.qualityBits.bad, ItemAccessRights.ReadOnly, datatype )
     {
       this.EuType = Opc.Da.euType.noEnum;

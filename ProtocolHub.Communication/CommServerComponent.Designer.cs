@@ -13,6 +13,9 @@
 //  http://www.cas.eu
 //_______________________________________________________________
 
+using CAS.Lib.CommonBus;
+using System.ComponentModel;
+
 namespace CAS.CommServer.ProtocolHub.Communication
 {
   partial class CommServerComponent
@@ -20,7 +23,7 @@ namespace CAS.CommServer.ProtocolHub.Communication
     /// <summary>
     /// Required designer variable.
     /// </summary>
-    private System.ComponentModel.IContainer components = null;
+    private IContainer components = null;
 
     #region Component Designer generated code
     /// <summary>
@@ -29,11 +32,11 @@ namespace CAS.CommServer.ProtocolHub.Communication
     /// </summary>
     private void InitializeComponent()
     {
-      this.components = new System.ComponentModel.Container();
-      this.m_CommonBusControl = new CAS.Lib.CommonBus.CommonBusControl( this.components );
+      this.components = new Container();
+      this.m_CommonBusControl = new CommonBusControl( this.components );
 
     }
     #endregion
-    internal CAS.Lib.CommonBus.CommonBusControl m_CommonBusControl;
+    internal CommonBusControl m_CommonBusControl;
   }
 }
