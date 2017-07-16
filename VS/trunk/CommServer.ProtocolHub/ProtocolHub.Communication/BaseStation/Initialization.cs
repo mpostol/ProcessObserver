@@ -1,5 +1,5 @@
 //_______________________________________________________________
-//  Title   : Name of Application
+//  Title   : Initialization
 //  System  : Microsoft VisualStudio 2015 / C#
 //  $LastChangedDate$
 //  $Rev$
@@ -24,7 +24,6 @@ namespace CAS.CommServer.ProtocolHub.Communication.BaseStation
   /// </summary>
   internal static class Initialization
   {
-#if COMMSERVER
     internal static ItemDecriberDataSet m_ds_dsc;
     private static void InitializeItemDescriber()
     {
@@ -32,7 +31,6 @@ namespace CAS.CommServer.ProtocolHub.Communication.BaseStation
       m_ds_dsc = new ItemDecriberDataSet();
       xml_desc.readXMLFile(m_ds_dsc, AppConfigManagement.ItemDsc_configfile);
     }
-#endif
     /// <summary>
     /// Initialize the communication server
     /// </summary>
@@ -43,7 +41,6 @@ namespace CAS.CommServer.ProtocolHub.Communication.BaseStation
     internal static void InitializeServer(CommServerComponent parent, bool demoVer, ref int valueConstrain, string configurationFileName)
     {
       ProtocolHubConfiguration xml = new ProtocolHubConfiguration(configurationFileName, true);
-#if COMMSERVER
       try
       {
         InitializeItemDescriber();
@@ -52,13 +49,10 @@ namespace CAS.CommServer.ProtocolHub.Communication.BaseStation
       {
         CommServerComponent.Tracer.TraceWarning(98, typeof(Initialization).FullName + ".Initialization", ex.Message);
       }
-#endif
       //CAS.OpcSvr.Da.NETServer.Initialization.InitComponent();
       Station.InitStations(xml.configuration.Station, ref valueConstrain);
       Channel.InitializeChannels(xml.configuration.Channels, parent, demoVer);
-#if COMMSERVER
       Station.SwitchOnDataScanning();
-#endif
     }
     internal static void Finalise()
     {

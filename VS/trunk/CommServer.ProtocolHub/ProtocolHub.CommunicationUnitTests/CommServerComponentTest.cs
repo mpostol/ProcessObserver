@@ -55,7 +55,7 @@ namespace CAS.CommServer.ProtocolHub.CommunicationUnitTests
       TraceEvent _tracer = CommServerComponent.Tracer;
       FileInfo _logFileInfo = new FileInfo(@"CAS.CommServer.ProtocolHub.Communication.log");
       long _logFileLength = _logFileInfo.Length;
-      Assert.IsTrue(500 < _logFileLength, $"The file lentht is {_logFileLength} but expected 500+");
+      Assert.IsTrue(500 < _logFileLength, $"The file lentht is {_logFileLength} but expected < 500");
       _tracer.TraceVerbose(0, "Unit Test", "LogFileExistsTest is executed");
       _logFileInfo.Refresh();
       Assert.IsTrue(_logFileInfo.Exists);

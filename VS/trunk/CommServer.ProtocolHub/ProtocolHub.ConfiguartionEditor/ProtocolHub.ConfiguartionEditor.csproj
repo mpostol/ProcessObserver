@@ -323,9 +323,6 @@
     <Content Include="DefaultConfig.xml">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
-    <None Include="CAS.License.lic">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
     <None Include="Konfig_Full.ico" />
     <None Include="cas.snk" />
     <None Include="packages.config" />

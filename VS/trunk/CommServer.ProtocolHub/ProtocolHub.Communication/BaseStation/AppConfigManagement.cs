@@ -27,16 +27,13 @@ namespace CAS.CommServer.ProtocolHub.Communication
     internal static readonly int RemotingHTTPport = 5000;
     internal static readonly int ConsoleRemotingHTTPport = 5757;
     internal static readonly string ItemDsc_configfile;
-#if SNIFFER
-    internal static readonly uint   TagDefaultTimeout= 1000;
-#endif
     static AppConfigManagement()
     {
       ItemDsc_configfile = ApplicationConfiguration.GetAppSetting("ItemDsc_configfile", "");
       FileInfo fi = RelativeFilePathsCalculator.GetAbsolutePathToFileInApplicationDataFolder( ItemDsc_configfile );
       if ( ItemDsc_configfile == null || ItemDsc_configfile.Length < 3 )
       {
-        FileInfo fiIfNull = RelativeFilePathsCalculator.GetAbsolutePathToFileInApplicationDataFolder( "\\item_dsc.xml" );
+        FileInfo fiIfNull = RelativeFilePathsCalculator.GetAbsolutePathToFileInApplicationDataFolder( @"\item_dsc.xml" );
         ItemDsc_configfile = fiIfNull.FullName;
       }
       else
@@ -44,14 +41,5 @@ namespace CAS.CommServer.ProtocolHub.Communication
       RemotingHTTPport = ApplicationConfiguration.GetAppSetting( "RemotingHTTPport", RemotingHTTPport );
       ConsoleRemotingHTTPport = ApplicationConfiguration.GetAppSetting("ConsoleRemotingHTTPport", ConsoleRemotingHTTPport);
     }
-#if SNIFFER
-      //GroupScanRate
-      try {TagDefaultTimeout = System.UInt16.Parse(System.Configuration.ConfigurationSettings.AppSettings["StdTimeout"]); } 
-      catch (Exception ex)
-      {
-        new Processes.EventLogMonitor(ex.Message+" - Problem with StdTimeout parameter", System.Diagnostics.EventLogEntryType.Error, 
-          (int)Processes.Error.RTLib_AppConfigManagement, 26).WriteEntry();
-      }
-#endif
   }
 }
