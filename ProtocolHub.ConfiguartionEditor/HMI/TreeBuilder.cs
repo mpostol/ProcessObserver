@@ -16,7 +16,9 @@
 using CAS.CommServer.ProtocolHub.ConfigurationEditor.Properties;
 using CAS.NetworkConfigLib;
 using System;
+using System.Collections.Generic;
 using System.Windows.Forms;
+using System.Linq;
 
 namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
 {
@@ -108,7 +110,9 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
     /// <param name="parentNode"></param>
     private static void CreateTreeFromStationAndChannels(ComunicationNet configDataBase, TreeView parentNode)
     {
-      foreach (TreeNode cn in parentNode.Nodes)
+      List<TreeNode> _nodes = new List<TreeNode>();
+      _nodes.AddRange(parentNode.Nodes.Cast<TreeNode>());
+      foreach (TreeNode cn in _nodes)
         ((IAction)cn.Tag).Dispose();
       parentNode.Nodes.Add(Wrappers.CA_TopWrapper.CreateNode(configDataBase));
       parentNode.Nodes.Add(Wrappers.SA_TopWrapper.CreateNode(configDataBase));

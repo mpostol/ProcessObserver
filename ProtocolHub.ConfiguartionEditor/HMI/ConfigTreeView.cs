@@ -54,7 +54,7 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
   /// </summary>
   [LicenseProvider(typeof(CodeProtectLP))]
   [GuidAttribute("577750FC-CF14-406f-B367-41CE15563265")]
-  internal partial class ConfigTreeView : Form
+  public partial class ConfigTreeView : Form
   {
 
     #region private
@@ -96,7 +96,7 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
     #endregion
 
     #region Constructor
-    internal ConfigTreeView(CAS.NetworkConfigLib.ComunicationNet configDataBase, ConfigIOHandler fileread, ConfigIOHandler filesave, ConfigIOHandler fileclear, bool AdvanceMenu)
+    public ConfigTreeView(CAS.NetworkConfigLib.ComunicationNet configDataBase, ConfigIOHandler fileread, ConfigIOHandler filesave, ConfigIOHandler fileclear, bool AdvanceMenu)
     {
       License lic = null;
       LicenseManager.IsValid(this.GetType(), this, out lic);

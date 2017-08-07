@@ -31,7 +31,7 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor
     [STAThread]
     static void Main()
     {
-      AssemblyTraceEvent.Tracer.TraceMessage(TraceEventType.Verbose, 32, "Starting application CAS.CommServer.ProtocolHub.ConfiguartionEditor");
+      AssemblyTraceEvent.Tracer.TraceMessage(TraceEventType.Verbose, 32, "Starting application CAS.CommServer.ProtocolHub.ConfigurationEditor");
       string m_CommandLine = Environment.CommandLine;
       if (m_CommandLine.ToLower().Contains("installic"))
         try
