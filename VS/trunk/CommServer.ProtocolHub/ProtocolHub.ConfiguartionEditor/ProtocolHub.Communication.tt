@@ -1,0 +1,51 @@
+<#@ template debug="false" hostspecific="false" language="C#" #>
+<#@ output extension=".nuspec" #>
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id><#=m_AssemblyTitle#></id>
+    <version><#= CASCommServerProtocolHubConfigurationEditorVersion #><#= CASCommServerProtocolHubConfigurationEditorPrerelease #></version>
+    <title>Configuration editor of the communication network.</title>
+    <authors><#=AssemblyCompany#></authors>
+    <owners><#=Owner#></owners>
+    <projectUrl>svn://svnserver.hq.cas.com.pl/VS/trunk/CommServer.ProtocolHub/ProtocolHub.ConfiguartionEditor</projectUrl>
+    <licenseUrl>http://www.commsvr.com/DownloadCenter/ProductSoftware/LicenseAgreement.aspx</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <developmentDependency>false</developmentDependency>
+    <description>
+      Configuration editor of the CAS.CommServer.ProtocolHub communication servers for large scale distributed systems.
+    </description>
+    <summary>
+      Configuration editor of the CAS.CommServer.ProtocolHub communication servers for large scale distributed systems.
+    </summary>
+    <releaseNotes>
+      Released for Maintenance 2017
+    </releaseNotes>
+    <copyright><#=AssemblyCopyright#></copyright>
+    <tags>Communication Engine, CommServer, DataPorter, Protocol Hub.</tags>
+    <dependencies>
+      <dependency id="CAS.CodeProtect" version="6.1.3"  />
+      <dependency id="CAS.Windows.Forms" version="6.1.2"  />
+      <dependency id="CAS.CommServer.CommonBus" version="5.01.06"  />
+      <dependency id="CAS.CommServer.DAServerConfiguration" version="5.01.06"  />
+      <dependency id="CAS.CommServer.DeviceSimulator" version="5.01.06"  />
+      <dependency id="CAS.CommServer.OPCClassic.SDK.Core" version="2.01.1062"  />
+      <dependency id="CAS.CommServer.ProtocolHub.ItemDescriber" version="5.01.06"  />
+      <dependency id="CAS.RealTime" version="5.0.6"  />
+      <dependency id="CAS.CommServer.DataProvider.Package" version="3.90.04"  />
+      <dependency id="System.Reactive" version="3.1.1"  />
+      <dependency id="System.Reactive.Core" version="3.1.1"  />
+      <dependency id="System.Reactive.Interfaces" version="3.1.1"  />
+      <dependency id="System.Reactive.Linq" version="3.1.1"  />
+      <dependency id="System.Reactive.PlatformServices" version="3.1.1"  />
+      <dependency id="System.Reactive.Windows.Threading" version="3.1.1"  />
+    </dependencies>
+  </metadata>
+  <files>
+    <file src="bin\Release\CAS.CommServer.ProtocolHub.ConfigurationEditor.exe" target="lib\net461\CAS.CommServer.ProtocolHub.ConfigurationEditor.exe" />
+  </files>
+</package>
+
+<#@ include file = "..\..\PR39-CommonResources\T4Definitions\CAS.OPC.t4" #>
+  
+<#+ string m_AssemblyTitle = "CAS.CommServer.ProtocolHub.ConfigurationEditor"; #>

@@ -17,7 +17,7 @@
 
 namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
 {
-  internal partial class ConfigTreeView
+  public partial class ConfigTreeView
   {
     /// <summary>
     /// Required designer variable.

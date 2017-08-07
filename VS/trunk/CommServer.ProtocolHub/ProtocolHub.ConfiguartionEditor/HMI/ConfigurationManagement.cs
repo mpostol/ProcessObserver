@@ -33,8 +33,8 @@ using System.Windows.Forms;
 namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
 {
 
-  internal delegate void ConfigIOHandler(Form form);
-  internal static class ConfigurationManagement
+  public delegate void ConfigIOHandler(Form form);
+  public static class ConfigurationManagement
   {
 
     #region Properties
@@ -56,17 +56,17 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
     #endregion
 
     #region public
-    internal static ComunicationNet ProtocolHubConfiguration { get; private set; }
-    internal static void ClearConfig(Form form)
+    public static ComunicationNet ProtocolHubConfiguration { get; private set; }
+    public static void ClearConfig(Form form)
     {
-      if (MessageBox.Show(form, "Clear all datagrids???", "Clear", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+      if (MessageBox.Show(form, "Clear all data grids???", "Clear", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
         ClearProtocolHubConfiguration(form);
     }
     internal static void SaveDemoProc(Form form)
     {
       MessageBox.Show(Resources.tx_DemoWriteErr, Resources.tx_licenseCap, MessageBoxButtons.OK, MessageBoxIcon.Hand);
     }
-    internal static void SaveProc(Form form)
+    public static void SaveProc(Form form)
     {
       SaveFileDialog saveXMLFileDialog = new SaveFileDialog();
       saveXMLFileDialog.OverwritePrompt = true;
@@ -103,7 +103,7 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
           break;
       }
     }
-    internal static void ReadConfiguration(Form form)
+    public static void ReadConfiguration(Form form)
     {
       OpenFileDialog openFileDialogXMLFile = new OpenFileDialog();
       if ((ProtocolHubConfiguration.Channels.GetChanges() != null)

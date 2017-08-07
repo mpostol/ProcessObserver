@@ -141,7 +141,9 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="cas.snk" />
-    <None Include="packages.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="My friends3.ico" />
