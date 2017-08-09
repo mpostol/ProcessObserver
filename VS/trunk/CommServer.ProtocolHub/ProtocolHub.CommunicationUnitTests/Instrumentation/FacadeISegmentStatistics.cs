@@ -13,8 +13,7 @@
 //  http://www.cas.eu
 //_______________________________________________________________
 
-using BaseStation.Management;
-using CAS.Lib.CommServerConsoleInterface;
+using CAS.CommServer.ProtocolHub.MonitorInterface;
 using System;
 
 namespace CAS.CommServer.ProtocolHub.CommunicationUnitTests.Instrumentation

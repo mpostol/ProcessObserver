@@ -6,8 +6,6 @@
 //  $LastChangedBy$
 //  $URL$
 //  $Id$
-//  History :
-//    MZbrzezny 2006-03-01: created
 //
 //  Copyright (C)2006, CAS LODZ POLAND.
 //  TEL: +48 (42) 686 25 47
@@ -15,8 +13,8 @@
 //  http://www.cas.eu
 //</summary>
 
-using BaseStation.Management;
 using CAS.CommServer.ProtocolHub.Communication.Properties;
+using CAS.CommServer.ProtocolHub.MonitorInterface;
 using CAS.Lib.RTLib.Management;
 using CAS.Lib.RTLib.Processes;
 using System;
@@ -24,14 +22,14 @@ using System.Collections.Generic;
 using System.Runtime.Remoting;
 using System.Runtime.Remoting.Channels;
 using System.Runtime.Remoting.Channels.Tcp;
-using Statistics = BaseStation.Management.Statistics;
+using static CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics;
 
 namespace CAS.CommServer.ProtocolHub.Communication.BaseStation
 {
   /// <summary>
   /// Summary description for ConsoleIterface.
   /// </summary>
-  public class ConsoleIterface : global::BaseStation.ConsoleIterfaceAbstract
+  public class ConsoleIterface : ConsoleInterfaceAbstract
   {
     private class StatisticAndIUpdatePair<StatT>
     {
@@ -145,7 +143,7 @@ namespace CAS.CommServer.ProtocolHub.Communication.BaseStation
     /// </summary>
     /// <param name="index">The index.</param>
     /// <returns>selected (by index) interface</returns>
-    public override Statistics.InterfaceStatistics.InterfaceStatisticsInternal GetInterface(ulong index)
+    public override InterfaceStatisticsInternal GetInterface(ulong index)
     {
       Statistics.InterfaceStatistics.InterfaceStatisticsInternal Interface =
        interfacelistpairs[index].GetStatisticsObjectUpdated();
