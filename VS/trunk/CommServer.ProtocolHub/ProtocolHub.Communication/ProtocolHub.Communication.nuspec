@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
   <metadata>
     <id>CAS.CommServer.ProtocolHub.Communication</id>
-    <version>4.00.24</version>
+    <version>4.01.0</version>
     <title>Redundant, multi-protocol, multi-channel communication hub for large scale distributed systems.</title>
     <authors>CAS</authors>
     <owners>commsvr.com</owners>

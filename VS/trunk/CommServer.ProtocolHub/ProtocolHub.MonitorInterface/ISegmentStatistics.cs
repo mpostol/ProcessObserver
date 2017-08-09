@@ -1,27 +1,27 @@
-﻿//<summary>
-//  Title   : Interface of the Segment Statistics
-//  System  : Microsoft Visual C# .NET 2005
+﻿//_______________________________________________________________
+//  Title   : ISegmentStatistics
+//  System  : Microsoft VisualStudio 2015 / C#
 //  $LastChangedDate$
 //  $Rev$
 //  $LastChangedBy$
 //  $URL$
 //  $Id$
-//  History :
-//    MPostol creatyed 
 //
-//  Copyright (C)2006, CAS LODZ POLAND.
-//  TEL: +48 (42) 686 25 47
-//  mailto:techsupp@cas.com.pl
-//  http:\\www.cas.eu
-//</summary>
-using System;
-namespace CAS.Lib.CommServerConsoleInterface
+//  Copyright (C) 2017, CAS LODZ POLAND.
+//  TEL: +48 608 61 98 99 
+//  mailto://techsupp@cas.eu
+//  http://www.cas.eu
+//_______________________________________________________________
+
+namespace CAS.CommServer.ProtocolHub.MonitorInterface
 {
+
   /// <summary>
   /// Interface of the Segment Statistics
   /// </summary>
   public interface ISegmentStatistics: IInterface2SegmentLink
   {
+    
     /// <summary>
     /// Marks the Segment connection failure.
     /// </summary>
@@ -30,7 +30,7 @@ namespace CAS.Lib.CommServerConsoleInterface
     /// Sets the new state.
     /// </summary>
     /// <value>The new state.</value>
-    BaseStation.Management.Statistics.SegmentStatistics.States NewState { set; }
+    Statistics.SegmentStatistics.States NewState { set; }
     /// <summary>
     /// Sets the overtime coefficients.
     /// </summary>
@@ -38,5 +38,6 @@ namespace CAS.Lib.CommServerConsoleInterface
     /// <param name="max">The max. value</param>
     /// <param name="avr">The average value</param>
     void SetOvertimeCoefficient( long min, long max, long avr );
+
   }
 }

@@ -1,13 +1,11 @@
 //<summary>
-//  Title   : ConsoleIterfaceAbstract
+//  Title   : ConsoleInterfaceAbstract
 //  System  : Microsoft Visual C# .NET 2005
 //  $LastChangedDate$
 //  $Rev$
 //  $LastChangedBy$
 //  $URL$
 //  $Id$
-//  History :
-//    MZbrzezny 2006-03-01: created
 //
 //  Copyright (C)2006, CAS LODZ POLAND.
 //  TEL: +48 (42) 686 25 47
@@ -15,17 +13,16 @@
 //  http://www.cas.eu
 //</summary>
 
+using CAS.Lib.RTLib.Management;
 using System;
 using System.Collections.Generic;
-using BaseStation.Management;
-using CAS.Lib.RTLib.Management;
 
-namespace BaseStation
+namespace CAS.CommServer.ProtocolHub.MonitorInterface
 {
   /// <summary>
-  /// Summary description for ConsoleIterfaceAbstract.
+  /// Summary description for ConsoleInterfaceAbstract.
   /// </summary>
-  public abstract class ConsoleIterfaceAbstract: MarshalByRefObject
+  public abstract class ConsoleInterfaceAbstract : MarshalByRefObject
   {
     /// <summary>
     /// Gets the run time in seconds.

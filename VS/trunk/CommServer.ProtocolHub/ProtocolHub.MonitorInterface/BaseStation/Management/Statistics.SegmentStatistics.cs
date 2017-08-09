@@ -13,15 +13,16 @@
 //  http://www.cas.eu
 //_______________________________________________________________
 
-using CAS.Lib.CommServerConsoleInterface;
-using CAS.Lib.CommServerConsoleInterface.Properties;
+using CAS.CommServer.ProtocolHub.MonitorInterface.Properties;
 using CAS.Lib.RTLib.Management;
+using CAS.Lib.RTLib.Processes;
 using CAS.Lib.RTLib.Utils;
 using System;
+using System.Collections;
 using System.Text;
 using CommunicationDSC = CAS.NetworkConfigLib.ComunicationNet;
 
-namespace BaseStation.Management
+namespace CAS.CommServer.ProtocolHub.MonitorInterface
 {
 
   /// <summary>
@@ -39,16 +40,16 @@ namespace BaseStation.Management
 
       #region PRIVATE
       private readonly DateTime startTime = DateTime.Now;
-      private System.Collections.ArrayList interfaceList = new System.Collections.ArrayList();
+      private ArrayList interfaceList = new ArrayList();
       private ChannelStatistics myChannel;
-      private CAS.Lib.RTLib.Processes.Stopwatch SW_WriteDelay = new CAS.Lib.RTLib.Processes.Stopwatch();
-      private CAS.Lib.RTLib.Processes.Stopwatch SW_ReadDelay = new CAS.Lib.RTLib.Processes.Stopwatch();
-      private CAS.Lib.RTLib.Processes.Stopwatch SW_ConnectTime = new CAS.Lib.RTLib.Processes.Stopwatch();
+      private Stopwatch SW_WriteDelay = new Stopwatch();
+      private Stopwatch SW_ReadDelay = new Stopwatch();
+      private Stopwatch SW_ConnectTime = new Stopwatch();
       //this region is used for updating OPC tags
       /// <summary>
       /// connect time
       /// </summary>
-      private CAS.Lib.RTLib.Processes.Stopwatch connectTime = new CAS.Lib.RTLib.Processes.Stopwatch();
+      private Stopwatch connectTime = new Stopwatch();
       /// <summary>
       /// MinMaxAvr Read Delay
       /// </summary>
@@ -143,8 +144,8 @@ namespace BaseStation.Management
               myStat.ConnMadeCount++;
               voidV = SW_ReadDelay.Stop;
               voidV = SW_WriteDelay.Stop;
-              mmaReadDelay.Add = (long)CAS.Lib.RTLib.Processes.Stopwatch.ConvertTo_ms( SW_ReadDelay.Reset );
-              mmaWriteDelay.Add = (long)CAS.Lib.RTLib.Processes.Stopwatch.ConvertTo_ms( SW_WriteDelay.Reset );
+              mmaReadDelay.Add = (long)Stopwatch.ConvertTo_ms( SW_ReadDelay.Reset );
+              mmaWriteDelay.Add = (long)Stopwatch.ConvertTo_ms( SW_WriteDelay.Reset );
               voidV = connectTime.Start;
               SW_ConnectTime.StartReset();
               break;
@@ -507,10 +508,10 @@ namespace BaseStation.Management
       /// <summary>
       /// Adds the interface.
       /// </summary>
-      /// <param name="intr">The intr.</param>
-      void IInterface2SegmentLink.AddInterface( InterfaceStatistics intr )
+      /// <param name="interfaceStatistics">An object encapsulating interface statistic.</param>
+      void IInterface2SegmentLink.AddInterface( InterfaceStatistics interfaceStatistics)
       {
-        interfaceList.Add( intr );
+        interfaceList.Add(interfaceStatistics);
       }
       /// <summary>
       /// Gets the get OPC prefix.
@@ -520,7 +521,7 @@ namespace BaseStation.Management
       #endregion
       #region HMI
       /// <summary>
-      /// Dalegate that is used when state is changed
+      /// Delegate that is used when state is changed
       /// </summary>
       public delegate void StateChanged( States currState );
       /// <summary>
@@ -535,7 +536,7 @@ namespace BaseStation.Management
       {
         get
         {
-          myStat.ConnectTime = CAS.Lib.RTLib.Processes.Stopwatch.ConvertTo_s( connectTime.Read );
+          myStat.ConnectTime = Stopwatch.ConvertTo_s( connectTime.Read );
           return myStat.ConnectTime;
         }
       }
@@ -585,9 +586,9 @@ namespace BaseStation.Management
         get { return myStat.Connected; }
       }
       /// <summary>
-      /// Gets the get made (successfull connections) count.
+      /// Gets the get made (successful connections) count.
       /// </summary>
-      /// <value>The get made(successfull connections)  count.</value>
+      /// <value>The get made(successful connections)  count.</value>
       public string GetMadeCount
       {
         get { return myStat.GetMadeCount; }
@@ -611,6 +612,7 @@ namespace BaseStation.Management
           return myStat.GetOvertimeCoefficient;
         }
       }
+
       #region MinMaxAvgReaders
       //WriteDelay
       /// <summary>
@@ -736,6 +738,7 @@ namespace BaseStation.Management
         myStat.SetOvertimeCoefficient( min, max, avr );
       }
       #endregion
+
       #region creator
       /// <summary>
       /// Initializes a new instance of the <see cref="SegmentStatistics"/> class.
@@ -765,6 +768,7 @@ namespace BaseStation.Management
       }
 
       #endregion
+      
       #endregion PUBLIC
 
       #region IHtmlOutput Members

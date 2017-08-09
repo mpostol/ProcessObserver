@@ -17,9 +17,10 @@
 using CAS.Lib.RTLib.Management;
 using CAS.Lib.RTLib.Processes;
 using System;
+using System.Threading;
 using CommunicationDSC = CAS.NetworkConfigLib.ComunicationNet;
 
-namespace BaseStation.Management
+namespace CAS.CommServer.ProtocolHub.MonitorInterface
 {
   /// <summary>
   /// class that allows logging from statistics related classes - source "CAS.BaseStation.Management.Statistics"
@@ -105,7 +106,7 @@ namespace BaseStation.Management
         new System.Threading.ThreadStart( MonitoringMet ),
         "Metronom",
         true,
-        System.Threading.ThreadPriority.Normal
+        ThreadPriority.Normal
         );
     }
     #endregion
