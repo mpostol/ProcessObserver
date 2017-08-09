@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace CAS.Lib.CommServerConsoleInterface.Properties {
+namespace CAS.CommServer.ProtocolHub.MonitorInterface.Properties {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace CAS.Lib.CommServerConsoleInterface.Properties {
         internal static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("CAS.Lib.CommServerConsoleInterface.Properties.Resources", typeof(Resources).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("CAS.CommServer.ProtocolHub.MonitorInterface.Properties.Resources", typeof(Resources).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

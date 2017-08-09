@@ -13,11 +13,10 @@
 //  http://www.cas.eu
 //_______________________________________________________________
 
-using CAS.Lib.CommServerConsoleInterface;
 using CAS.Lib.RTLib.Management;
 using System;
 
-namespace BaseStation.Management
+namespace CAS.CommServer.ProtocolHub.MonitorInterface
 {
   /// <summary>
   /// Communication statistics management class
@@ -428,7 +427,7 @@ namespace BaseStation.Management
       /// <summary>
       /// variable resposible for row color changing
       /// </summary>
-      private static bool changecolor = true;
+      private static bool changeColor = true;
       /// <summary>
       /// returns row color class
       /// </summary>
@@ -436,14 +435,14 @@ namespace BaseStation.Management
       {
         get
         {
-          changecolor = !changecolor;
-          if (changecolor)
+          changeColor = !changeColor;
+          if (changeColor)
             return "k41";
           return "k4";
         }
       }
       /// <summary>
-      /// this function is for retreiving description fot this object in the HTML
+      /// this function is for retrieving description fot this object in the HTML
       /// </summary>
       /// <returns>string with HTML output</returns>
       public string GetHtmlTableRowDescription()
@@ -476,7 +475,7 @@ namespace BaseStation.Management
         return ret;
       }
       /// <summary>
-      /// this function is for retreiving data that represens that object (data + description)
+      /// this function is for retrieving data that represents that object (data + description)
       /// </summary>
       /// <returns>string with HTML data</returns>
       public string ToHtml()
