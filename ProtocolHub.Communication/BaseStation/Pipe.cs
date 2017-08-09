@@ -14,8 +14,8 @@
 //_______________________________________________________________
 
 using CAS.CommServer.ProtocolHub.Communication.LicenseControl;
+using CAS.CommServer.ProtocolHub.MonitorInterface;
 using CAS.Lib.CommonBus.ApplicationLayer;
-using CAS.Lib.CommServerConsoleInterface;
 using CAS.Lib.RTLib.Processes;
 using CAS.NetworkConfigLib;
 using System;

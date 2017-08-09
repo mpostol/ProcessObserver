@@ -76,11 +76,7 @@ namespace CAS.CommServer.ProtocolHub.Communication.BaseStation
     #endregion //IBlockDescription
 
     #region PUBLIC
-#if OPCCLIENT
-		internal abstract class Tag: OPC.OPC_Interface.OPC_Interface_Tag
-#elif COMMSERVER
     internal abstract class Tag : Device.TagInDevice
-#endif
     {
 
       #region PRIVATE
@@ -168,37 +164,15 @@ namespace CAS.CommServer.ProtocolHub.Communication.BaseStation
         else
           return typeof(object);
       }
-#if OPCCLIENT
-			internal override bool 
-#elif COMMSERVER
-      public override void
-#endif
- UpdateTag(object Val)
+      public override void UpdateTag(object Val)
       {
-#if OPCCLIENT
-	if ( ! base.UpdateTag(Val) ) return false;
-#elif COMMSERVER
         base.UpdateTag(Val);
-#endif
         CheckTagAlarm(Val);
-#if OPCCLIENT
-				return true;
-#endif
       }
-#if OPCCLIENT
-			internal
-#elif COMMSERVER
-      public override
-#endif
- bool GetVal(ref object Val)
+      public override bool GetVal(ref object Val)
       {
-#if OPCCLIENT
-				Val=base.Value.Value;
-				if(base.Value.Quality.QualityBits != Opc.Da.qualityBits.good)return false;
-#elif COMMSERVER
         if (!base.GetVal(ref Val))
           return false;
-#endif
         CheckTagAlarm(Val);
         return true;
       }
@@ -207,18 +181,8 @@ namespace CAS.CommServer.ProtocolHub.Communication.BaseStation
       /// </summary>
       /// <param name="myDSC">params from Tags table</param>
       /// <param name="myStation">pointer to interface that allow to change priority of the station</param>
-#if OPCCLIENT
-			internal Tag
-				( BaseStation.Management.Tag myDSC, IStationState myStation )
-				:base(myDSC,//myDSC.Name,  
-				null, // MPTD raczej empy wariant
-				Opc.Da.qualityBits.badNotConnected, 
-				myDSC.Writeable ,null,"") //MZTD: - dodac opisy dla tagow i ew. path
-#elif COMMSERVER
-      internal Tag
-          (ComunicationNet.TagsRow myDSC, IStationState myStation)
+      internal Tag(ComunicationNet.TagsRow myDSC, IStationState myStation)
           : base(myDSC.Name, null, Opc.Da.qualityBits.badNotConnected, (ItemAccessRights)myDSC.AccessRights, GetDataTypeFromConfig(myDSC))
-#endif
       {
         switch ((StateTrigger)myDSC.StateTrigger)
         {
@@ -233,21 +197,20 @@ namespace CAS.CommServer.ProtocolHub.Communication.BaseStation
         }
         stateMask = (int)myDSC.StateMask;
         this.myStation = myStation;
-#if COMMSERVER
         this.EuType = Opc.Da.euType.noEnum;
         ItemPropertyCollection itemPropertyCollection = new ItemPropertyCollection();
         foreach (ComunicationNet.ItemPropertiesTableRow row_property in myDSC.GetItemPropertiesTableRows())
         {
           try
           {
-            Opc.Da.PropertyDescription prop_dsc =
-                Opc.Da.PropertyDescription.Find(
-                new Opc.Da.PropertyID(
+            PropertyDescription prop_dsc =
+                PropertyDescription.Find(
+                new PropertyID(
                     new XmlQualifiedName(row_property.ID_Name_Name, row_property.ID_Name_Namespace)
                     ));
-            Opc.Da.ItemProperty itemprop = new Opc.Da.ItemProperty();
-            itemprop.ID = prop_dsc.ID;
-            itemprop.Value = row_property.Value;
+            ItemProperty _itemProperty = new ItemProperty();
+            _itemProperty.ID = prop_dsc.ID;
+            _itemProperty.Value = row_property.Value;
             if (prop_dsc.ID != Opc.Da.Property.DATATYPE) //this property is managed differently 
                                                          // as GetDataTypeFromConfig( myDSC ) 
                                                          // at the constructor
@@ -264,24 +227,24 @@ namespace CAS.CommServer.ProtocolHub.Communication.BaseStation
                 // this property contains double value
                 double prop_value = 0;
                 if (double.TryParse(row_property.Value, out prop_value))
-                  itemprop.Value = prop_value;
+                  _itemProperty.Value = prop_value;
               }
               if (prop_dsc.ID == Opc.Da.Property.EUTYPE)
               {
-                itemprop.Value = Opc.Da.euType.noEnum;
+                _itemProperty.Value = Opc.Da.euType.noEnum;
                 // this property contains vale from enum: Opc.Da.euType
                 foreach (Opc.Da.euType NEWeuType in Enum.GetValues(typeof(Opc.Da.euType)))
                 {
                   if (NEWeuType.ToString() == row_property.Value)
-                    itemprop.Value = NEWeuType;
+                    _itemProperty.Value = NEWeuType;
                 }
               }
               if (prop_dsc.ID == Opc.Da.Property.EUINFO)
               {
-                //I assume that this is table of strings splited by ;
-                itemprop.Value = row_property.Value.Split(';');
+                //I assume that this is table of strings spited by ;
+                _itemProperty.Value = row_property.Value.Split(';');
               }
-              itemPropertyCollection.Add(itemprop);
+              itemPropertyCollection.Add(_itemProperty);
             }
           }
           catch (Exception ex)
@@ -301,20 +264,11 @@ namespace CAS.CommServer.ProtocolHub.Communication.BaseStation
           "Problem with many properties for item : " + myDSC.Name + ": " +
             TraceEvent.GetMessageWithExceptionNameFromExceptionIncludingInnerException(ex));
         }
-#endif
       }
       #endregion PUBLIC
 
     }//Tag
 
-#if OPCCLIENT
-		internal virtual bool UpdateAllTags(ReadValue val)
-		{
-			for (ushort idx = 0; (idx < mylength); idx++) 
-				if ( ! tagHendlers[idx].UpdateTag( val[idx]) ) return false;
-			return true;
-		}
-#elif COMMSERVER
     internal virtual void UpdateAllTags(IReadValue val)
     {
       for (ushort idx = 0; (idx < mylength); idx++)
@@ -331,7 +285,6 @@ namespace CAS.CommServer.ProtocolHub.Communication.BaseStation
         }
       }
     }
-#endif
 
     /// <summary>
     /// Initializes a new instance of the <see cref="DataBlock"/> class.
@@ -358,7 +311,7 @@ namespace CAS.CommServer.ProtocolHub.Communication.BaseStation
     /// </returns>
     public override string ToString()
     {
-      return String.Format("{0}: startaddress={1}; datatype={2}; length={3};", base.ToString(),
+      return String.Format("{0}: start address={1}; data type={2}; length={3};", base.ToString(),
         myStartAddress, myDataType, mylength);
     }
     #endregion PUBLIC

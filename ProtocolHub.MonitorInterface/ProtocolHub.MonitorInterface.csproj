@@ -120,9 +120,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BaseStation\Management\Statistics.cs" />
-    <Compile Include="BaseStation\Management\Statistics.InterfaceStatistics.cs" />
-    <Compile Include="BaseStation\Management\Statistics.SegmentStatistics.cs" />
+    <Compile Include="Statistics.cs" />
+    <Compile Include="Statistics.InterfaceStatistics.cs" />
+    <Compile Include="Statistics.SegmentStatistics.cs" />
     <Compile Include="IInterface2SegmentLink.cs" />
     <Compile Include="ISegmentStatistics.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
@@ -135,7 +135,7 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <Compile Include="Src\ConsoleIterfaceAbstract.cs">
+    <Compile Include="ConsoleIterfaceAbstract.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
@@ -162,6 +162,10 @@
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="BaseStation\Management\" />
+    <Folder Include="Src\" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>

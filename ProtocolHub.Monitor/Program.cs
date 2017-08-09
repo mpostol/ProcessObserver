@@ -12,10 +12,10 @@ namespace CAS.CommServerConsole
       {
         Application.Run( new MainForm() );
       }
-      catch
+      catch (Exception _ex)
       {
-        MessageBox.Show
-          ( Properties.Resources.Tx_InitCommError, Properties.Resources.Tx_InitFailedCap, MessageBoxButtons.OK, MessageBoxIcon.Stop );
+        string _message = $"{Properties.Resources.Tx_InitCommError}, An exception has been thrown: {_ex}";
+        MessageBox.Show(_message, Properties.Resources.Tx_InitFailedCap, MessageBoxButtons.OK, MessageBoxIcon.Stop );
       }
     }
   }

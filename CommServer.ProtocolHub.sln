@@ -3,6 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{2174EF99-7D4B-45EE-87F7-D5912F3DFB5D}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\..\svn.CommServer.DA\CommServer.DA.Server\CommServer.DA.Server\Server.NETServerUnitTest\app.config = ..\..\..\svn.CommServer.DA\CommServer.DA.Server\CommServer.DA.Server\Server.NETServerUnitTest\app.config
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "T4Definitions", "..\PR39-CommonResources\T4Definitions\T4Definitions.csproj", "{D506423B-BA21-49E6-8C3B-88A771CA444E}"
 EndProject

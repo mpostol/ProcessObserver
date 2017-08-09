@@ -15,12 +15,12 @@
 
 
 using CAS.CommServer.ProtocolHub.Communication.Properties;
+using CAS.CommServer.ProtocolHub.MonitorInterface;
 using CAS.Lib.RTLib.Management;
 using CAS.Lib.RTLib.Utils;
 using System;
 using System.IO;
 using System.Text;
-using Statistics = global::BaseStation.Management.Statistics;
 
 namespace CAS.CommServer.ProtocolHub.Communication.Diagnostic
 {
@@ -71,7 +71,7 @@ namespace CAS.CommServer.ProtocolHub.Communication.Diagnostic
       sb.Append(@"<table border='1' class='t2'>");
       try
       {
-        foreach (IHtmlOutput obj in global::BaseStation.Management.Statistics.stationList)
+        foreach (IHtmlOutput obj in Statistics.stationList)
         {
           if (first)
           {

@@ -155,8 +155,8 @@ namespace BaseStation
 //_______________________________________________________________
 
 using CAS.CommServer.ProtocolHub.Communication.LicenseControl;
+using CAS.CommServer.ProtocolHub.MonitorInterface;
 using CAS.Lib.CommonBus.ApplicationLayer;
-using CAS.Lib.CommServerConsoleInterface;
 using CAS.Lib.RTLib.Processes;
 using CAS.NetworkConfigLib;
 using System;
@@ -287,9 +287,11 @@ namespace CAS.CommServer.ProtocolHub.Communication.BaseStation
       }
       #endregion
     }//SegmentWaitTimeList
+
     private ISegmentStatistics myStatistics;
     private SegmentWaitTimeList dataQueue;
     private void PickUpHandler() { }
+
     #endregion
 
     #region creator

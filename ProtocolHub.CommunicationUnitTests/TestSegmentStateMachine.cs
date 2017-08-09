@@ -18,6 +18,7 @@
 using CAS.CommServer.ProtocolHub.Communication;
 using CAS.CommServer.ProtocolHub.Communication.BaseStation;
 using CAS.CommServer.ProtocolHub.CommunicationUnitTests.Instrumentation;
+using CAS.CommServer.ProtocolHub.MonitorInterface;
 using CAS.Lib.CommonBus.ApplicationLayer;
 using CAS.Lib.RTLib.Processes;
 using CAS.NetworkConfigLib;
@@ -70,7 +71,7 @@ namespace CAS.CommServer.ProtocolHub.CommunicationUnitTests
       myMachine.DisconnectedAfterFailureEntered += new EventHandler(myMachine_DisconnectedAfterFailureEntered);
       FacadeSegment myFacadeSegment = new FacadeSegment();
       int myMaxNumberOfTags = int.MaxValue;
-      BaseStation.Management.Statistics.ChannelStatistics myChanel = new BaseStation.Management.Statistics.ChannelStatistics(myConfig.Channels[0]);
+      Statistics.ChannelStatistics myChanel = new Statistics.ChannelStatistics(myConfig.Channels[0]);
       DiagnosticSegment mySegment = new DiagnosticSegment(myConfig.Segments[0], myChanel);
       myInterface = (new FacadeSegment.FacadePipeInterface(new InterfaceParameters(myConfig.Interfaces[0]), myPipe, mySegment));
       myInterface.ResetCounter();
@@ -248,7 +249,7 @@ namespace CAS.CommServer.ProtocolHub.CommunicationUnitTests
       System.Threading.ThreadPool.GetAvailableThreads(out workerThreads, out completionPortThreads);
       Console.WriteLine("number of available threads worker= {0}; CompletionPort= {1}", workerThreads, completionPortThreads);
       //
-      while (!System.Threading.Interlocked.Equals(myNumberOfThreads, 0))
+      while (!Equals(myNumberOfThreads, 0))
       {
         MakeConnection();
         AssertKeepConnection();

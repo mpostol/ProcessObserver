@@ -15,12 +15,11 @@
 
 
 using CAS.CommServer.ProtocolHub.Communication.Properties;
+using CAS.CommServer.ProtocolHub.MonitorInterface;
 using CAS.Lib.CommonBus;
 using CAS.Lib.CommonBus.ApplicationLayer;
-using CAS.Lib.CommServerConsoleInterface;
 using CAS.Lib.RTLib.Processes;
 using System;
-using Statistics = BaseStation.Management.Statistics;
 
 namespace CAS.CommServer.ProtocolHub.Communication.BaseStation
 {
@@ -334,6 +333,7 @@ namespace CAS.CommServer.ProtocolHub.Communication.BaseStation
     }//KeepConnectionSegmentState
     private sealed class ConnectedSegmentState: ReadWriteOperations
     {
+
       #region private
       private TimeSpan myIdleKeepConn;
       private bool myActive = false;
@@ -361,6 +361,7 @@ namespace CAS.CommServer.ProtocolHub.Communication.BaseStation
         myMachine.myPendulum.Change( System.Threading.Timeout.Infinite, -1 );
       }
       #endregion
+
       #region public
       public override State CurrentState
       {
@@ -389,6 +390,7 @@ namespace CAS.CommServer.ProtocolHub.Communication.BaseStation
         return ret;
       }
       #endregion
+
       #region constructor
       public ConnectedSegmentState( SegmentStateMachine machine, TimeSpan idleKeepConn )
         : base( machine )
@@ -397,9 +399,11 @@ namespace CAS.CommServer.ProtocolHub.Communication.BaseStation
         myMachine.myPendulumEvent += new EventHandler( myPendulumEvent );
       }
       #endregion
+
     }//ConnectedSegmentState
     private sealed class DisconnectedAfterFailureSegmentState: ConnectRequestOperation
     {
+
       #region private
       protected override void ActivateState()
       {
@@ -410,17 +414,20 @@ namespace CAS.CommServer.ProtocolHub.Communication.BaseStation
           myMachine.DisconnectedAfterFailureEntered( this, null );
       }
       #endregion
+
       #region public
       public override State CurrentState
       {
         get { return State.DisconnectedAfterFailure; }
       }
       #endregion
+
       #region constructor
       public DisconnectedAfterFailureSegmentState( IAddress address, SegmentStateMachine machine, TimeSpan timeReconnectAfterFailure )
         : base( address, machine, timeReconnectAfterFailure )
       { }
       #endregion
+
     }//DisconnectedAfterFailureSegmentState
     private System.Threading.Timer myPendulum;
     private event EventHandler myPendulumEvent;
@@ -439,6 +446,7 @@ namespace CAS.CommServer.ProtocolHub.Communication.BaseStation
       set { myCurrentSegmentState = value; }
     }
     #endregion
+
     #region public
     /// <summary>
     /// Gets the current state of the object.
@@ -531,6 +539,7 @@ namespace CAS.CommServer.ProtocolHub.Communication.BaseStation
     /// <value><c>true</c> if demo mode; otherwise, <c>false</c>.</value>
     public static bool DemoMode { set { myDemoMode = value; } }
     #endregion
+
     #region constructor
     /// <summary>
     /// Initializes a new instance of the <see cref="SegmentStateMachine"/> class.
@@ -573,5 +582,6 @@ namespace CAS.CommServer.ProtocolHub.Communication.BaseStation
         CurrentSegmentState.NotifyKeepConnectTimeElapsed();
     }
     #endregion
+
   }
 }

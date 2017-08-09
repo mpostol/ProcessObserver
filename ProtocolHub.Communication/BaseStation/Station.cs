@@ -14,6 +14,7 @@
 //_______________________________________________________________
 
 using CAS.CommServer.ProtocolHub.Communication.LicenseControl;
+using CAS.CommServer.ProtocolHub.MonitorInterface;
 using System;
 using System.Collections;
 using CommunicationDSC = CAS.NetworkConfigLib.ComunicationNet;
@@ -127,7 +128,7 @@ namespace CAS.CommServer.ProtocolHub.Communication.BaseStation
     }
     internal delegate void NotifyProcedure(bool stateOfStation);
     internal event NotifyProcedure NotifyNewTimeScan;
-    internal global::BaseStation.Management.Statistics.StationStatistics getStatistics
+    internal Statistics.StationStatistics getStatistics
     {
       get { return myStatistics; }
     }

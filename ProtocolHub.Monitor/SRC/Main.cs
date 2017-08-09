@@ -1,32 +1,20 @@
-//<summary>
-//  Title   : CommServer Console MainForm
-//  System  : Microsoft Visual C# .NET 2005
+
+//_______________________________________________________________
+//  Title   : CommServer Monitor Console MainForm
+//  System  : Microsoft VisualStudio 2015 / C#
 //  $LastChangedDate$
 //  $Rev$
 //  $LastChangedBy$
 //  $URL$
 //  $Id$
-//  History :
-//    20081006: mzbrzezny: small improvement to GUI: 
-//              - runtime displayed as TimeSpan.ToString
-//              - new window title
-//              - new window closing message (from resources)
-//              - new information about connected commserver (host and port)
-//    Mariusz Postol - 22.18.2006
-//            RegisterChannel(channel) this method is now obsolete. 
-//            Use System.Runtime.Remoting.ChannelServices.RegisterChannel(IChannel chnl, bool ensureSecurity) instead.
-//    Maciej Zbrzezny - 12-04-2006
-//      stworzono na podstawie okiengka glownego dla commserver
-//    Mariusz Postol - 11-03-04
-//      zsnchronizowalem dostêp do obiektu przez threds'y wywoluj¹ce events do zmiany stanu.
 //
-//  Copyright (C)2006, CAS LODZ POLAND.
-//  TEL: +48 (42) 686 25 47
-//  mailto:techsupp@cas.eu
+//  Copyright (C) 2017, CAS LODZ POLAND.
+//  TEL: +48 608 61 98 99 
+//  mailto://techsupp@cas.eu
 //  http://www.cas.eu
-//</summary>
+//_______________________________________________________________
 
-using BaseStation.Management;
+using CAS.CommServer.ProtocolHub.MonitorInterface;
 using CAS.CommServerConsole.Properties;
 using CAS.Lib.ControlLibrary;
 using CAS.Lib.RTLib.Management;
@@ -57,7 +45,7 @@ namespace CAS.CommServerConsole
       #region PRIVATE
       //      private bool needService;
       //      private ushort m_imageIdx;
-      private BaseStation.Management.Statistics.InterfaceStatistics.InterfaceStatisticsInternal myStatistics;
+      private Statistics.InterfaceStatistics.InterfaceStatisticsInternal myStatistics;
       //      private void myInterfaceStat_UpdateInterfaceState
       //        (BaseStation.Management.Statistics.Interface.InterfaceState currState)
       //      {
@@ -84,7 +72,7 @@ namespace CAS.CommServerConsole
       {
         get { return myStatistics; }
       }
-      public Interface( BaseStation.Management.Statistics.InterfaceStatistics.InterfaceStatisticsInternal statistics )
+      public Interface( Statistics.InterfaceStatistics.InterfaceStatisticsInternal statistics )
         : base( statistics.ToString() )
       {
         myStatistics = statistics;
@@ -94,7 +82,7 @@ namespace CAS.CommServerConsole
       }
       #endregion
     }//interface
-    private class Segment: System.Windows.Forms.ListViewItem
+    private class Segment: ListViewItem
     {
       #region PRIVATE
       //      private bool needService;
@@ -132,7 +120,7 @@ namespace CAS.CommServerConsole
       #region PRIVATE]
       //      private bool needService;
       //      private ushort m_imageIdx;
-      private BaseStation.Management.Statistics.StationStatistics.StationStatisticsInternal myStatistics;
+      private Statistics.StationStatistics.StationStatisticsInternal myStatistics;
       //      private void myStatistics_MarkNewState(bool currState)
       //      {
       //        lock(this)
@@ -162,7 +150,7 @@ namespace CAS.CommServerConsole
       {
         get { return myStatistics; }
       }
-      public Station( BaseStation.Management.Statistics.StationStatistics.StationStatisticsInternal statistics )
+      public Station( Statistics.StationStatistics.StationStatisticsInternal statistics )
         : base( statistics.myName )
       {
         myStatistics = statistics;
@@ -176,13 +164,13 @@ namespace CAS.CommServerConsole
     private const string ns = "not selected";
     private void RefreshStationPage()
     {
-      SortedList<long, int> statesList = remoterserver.GetStationStates();
+      SortedList<long, int> statesList = m_remoterServer.GetStationStates();
       foreach ( Station cs in StationsListView.Items )
         if ( statesList.ContainsKey( cs.Parent.myID ) )
           cs.ImageIndex = statesList[ cs.Parent.myID ];
       if ( StationsListView.SelectedItems.Count > 0 )
       {
-        Statistics.StationStatistics.StationStatisticsInternal curr = remoterserver.GetStation( ( (Station)StationsListView.SelectedItems[ 0 ] ).Parent.myID );
+        Statistics.StationStatistics.StationStatisticsInternal curr = m_remoterServer.GetStation( ( (Station)StationsListView.SelectedItems[ 0 ] ).Parent.myID );
         if ( curr != null )
         {
           groupBoxCurrStation.Text = curr.ToString();
@@ -202,7 +190,7 @@ namespace CAS.CommServerConsole
         return;
       IProtocol curr =
         //(BaseStation.Management.Protocol)listBoxProtocol.SelectedItem; 
-          remoterserver.GetProtocol( ( (ProtocolDsc)listBoxProtocol.SelectedItem ).m_ID );
+          m_remoterServer.GetProtocol( ( (ProtocolDsc)listBoxProtocol.SelectedItem ).m_ID );
       if ( curr != null )
       {
         textBox_protpar.Text = ( (ProtocolDsc)listBoxProtocol.SelectedItem ).m_protocolPar_humanreadable;
@@ -224,14 +212,14 @@ namespace CAS.CommServerConsole
     }
     private void RefreshSegmentPage()
     {
-      SortedList<long, Statistics.SegmentStatistics.States> statesList = remoterserver.GetSegmentStates();
+      SortedList<long, Statistics.SegmentStatistics.States> statesList = m_remoterServer.GetSegmentStates();
       foreach ( Segment cs in SegmentsListView.Items )
         if ( statesList.ContainsKey( cs.Parent.MyID ) )
           cs.ImageIndex = (int)statesList[ cs.Parent.MyID ];
       if ( SegmentsListView.SelectedItems.Count > 0 )
       {
         //Statistics.Segment curr = ( (Segment)SegmentsListView.SelectedItems[0] ).Parent;
-        Statistics.SegmentStatistics.SegmentStatisticsInternal curr = remoterserver.GetSegment( ( (Segment)( SegmentsListView.SelectedItems[ 0 ] ) ).Parent.MyID );
+        Statistics.SegmentStatistics.SegmentStatisticsInternal curr = m_remoterServer.GetSegment( ( (Segment)( SegmentsListView.SelectedItems[ 0 ] ) ).Parent.MyID );
         SegmentsListView.Text = curr.ToString();
         labelSegStateVal.Text = curr.CurrentStateAsString;
         labelSegAciveVal.Text = curr.ConnectTime.ToString();
@@ -258,7 +246,7 @@ namespace CAS.CommServerConsole
     }
     private void RefreshInterfacePage()
     {
-      SortedList<ulong, Statistics.InterfaceStatistics.InterfaceState> statesList = remoterserver.GetInterfaceStates();
+      SortedList<ulong, Statistics.InterfaceStatistics.InterfaceState> statesList = m_remoterServer.GetInterfaceStates();
       foreach ( Interface ci in InterfaceListView.Items )
         if ( statesList.ContainsKey( ci.Parent.myID_Internal ) )
           ci.ImageIndex = (int)statesList[ ci.Parent.myID_Internal ];
@@ -272,7 +260,7 @@ namespace CAS.CommServerConsole
       }
       else
       {
-        Statistics.InterfaceStatistics.InterfaceStatisticsInternal currInt = remoterserver.GetInterface( ( (Interface)InterfaceListView.SelectedItems[ 0 ] ).Parent.myID_Internal );
+        Statistics.InterfaceStatistics.InterfaceStatisticsInternal currInt = m_remoterServer.GetInterface( ( (Interface)InterfaceListView.SelectedItems[ 0 ] ).Parent.myID_Internal );
         labelIntStateVal.Text = currInt.GetState2String;
         labelIntActiveTimeVal.Text = currInt.ActiveTime.ToString();
         labelIntFailTimeVal.Text = currInt.FailTime.ToString();
@@ -284,9 +272,9 @@ namespace CAS.CommServerConsole
     {
       try
       {
-        labelTestTime.Text = new TimeSpan( 0, 0, (int)remoterserver.GetRunTime() ).ToString();
-        labelProgramName.Text = remoterserver.GetProductName();
-        labelRelease.Text = remoterserver.GetProductVersion();
+        labelTestTime.Text = new TimeSpan( 0, 0, (int)m_remoterServer.GetRunTime() ).ToString();
+        labelProgramName.Text = m_remoterServer.GetProductName();
+        labelRelease.Text = m_remoterServer.GetProductVersion();
       }
       catch ( Exception )
       {
@@ -296,7 +284,7 @@ namespace CAS.CommServerConsole
     #region Init Pages
     private void InitStationsPage()
     {
-      foreach ( Statistics.StationStatistics.StationStatisticsInternal curr in remoterserver.GetStationList().Values )
+      foreach ( Statistics.StationStatistics.StationStatisticsInternal curr in m_remoterServer.GetStationList().Values )
       {
         Station listItem = new Station( curr );
         listItem.ImageIndex = 0;
@@ -306,7 +294,7 @@ namespace CAS.CommServerConsole
     }//InitStationsPage
     private void InitProtocolPage()
     {
-      foreach ( ProtocolDsc curr in remoterserver.GetProtocolList() )
+      foreach ( ProtocolDsc curr in m_remoterServer.GetProtocolList() )
       {
         listBoxProtocol.Items.Add( curr );
       }
@@ -316,7 +304,7 @@ namespace CAS.CommServerConsole
     }
     private void InitSegmentPage()
     {
-      foreach ( Statistics.SegmentStatistics.SegmentStatisticsInternal curr in remoterserver.GetSegmentList().Values )
+      foreach ( Statistics.SegmentStatistics.SegmentStatisticsInternal curr in m_remoterServer.GetSegmentList().Values )
       {
         Segment newRep = new Segment( curr );
         newRep.ImageIndex = 0;
@@ -326,7 +314,7 @@ namespace CAS.CommServerConsole
     }
     private void InitInterfacePage()
     {
-      foreach ( BaseStation.Management.Statistics.InterfaceStatistics.InterfaceStatisticsInternal currInt in remoterserver.GetInterfaceList().Values )
+      foreach ( Statistics.InterfaceStatistics.InterfaceStatisticsInternal currInt in m_remoterServer.GetInterfaceList().Values )
       {
         Interface newRep = new Interface( currInt );
         newRep.ImageIndex = 0;
@@ -351,7 +339,7 @@ namespace CAS.CommServerConsole
     }
     private void ConnectToRemoteServerAndInitialiseDiagnosticPages()
     {
-      goService();
+      GoService();
       InitStationsPage();
       InitProtocolPage();
       InitInterfacePage();
@@ -359,8 +347,8 @@ namespace CAS.CommServerConsole
     }
     #endregion
     #region private
-    BaseStation.ConsoleIterfaceAbstract remoterserver;
-    private void goService()
+    private ConsoleInterfaceAbstract m_remoterServer;
+    private void GoService()
     {
       //      HttpClientChannel channel = new HttpClientChannel();
       TcpClientChannel channel = new TcpClientChannel();
@@ -377,9 +365,9 @@ namespace CAS.CommServerConsole
       label_connected_to.Text = String.Format( Settings.Default.CommServer_Connection_Template, RemoteHost, RemotePort );
 
       //      ulong times1 =  testTimeStopWatch.Start;
-      remoterserver = (BaseStation.ConsoleIterfaceAbstract)Activator.GetObject
-        ( typeof( BaseStation.ConsoleIterfaceAbstract ), label_connected_to.Text );
+      m_remoterServer = (ConsoleInterfaceAbstract)Activator.GetObject( typeof(ConsoleInterfaceAbstract), label_connected_to.Text );
     }
+
     #region Events Handlers
     private void MainForm_Resize( object sender, EventArgs e )
     {
@@ -479,6 +467,7 @@ namespace CAS.CommServerConsole
       }
     }
     #endregion Events Handlers
+
     #region Menue Events
     private void CM_Show_click( object sender, EventArgs e )
     {
@@ -489,7 +478,7 @@ namespace CAS.CommServerConsole
     {
       RunMethodAsynchronously runasync = new RunMethodAsynchronously( delegate( object[] o )
       {
-        CAS.Lib.RTLib.Utils.ReportGenerator.DisplayReport( remoterserver.GetReport() );
+        CAS.Lib.RTLib.Utils.ReportGenerator.DisplayReport( m_remoterServer.GetReport() );
       } );
       runasync.RunAsync();
     }
