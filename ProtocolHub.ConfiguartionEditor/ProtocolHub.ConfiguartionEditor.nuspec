@@ -2,7 +2,7 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
   <metadata>
     <id>CAS.CommServer.ProtocolHub.ConfigurationEditor</id>
-    <version>4.10.03</version>
+    <version>4.10.04</version>
     <title>Configuration editor of the communication network.</title>
     <authors>CAS</authors>
     <owners>commsvr.com</owners>
