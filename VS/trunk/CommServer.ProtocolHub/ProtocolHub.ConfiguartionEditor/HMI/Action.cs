@@ -17,42 +17,44 @@
 //  http://www.cas.eu
 //</summary>
 
+using CAS.Lib.CommonBus;
 using System;
 using System.ComponentModel;
 using System.Data;
+using System.Linq;
 using System.Windows.Forms;
 
 namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
 {
   internal class ActionBase
   {
-    protected static CAS.Lib.CommonBus.CommonBusControl m_CommonBusControl;
-    internal static CAS.Lib.CommonBus.CommonBusControl SetCommonBusControl { set { m_CommonBusControl = value; } }
+    protected static CommonBusControl m_CommonBusControl;
+    internal static CommonBusControl SetCommonBusControl { set { m_CommonBusControl = value; } }
   }
   /// <summary>
-  /// Abstract class to support operations on treeview node
+  /// Abstract class to support operations on <see cref="TreeNode"/>
   /// </summary>
   /// <typeparam name="TRow">Object type</typeparam>
-  internal abstract class Action<TRow>: ActionBase, IAction where TRow: DataRow
+  internal abstract class Action<TRow> : ActionBase, IAction where TRow : DataRow
   {
     #region private
-    private void Table_RowDeleted( object sender, System.Data.DataRowChangeEventArgs e )
+    private void Table_RowDeleted(object sender, System.Data.DataRowChangeEventArgs e)
     {
-      System.Diagnostics.Debug.Assert( ( m_Node != null ) && ( m_Parent != null ) && !m_disposed );
-      if ( e.Row != m_Parent )
+      System.Diagnostics.Debug.Assert((m_Node != null) && (m_Parent != null) && !m_disposed);
+      if (e.Row != m_Parent)
         return;
-      this.Dispose( true );
+      this.Dispose(true);
     }
-    private void RemoveChildrens()
+    private void RemoveChildren()
     {
-      foreach ( TreeNode cn in m_Node.Nodes )
-        ( (IAction)cn.Tag ).Dispose();
+      foreach (TreeNode cn in m_Node.Nodes.Cast<TreeNode>().ToList<TreeNode>())
+        ((IAction)cn.Tag).Dispose();
     }
     private void RemoveEventHandler()
     {
-      if ( m_Parent == null )
+      if (m_Parent == null)
         return;
-      m_Parent.Table.RowDeleted -= new DataRowChangeEventHandler( Table_RowDeleted );
+      m_Parent.Table.RowDeleted -= new DataRowChangeEventHandler(Table_RowDeleted);
     }
     #endregion
     #region protected
@@ -67,7 +69,7 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
     /// Associate specified data row to this action
     /// </summary>
     /// <param name="row"></param>
-    protected Action( TRow row )
+    protected Action(TRow row)
     {
       m_Parent = row;
     }
@@ -76,14 +78,14 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
     /// </summary>
     ~Action()
     {
-      Dispose( false );
+      Dispose(false);
     }
     #endregion
     #region Properties
     /// <summary>
     /// Gets data row asscociated to this action
     /// </summary>
-    [Browsable( false )]
+    [Browsable(false)]
     public TRow DataRow
     {
       get
@@ -93,7 +95,7 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
     }
     #endregion
     #region public
-    internal TreeNode AddActionTreeNode( int pImageIndex, int pSelectedImageIndex )
+    internal TreeNode AddActionTreeNode(int pImageIndex, int pSelectedImageIndex)
     {
       m_Node.Tag = this;
       m_Node.ImageIndex = pImageIndex;
@@ -101,11 +103,11 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
       m_Node.Text = this.ToString();
       return m_Node;
     }
-    internal void AddActionTreeNode( TreeNode pParentNode, int pImageIndex, int pSelectedImageIndex )
+    internal void AddActionTreeNode(TreeNode pParentNode, int pImageIndex, int pSelectedImageIndex)
     {
-      m_Node = AddActionTreeNode( pImageIndex, pSelectedImageIndex );
-      pParentNode.Nodes.Add( m_Node );
-      m_Parent.Table.RowDeleted += new System.Data.DataRowChangeEventHandler( Table_RowDeleted );
+      m_Node = AddActionTreeNode(pImageIndex, pSelectedImageIndex);
+      pParentNode.Nodes.Add(m_Node);
+      m_Parent.Table.RowDeleted += new System.Data.DataRowChangeEventHandler(Table_RowDeleted);
     }
     #endregion
     #region IAction Members
@@ -116,7 +118,7 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
     /// <remarks>If we perform this action for PrortocolAndSerialWrapper we adds protocol and serial rows</remarks>
     public void AddObjectToTable()
     {
-      m_Parent.Table.Rows.Add( m_Parent );
+      m_Parent.Table.Rows.Add(m_Parent);
     }
     /// <summary>
     /// cleanup after unfinished add operation
@@ -134,7 +136,7 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
     /// </summary>
     public virtual void CreateNodes()
     {
-      RemoveChildrens();
+      RemoveChildren();
       m_Node.Nodes.Clear();
     }
     /// <summary>
@@ -148,13 +150,13 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
     /// Pastes specified IAction object under this node
     /// </summary>
     /// <param name="objToPaste">Object to paste</param>
-    public abstract void PasteChildObject( IAction objToPaste );
+    public abstract void PasteChildObject(IAction objToPaste);
     /// <summary>
     /// Checks if specified object can be pasted under this object 
     /// </summary>
     /// <param name="objToPaste">Object to paste</param>
     /// <returns>True if specified object can be pasted hare</returns>
-    public abstract bool CanBePastedAsChild( IAction objToPaste );
+    public abstract bool CanBePastedAsChild(IAction objToPaste);
     /// <summary>
     /// Checks if specified <see cref="IAction"/> object can be moved
     /// </summary>
@@ -164,7 +166,7 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
     /// Moves specified <see cref="IAction"/> object under this wrapper
     /// </summary>
     /// <param name="pObjToMove"><see cref="IAction"/> object to be moved</param>
-    public abstract void MoveChildObject( IAction pObjToMove );
+    public abstract void MoveChildObject(IAction pObjToMove);
     /// <summary>
     /// Inform the object that some values have been changed.
     /// </summary>
@@ -175,7 +177,7 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
     /// Get the boolean value indicated that this object can be copy or not. 
     /// By default it always returns true. If wrapper cannot be copy this property have to be overriten
     /// </summary>
-    [BrowsableAttribute( false )]
+    [BrowsableAttribute(false)]
     public virtual bool CanBeCopied
     {
       get
@@ -187,7 +189,7 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
     /// Get the boolean value indicated that this object can create child object or not. 
     /// By default it always returns false. If wrapper cannot create child obj this property have to be overriten
     /// </summary>
-    [BrowsableAttribute( false )]
+    [BrowsableAttribute(false)]
     public virtual bool CanCreateChild
     {
       get
@@ -199,7 +201,7 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
     /// Get the boolean value indicated that this object can be deleted or not. 
     /// By default it always returns true. If wrapper cannot be deleted this property have to be overriten
     /// </summary>
-    [BrowsableAttribute( false )]
+    [BrowsableAttribute(false)]
     public virtual bool CanBeDeleted
     {
       get
@@ -214,8 +216,8 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
     /// </summary>
     public void Dispose()
     {
-      Dispose( true );
-      GC.SuppressFinalize( this );
+      Dispose(true);
+      GC.SuppressFinalize(this);
     }
     // Track whether Dispose has been called.
     private bool m_disposed = false;
@@ -227,12 +229,12 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
     /// objects. Only unmanaged resources can be disposed.
     /// </summary>
     /// <param name="pDisposing">If dsposing equals true, the method has been called directly or indirectly by a user's code</param>
-    protected virtual void Dispose( bool pDisposing )
+    protected virtual void Dispose(bool pDisposing)
     {
-      if ( m_disposed || !pDisposing )
+      if (m_disposed || !pDisposing)
         return;
       RemoveEventHandler();
-      RemoveChildrens();
+      RemoveChildren();
       m_Node.Remove();
       m_Node = null;
       m_disposed = true;

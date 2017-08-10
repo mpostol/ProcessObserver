@@ -58,7 +58,7 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor
     /// execution of code and associate trace messages with their source.
     /// </summary>
     /// <value>the wrapped instance of <see cref="TraceSource"/>.</value>
-    internal TraceSource TraceSource { get { return m_TraceEventInternal.Value; } }
+    public TraceSource TraceSource { get { return m_TraceEventInternal.Value; } }
 
   }
   /// <summary>
