@@ -31,7 +31,7 @@
     <GenerateManifests>true</GenerateManifests>
     <SignManifests>false</SignManifests>
     <OldToolsVersion>3.5</OldToolsVersion>
-    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <TargetFrameworkProfile />
     <PublishUrl>C:\Documents and Settings\mpostol.HQ\My Documents\Visual Studio 2005\Projects\trunk2\PR21-CommServer\bin\ConsolESetup\</PublishUrl>
     <Install>false</Install>
@@ -99,6 +99,18 @@
       <HintPath>..\packages\CAS.CodeProtect.6.1.3\lib\net451\CAS.CodeProtect.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="CAS.CommServer.DAServerConfiguration, Version=5.1.6.25005, Culture=neutral, PublicKeyToken=8832ff1a67ea61a3, processorArchitecture=MSIL">
+      <HintPath>..\packages\CAS.CommServer.DAServerConfiguration.5.01.06\lib\net451\CAS.CommServer.DAServerConfiguration.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CAS.CommServer.OPCClassicSDK.Core, Version=2.1.1062.39746, Culture=neutral, PublicKeyToken=8832ff1a67ea61a3, processorArchitecture=MSIL">
+      <HintPath>..\packages\CAS.CommServer.OPCClassic.SDK.Core.2.01.1062\lib\net451\CAS.CommServer.OPCClassicSDK.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="CAS.CommServer.ProtocolHub.MonitorInterface, Version=4.1.0.31758, Culture=neutral, PublicKeyToken=8832ff1a67ea61a3, processorArchitecture=MSIL">
+      <HintPath>..\packages\CAS.CommServer.ProtocolHub.MonitorInterface.4.01.00\lib\net461\CAS.CommServer.ProtocolHub.MonitorInterface.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="CAS.RealTime, Version=5.0.6.23644, Culture=neutral, PublicKeyToken=8832ff1a67ea61a3, processorArchitecture=MSIL">
       <HintPath>..\packages\CAS.RealTime.5.0.6\lib\net451\CAS.RealTime.dll</HintPath>
       <Private>True</Private>
@@ -142,14 +154,6 @@
     <Reference Include="System.Xml">
       <Name>System.XML</Name>
     </Reference>
-    <ProjectReference Include="..\ProtocolHub.MonitorInterface\ProtocolHub.MonitorInterface.csproj">
-      <Project>{CE7BA276-5ACF-44FE-B24A-F91F6A0B0436}</Project>
-      <Name>ProtocolHub.MonitorInterface</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ProtocolHub.Communication\ProtocolHub.Communication.csproj">
-      <Project>{E1351D09-7241-44C3-A292-8D46E322A61D}</Project>
-      <Name>ProtocolHub.Communication</Name>
-    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
@@ -200,9 +204,11 @@
       <DependentUpon>SplashScreen.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="CR.CommServerConsole_TemporaryKey.pfx" />
+    <None Include="ProtocolHub.Monitor.nuspec">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProtocolHub.Monitor.tt</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
@@ -243,6 +249,11 @@
     <Content Include="Properties\AssemblyInfo.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>AssemblyInfo.cs</LastGenOutput>
+    </Content>
+    <Content Include="ProtocolHub.Monitor.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ProtocolHub.Monitor.nuspec</LastGenOutput>
+      <SubType>Designer</SubType>
     </Content>
   </ItemGroup>
   <ItemGroup>

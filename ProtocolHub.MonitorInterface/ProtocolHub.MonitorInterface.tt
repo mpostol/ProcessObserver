@@ -31,6 +31,8 @@
     </dependencies>
   </metadata>
   <files>
+    <file src="bin\Release\CAS.CommServer.ProtocolHub.MonitorInterface.dll" target="lib\net461\CAS.CommServer.ProtocolHub.MonitorInterface.dll" />
+    <file src="bin\Release\CAS.CommServer.ProtocolHub.MonitorInterface.xml" target="lib\net461\CAS.CommServer.ProtocolHub.MonitorInterface.xml" />
   </files>
 </package>
 
