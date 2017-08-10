@@ -144,6 +144,11 @@
     <None Include="packages.config">
       <SubType>Designer</SubType>
     </None>
+    <None Include="ProtocolHub.MonitorInterface.nuspec">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ProtocolHub.MonitorInterface.tt</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <None Include="My friends3.ico" />
@@ -158,6 +163,10 @@
     <Content Include="Properties\AssemblyInfo.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>AssemblyInfo.cs</LastGenOutput>
+    </Content>
+    <Content Include="ProtocolHub.MonitorInterface.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ProtocolHub.MonitorInterface.nuspec</LastGenOutput>
     </Content>
   </ItemGroup>
   <ItemGroup>
