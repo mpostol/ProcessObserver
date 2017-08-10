@@ -63,6 +63,10 @@
       <HintPath>..\packages\CAS.CommServer.OPCClassic.SDK.Core.2.01.1062\lib\net451\CAS.CommServer.OPCClassicSDK.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="CAS.CommServer.ProtocolHub.MonitorInterface, Version=4.1.0.31758, Culture=neutral, PublicKeyToken=8832ff1a67ea61a3, processorArchitecture=MSIL">
+      <HintPath>..\packages\CAS.CommServer.ProtocolHub.MonitorInterface.4.01.00\lib\net461\CAS.CommServer.ProtocolHub.MonitorInterface.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
     <Reference Include="CAS.CommSvrPlugin_DemoSimulator, Version=3.90.4.28284, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\CAS.CommServer.DataProvider.Package.3.90.04\lib\net461\CAS.CommSvrPlugin_DemoSimulator.dll</HintPath>
       <Private>True</Private>
@@ -184,10 +188,6 @@
     <Compile Include="TestSegmentStateMachine.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ProtocolHub.MonitorInterface\ProtocolHub.MonitorInterface.csproj">
-      <Project>{CE7BA276-5ACF-44FE-B24A-F91F6A0B0436}</Project>
-      <Name>ProtocolHub.MonitorInterface</Name>
-    </ProjectReference>
     <ProjectReference Include="..\ProtocolHub.Communication\ProtocolHub.Communication.csproj">
       <Project>{E1351D09-7241-44C3-A292-8D46E322A61D}</Project>
       <Name>ProtocolHub.Communication</Name>

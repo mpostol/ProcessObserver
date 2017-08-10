@@ -23,7 +23,6 @@ using CAS.Windows.Forms.CodeProtectControls;
 using System;
 using System.Collections.Generic;
 using System.Reflection;
-using System.Resources;
 using System.Runtime.Remoting.Channels;
 using System.Runtime.Remoting.Channels.Tcp;
 using System.Windows.Forms;
@@ -40,7 +39,7 @@ namespace CAS.CommServerConsole
     {
       void Refresh();
     }
-    private class Interface: System.Windows.Forms.ListViewItem//, MasterRefresh
+    private class Interface : System.Windows.Forms.ListViewItem//, MasterRefresh
     {
       #region PRIVATE
       //      private bool needService;
@@ -72,8 +71,8 @@ namespace CAS.CommServerConsole
       {
         get { return myStatistics; }
       }
-      public Interface( Statistics.InterfaceStatistics.InterfaceStatisticsInternal statistics )
-        : base( statistics.ToString() )
+      public Interface(Statistics.InterfaceStatistics.InterfaceStatisticsInternal statistics)
+        : base(statistics.ToString())
       {
         myStatistics = statistics;
         //        myStatistics.UpdateInterfaceState += 
@@ -82,7 +81,7 @@ namespace CAS.CommServerConsole
       }
       #endregion
     }//interface
-    private class Segment: ListViewItem
+    private class Segment : ListViewItem
     {
       #region PRIVATE
       //      private bool needService;
@@ -106,8 +105,8 @@ namespace CAS.CommServerConsole
       {
         return myStatistics.ToString();
       }
-      public Segment( Statistics.SegmentStatistics.SegmentStatisticsInternal statistics )
-        : base( statistics.ToString() )
+      public Segment(Statistics.SegmentStatistics.SegmentStatisticsInternal statistics)
+        : base(statistics.ToString())
       {
         myStatistics = statistics;
         //        myStatistics.MarkNewState += new Statistics.Segment.StateChanged(myStatistics_MarkNewState);
@@ -115,7 +114,7 @@ namespace CAS.CommServerConsole
       }
       #endregion
     }//Segment
-    private class Station: System.Windows.Forms.ListViewItem//, MasterRefresh
+    private class Station : System.Windows.Forms.ListViewItem//, MasterRefresh
     {
       #region PRIVATE]
       //      private bool needService;
@@ -150,8 +149,8 @@ namespace CAS.CommServerConsole
       {
         get { return myStatistics; }
       }
-      public Station( Statistics.StationStatistics.StationStatisticsInternal statistics )
-        : base( statistics.myName )
+      public Station(Statistics.StationStatistics.StationStatisticsInternal statistics)
+        : base(statistics.myName)
       {
         myStatistics = statistics;
         //        statistics.MarkNewState += new Statistics.StateChanged(myStatistics_MarkNewState);
@@ -165,13 +164,13 @@ namespace CAS.CommServerConsole
     private void RefreshStationPage()
     {
       SortedList<long, int> statesList = m_remoterServer.GetStationStates();
-      foreach ( Station cs in StationsListView.Items )
-        if ( statesList.ContainsKey( cs.Parent.myID ) )
-          cs.ImageIndex = statesList[ cs.Parent.myID ];
-      if ( StationsListView.SelectedItems.Count > 0 )
+      foreach (Station cs in StationsListView.Items)
+        if (statesList.ContainsKey(cs.Parent.myID))
+          cs.ImageIndex = statesList[cs.Parent.myID];
+      if (StationsListView.SelectedItems.Count > 0)
       {
-        Statistics.StationStatistics.StationStatisticsInternal curr = m_remoterServer.GetStation( ( (Station)StationsListView.SelectedItems[ 0 ] ).Parent.myID );
-        if ( curr != null )
+        Statistics.StationStatistics.StationStatisticsInternal curr = m_remoterServer.GetStation(((Station)StationsListView.SelectedItems[0]).Parent.myID);
+        if (curr != null)
         {
           groupBoxCurrStation.Text = curr.ToString();
           label_StationCurrState.Text = curr.StationStateString;
@@ -186,14 +185,14 @@ namespace CAS.CommServerConsole
     }
     private void RefreshProtocolPage()
     {
-      if ( listBoxProtocol.Items.Count == 0 )
+      if (listBoxProtocol.Items.Count == 0)
         return;
       IProtocol curr =
-        //(BaseStation.Management.Protocol)listBoxProtocol.SelectedItem; 
-          m_remoterServer.GetProtocol( ( (ProtocolDsc)listBoxProtocol.SelectedItem ).m_ID );
-      if ( curr != null )
+          //(BaseStation.Management.Protocol)listBoxProtocol.SelectedItem; 
+          m_remoterServer.GetProtocol(((ProtocolDsc)listBoxProtocol.SelectedItem).m_ID);
+      if (curr != null)
       {
-        textBox_protpar.Text = ( (ProtocolDsc)listBoxProtocol.SelectedItem ).m_protocolPar_humanreadable;
+        textBox_protpar.Text = ((ProtocolDsc)listBoxProtocol.SelectedItem).m_protocolPar_humanreadable;
         labelRxDBPlusVal.Text = curr.GetRXDBSucc.ToString();
         labelRxDBMinusVal.Text = curr.GetRXDBFail.ToString();
         labelTxDBPlusVal.Text = curr.GetTXDBSucc.ToString();
@@ -213,13 +212,13 @@ namespace CAS.CommServerConsole
     private void RefreshSegmentPage()
     {
       SortedList<long, Statistics.SegmentStatistics.States> statesList = m_remoterServer.GetSegmentStates();
-      foreach ( Segment cs in SegmentsListView.Items )
-        if ( statesList.ContainsKey( cs.Parent.MyID ) )
-          cs.ImageIndex = (int)statesList[ cs.Parent.MyID ];
-      if ( SegmentsListView.SelectedItems.Count > 0 )
+      foreach (Segment cs in SegmentsListView.Items)
+        if (statesList.ContainsKey(cs.Parent.MyID))
+          cs.ImageIndex = (int)statesList[cs.Parent.MyID];
+      if (SegmentsListView.SelectedItems.Count > 0)
       {
         //Statistics.Segment curr = ( (Segment)SegmentsListView.SelectedItems[0] ).Parent;
-        Statistics.SegmentStatistics.SegmentStatisticsInternal curr = m_remoterServer.GetSegment( ( (Segment)( SegmentsListView.SelectedItems[ 0 ] ) ).Parent.MyID );
+        Statistics.SegmentStatistics.SegmentStatisticsInternal curr = m_remoterServer.GetSegment(((Segment)(SegmentsListView.SelectedItems[0])).Parent.MyID);
         SegmentsListView.Text = curr.ToString();
         labelSegStateVal.Text = curr.CurrentStateAsString;
         labelSegAciveVal.Text = curr.ConnectTime.ToString();
@@ -247,10 +246,10 @@ namespace CAS.CommServerConsole
     private void RefreshInterfacePage()
     {
       SortedList<ulong, Statistics.InterfaceStatistics.InterfaceState> statesList = m_remoterServer.GetInterfaceStates();
-      foreach ( Interface ci in InterfaceListView.Items )
-        if ( statesList.ContainsKey( ci.Parent.myID_Internal ) )
-          ci.ImageIndex = (int)statesList[ ci.Parent.myID_Internal ];
-      if ( InterfaceListView.SelectedItems.Count == 0 )
+      foreach (Interface ci in InterfaceListView.Items)
+        if (statesList.ContainsKey(ci.Parent.myID_Internal))
+          ci.ImageIndex = (int)statesList[ci.Parent.myID_Internal];
+      if (InterfaceListView.SelectedItems.Count == 0)
       {
         labelIntStateVal.Text = ns;
         labelIntActiveTimeVal.Text = ns;
@@ -260,7 +259,7 @@ namespace CAS.CommServerConsole
       }
       else
       {
-        Statistics.InterfaceStatistics.InterfaceStatisticsInternal currInt = m_remoterServer.GetInterface( ( (Interface)InterfaceListView.SelectedItems[ 0 ] ).Parent.myID_Internal );
+        Statistics.InterfaceStatistics.InterfaceStatisticsInternal currInt = m_remoterServer.GetInterface(((Interface)InterfaceListView.SelectedItems[0]).Parent.myID_Internal);
         labelIntStateVal.Text = currInt.GetState2String;
         labelIntActiveTimeVal.Text = currInt.ActiveTime.ToString();
         labelIntFailTimeVal.Text = currInt.FailTime.ToString();
@@ -272,11 +271,11 @@ namespace CAS.CommServerConsole
     {
       try
       {
-        labelTestTime.Text = new TimeSpan( 0, 0, (int)m_remoterServer.GetRunTime() ).ToString();
+        labelTestTime.Text = new TimeSpan(0, 0, (int)m_remoterServer.GetRunTime()).ToString();
         labelProgramName.Text = m_remoterServer.GetProductName();
         labelRelease.Text = m_remoterServer.GetProductVersion();
       }
-      catch ( Exception )
+      catch (Exception)
       {
       }
     }
@@ -284,41 +283,41 @@ namespace CAS.CommServerConsole
     #region Init Pages
     private void InitStationsPage()
     {
-      foreach ( Statistics.StationStatistics.StationStatisticsInternal curr in m_remoterServer.GetStationList().Values )
+      foreach (Statistics.StationStatistics.StationStatisticsInternal curr in m_remoterServer.GetStationList().Values)
       {
-        Station listItem = new Station( curr );
+        Station listItem = new Station(curr);
         listItem.ImageIndex = 0;
-        StationsListView.Items.Add( listItem );
+        StationsListView.Items.Add(listItem);
       }
       StationsListView.Refresh();
     }//InitStationsPage
     private void InitProtocolPage()
     {
-      foreach ( ProtocolDsc curr in m_remoterServer.GetProtocolList() )
+      foreach (ProtocolDsc curr in m_remoterServer.GetProtocolList())
       {
-        listBoxProtocol.Items.Add( curr );
+        listBoxProtocol.Items.Add(curr);
       }
-      if ( listBoxProtocol.Items.Count == 0 )
+      if (listBoxProtocol.Items.Count == 0)
         return;
       listBoxProtocol.SelectedIndex = 0;
     }
     private void InitSegmentPage()
     {
-      foreach ( Statistics.SegmentStatistics.SegmentStatisticsInternal curr in m_remoterServer.GetSegmentList().Values )
+      foreach (Statistics.SegmentStatistics.SegmentStatisticsInternal curr in m_remoterServer.GetSegmentList().Values)
       {
-        Segment newRep = new Segment( curr );
+        Segment newRep = new Segment(curr);
         newRep.ImageIndex = 0;
-        SegmentsListView.Items.Add( newRep );
+        SegmentsListView.Items.Add(newRep);
       }
       SegmentsListView.Refresh();
     }
     private void InitInterfacePage()
     {
-      foreach ( Statistics.InterfaceStatistics.InterfaceStatisticsInternal currInt in m_remoterServer.GetInterfaceList().Values )
+      foreach (Statistics.InterfaceStatistics.InterfaceStatisticsInternal currInt in m_remoterServer.GetInterfaceList().Values)
       {
-        Interface newRep = new Interface( currInt );
+        Interface newRep = new Interface(currInt);
         newRep.ImageIndex = 0;
-        InterfaceListView.Items.Add( newRep );
+        InterfaceListView.Items.Add(newRep);
       }
       InterfaceListView.Refresh();
     }
@@ -327,17 +326,18 @@ namespace CAS.CommServerConsole
     internal MainForm()
     {
       InitializeComponent();
-      DisplayQuestionAboutConfiguration();
-      ConnectToRemoteServerAndInitialiseDiagnosticPages();
+      if (!DisplayQuestionAboutConfiguration())
+        return;
+      ConnectToRemoteServerAndInitializeDiagnosticPages();
       RefreshFormTimer.Enabled = true;
-      new CAS.Lib.RTLib.Processes.EventLogMonitor
+      new EventLogMonitor
         (
         "Communication server (MainForm) started: product name:" + Application.ProductName
         + "; product version: " + Application.ProductVersion,
         System.Diagnostics.EventLogEntryType.Information, 0, 0
         ).WriteEntry();
     }
-    private void ConnectToRemoteServerAndInitialiseDiagnosticPages()
+    private void ConnectToRemoteServerAndInitializeDiagnosticPages()
     {
       GoService();
       InitStationsPage();
@@ -352,114 +352,116 @@ namespace CAS.CommServerConsole
     {
       //      HttpClientChannel channel = new HttpClientChannel();
       TcpClientChannel channel = new TcpClientChannel();
-      ChannelServices.RegisterChannel( channel, false );
+      ChannelServices.RegisterChannel(channel, false);
 
       string RemoteHost = Settings.Default.CommServer_Host_Primary;
       int RemotePort = Settings.Default.CommServer_ListenPort_Primary;
-      if ( Settings.Default.UseAlternativeConfiguration )
+      if (Settings.Default.UseAlternativeConfiguration)
       {
         RemoteHost = Settings.Default.CommServer_Host_AlternativeConfiguration;
         RemotePort = Settings.Default.CommServer_ListenPort_AlternativeConfiguration;
       }
 
-      label_connected_to.Text = String.Format( Settings.Default.CommServer_Connection_Template, RemoteHost, RemotePort );
+      label_connected_to.Text = String.Format(Settings.Default.CommServer_Connection_Template, RemoteHost, RemotePort);
 
       //      ulong times1 =  testTimeStopWatch.Start;
-      m_remoterServer = (ConsoleInterfaceAbstract)Activator.GetObject( typeof(ConsoleInterfaceAbstract), label_connected_to.Text );
+      m_remoterServer = (ConsoleInterfaceAbstract)Activator.GetObject(typeof(ConsoleInterfaceAbstract), label_connected_to.Text);
     }
 
     #region Events Handlers
-    private void MainForm_Resize( object sender, EventArgs e )
+    private void MainForm_Resize(object sender, EventArgs e)
     {
-      if ( this.WindowState == FormWindowState.Minimized )
+      if (this.WindowState == FormWindowState.Minimized)
         this.Hide();
     }
-    private void EMainForm_Closing( object sender, System.ComponentModel.CancelEventArgs e )
+    private void EMainForm_Closing(object sender, System.ComponentModel.CancelEventArgs e)
     {
       string message = Properties.Resources.Tx_MainFormClosing;
       string caption = this.Text;
       MessageBoxButtons buttons = MessageBoxButtons.YesNo;
       DialogResult result;
       // Displays the MessageBox.
-      result = MessageBox.Show( this, message, caption, buttons,
+      result = MessageBox.Show(this, message, caption, buttons,
         MessageBoxIcon.Question, MessageBoxDefaultButton.Button1,
-        MessageBoxOptions.RightAlign );
-      if ( result != DialogResult.Yes )
+        MessageBoxOptions.RightAlign);
+      if (result != DialogResult.Yes)
       {
         e.Cancel = true;
         RefreshFormTimer.Start(); // in case of the tmier is stopped(eg. lost of communication) - it is better to start it 
       }
     }
-    private void notifyIcon_trayicon_DoubleClick( object sender, System.EventArgs e )
+    private void notifyIcon_trayicon_DoubleClick(object sender, System.EventArgs e)
     {
       this.Show();
       this.WindowState = FormWindowState.Normal;
     }
-    delegate void SplashScreenShow( int time );
-    private void MainForm_Load( object sender, System.EventArgs e )
+    delegate void SplashScreenShow(int time);
+    private void MainForm_Load(object sender, System.EventArgs e)
     {
-      RunMethodAsynchronously runasync = new RunMethodAsynchronously( delegate( object[] param )
-      {
-        SplashScreen SplashScreenObj = new SplashScreen();
-        SplashScreenObj.Show();
-        SplashScreenObj.Refresh();
-        int time = 1000;
-        if ( param != null )
-          time = (int)param[ 0 ];
-        System.Threading.Thread.Sleep( time );
-        SplashScreenObj.Close();
-      } );
-      runasync.RunAsync( new object[] { 2000 } );
+      RunMethodAsynchronously runasync = new RunMethodAsynchronously(delegate (object[] param)
+     {
+       SplashScreen SplashScreenObj = new SplashScreen();
+       SplashScreenObj.Show();
+       SplashScreenObj.Refresh();
+       int time = 1000;
+       if (param != null)
+         time = (int)param[0];
+       System.Threading.Thread.Sleep(time);
+       SplashScreenObj.Close();
+     });
+      runasync.RunAsync(new object[] { 2000 });
     }
-    private void DisplayQuestionAboutConfiguration()
+    private bool DisplayQuestionAboutConfiguration()
     {
-      if ( Settings.Default.DisplayConfigurationQuestionAtStartup )
+      if (!Settings.Default.DisplayConfigurationQuestionAtStartup)
+        return false;
+      bool _returnValue = false;
+      using (OKCancelForm _questionForm = new OKCancelForm(this.Text))
       {
-        using ( OKCancelForm questionform = new OKCancelForm( this.Text ) )
+        ConfigurationQuestionControl _configuration = new ConfigurationQuestionControl();
+        _questionForm.SetUserControl = _configuration;
+        _questionForm.CanBeAccepted(true);
+        if (_questionForm.ShowDialog(this) == DialogResult.OK)
         {
-          ConfigurationQuestionControl configquestion = new ConfigurationQuestionControl();
-          questionform.SetUserControl = configquestion;
-          questionform.CanBeAccepted( true );
-          if ( questionform.ShowDialog( this ) == DialogResult.OK )
-          {
-            Settings.Default.DisplayConfigurationQuestionAtStartup = configquestion.DisplayConfigurationQuestionAtStartup;
-            Settings.Default.UseAlternativeConfiguration = configquestion.UseAlternativeConfiguration;
-            Settings.Default.Save();
-          }
+          Settings.Default.DisplayConfigurationQuestionAtStartup = _configuration.DisplayConfigurationQuestionAtStartup;
+          Settings.Default.UseAlternativeConfiguration = _configuration.UseAlternativeConfiguration;
+          Settings.Default.Save();
+          _returnValue = true;
         }
       }
+      return _returnValue;
     }
-    private void TimerTick( object sender, System.EventArgs e )
+    private void TimerTick(object sender, System.EventArgs e)
     {
       try
       {
         RefreshMainForm();
-        if ( tabControlInterface.SelectedTab.Name == tabStation.Name )
+        if (tabControlInterface.SelectedTab.Name == tabStation.Name)
           RefreshStationPage();
-        if ( tabControlInterface.SelectedTab.Name == tabPageSegments.Name )
+        if (tabControlInterface.SelectedTab.Name == tabPageSegments.Name)
           RefreshSegmentPage();
-        if ( tabControlInterface.SelectedTab.Name == tabPageInterface.Name )
+        if (tabControlInterface.SelectedTab.Name == tabPageInterface.Name)
           RefreshInterfacePage();
-        if ( tabControlInterface.SelectedTab.Name == tabPageProtocol.Name )
+        if (tabControlInterface.SelectedTab.Name == tabPageProtocol.Name)
           RefreshProtocolPage();
-        if ( CAS.Lib.RTLib.Processes.Manager.NumOfErrors > 0 )
+        if (Manager.NumOfErrors > 0)
         {
-          new CAS.Lib.RTLib.Processes.EventLogMonitor
+          new EventLogMonitor
             (
             "Communication server console finished with Assert error", System.Diagnostics.EventLogEntryType.Error, 0, 0
             ).WriteEntry();
           this.Close();
         }
       }
-      catch ( Exception exc )
+      catch (Exception exc)
       {
         RefreshFormTimer.Stop();
-        MessageBox.Show( "CommServer - has ben stopped, it is highly recommended to close the console. "
+        MessageBox.Show("CommServer - has ben stopped, it is highly recommended to close the console. "
 #if DEBUG
  + " reason:" + exc.ToString()
 #endif
  );
-        new CAS.Lib.RTLib.Processes.EventLogMonitor
+        new EventLogMonitor
           (
           "CommServer - has ben stopped, it is highly recommended to close the console.", System.Diagnostics.EventLogEntryType.Error, 0, 0
           ).WriteEntry();
@@ -469,145 +471,132 @@ namespace CAS.CommServerConsole
     #endregion Events Handlers
 
     #region Menue Events
-    private void CM_Show_click( object sender, EventArgs e )
+    private void CM_Show_click(object sender, EventArgs e)
     {
       Show();
       this.WindowState = FormWindowState.Normal;
     }
-    private void menu_Report_Click( object sender, EventArgs e )
+    private void menu_Report_Click(object sender, EventArgs e)
     {
-      RunMethodAsynchronously runasync = new RunMethodAsynchronously( delegate( object[] o )
-      {
-        CAS.Lib.RTLib.Utils.ReportGenerator.DisplayReport( m_remoterServer.GetReport() );
-      } );
+      RunMethodAsynchronously runasync = new RunMethodAsynchronously(delegate (object[] o)
+     {
+       CAS.Lib.RTLib.Utils.ReportGenerator.DisplayReport(m_remoterServer.GetReport());
+     });
       runasync.RunAsync();
     }
-    private void menu_Configurator_Click( object sender, EventArgs e )
+    private void menu_Configurator_Click(object sender, EventArgs e)
     {
-      StartAppAsync( AppDomain.CurrentDomain.BaseDirectory + "CAS.NetworkConfig.exe", "CommServer Network Configurator Tool" );
+      StartAppAsync(AppDomain.CurrentDomain.BaseDirectory + "CAS.NetworkConfig.exe", "CommServer Network Configurator Tool");
     }
-    private void menuItem_DCOM_configuration_Click( object sender, EventArgs e )
+    private void menuItem_DCOM_configuration_Click(object sender, EventArgs e)
     {
       //dcomcnfg
-      StartAppAsync( "dcomcnfg", "DCOM configuration console" );
+      StartAppAsync("dcomcnfg", "DCOM configuration console");
     }
-    private void menuItem_XBUS_Measure_Click( object sender, EventArgs e )
+    private void menuItem_XBUS_Measure_Click(object sender, EventArgs e)
     {
-      StartAppAsync( "CAS.DPDiagnostics.exe", "XBUS measurement (Data Provider Diagnostic tool)" );
+      StartAppAsync("CAS.DPDiagnostics.exe", "XBUS measurement (Data Provider Diagnostic tool)");
     }
-    private static void StartAppAsync( string appname, string longappname )
+    private static void StartAppAsync(string appname, string longappname)
     {
-      RunMethodAsynchronously runasync = new RunMethodAsynchronously( delegate( object[] o )
-      {
-        try
-        {
-          System.Diagnostics.Process.Start( appname );
-        }
-        catch ( Exception ex )
-        {
-          MessageBox.Show( appname, "Cannot start the " + longappname + " :" + ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Warning );
-        };
-      }
+      RunMethodAsynchronously runasync = new RunMethodAsynchronously(delegate (object[] o)
+     {
+       try
+       {
+         System.Diagnostics.Process.Start(appname);
+       }
+       catch (Exception ex)
+       {
+         MessageBox.Show(appname, "Cannot start the " + longappname + " :" + ex.Message, MessageBoxButtons.OK, MessageBoxIcon.Warning);
+       };
+     }
       );
       runasync.RunAsync();
     }
     private void ShowAboutDialog()
     {
-      new CAS.Lib.ControlLibrary.AboutForm( null, null, Assembly.GetEntryAssembly() ).ShowDialog();
+      new CAS.Lib.ControlLibrary.AboutForm(null, null, Assembly.GetEntryAssembly()).ShowDialog();
     }
-    private void menu_About_Click( object sender, EventArgs e )
+    private void menu_About_Click(object sender, EventArgs e)
     {
       //About box contains web browser controll that must be run in STA!!
-      System.Threading.Thread th = new System.Threading.Thread( new System.Threading.ThreadStart( ShowAboutDialog ) );
-      th.SetApartmentState( System.Threading.ApartmentState.STA );
+      System.Threading.Thread th = new System.Threading.Thread(new System.Threading.ThreadStart(ShowAboutDialog));
+      th.SetApartmentState(System.Threading.ApartmentState.STA);
       th.Start();
     }
-    private void menu_Hide_Click( object sender, EventArgs e )
+    private void menu_Hide_Click(object sender, EventArgs e)
     {
       //      this.WindowState = FormWindowState.Minimized;
       this.Hide();
-      notifyIcon_trayicon.ShowBalloonTip( 5000 );
+      notifyIcon_trayicon.ShowBalloonTip(5000);
     }
-    private void menu_Exit_Click( object sender, EventArgs e )
+    private void menu_Exit_Click(object sender, EventArgs e)
     {
       notifyIcon_trayicon.Visible = false;
       notifyIcon_trayicon.Dispose();
       this.Close();
     }
-    private void menuItem_options_Click( object sender, EventArgs e )
+    private void menuItem_options_Click(object sender, EventArgs e)
     {
       PropertyGrid myGrid = new PropertyGrid();
       myGrid.SelectedObject = Properties.Settings.Default;
       myGrid.Anchor = AnchorStyles.Bottom | AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
       int windowHight;
       int windowWidth;
-      using ( OKCancelForm myConfigurationForm = new OKCancelForm( this.Text + ":Option" ) )
+      using (OKCancelForm myConfigurationForm = new OKCancelForm(this.Text + ":Option"))
       {
         UserControl myControl = new UserControl();
-        myControl.Controls.Add( myGrid );
+        myControl.Controls.Add(myGrid);
         myConfigurationForm.SetUserControl = myControl;
-        myConfigurationForm.CanBeAccepted( true );
-        myConfigurationForm.ShowDialog( this );
-        while ( myConfigurationForm.DialogResult == DialogResult.Yes )
+        myConfigurationForm.CanBeAccepted(true);
+        myConfigurationForm.ShowDialog(this);
+        while (myConfigurationForm.DialogResult == DialogResult.Yes)
         {
           windowHight = myConfigurationForm.Height;
           windowWidth = myConfigurationForm.Width;
           myConfigurationForm.StartPosition = FormStartPosition.Manual;
           myGrid.SelectedObject = Properties.Settings.Default;
           myControl.Controls.Clear();
-          myControl.Controls.Add( myGrid );
+          myControl.Controls.Add(myGrid);
           myConfigurationForm.SetUserControl = myControl;
-          myConfigurationForm.Controls[ 0 ].Refresh();
+          myConfigurationForm.Controls[0].Refresh();
           myConfigurationForm.Height = windowHight;
           myConfigurationForm.Width = windowWidth;
-          myConfigurationForm.ShowDialog( this );
+          myConfigurationForm.ShowDialog(this);
         }
       }
-
     }
-    private void menuItem_connectionTypeOptions_Click( object sender, EventArgs e )
+    private void menuItem_connectionTypeOptions_Click(object sender, EventArgs e)
     {
       DisplayQuestionAboutConfiguration();
     }
-    #endregion Menue Handlers
-
-    private void MainForm_FormClosing( object sender, FormClosingEventArgs e )
+    private void menuItem6_Click(object sender, EventArgs e)
     {
-
-    }
-    private void ShowLicenseDialog()
-    {
-      using ( LicenseForm dial = new LicenseForm
-             ( null, null, Assembly.GetEntryAssembly() ) )
-      {
-        Licenses cLicDial = new Licenses();
-        dial.SetAdditionalControl = cLicDial;
-        dial.LicenceRequestMessageProvider
-          = new LicenseForm.LicenceRequestMessageProviderDelegate(
-            delegate() { return cLicDial.GetLicenseMessageRequest(); } );
-        dial.ShowDialog( this );
-      }
-    }
-    private void menuItem6_Click( object sender, EventArgs e )
-    {
-      System.Threading.Thread th = new System.Threading.Thread( new System.Threading.ThreadStart( ShowLicenseDialog ) );
-      th.SetApartmentState( System.Threading.ApartmentState.STA );
+      System.Threading.Thread th = new System.Threading.Thread(new System.Threading.ThreadStart(ShowLicenseDialog));
+      th.SetApartmentState(System.Threading.ApartmentState.STA);
       th.Start();
-
     }
-
-    private void menuItem7_Click( object sender, EventArgs e )
+    private void menuItem7_Click(object sender, EventArgs e)
     {
-      using (UnlockKeyDialog dialog = new UnlockKeyDialog() )
+      using (UnlockKeyDialog dialog = new UnlockKeyDialog())
       {
         dialog.ShowDialog();
       }
     }
-
-    private ResourceManager Getter()
+    #endregion Menue Handlers
+    private void MainForm_FormClosing(object sender, FormClosingEventArgs e) { }
+    private void ShowLicenseDialog()
     {
-      return Resources.ResourceManager;
+      using (LicenseForm dial = new LicenseForm(null, null, Assembly.GetEntryAssembly()))
+      {
+        Licenses cLicDial = new Licenses();
+        dial.SetAdditionalControl = cLicDial;
+        dial.LicenceRequestMessageProvider = new LicenseForm.LicenceRequestMessageProviderDelegate(() => cLicDial.GetLicenseMessageRequest());
+        dial.ShowDialog(this);
+      }
     }
-     #endregion
- }//MainForm
+    #endregion
+
+  }//MainForm
+
 }

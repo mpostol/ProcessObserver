@@ -29,13 +29,12 @@
       <dependency id="CAS.CommServer.OPCClassic.SDK.Core" version="2.01.1062"  />
       <dependency id="CAS.CommServer.ProtocolHub.ItemDescriber" version="5.01.06"  />
       <dependency id="CAS.RealTime" version="5.0.6"  />
+      <dependency id="CAS.CommServer.ProtocolHub.MonitorInterface" version="4.01.00" />
     </dependencies>
   </metadata>
   <files>
-    <file src="bin\Release\CAS.CommServer.ProtocolHub.Communication.dll" target="lib\net451\CAS.CommServer.ProtocolHub.Communication.dll" />
-    <file src="bin\Release\CAS.CommServer.ProtocolHub.Communication.xml" target="lib\net451\CAS.CommServer.ProtocolHub.Communication.xml" />
-    <file src="bin\Release\CAS.CommServer.ProtocolHub.MonitorInterface.dll" target="lib\net451\CAS.CommServer.ProtocolHub.MonitorInterface.dll" />
-    <file src="bin\Release\CAS.CommServer.ProtocolHub.MonitorInterface.xml" target="lib\net451\CAS.CommServer.ProtocolHub.MonitorInterface.xml" />
+    <file src="bin\Release\CAS.CommServer.ProtocolHub.Communication.dll" target="lib\net461\CAS.CommServer.ProtocolHub.Communication.dll" />
+    <file src="bin\Release\CAS.CommServer.ProtocolHub.Communication.xml" target="lib\net461\CAS.CommServer.ProtocolHub.Communication.xml" />
   </files>
 </package>
 

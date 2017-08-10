@@ -14,7 +14,7 @@ namespace CAS.CommServerConsole
       }
       catch (Exception _ex)
       {
-        string _message = $"{Properties.Resources.Tx_InitCommError}, An exception has been thrown: {_ex}";
+        string _message = $"{Properties.Resources.Tx_InitCommError}, An exception has been thrown: {_ex.Message}";
         MessageBox.Show(_message, Properties.Resources.Tx_InitFailedCap, MessageBoxButtons.OK, MessageBoxIcon.Stop );
       }
     }
