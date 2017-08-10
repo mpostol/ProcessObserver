@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>CAS.CommServer.ProtocolHub.MonitorInterface</id>
+    <version>4.01.00</version>
+    <title>CommServer ProtocolHub Performance Monitor Interface.</title>
+    <authors>CAS</authors>
+    <owners>commsvr.com</owners>
+    <projectUrl>svn://svnserver.hq.cas.com.pl/VS/trunk/CommServer.DA.Server/ProtocolHub.Communication</projectUrl>
+    <licenseUrl>http://www.commsvr.com/DownloadCenter/ProductSoftware/LicenseAgreement.aspx</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <developmentDependency>false</developmentDependency>
+    <description>
+      CommServer ProtocolHub Performance Monitor Interface.
+    </description>
+    <summary>
+      CommServer ProtocolHub Performance Monitor Interface.
+    </summary>
+    <releaseNotes>
+      Released for Maintenance 2016
+    </releaseNotes>
+    <copyright>Copyright (c) 2017 CAS LODZ POLAND</copyright>
+    <tags>Communication Engine, CommServer, Protocol Hub.</tags>
+    <dependencies>
+      <dependency id="CAS.CodeProtect" version="6.1.3"  />
+      <dependency id="CAS.CommServer.DAServerConfiguration" version="5.01.06"  />
+      <dependency id="CAS.CommServer.OPCClassic.SDK.Core" version="2.01.1062"  />
+      <dependency id="CAS.RealTime" version="5.0.6"  />
+    </dependencies>
+  </metadata>
+  <files>
+  </files>
+</package>
+
+  
