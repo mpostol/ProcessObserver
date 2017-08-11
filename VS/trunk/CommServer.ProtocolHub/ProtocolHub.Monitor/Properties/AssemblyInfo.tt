@@ -29,8 +29,8 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyCulture("")]
 [assembly: ComVisible(false)]
 [assembly: Guid( "f185cedf-d0b6-4762-9d27-385764dff679" )]
-[assembly: AssemblyVersion("<#= CASCommServerProtocolHubVersion #>.*")]
-[assembly: AssemblyFileVersion("<#= CASCommServerProtocolHubVersion #>")]
+[assembly: AssemblyVersion("<#= CASCommServerProtocolHubMonitorVersion #>.*")]
+[assembly: AssemblyFileVersion("<#= CASCommServerProtocolHubMonitorVersion #>")]
 
 <#@ include file = "..\..\..\PR39-CommonResources\T4Definitions\CAS.OPC.t4" #>
 <#+

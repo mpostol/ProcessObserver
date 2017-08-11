@@ -323,7 +323,7 @@ namespace CAS.CommServerConsole
     }
     #endregion
     #region Creator
-    internal MainForm()
+    public MainForm()
     {
       InitializeComponent();
       if (!DisplayQuestionAboutConfiguration())
