@@ -8,7 +8,7 @@ rem//  $URL:  $
 rem//  $Id:  $
 
 <#
-      string _rel = CASCommServerProtocolHubVersion.Replace(".", "_"); // _version must be replaced by the correct version variable depending on the project.
+      string _rel = CASCommServerProtocolHubTagVersion.Replace(".", "_"); // _version must be replaced by the correct version variable depending on the project.
       string _repositoryUrl = @"svn://svnserver.hq.cas.com.pl/VS/";
       string _solutionPath = @"/CommServer.ProtocolHub";
       string _trunkPath = $@"{_repositoryUrl}trunk{_solutionPath}/";
