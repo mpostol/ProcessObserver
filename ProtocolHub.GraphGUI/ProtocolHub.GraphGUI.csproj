@@ -10,7 +10,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>SchemaGenerator</RootNamespace>
     <AssemblyName>CAS.CommServer.ProtocolHub.GraphGUI</AssemblyName>
-    <ManifestCertificateThumbprint>502D68F34386F28801A8BF04EA024544899F9713</ManifestCertificateThumbprint>
+    <ManifestCertificateThumbprint>14053BBC21C52A54A0C7BF6526EE9ECB11AAF643</ManifestCertificateThumbprint>
     <ManifestKeyFile>
     </ManifestKeyFile>
     <GenerateManifests>false</GenerateManifests>
