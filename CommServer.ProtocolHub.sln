@@ -3,6 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 15.0.28307.960
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{2174EF99-7D4B-45EE-87F7-D5912F3DFB5D}"
+	ProjectSection(SolutionItems) = preProject
+		README.md = README.md
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProtocolHub.MonitorInterface", "ProtocolHub.MonitorInterface\ProtocolHub.MonitorInterface.csproj", "{CE7BA276-5ACF-44FE-B24A-F91F6A0B0436}"
 EndProject
