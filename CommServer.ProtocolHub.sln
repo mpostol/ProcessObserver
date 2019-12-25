@@ -4,8 +4,6 @@ VisualStudioVersion = 15.0.28307.960
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{2174EF99-7D4B-45EE-87F7-D5912F3DFB5D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "T4Definitions", "..\PR39-CommonResources\T4Definitions\T4Definitions.csproj", "{D506423B-BA21-49E6-8C3B-88A771CA444E}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProtocolHub.MonitorInterface", "ProtocolHub.MonitorInterface\ProtocolHub.MonitorInterface.csproj", "{CE7BA276-5ACF-44FE-B24A-F91F6A0B0436}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProtocolHub.Communication", "ProtocolHub.Communication\ProtocolHub.Communication.csproj", "{E1351D09-7241-44C3-A292-8D46E322A61D}"
@@ -20,15 +18,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProtocolHub.ConfiguartionEd
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProtocolHub.Scripts", "ProtocolHub.Scripts\ProtocolHub.Scripts.csproj", "{9980473B-E30A-4DD9-91FC-15126D050E68}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "T4Definitions", "T4Definitions\T4Definitions.csproj", "{D506423B-BA21-49E6-8C3B-88A771CA444E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{D506423B-BA21-49E6-8C3B-88A771CA444E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D506423B-BA21-49E6-8C3B-88A771CA444E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D506423B-BA21-49E6-8C3B-88A771CA444E}.Release|Any CPU.Build.0 = Release|Any CPU
 		{CE7BA276-5ACF-44FE-B24A-F91F6A0B0436}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{CE7BA276-5ACF-44FE-B24A-F91F6A0B0436}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CE7BA276-5ACF-44FE-B24A-F91F6A0B0436}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -57,6 +54,10 @@ Global
 		{9980473B-E30A-4DD9-91FC-15126D050E68}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9980473B-E30A-4DD9-91FC-15126D050E68}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9980473B-E30A-4DD9-91FC-15126D050E68}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D506423B-BA21-49E6-8C3B-88A771CA444E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D506423B-BA21-49E6-8C3B-88A771CA444E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D506423B-BA21-49E6-8C3B-88A771CA444E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D506423B-BA21-49E6-8C3B-88A771CA444E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

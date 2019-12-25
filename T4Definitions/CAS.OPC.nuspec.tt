@@ -1,0 +1,34 @@
+﻿<#@ template debug="false" hostspecific="false" language="C#" #>
+<#@ output extension=".nuspec" #>
+<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id><#=m_AssemblyTitle#></id>
+    <version><#= DefaultProductVersion #></version>
+    <title><#=m_AssemblyTitle#> - <#=DefaultProductName#></title>
+    <authors><#=AssemblyCompany#></authors>
+    <owners><#=Owner#></owners>
+    <projectUrl>http://www.commsvr.com/Download/a.b.c</projectUrl>
+    <licenseUrl>http://www.commsvr.com/DownloadCenter/ProductSoftware/LicenseAgreement.aspx</licenseUrl>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <developmentDependency>false</developmentDependency>
+    <description>
+      description must be added
+    </description>
+    <summary>
+      summary must be added.
+    </summary>
+    <releaseNotes>
+      Add releaseNotes if needed.
+    </releaseNotes>
+    <copyright><#=AssemblyCopyright#></copyright>
+    <tags>OPCUA, CommServer, ASMD, Address Space Model Designer.</tags>
+  </metadata>
+  <files>
+  </files>
+</package>
+
+<#@ include file = ".\CAS.OPC.t4" #>
+<#+
+string m_AssemblyTitle = "Define.Assembly.Title";
+#>

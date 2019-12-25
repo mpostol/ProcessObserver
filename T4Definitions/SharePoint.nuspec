@@ -1,0 +1,40 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
+  <metadata>
+    <id>
+      Define.Assembly.Title
+    </id>
+    <version>
+      1.00.00
+    </version>
+    <title>
+      {DefaultProductName}: Define.Assembly.Title
+    </title>
+    <authors>
+      CAS
+    </authors>
+    <owners>
+      cas.eu
+    </owners>
+    <projectUrl>http://www.cas.eu/</projectUrl>
+    <licenseUrl>http://www.cas.internetdsl.pl/commserver/P_DowloadCenter/Lic-09000401EN_License_Agreement.pdf</licenseUrl>
+    <requireLicenseAcceptance>true</requireLicenseAcceptance>
+    <developmentDependency>false</developmentDependency>
+    <description>
+      {description must be added}
+    </description>
+    <summary>
+      {summary must be added.}
+    </summary>
+    <releaseNotes>
+      {Add releaseNotes if needed.}
+    </releaseNotes>
+    <copyright>
+      Copyright (c) 2017 CAS LODZ POLAND
+    </copyright>
+    <tags>SmartFactory, SharePoint, WPF, Silverlight, Workflow</tags>
+  </metadata>
+  <files>
+  </files>
+</package>
+

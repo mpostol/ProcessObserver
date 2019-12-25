@@ -1,22 +1,12 @@
 ﻿<#@ template debug="false" hostspecific="false" language="C#" #>
 <#@ output extension=".cs" #>
-//_______________________________________________________________
-//  Title   :  Assembly info for: <#=m_AssemblyTitle#>
-//  System  : Microsoft VisualStudio 2015 / C#
-//  $LastChangedDate:  $
-//  $Rev:  $
-//  $LastChangedBy: $
-//  $URL:  $
-//  $Id:  $
+//___________________________________________________________________________________
 //
-//  <#=AssemblyCopyright#>
-//  <#=Phone#>
-//  <#=Email#>
-//  <#=Url#>
-//_______________________________________________________________
+//  Copyright (C) 2019, Mariusz Postol LODZ POLAND.
+//
+//___________________________________________________________________________________
 
 using System.Reflection;
-using System.Resources;
 using System.Runtime.InteropServices;
 
 [assembly: AssemblyTitle("<#=m_AssemblyTitle#>")]
@@ -42,7 +32,7 @@ using System.Runtime.InteropServices;
   )
 ]
 
-<#@ include file = "..\..\..\PR39-CommonResources\T4Definitions\CAS.OPC.t4" #>
+<#@ include file = "..\..\T4Definitions\CAS.OPC.t4" #>
 <#+
 string m_AssemblyTitle = "CAS.CommServer.ProtocolHub.ConfigurationEditor";
 #>

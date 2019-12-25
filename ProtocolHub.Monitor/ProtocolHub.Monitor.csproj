@@ -25,8 +25,6 @@
     <UpgradeBackupLocation>
     </UpgradeBackupLocation>
     <IsWebBootstrapper>false</IsWebBootstrapper>
-    <ManifestCertificateThumbprint>12299BC7F8A94D617D702521EC82F4C3CABA0486</ManifestCertificateThumbprint>
-    <ManifestKeyFile>CR.CommServerConsole_TemporaryKey.pfx</ManifestKeyFile>
     <GenerateManifests>false</GenerateManifests>
     <SignManifests>false</SignManifests>
     <OldToolsVersion>3.5</OldToolsVersion>

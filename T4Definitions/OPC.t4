@@ -1,0 +1,48 @@
+﻿<#+
+//Common
+string AssemblyCopyright = "Copyright (c) 2017 CAS LODZ POLAND";
+string AssemblyCompany = "CAS";
+string AssemblyProduct = "CAS CommServer Family";
+string AssemblyTrademark = "CommServer";
+
+string Url = "http://www.commsvr.com/";
+string Email = "commserver@cas.eu";
+string Phone = "+48 (42) 686 25 47";
+string Owner = "commsvr.com";
+
+//OpcRcw.Comn
+string  OpcRcwComnVersion = "1.10.2.0";
+string  OpcRcwComnPrerelease = "";
+
+//OPC.UA.SDK
+string OPCUASDKTitle = "OPC.UA.SDK";
+string OPCUASDKVersion = "1.01.3265";
+string OPCUASDKPrerelease = "";
+
+//OPC.UA.SDK.Core
+string OPCUASDKCoreCoreTitle = "OPC.UA.SDK.Core" + "-OPC Foundation .NET API";
+string OPCUASDKCoreCoreTrademark = "OPC.UA.SDK.Core" + "-CommServer.UA";
+
+//OPC.UA.SDK.ModelCompiler
+string OPCUASDKModelCompilerName = "OPC.UA.SDK.ModelCompiler";
+string OPCUASDKModelCompilerTitle = "OPC.UA.SDK.ModelCompiler" + "-CAS Distribution of ModelCompiler";
+string OPCUASDKModelCompilerTrademark = "OPC.UA.SDK.ModelCompiler" + "-CommServer.UA";
+string OPCUASDKModelCompilerVersion = "1.02.271";
+string OPCUASDKModelCompilerPreRelease = "-Bravo";
+
+//// OPC.UA.SDK.ModelCompiler.Core
+string OPCUASDKModelCompilerCoreVersion = "1.01.334.6";
+
+//OPC.UA.SDK.ModelCompiler.Common
+string OPCUASDKModelCompilerCommonName = "OPC.UA.SDK.ModelCompiler.Common";
+string OPCUASDKModelCompilerCommonTitle = "OPC.UA.SDK.ModelCompiler.Common" + "-OPC Foundation .NET API";
+string OPCUASDKModelCompilerCommonTrademark = "OPC.UA.SDK.ModelCompiler.Common" + "-CommServer.UA";
+string OPCUASDKModelCompilerCommonVersion = "1.02.270";
+string OPCUASDKModelCompilerCommonPreRelease = "-Alpha";
+
+//Note: 
+//Alpha, Bravo, Charlie, Delta, Echo, Foxtrot, Golf, Hotel, India, Juliet, 
+//Kilo, Lima, Mike, November, Oscar, Papa, Quebec, Romeo, Sierra, Tango,
+//Uniform, Victor, Whiskey, X-Ray, Yankee, Zulu 
+
+#>

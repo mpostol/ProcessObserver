@@ -1,0 +1,98 @@
+﻿<#+
+//Common
+string AssemblyCopyright = "Copyright (c) 2017 CAS LODZ POLAND";
+string AssemblyCompany = "CAS";
+string Url = "www.cas.eu";
+string Email = "techsupp@cas.eu";
+string Phone = "+48 (42) 686 25 47";
+string Owner = "cas.eu";
+
+//Default product description
+string DefaultProductName = "{DefaultProductName}";
+string DefaultProductTrademark = "{DefaultProductTrademark}";
+string DefaultProductVersion = "1.00.00";
+
+//PR36-CAS_MAIN_CORE_PCKG
+string CoreProductName = "CAS Framework Core";
+string CoreProductTrademark = "CAS Framework";
+string CoreProductVersion = "5.00.02.*";
+string CoreProductFileVersion = "5.00.02";
+
+//PR44-SharePoint
+
+//CAS Framework (Lib)
+string LibAssemblyProduct = "CAS Framework";
+string LibAssemblyTrademark = "CAS Framework";
+
+//CASCommon (CAS.Common)
+string CommonClassLibraryVersion = "2.60.10.*";
+string CommonClassLibraryVersionFileVersion = "2.60.10";
+
+//CAS.Common.Serialization
+string CommonSerializationVersion = "1.00.00.*";
+string CommonSerializationFileVersion = "1.00.00";
+
+//SharePointClient (CAS.SharePoint.Client)
+string SFSharePointLinqClientVersion = "2.60.10.*"; //Released in SHR 2.60.10
+string SFSharePointLinqClientFileVersion = "2.60.10"; //Released in 2.60.10
+
+
+//SharePoint 
+//(CAS.SharePoint)
+//Product information
+
+string CASSharePointProduct = "CAS SharePoint Framework";
+string CASSharePointTrademark = "CAS SharePoint Framework";
+
+//Vesrsion infirmation
+string CASSharePointTagVersion = "2.61.7";
+
+string CASSharePointVersion = "2.61.7";
+string CASSharePointSetupVersion = "1.81.1";
+
+//CAS.SharePoint.Common 
+// svn://svnserver.hq.cas.com.pl/Products/CAS.SharePoint.Common
+string CASSharePointCommonTagVersion = "2.50.5"; //Max +
+
+string CASSharePointCommonVersion = "1.70.39";
+string CASSharePointCommonLoaderVersion = "2.50.03";
+
+// SmartFactory Common Assembly (CAS.SmartFactory.CommonAssembly)
+string CASSmartFactoryCommonAssemblyVersion = "2.60.21";
+
+//Smart Factory (SF)
+//PR42-SmartFactory
+//CAS.SmartFactory
+
+string SFAssemblyProduct = "Smart Factory";
+string SFAssemblyTrademark = "Smart Factory";
+string SFTagVersion = "2.60.25";
+
+//CAS.SmartFactory.Customs
+string CASSmartFactoryCustomsVersion = "2.30.07";
+
+//CAS.SmartFactory.IPR - Smart Factory Inward Processing Relief 
+string IPRAssemblyFileVersion = "2.60.25";
+
+//CAS.SmartFactory.IPR.Client - Smart Factory Inward Processing Relief Client 
+string IPClientRAssemblyFileVersion = "2.20.21";
+
+//(CAS.SmartFactory.CW) Smart Factory Customs Warehousing 
+string CWAssemblyFileVersion = "2.60.21";
+
+//CAS.SmartFactory.CW.Dashboards.DisposalRequestWebPart - CAS.CWDisposalRequestWebPart 
+string CWDisposalRequestWebPartFileVersion = "2.20.31";
+
+// Smart Factory Shepherd (SHR)
+string SHRAssemblyFileVersion = "2.60.11";
+
+//CAS.ShepherdManagement
+string ShepherdManagementAssemblyFileVersion = "2.60.11";
+
+//CAS.AgileWorkloadTracker (in PR43-AgileWorkloadTracker)
+string AWTProduct = "Smart Factory Agile Workload Tracker";
+string AWTTrademark = "Smart Factory AWT";
+string AWTAssemblyVersion = "2.00.00";
+
+
+#>
