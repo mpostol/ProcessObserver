@@ -1,0 +1,895 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<HelpKI>
+  <HelpKINode Title="Active enumeration member" Url="html/T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.InterfaceState.htm" />
+  <HelpKINode Title="Active field" Url="html/F-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.InterfaceState.Active.htm" />
+  <HelpKINode Title="Active property">
+    <HelpKINode Title="Active Property " Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.Active.htm" />
+    <HelpKINode Title="Active Property " Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.InterfaceStatisticsInternal.Active.htm" />
+  </HelpKINode>
+  <HelpKINode Title="ActiveTime property">
+    <HelpKINode Title="ActiveTime Property " Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.ActiveTime.htm" />
+    <HelpKINode Title="ActiveTime Property " Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.InterfaceStatisticsInternal.ActiveTime.htm" />
+  </HelpKINode>
+  <HelpKINode Title="AddInterface method">
+    <HelpKINode Title="AddInterface Method " Url="html/M-CAS.CommServer.ProtocolHub.MonitorInterface.IInterface2SegmentLink.AddInterface.htm" />
+    <HelpKINode Title="AddInterface Method " Url="html/M-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.StationStatistics.AddInterface.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Address property" Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.SegmentStatisticsInternal.Address.htm" />
+  <HelpKINode Title="AddSegment method" Url="html/M-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.ChannelStatistics.AddSegment.htm" />
+  <HelpKINode Title="AddtionalInformation property" Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.SegmentStatisticsInternal.AddtionalInformation.htm" />
+  <HelpKINode Title="AllowPickupConnection field" Url="html/F-CAS.CommServer.ProtocolHub.Communication.SegmentParameters.AllowPickupConnection.htm" />
+  <HelpKINode Title="CAS.CommServer.ProtocolHub.Communication namespace" Url="html/N-CAS.CommServer.ProtocolHub.Communication.htm" />
+  <HelpKINode Title="CAS.CommServer.ProtocolHub.Communication.BaseStation namespace" Url="html/N-CAS.CommServer.ProtocolHub.Communication.BaseStation.htm" />
+  <HelpKINode Title="CAS.CommServer.ProtocolHub.Communication.BaseStation.ConsoleIterface class">
+    <HelpKINode Title="ConsoleIterface Class" Url="html/T-CAS.CommServer.ProtocolHub.Communication.BaseStation.ConsoleIterface.htm" />
+    <HelpKINode Title="ConsoleIterface Members" Url="html/AllMembers.T-CAS.CommServer.ProtocolHub.Communication.BaseStation.ConsoleIterface.htm" />
+  </HelpKINode>
+  <HelpKINode Title="CAS.CommServer.ProtocolHub.Communication.BaseStation.Interface class">
+    <HelpKINode Title="Interface Class" Url="html/T-CAS.CommServer.ProtocolHub.Communication.BaseStation.Interface.htm" />
+    <HelpKINode Title="Interface Members" Url="html/AllMembers.T-CAS.CommServer.ProtocolHub.Communication.BaseStation.Interface.htm" />
+  </HelpKINode>
+  <HelpKINode Title="CAS.CommServer.ProtocolHub.Communication.BaseStation.Pipe class">
+    <HelpKINode Title="Pipe Class" Url="html/T-CAS.CommServer.ProtocolHub.Communication.BaseStation.Pipe.htm" />
+    <HelpKINode Title="Pipe Members" Url="html/AllMembers.T-CAS.CommServer.ProtocolHub.Communication.BaseStation.Pipe.htm" />
+  </HelpKINode>
+  <HelpKINode Title="CAS.CommServer.ProtocolHub.Communication.BaseStation.RetryFilter structure">
+    <HelpKINode Title="RetryFilter Members" Url="html/AllMembers.T-CAS.CommServer.ProtocolHub.Communication.BaseStation.RetryFilter.htm" />
+    <HelpKINode Title="RetryFilter Structure" Url="html/T-CAS.CommServer.ProtocolHub.Communication.BaseStation.RetryFilter.htm" />
+  </HelpKINode>
+  <HelpKINode Title="CAS.CommServer.ProtocolHub.Communication.CommServerComponent class">
+    <HelpKINode Title="CommServerComponent Class" Url="html/T-CAS.CommServer.ProtocolHub.Communication.CommServerComponent.htm" />
+    <HelpKINode Title="CommServerComponent Members" Url="html/AllMembers.T-CAS.CommServer.ProtocolHub.Communication.CommServerComponent.htm" />
+  </HelpKINode>
+  <HelpKINode Title="CAS.CommServer.ProtocolHub.Communication.CommServerInstaller class">
+    <HelpKINode Title="CommServerInstaller Class" Url="html/T-CAS.CommServer.ProtocolHub.Communication.CommServerInstaller.htm" />
+    <HelpKINode Title="CommServerInstaller Members" Url="html/AllMembers.T-CAS.CommServer.ProtocolHub.Communication.CommServerInstaller.htm" />
+  </HelpKINode>
+  <HelpKINode Title="CAS.CommServer.ProtocolHub.Communication.Diagnostic namespace" Url="html/N-CAS.CommServer.ProtocolHub.Communication.Diagnostic.htm" />
+  <HelpKINode Title="CAS.CommServer.ProtocolHub.Communication.Diagnostic.CommServerProtocol class">
+    <HelpKINode Title="CommServerProtocol Class" Url="html/T-CAS.CommServer.ProtocolHub.Communication.Diagnostic.CommServerProtocol.htm" />
+    <HelpKINode Title="CommServerProtocol Members" Url="html/AllMembers.T-CAS.CommServer.ProtocolHub.Communication.Diagnostic.CommServerProtocol.htm" />
+  </HelpKINode>
+  <HelpKINode Title="CAS.CommServer.ProtocolHub.Communication.Diagnostic.CommseverProtocol class">
+    <HelpKINode Title="CommseverProtocol Class" Url="html/T-CAS.CommServer.ProtocolHub.Communication.Diagnostic.CommseverProtocol.htm" />
+    <HelpKINode Title="CommseverProtocol Members" Url="html/AllMembers.T-CAS.CommServer.ProtocolHub.Communication.Diagnostic.CommseverProtocol.htm" />
+  </HelpKINode>
+  <HelpKINode Title="CAS.CommServer.ProtocolHub.Communication.Diagnostic.Interface class">
+    <HelpKINode Title="Interface Class" Url="html/T-CAS.CommServer.ProtocolHub.Communication.Diagnostic.Interface.htm" />
+    <HelpKINode Title="Interface Members" Url="html/AllMembers.T-CAS.CommServer.ProtocolHub.Communication.Diagnostic.Interface.htm" />
+  </HelpKINode>
+  <HelpKINode Title="CAS.CommServer.ProtocolHub.Communication.Diagnostic.ReportGenerator class">
+    <HelpKINode Title="ReportGenerator Class" Url="html/T-CAS.CommServer.ProtocolHub.Communication.Diagnostic.ReportGenerator.htm" />
+    <HelpKINode Title="ReportGenerator Members" Url="html/AllMembers.T-CAS.CommServer.ProtocolHub.Communication.Diagnostic.ReportGenerator.htm" />
+  </HelpKINode>
+  <HelpKINode Title="CAS.CommServer.ProtocolHub.Communication.Diagnostic.Segment class">
+    <HelpKINode Title="Segment Class" Url="html/T-CAS.CommServer.ProtocolHub.Communication.Diagnostic.Segment.htm" />
+    <HelpKINode Title="Segment Members" Url="html/AllMembers.T-CAS.CommServer.ProtocolHub.Communication.Diagnostic.Segment.htm" />
+  </HelpKINode>
+  <HelpKINode Title="CAS.CommServer.ProtocolHub.Communication.Diagnostic.Station class">
+    <HelpKINode Title="Station Class" Url="html/T-CAS.CommServer.ProtocolHub.Communication.Diagnostic.Station.htm" />
+    <HelpKINode Title="Station Members" Url="html/AllMembers.T-CAS.CommServer.ProtocolHub.Communication.Diagnostic.Station.htm" />
+  </HelpKINode>
+  <HelpKINode Title="CAS.CommServer.ProtocolHub.Communication.LicenseControl namespace" Url="html/N-CAS.CommServer.ProtocolHub.Communication.LicenseControl.htm" />
+  <HelpKINode Title="CAS.CommServer.ProtocolHub.Communication.LicenseControl.Redundancy class">
+    <HelpKINode Title="Redundancy Class" Url="html/T-CAS.CommServer.ProtocolHub.Communication.LicenseControl.Redundancy.htm" />
+    <HelpKINode Title="Redundancy Members" Url="html/AllMembers.T-CAS.CommServer.ProtocolHub.Communication.LicenseControl.Redundancy.htm" />
+  </HelpKINode>
+  <HelpKINode Title="CAS.CommServer.ProtocolHub.Communication.Properties namespace" Url="html/N-CAS.CommServer.ProtocolHub.Communication.Properties.htm" />
+  <HelpKINode Title="CAS.CommServer.ProtocolHub.Communication.Properties.Resources class">
+    <HelpKINode Title="Resources Class" Url="html/T-CAS.CommServer.ProtocolHub.Communication.Properties.Resources.htm" />
+    <HelpKINode Title="Resources Members" Url="html/AllMembers.T-CAS.CommServer.ProtocolHub.Communication.Properties.Resources.htm" />
+  </HelpKINode>
+  <HelpKINode Title="CAS.CommServer.ProtocolHub.Communication.SegmentParameters class">
+    <HelpKINode Title="SegmentParameters Class" Url="html/T-CAS.CommServer.ProtocolHub.Communication.SegmentParameters.htm" />
+    <HelpKINode Title="SegmentParameters Members" Url="html/AllMembers.T-CAS.CommServer.ProtocolHub.Communication.SegmentParameters.htm" />
+  </HelpKINode>
+  <HelpKINode Title="CAS.CommServer.ProtocolHub.MonitorInterface namespace" Url="html/N-CAS.CommServer.ProtocolHub.MonitorInterface.htm" />
+  <HelpKINode Title="CAS.CommServer.ProtocolHub.MonitorInterface.ChannelStatistics.ChannelStatisticsInternal class">
+    <HelpKINode Title="ChannelStatistics.ChannelStatisticsInternal Class" Url="html/T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.ChannelStatistics.ChannelStatisticsInternal.htm" />
+    <HelpKINode Title="ChannelStatistics.ChannelStatisticsInternal Members" Url="html/AllMembers.T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.ChannelStatistics.ChannelStatisticsInternal.htm" />
+  </HelpKINode>
+  <HelpKINode Title="CAS.CommServer.ProtocolHub.MonitorInterface.ConsoleInterfaceAbstract class">
+    <HelpKINode Title="ConsoleInterfaceAbstract Class" Url="html/T-CAS.CommServer.ProtocolHub.MonitorInterface.ConsoleInterfaceAbstract.htm" />
+    <HelpKINode Title="ConsoleInterfaceAbstract Members" Url="html/AllMembers.T-CAS.CommServer.ProtocolHub.MonitorInterface.ConsoleInterfaceAbstract.htm" />
+  </HelpKINode>
+  <HelpKINode Title="CAS.CommServer.ProtocolHub.MonitorInterface.IInterface2SegmentLink interface">
+    <HelpKINode Title="IInterface2SegmentLink Interface" Url="html/T-CAS.CommServer.ProtocolHub.MonitorInterface.IInterface2SegmentLink.htm" />
+    <HelpKINode Title="IInterface2SegmentLink Members" Url="html/AllMembers.T-CAS.CommServer.ProtocolHub.MonitorInterface.IInterface2SegmentLink.htm" />
+  </HelpKINode>
+  <HelpKINode Title="CAS.CommServer.ProtocolHub.MonitorInterface.InterfaceStatistics.InterfaceState enumeration" Url="html/T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.InterfaceState.htm" />
+  <HelpKINode Title="CAS.CommServer.ProtocolHub.MonitorInterface.InterfaceStatistics.InterfaceStateChanged delegate" Url="html/T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.InterfaceStateChanged.htm" />
+  <HelpKINode Title="CAS.CommServer.ProtocolHub.MonitorInterface.InterfaceStatistics.InterfaceStatisticsInternal class">
+    <HelpKINode Title="InterfaceStatistics.InterfaceStatisticsInternal Class" Url="html/T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.InterfaceStatisticsInternal.htm" />
+    <HelpKINode Title="InterfaceStatistics.InterfaceStatisticsInternal Members" Url="html/AllMembers.T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.InterfaceStatisticsInternal.htm" />
+  </HelpKINode>
+  <HelpKINode Title="CAS.CommServer.ProtocolHub.MonitorInterface.ISegmentStatistics interface">
+    <HelpKINode Title="ISegmentStatistics Interface" Url="html/T-CAS.CommServer.ProtocolHub.MonitorInterface.ISegmentStatistics.htm" />
+    <HelpKINode Title="ISegmentStatistics Members" Url="html/AllMembers.T-CAS.CommServer.ProtocolHub.MonitorInterface.ISegmentStatistics.htm" />
+  </HelpKINode>
+  <HelpKINode Title="CAS.CommServer.ProtocolHub.MonitorInterface.IUpdateInternalStatistics interface">
+    <HelpKINode Title="IUpdateInternalStatistics Interface" Url="html/T-CAS.CommServer.ProtocolHub.MonitorInterface.IUpdateInternalStatistics.htm" />
+    <HelpKINode Title="IUpdateInternalStatistics Members" Url="html/AllMembers.T-CAS.CommServer.ProtocolHub.MonitorInterface.IUpdateInternalStatistics.htm" />
+  </HelpKINode>
+  <HelpKINode Title="CAS.CommServer.ProtocolHub.MonitorInterface.Metronom class">
+    <HelpKINode Title="Metronom Class" Url="html/T-CAS.CommServer.ProtocolHub.MonitorInterface.Metronom.htm" />
+    <HelpKINode Title="Metronom Members" Url="html/AllMembers.T-CAS.CommServer.ProtocolHub.MonitorInterface.Metronom.htm" />
+  </HelpKINode>
+  <HelpKINode Title="CAS.CommServer.ProtocolHub.MonitorInterface.Metronom.RefreshAble class">
+    <HelpKINode Title="Metronom.RefreshAble Class" Url="html/T-CAS.CommServer.ProtocolHub.MonitorInterface.Metronom.RefreshAble.htm" />
+    <HelpKINode Title="Metronom.RefreshAble Members" Url="html/AllMembers.T-CAS.CommServer.ProtocolHub.MonitorInterface.Metronom.RefreshAble.htm" />
+  </HelpKINode>
+  <HelpKINode Title="CAS.CommServer.ProtocolHub.MonitorInterface.SegmentStatistics.SegmentStatisticsInternal class">
+    <HelpKINode Title="SegmentStatistics.SegmentStatisticsInternal Class" Url="html/T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.SegmentStatisticsInternal.htm" />
+    <HelpKINode Title="SegmentStatistics.SegmentStatisticsInternal Members" Url="html/AllMembers.T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.SegmentStatisticsInternal.htm" />
+  </HelpKINode>
+  <HelpKINode Title="CAS.CommServer.ProtocolHub.MonitorInterface.SegmentStatistics.StateChanged delegate" Url="html/T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.StateChanged.htm" />
+  <HelpKINode Title="CAS.CommServer.ProtocolHub.MonitorInterface.SegmentStatistics.States enumeration" Url="html/T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.States.htm" />
+  <HelpKINode Title="CAS.CommServer.ProtocolHub.MonitorInterface.StationStatistics.StationStatisticsInternal class">
+    <HelpKINode Title="StationStatistics.StationStatisticsInternal Class" Url="html/T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.StationStatistics.StationStatisticsInternal.htm" />
+    <HelpKINode Title="StationStatistics.StationStatisticsInternal Members" Url="html/AllMembers.T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.StationStatistics.StationStatisticsInternal.htm" />
+  </HelpKINode>
+  <HelpKINode Title="CAS.CommServer.ProtocolHub.MonitorInterface.Statistics class">
+    <HelpKINode Title="Statistics Class" Url="html/T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.htm" />
+    <HelpKINode Title="Statistics Members" Url="html/AllMembers.T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.htm" />
+  </HelpKINode>
+  <HelpKINode Title="CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.ChannelStatistics class">
+    <HelpKINode Title="Statistics.ChannelStatistics Class" Url="html/T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.ChannelStatistics.htm" />
+    <HelpKINode Title="Statistics.ChannelStatistics Members" Url="html/AllMembers.T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.ChannelStatistics.htm" />
+  </HelpKINode>
+  <HelpKINode Title="CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics class">
+    <HelpKINode Title="Statistics.InterfaceStatistics Class" Url="html/T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.htm" />
+    <HelpKINode Title="Statistics.InterfaceStatistics Members" Url="html/AllMembers.T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.htm" />
+  </HelpKINode>
+  <HelpKINode Title="CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.ProtocolStatisticsUpdater class">
+    <HelpKINode Title="Statistics.ProtocolStatisticsUpdater Class" Url="html/T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.ProtocolStatisticsUpdater.htm" />
+    <HelpKINode Title="Statistics.ProtocolStatisticsUpdater Members" Url="html/AllMembers.T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.ProtocolStatisticsUpdater.htm" />
+  </HelpKINode>
+  <HelpKINode Title="CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics class">
+    <HelpKINode Title="Statistics.SegmentStatistics Class" Url="html/T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.htm" />
+    <HelpKINode Title="Statistics.SegmentStatistics Members" Url="html/AllMembers.T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.htm" />
+  </HelpKINode>
+  <HelpKINode Title="CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.StateChanged delegate" Url="html/T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.StateChanged.htm" />
+  <HelpKINode Title="CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.StationStatistics class">
+    <HelpKINode Title="Statistics.StationStatistics Class" Url="html/T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.StationStatistics.htm" />
+    <HelpKINode Title="Statistics.StationStatistics Members" Url="html/AllMembers.T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.StationStatistics.htm" />
+  </HelpKINode>
+  <HelpKINode Title="channelList field" Url="html/F-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.channelList.htm" />
+  <HelpKINode Title="ChannelStatistics class">
+    <HelpKINode Title="constructor" Url="html/M-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.ChannelStatistics.-ctor.htm" />
+  </HelpKINode>
+  <HelpKINode Title="ChannelStatistics.AddSegment method" Url="html/M-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.ChannelStatistics.AddSegment.htm" />
+  <HelpKINode Title="ChannelStatistics.ChannelStatistics constructor" Url="html/M-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.ChannelStatistics.-ctor.htm" />
+  <HelpKINode Title="ChannelStatistics.ChannelStatisticsInternal class">
+    <HelpKINode Title="ChannelStatistics.ChannelStatisticsInternal Class" Url="html/T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.ChannelStatistics.ChannelStatisticsInternal.htm" />
+    <HelpKINode Title="ChannelStatistics.ChannelStatisticsInternal Members" Url="html/AllMembers.T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.ChannelStatistics.ChannelStatisticsInternal.htm" />
+    <HelpKINode Title="about ChannelStatistics.ChannelStatisticsInternal class" Url="html/T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.ChannelStatistics.ChannelStatisticsInternal.htm" />
+    <HelpKINode Title="all members" Url="html/AllMembers.T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.ChannelStatistics.ChannelStatisticsInternal.htm" />
+    <HelpKINode Title="fields" Url="html/Fields.T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.ChannelStatistics.ChannelStatisticsInternal.htm" />
+    <HelpKINode Title="methods" Url="html/Methods.T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.ChannelStatistics.ChannelStatisticsInternal.htm" />
+    <HelpKINode Title="properties" Url="html/Properties.T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.ChannelStatistics.ChannelStatisticsInternal.htm" />
+  </HelpKINode>
+  <HelpKINode Title="ChannelStatistics.GeatProtocolStatistics method" Url="html/M-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.ChannelStatistics.GeatProtocolStatistics.htm" />
+  <HelpKINode Title="ChannelStatistics.myID property" Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.ChannelStatistics.myID.htm" />
+  <HelpKINode Title="ChannelStatistics.myName property" Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.ChannelStatistics.myName.htm" />
+  <HelpKINode Title="ChannelStatistics.ToString method" Url="html/M-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.ChannelStatistics.ToString.htm" />
+  <HelpKINode Title="ChannelStatisticsInternal.Item property" Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.ChannelStatistics.ChannelStatisticsInternal.Item-System.Int32-.htm" />
+  <HelpKINode Title="ChannelStatisticsInternal.myID field" Url="html/F-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.ChannelStatistics.ChannelStatisticsInternal.myID.htm" />
+  <HelpKINode Title="ChannelStatisticsInternal.MyName property" Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.ChannelStatistics.ChannelStatisticsInternal.MyName.htm" />
+  <HelpKINode Title="ChannelStatisticsInternal.ToString method" Url="html/M-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.ChannelStatistics.ChannelStatisticsInternal.ToString.htm" />
+  <HelpKINode Title="CheckIfAllowed method" Url="html/M-CAS.CommServer.ProtocolHub.Communication.LicenseControl.Redundancy.CheckIfAllowed.htm" />
+  <HelpKINode Title="CommServerComponent class">
+    <HelpKINode Title="CommServerComponent Class" Url="html/T-CAS.CommServer.ProtocolHub.Communication.CommServerComponent.htm" />
+    <HelpKINode Title="CommServerComponent Members" Url="html/AllMembers.T-CAS.CommServer.ProtocolHub.Communication.CommServerComponent.htm" />
+    <HelpKINode Title="about CommServerComponent class" Url="html/T-CAS.CommServer.ProtocolHub.Communication.CommServerComponent.htm" />
+    <HelpKINode Title="all members" Url="html/AllMembers.T-CAS.CommServer.ProtocolHub.Communication.CommServerComponent.htm" />
+    <HelpKINode Title="constructor" Url="html/Overload-CAS.CommServer.ProtocolHub.Communication.CommServerComponent.-ctor.htm" />
+    <HelpKINode Title="events" Url="html/Events.T-CAS.CommServer.ProtocolHub.Communication.CommServerComponent.htm" />
+    <HelpKINode Title="methods" Url="html/Methods.T-CAS.CommServer.ProtocolHub.Communication.CommServerComponent.htm" />
+    <HelpKINode Title="properties" Url="html/Properties.T-CAS.CommServer.ProtocolHub.Communication.CommServerComponent.htm" />
+  </HelpKINode>
+  <HelpKINode Title="CommServerComponent.CommServerComponent constructor" Url="html/Overload-CAS.CommServer.ProtocolHub.Communication.CommServerComponent.-ctor.htm" />
+  <HelpKINode Title="CommServerComponent.Initialize method" Url="html/M-CAS.CommServer.ProtocolHub.Communication.CommServerComponent.Initialize.htm" />
+  <HelpKINode Title="CommServerInstaller class">
+    <HelpKINode Title="CommServerInstaller Class" Url="html/T-CAS.CommServer.ProtocolHub.Communication.CommServerInstaller.htm" />
+    <HelpKINode Title="CommServerInstaller Members" Url="html/AllMembers.T-CAS.CommServer.ProtocolHub.Communication.CommServerInstaller.htm" />
+    <HelpKINode Title="about CommServerInstaller class" Url="html/T-CAS.CommServer.ProtocolHub.Communication.CommServerInstaller.htm" />
+    <HelpKINode Title="all members" Url="html/AllMembers.T-CAS.CommServer.ProtocolHub.Communication.CommServerInstaller.htm" />
+    <HelpKINode Title="constructor" Url="html/M-CAS.CommServer.ProtocolHub.Communication.CommServerInstaller.-ctor.htm" />
+    <HelpKINode Title="events" Url="html/Events.T-CAS.CommServer.ProtocolHub.Communication.CommServerInstaller.htm" />
+    <HelpKINode Title="methods" Url="html/Methods.T-CAS.CommServer.ProtocolHub.Communication.CommServerInstaller.htm" />
+    <HelpKINode Title="properties" Url="html/Properties.T-CAS.CommServer.ProtocolHub.Communication.CommServerInstaller.htm" />
+  </HelpKINode>
+  <HelpKINode Title="CommServerInstaller.CommServerInstaller constructor" Url="html/M-CAS.CommServer.ProtocolHub.Communication.CommServerInstaller.-ctor.htm" />
+  <HelpKINode Title="CommServerProtocol class">
+    <HelpKINode Title="CommServerProtocol Class" Url="html/T-CAS.CommServer.ProtocolHub.Communication.Diagnostic.CommServerProtocol.htm" />
+    <HelpKINode Title="CommServerProtocol Members" Url="html/AllMembers.T-CAS.CommServer.ProtocolHub.Communication.Diagnostic.CommServerProtocol.htm" />
+    <HelpKINode Title="about CommServerProtocol class" Url="html/T-CAS.CommServer.ProtocolHub.Communication.Diagnostic.CommServerProtocol.htm" />
+    <HelpKINode Title="all members" Url="html/AllMembers.T-CAS.CommServer.ProtocolHub.Communication.Diagnostic.CommServerProtocol.htm" />
+    <HelpKINode Title="methods" Url="html/Methods.T-CAS.CommServer.ProtocolHub.Communication.Diagnostic.CommServerProtocol.htm" />
+    <HelpKINode Title="properties" Url="html/Properties.T-CAS.CommServer.ProtocolHub.Communication.Diagnostic.CommServerProtocol.htm" />
+  </HelpKINode>
+  <HelpKINode Title="CommServerProtocol.CreateNewProtocol method" Url="html/M-CAS.CommServer.ProtocolHub.Communication.Diagnostic.CommServerProtocol.CreateNewProtocol.htm" />
+  <HelpKINode Title="CommseverProtocol class">
+    <HelpKINode Title="CommseverProtocol Class" Url="html/T-CAS.CommServer.ProtocolHub.Communication.Diagnostic.CommseverProtocol.htm" />
+    <HelpKINode Title="CommseverProtocol Members" Url="html/AllMembers.T-CAS.CommServer.ProtocolHub.Communication.Diagnostic.CommseverProtocol.htm" />
+    <HelpKINode Title="about CommseverProtocol class" Url="html/T-CAS.CommServer.ProtocolHub.Communication.Diagnostic.CommseverProtocol.htm" />
+    <HelpKINode Title="all members" Url="html/AllMembers.T-CAS.CommServer.ProtocolHub.Communication.Diagnostic.CommseverProtocol.htm" />
+    <HelpKINode Title="constructor" Url="html/M-CAS.CommServer.ProtocolHub.Communication.Diagnostic.CommseverProtocol.-ctor.htm" />
+    <HelpKINode Title="methods" Url="html/Methods.T-CAS.CommServer.ProtocolHub.Communication.Diagnostic.CommseverProtocol.htm" />
+  </HelpKINode>
+  <HelpKINode Title="CommseverProtocol.CommseverProtocol constructor" Url="html/M-CAS.CommServer.ProtocolHub.Communication.Diagnostic.CommseverProtocol.-ctor.htm" />
+  <HelpKINode Title="CommseverProtocol.GetHtmlTableRowDescription method" Url="html/M-CAS.CommServer.ProtocolHub.Communication.Diagnostic.CommseverProtocol.GetHtmlTableRowDescription.htm" />
+  <HelpKINode Title="CommseverProtocol.ToHtml method" Url="html/M-CAS.CommServer.ProtocolHub.Communication.Diagnostic.CommseverProtocol.ToHtml.htm" />
+  <HelpKINode Title="CommseverProtocol.ToHtmlTableRow method" Url="html/M-CAS.CommServer.ProtocolHub.Communication.Diagnostic.CommseverProtocol.ToHtmlTableRow.htm" />
+  <HelpKINode Title="Connected enumeration member" Url="html/T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.States.htm" />
+  <HelpKINode Title="Connected field" Url="html/F-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.States.Connected.htm" />
+  <HelpKINode Title="Connected property">
+    <HelpKINode Title="Connected Property " Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.SegmentStatisticsInternal.Connected.htm" />
+    <HelpKINode Title="Connected Property " Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.Connected.htm" />
+  </HelpKINode>
+  <HelpKINode Title="ConnectTime property">
+    <HelpKINode Title="ConnectTime Property " Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.SegmentStatisticsInternal.ConnectTime.htm" />
+    <HelpKINode Title="ConnectTime Property " Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.ConnectTime.htm" />
+  </HelpKINode>
+  <HelpKINode Title="ConnectTimeAvr property" Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.ConnectTimeAvr.htm" />
+  <HelpKINode Title="ConnectTimeMax property" Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.ConnectTimeMax.htm" />
+  <HelpKINode Title="ConnectTimeMin property" Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.ConnectTimeMin.htm" />
+  <HelpKINode Title="ConnFailCount property" Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.SegmentStatisticsInternal.ConnFailCount.htm" />
+  <HelpKINode Title="ConnMadeCount property" Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.SegmentStatisticsInternal.ConnMadeCount.htm" />
+  <HelpKINode Title="ConsoleInterfaceAbstract class">
+    <HelpKINode Title="ConsoleInterfaceAbstract Class" Url="html/T-CAS.CommServer.ProtocolHub.MonitorInterface.ConsoleInterfaceAbstract.htm" />
+    <HelpKINode Title="ConsoleInterfaceAbstract Members" Url="html/AllMembers.T-CAS.CommServer.ProtocolHub.MonitorInterface.ConsoleInterfaceAbstract.htm" />
+    <HelpKINode Title="about ConsoleInterfaceAbstract class" Url="html/T-CAS.CommServer.ProtocolHub.MonitorInterface.ConsoleInterfaceAbstract.htm" />
+    <HelpKINode Title="all members" Url="html/AllMembers.T-CAS.CommServer.ProtocolHub.MonitorInterface.ConsoleInterfaceAbstract.htm" />
+    <HelpKINode Title="methods" Url="html/Methods.T-CAS.CommServer.ProtocolHub.MonitorInterface.ConsoleInterfaceAbstract.htm" />
+  </HelpKINode>
+  <HelpKINode Title="ConsoleInterfaceAbstract.GetInterface method" Url="html/M-CAS.CommServer.ProtocolHub.MonitorInterface.ConsoleInterfaceAbstract.GetInterface.htm" />
+  <HelpKINode Title="ConsoleInterfaceAbstract.GetInterfaceList method" Url="html/M-CAS.CommServer.ProtocolHub.MonitorInterface.ConsoleInterfaceAbstract.GetInterfaceList.htm" />
+  <HelpKINode Title="ConsoleInterfaceAbstract.GetInterfaceStates method" Url="html/M-CAS.CommServer.ProtocolHub.MonitorInterface.ConsoleInterfaceAbstract.GetInterfaceStates.htm" />
+  <HelpKINode Title="ConsoleInterfaceAbstract.GetProductName method" Url="html/M-CAS.CommServer.ProtocolHub.MonitorInterface.ConsoleInterfaceAbstract.GetProductName.htm" />
+  <HelpKINode Title="ConsoleInterfaceAbstract.GetProductVersion method" Url="html/M-CAS.CommServer.ProtocolHub.MonitorInterface.ConsoleInterfaceAbstract.GetProductVersion.htm" />
+  <HelpKINode Title="ConsoleInterfaceAbstract.GetProtocol method" Url="html/M-CAS.CommServer.ProtocolHub.MonitorInterface.ConsoleInterfaceAbstract.GetProtocol.htm" />
+  <HelpKINode Title="ConsoleInterfaceAbstract.GetProtocolList method" Url="html/M-CAS.CommServer.ProtocolHub.MonitorInterface.ConsoleInterfaceAbstract.GetProtocolList.htm" />
+  <HelpKINode Title="ConsoleInterfaceAbstract.GetReport method" Url="html/M-CAS.CommServer.ProtocolHub.MonitorInterface.ConsoleInterfaceAbstract.GetReport.htm" />
+  <HelpKINode Title="ConsoleInterfaceAbstract.GetRunTime method" Url="html/M-CAS.CommServer.ProtocolHub.MonitorInterface.ConsoleInterfaceAbstract.GetRunTime.htm" />
+  <HelpKINode Title="ConsoleInterfaceAbstract.GetSegment method" Url="html/M-CAS.CommServer.ProtocolHub.MonitorInterface.ConsoleInterfaceAbstract.GetSegment.htm" />
+  <HelpKINode Title="ConsoleInterfaceAbstract.GetSegmentList method" Url="html/M-CAS.CommServer.ProtocolHub.MonitorInterface.ConsoleInterfaceAbstract.GetSegmentList.htm" />
+  <HelpKINode Title="ConsoleInterfaceAbstract.GetSegmentStates method" Url="html/M-CAS.CommServer.ProtocolHub.MonitorInterface.ConsoleInterfaceAbstract.GetSegmentStates.htm" />
+  <HelpKINode Title="ConsoleInterfaceAbstract.GetStation method" Url="html/M-CAS.CommServer.ProtocolHub.MonitorInterface.ConsoleInterfaceAbstract.GetStation.htm" />
+  <HelpKINode Title="ConsoleInterfaceAbstract.GetStationList method" Url="html/M-CAS.CommServer.ProtocolHub.MonitorInterface.ConsoleInterfaceAbstract.GetStationList.htm" />
+  <HelpKINode Title="ConsoleInterfaceAbstract.GetStationStates method" Url="html/M-CAS.CommServer.ProtocolHub.MonitorInterface.ConsoleInterfaceAbstract.GetStationStates.htm" />
+  <HelpKINode Title="ConsoleInterface_ChannelRegistrationError property" Url="html/P-CAS.CommServer.ProtocolHub.Communication.Properties.Resources.ConsoleInterface_ChannelRegistrationError.htm" />
+  <HelpKINode Title="ConsoleIterface class">
+    <HelpKINode Title="ConsoleIterface Class" Url="html/T-CAS.CommServer.ProtocolHub.Communication.BaseStation.ConsoleIterface.htm" />
+    <HelpKINode Title="ConsoleIterface Members" Url="html/AllMembers.T-CAS.CommServer.ProtocolHub.Communication.BaseStation.ConsoleIterface.htm" />
+    <HelpKINode Title="about ConsoleIterface class" Url="html/T-CAS.CommServer.ProtocolHub.Communication.BaseStation.ConsoleIterface.htm" />
+    <HelpKINode Title="all members" Url="html/AllMembers.T-CAS.CommServer.ProtocolHub.Communication.BaseStation.ConsoleIterface.htm" />
+    <HelpKINode Title="methods" Url="html/Methods.T-CAS.CommServer.ProtocolHub.Communication.BaseStation.ConsoleIterface.htm" />
+  </HelpKINode>
+  <HelpKINode Title="ConsoleIterface.GetInterface method" Url="html/M-CAS.CommServer.ProtocolHub.Communication.BaseStation.ConsoleIterface.GetInterface.htm" />
+  <HelpKINode Title="ConsoleIterface.GetInterfaceList method" Url="html/M-CAS.CommServer.ProtocolHub.Communication.BaseStation.ConsoleIterface.GetInterfaceList.htm" />
+  <HelpKINode Title="ConsoleIterface.GetInterfaceStates method" Url="html/M-CAS.CommServer.ProtocolHub.Communication.BaseStation.ConsoleIterface.GetInterfaceStates.htm" />
+  <HelpKINode Title="ConsoleIterface.GetProductName method" Url="html/M-CAS.CommServer.ProtocolHub.Communication.BaseStation.ConsoleIterface.GetProductName.htm" />
+  <HelpKINode Title="ConsoleIterface.GetProductVersion method" Url="html/M-CAS.CommServer.ProtocolHub.Communication.BaseStation.ConsoleIterface.GetProductVersion.htm" />
+  <HelpKINode Title="ConsoleIterface.GetProtocol method" Url="html/M-CAS.CommServer.ProtocolHub.Communication.BaseStation.ConsoleIterface.GetProtocol.htm" />
+  <HelpKINode Title="ConsoleIterface.GetProtocolList method" Url="html/M-CAS.CommServer.ProtocolHub.Communication.BaseStation.ConsoleIterface.GetProtocolList.htm" />
+  <HelpKINode Title="ConsoleIterface.GetReport method" Url="html/M-CAS.CommServer.ProtocolHub.Communication.BaseStation.ConsoleIterface.GetReport.htm" />
+  <HelpKINode Title="ConsoleIterface.GetRunTime method" Url="html/M-CAS.CommServer.ProtocolHub.Communication.BaseStation.ConsoleIterface.GetRunTime.htm" />
+  <HelpKINode Title="ConsoleIterface.GetSegment method" Url="html/M-CAS.CommServer.ProtocolHub.Communication.BaseStation.ConsoleIterface.GetSegment.htm" />
+  <HelpKINode Title="ConsoleIterface.GetSegmentList method" Url="html/M-CAS.CommServer.ProtocolHub.Communication.BaseStation.ConsoleIterface.GetSegmentList.htm" />
+  <HelpKINode Title="ConsoleIterface.GetSegmentStates method" Url="html/M-CAS.CommServer.ProtocolHub.Communication.BaseStation.ConsoleIterface.GetSegmentStates.htm" />
+  <HelpKINode Title="ConsoleIterface.GetStation method" Url="html/M-CAS.CommServer.ProtocolHub.Communication.BaseStation.ConsoleIterface.GetStation.htm" />
+  <HelpKINode Title="ConsoleIterface.GetStationList method" Url="html/M-CAS.CommServer.ProtocolHub.Communication.BaseStation.ConsoleIterface.GetStationList.htm" />
+  <HelpKINode Title="ConsoleIterface.GetStationStates method" Url="html/M-CAS.CommServer.ProtocolHub.Communication.BaseStation.ConsoleIterface.GetStationStates.htm" />
+  <HelpKINode Title="ConsoleIterface.Start method" Url="html/M-CAS.CommServer.ProtocolHub.Communication.BaseStation.ConsoleIterface.Start.htm" />
+  <HelpKINode Title="CreateNewProtocol method" Url="html/M-CAS.CommServer.ProtocolHub.Communication.Diagnostic.CommServerProtocol.CreateNewProtocol.htm" />
+  <HelpKINode Title="Culture property" Url="html/P-CAS.CommServer.ProtocolHub.Communication.Properties.Resources.Culture.htm" />
+  <HelpKINode Title="CurrentInterfaceState property" Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.CurrentInterfaceState.htm" />
+  <HelpKINode Title="CurrentInterfaceStateUpdate property" Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.CurrentInterfaceStateUpdate.htm" />
+  <HelpKINode Title="CurrentState property" Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.SegmentStatisticsInternal.CurrentState.htm" />
+  <HelpKINode Title="CurrentStateAsString property">
+    <HelpKINode Title="CurrentStateAsString Property " Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.CurrentStateAsString.htm" />
+    <HelpKINode Title="CurrentStateAsString Property " Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.SegmentStatisticsInternal.CurrentStateAsString.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Disconnected enumeration member" Url="html/T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.States.htm" />
+  <HelpKINode Title="Disconnected field" Url="html/F-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.States.Disconnected.htm" />
+  <HelpKINode Title="ExceptionDuringReportCreation property" Url="html/P-CAS.CommServer.ProtocolHub.Communication.Properties.Resources.ExceptionDuringReportCreation.htm" />
+  <HelpKINode Title="Fail enumeration member" Url="html/T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.InterfaceState.htm" />
+  <HelpKINode Title="Fail field" Url="html/F-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.InterfaceState.Fail.htm" />
+  <HelpKINode Title="FailTime property">
+    <HelpKINode Title="FailTime Property " Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.FailTime.htm" />
+    <HelpKINode Title="FailTime Property " Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.InterfaceStatisticsInternal.FailTime.htm" />
+  </HelpKINode>
+  <HelpKINode Title="GeatProtocolStatistics method" Url="html/M-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.ChannelStatistics.GeatProtocolStatistics.htm" />
+  <HelpKINode Title="GetCurrentState property" Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.GetCurrentState.htm" />
+  <HelpKINode Title="GetFailCount property">
+    <HelpKINode Title="GetFailCount Property " Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.SegmentStatisticsInternal.GetFailCount.htm" />
+    <HelpKINode Title="GetFailCount Property " Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.GetFailCount.htm" />
+  </HelpKINode>
+  <HelpKINode Title="GetHtmlTableRowDescription method">
+    <HelpKINode Title="GetHtmlTableRowDescription Method " Url="html/M-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.GetHtmlTableRowDescription.htm" />
+    <HelpKINode Title="GetHtmlTableRowDescription Method " Url="html/M-CAS.CommServer.ProtocolHub.Communication.Diagnostic.CommseverProtocol.GetHtmlTableRowDescription.htm" />
+    <HelpKINode Title="GetHtmlTableRowDescription Method " Url="html/M-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.GetHtmlTableRowDescription.htm" />
+    <HelpKINode Title="GetHtmlTableRowDescription Method " Url="html/M-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.StationStatistics.GetHtmlTableRowDescription.htm" />
+  </HelpKINode>
+  <HelpKINode Title="GetInterface method">
+    <HelpKINode Title="GetInterface Method " Url="html/M-CAS.CommServer.ProtocolHub.Communication.BaseStation.ConsoleIterface.GetInterface.htm" />
+    <HelpKINode Title="GetInterface Method " Url="html/M-CAS.CommServer.ProtocolHub.MonitorInterface.ConsoleInterfaceAbstract.GetInterface.htm" />
+  </HelpKINode>
+  <HelpKINode Title="GetInterfaceList method">
+    <HelpKINode Title="GetInterfaceList Method " Url="html/M-CAS.CommServer.ProtocolHub.Communication.BaseStation.ConsoleIterface.GetInterfaceList.htm" />
+    <HelpKINode Title="GetInterfaceList Method " Url="html/M-CAS.CommServer.ProtocolHub.MonitorInterface.ConsoleInterfaceAbstract.GetInterfaceList.htm" />
+  </HelpKINode>
+  <HelpKINode Title="GetInterfaceStates method">
+    <HelpKINode Title="GetInterfaceStates Method " Url="html/M-CAS.CommServer.ProtocolHub.MonitorInterface.ConsoleInterfaceAbstract.GetInterfaceStates.htm" />
+    <HelpKINode Title="GetInterfaceStates Method " Url="html/M-CAS.CommServer.ProtocolHub.Communication.BaseStation.ConsoleIterface.GetInterfaceStates.htm" />
+  </HelpKINode>
+  <HelpKINode Title="GetMadeCount property">
+    <HelpKINode Title="GetMadeCount Property " Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.SegmentStatisticsInternal.GetMadeCount.htm" />
+    <HelpKINode Title="GetMadeCount Property " Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.GetMadeCount.htm" />
+  </HelpKINode>
+  <HelpKINode Title="GetOPCPrefix property">
+    <HelpKINode Title="GetOPCPrefix Property " Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.IInterface2SegmentLink.GetOPCPrefix.htm" />
+    <HelpKINode Title="GetOPCPrefix Property " Url="html/P-CAS.CommServer.ProtocolHub.Communication.Diagnostic.Segment.GetOPCPrefix.htm" />
+    <HelpKINode Title="GetOPCPrefix Property " Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.GetOPCPrefix.htm" />
+  </HelpKINode>
+  <HelpKINode Title="GetOvertimeCoefficient property">
+    <HelpKINode Title="GetOvertimeCoefficient Property " Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.SegmentStatisticsInternal.GetOvertimeCoefficient.htm" />
+    <HelpKINode Title="GetOvertimeCoefficient Property " Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.GetOvertimeCoefficient.htm" />
+  </HelpKINode>
+  <HelpKINode Title="GetProductName method">
+    <HelpKINode Title="GetProductName Method " Url="html/M-CAS.CommServer.ProtocolHub.MonitorInterface.ConsoleInterfaceAbstract.GetProductName.htm" />
+    <HelpKINode Title="GetProductName Method " Url="html/M-CAS.CommServer.ProtocolHub.Communication.BaseStation.ConsoleIterface.GetProductName.htm" />
+  </HelpKINode>
+  <HelpKINode Title="GetProductVersion method">
+    <HelpKINode Title="GetProductVersion Method " Url="html/M-CAS.CommServer.ProtocolHub.Communication.BaseStation.ConsoleIterface.GetProductVersion.htm" />
+    <HelpKINode Title="GetProductVersion Method " Url="html/M-CAS.CommServer.ProtocolHub.MonitorInterface.ConsoleInterfaceAbstract.GetProductVersion.htm" />
+  </HelpKINode>
+  <HelpKINode Title="GetProtocol method">
+    <HelpKINode Title="GetProtocol Method " Url="html/M-CAS.CommServer.ProtocolHub.Communication.BaseStation.ConsoleIterface.GetProtocol.htm" />
+    <HelpKINode Title="GetProtocol Method " Url="html/M-CAS.CommServer.ProtocolHub.MonitorInterface.ConsoleInterfaceAbstract.GetProtocol.htm" />
+  </HelpKINode>
+  <HelpKINode Title="GetProtocolList method">
+    <HelpKINode Title="GetProtocolList Method " Url="html/M-CAS.CommServer.ProtocolHub.Communication.BaseStation.ConsoleIterface.GetProtocolList.htm" />
+    <HelpKINode Title="GetProtocolList Method " Url="html/M-CAS.CommServer.ProtocolHub.MonitorInterface.ConsoleInterfaceAbstract.GetProtocolList.htm" />
+  </HelpKINode>
+  <HelpKINode Title="GetProtocolStatistics method" Url="html/M-CAS.CommServer.ProtocolHub.MonitorInterface.IInterface2SegmentLink.GetProtocolStatistics.htm" />
+  <HelpKINode Title="GetReport method">
+    <HelpKINode Title="GetReport Method " Url="html/M-CAS.CommServer.ProtocolHub.MonitorInterface.ConsoleInterfaceAbstract.GetReport.htm" />
+    <HelpKINode Title="GetReport Method " Url="html/M-CAS.CommServer.ProtocolHub.Communication.BaseStation.ConsoleIterface.GetReport.htm" />
+  </HelpKINode>
+  <HelpKINode Title="GetReportString method" Url="html/M-CAS.CommServer.ProtocolHub.Communication.Diagnostic.ReportGenerator.GetReportString.htm" />
+  <HelpKINode Title="GetRunTime method">
+    <HelpKINode Title="GetRunTime Method " Url="html/M-CAS.CommServer.ProtocolHub.Communication.BaseStation.ConsoleIterface.GetRunTime.htm" />
+    <HelpKINode Title="GetRunTime Method " Url="html/M-CAS.CommServer.ProtocolHub.MonitorInterface.ConsoleInterfaceAbstract.GetRunTime.htm" />
+  </HelpKINode>
+  <HelpKINode Title="GetSegment method">
+    <HelpKINode Title="GetSegment Method " Url="html/M-CAS.CommServer.ProtocolHub.MonitorInterface.ConsoleInterfaceAbstract.GetSegment.htm" />
+    <HelpKINode Title="GetSegment Method " Url="html/M-CAS.CommServer.ProtocolHub.Communication.BaseStation.ConsoleIterface.GetSegment.htm" />
+  </HelpKINode>
+  <HelpKINode Title="GetSegmentConnectionTimeMinimumMximumAverage property" Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.SegmentStatisticsInternal.GetSegmentConnectionTimeMinimumMximumAverage.htm" />
+  <HelpKINode Title="GetSegmentList method">
+    <HelpKINode Title="GetSegmentList Method " Url="html/M-CAS.CommServer.ProtocolHub.MonitorInterface.ConsoleInterfaceAbstract.GetSegmentList.htm" />
+    <HelpKINode Title="GetSegmentList Method " Url="html/M-CAS.CommServer.ProtocolHub.Communication.BaseStation.ConsoleIterface.GetSegmentList.htm" />
+  </HelpKINode>
+  <HelpKINode Title="GetSegmentStates method">
+    <HelpKINode Title="GetSegmentStates Method " Url="html/M-CAS.CommServer.ProtocolHub.Communication.BaseStation.ConsoleIterface.GetSegmentStates.htm" />
+    <HelpKINode Title="GetSegmentStates Method " Url="html/M-CAS.CommServer.ProtocolHub.MonitorInterface.ConsoleInterfaceAbstract.GetSegmentStates.htm" />
+  </HelpKINode>
+  <HelpKINode Title="GetState property" Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.GetState.htm" />
+  <HelpKINode Title="GetState2String property">
+    <HelpKINode Title="GetState2String Property " Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.InterfaceStatisticsInternal.GetState2String.htm" />
+    <HelpKINode Title="GetState2String Property " Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.GetState2String.htm" />
+  </HelpKINode>
+  <HelpKINode Title="GetStation method">
+    <HelpKINode Title="GetStation Method " Url="html/M-CAS.CommServer.ProtocolHub.MonitorInterface.ConsoleInterfaceAbstract.GetStation.htm" />
+    <HelpKINode Title="GetStation Method " Url="html/M-CAS.CommServer.ProtocolHub.Communication.BaseStation.ConsoleIterface.GetStation.htm" />
+  </HelpKINode>
+  <HelpKINode Title="GetStationList method">
+    <HelpKINode Title="GetStationList Method " Url="html/M-CAS.CommServer.ProtocolHub.MonitorInterface.ConsoleInterfaceAbstract.GetStationList.htm" />
+    <HelpKINode Title="GetStationList Method " Url="html/M-CAS.CommServer.ProtocolHub.Communication.BaseStation.ConsoleIterface.GetStationList.htm" />
+  </HelpKINode>
+  <HelpKINode Title="GetStationStates method">
+    <HelpKINode Title="GetStationStates Method " Url="html/M-CAS.CommServer.ProtocolHub.MonitorInterface.ConsoleInterfaceAbstract.GetStationStates.htm" />
+    <HelpKINode Title="GetStationStates Method " Url="html/M-CAS.CommServer.ProtocolHub.Communication.BaseStation.ConsoleIterface.GetStationStates.htm" />
+  </HelpKINode>
+  <HelpKINode Title="IInterface2SegmentLink interface">
+    <HelpKINode Title="IInterface2SegmentLink Interface" Url="html/T-CAS.CommServer.ProtocolHub.MonitorInterface.IInterface2SegmentLink.htm" />
+    <HelpKINode Title="IInterface2SegmentLink Members" Url="html/AllMembers.T-CAS.CommServer.ProtocolHub.MonitorInterface.IInterface2SegmentLink.htm" />
+    <HelpKINode Title="about IInterface2SegmentLink interface" Url="html/T-CAS.CommServer.ProtocolHub.MonitorInterface.IInterface2SegmentLink.htm" />
+    <HelpKINode Title="all members" Url="html/AllMembers.T-CAS.CommServer.ProtocolHub.MonitorInterface.IInterface2SegmentLink.htm" />
+    <HelpKINode Title="methods" Url="html/Methods.T-CAS.CommServer.ProtocolHub.MonitorInterface.IInterface2SegmentLink.htm" />
+    <HelpKINode Title="properties" Url="html/Properties.T-CAS.CommServer.ProtocolHub.MonitorInterface.IInterface2SegmentLink.htm" />
+  </HelpKINode>
+  <HelpKINode Title="IInterface2SegmentLink.AddInterface method" Url="html/M-CAS.CommServer.ProtocolHub.MonitorInterface.IInterface2SegmentLink.AddInterface.htm" />
+  <HelpKINode Title="IInterface2SegmentLink.GetOPCPrefix property" Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.IInterface2SegmentLink.GetOPCPrefix.htm" />
+  <HelpKINode Title="IInterface2SegmentLink.GetProtocolStatistics method" Url="html/M-CAS.CommServer.ProtocolHub.MonitorInterface.IInterface2SegmentLink.GetProtocolStatistics.htm" />
+  <HelpKINode Title="Initialize method" Url="html/M-CAS.CommServer.ProtocolHub.Communication.CommServerComponent.Initialize.htm" />
+  <HelpKINode Title="Interface class">
+    <HelpKINode Title="Interface Class" Url="html/T-CAS.CommServer.ProtocolHub.Communication.Diagnostic.Interface.htm" />
+    <HelpKINode Title="Interface Class" Url="html/T-CAS.CommServer.ProtocolHub.Communication.BaseStation.Interface.htm" />
+    <HelpKINode Title="Interface Members" Url="html/AllMembers.T-CAS.CommServer.ProtocolHub.Communication.Diagnostic.Interface.htm" />
+    <HelpKINode Title="Interface Members" Url="html/AllMembers.T-CAS.CommServer.ProtocolHub.Communication.BaseStation.Interface.htm" />
+    <HelpKINode Title="about Interface class" Url="html/T-CAS.CommServer.ProtocolHub.Communication.Diagnostic.Interface.htm" />
+    <HelpKINode Title="about Interface class" Url="html/T-CAS.CommServer.ProtocolHub.Communication.BaseStation.Interface.htm" />
+    <HelpKINode Title="all members" Url="html/AllMembers.T-CAS.CommServer.ProtocolHub.Communication.Diagnostic.Interface.htm" />
+    <HelpKINode Title="all members" Url="html/AllMembers.T-CAS.CommServer.ProtocolHub.Communication.BaseStation.Interface.htm" />
+    <HelpKINode Title="constructor" Url="html/M-CAS.CommServer.ProtocolHub.Communication.Diagnostic.Interface.-ctor.htm" />
+    <HelpKINode Title="events" Url="html/Events.T-CAS.CommServer.ProtocolHub.Communication.Diagnostic.Interface.htm" />
+    <HelpKINode Title="methods" Url="html/Methods.T-CAS.CommServer.ProtocolHub.Communication.Diagnostic.Interface.htm" />
+    <HelpKINode Title="methods" Url="html/Methods.T-CAS.CommServer.ProtocolHub.Communication.BaseStation.Interface.htm" />
+    <HelpKINode Title="properties" Url="html/Properties.T-CAS.CommServer.ProtocolHub.Communication.Diagnostic.Interface.htm" />
+    <HelpKINode Title="properties" Url="html/Properties.T-CAS.CommServer.ProtocolHub.Communication.BaseStation.Interface.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Interface.Interface constructor" Url="html/M-CAS.CommServer.ProtocolHub.Communication.Diagnostic.Interface.-ctor.htm" />
+  <HelpKINode Title="interfaceList field" Url="html/F-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.interfaceList.htm" />
+  <HelpKINode Title="InterfaceState.Active field" Url="html/F-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.InterfaceState.Active.htm" />
+  <HelpKINode Title="InterfaceState.Fail field" Url="html/F-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.InterfaceState.Fail.htm" />
+  <HelpKINode Title="InterfaceState.Standby field" Url="html/F-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.InterfaceState.Standby.htm" />
+  <HelpKINode Title="InterfaceStatistics class">
+    <HelpKINode Title="constructor" Url="html/M-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.-ctor.htm" />
+  </HelpKINode>
+  <HelpKINode Title="InterfaceStatistics.Active property" Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.Active.htm" />
+  <HelpKINode Title="InterfaceStatistics.ActiveTime property" Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.ActiveTime.htm" />
+  <HelpKINode Title="InterfaceStatistics.CurrentInterfaceState property" Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.CurrentInterfaceState.htm" />
+  <HelpKINode Title="InterfaceStatistics.CurrentInterfaceStateUpdate property" Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.CurrentInterfaceStateUpdate.htm" />
+  <HelpKINode Title="InterfaceStatistics.FailTime property" Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.FailTime.htm" />
+  <HelpKINode Title="InterfaceStatistics.GetHtmlTableRowDescription method" Url="html/M-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.GetHtmlTableRowDescription.htm" />
+  <HelpKINode Title="InterfaceStatistics.GetState property" Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.GetState.htm" />
+  <HelpKINode Title="InterfaceStatistics.GetState2String property" Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.GetState2String.htm" />
+  <HelpKINode Title="InterfaceStatistics.InterfaceState enumeration" Url="html/T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.InterfaceState.htm" />
+  <HelpKINode Title="InterfaceStatistics.InterfaceStateChanged delegate" Url="html/T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.InterfaceStateChanged.htm" />
+  <HelpKINode Title="InterfaceStatistics.InterfaceStatistics constructor" Url="html/M-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.-ctor.htm" />
+  <HelpKINode Title="InterfaceStatistics.InterfaceStatisticsInternal class">
+    <HelpKINode Title="InterfaceStatistics.InterfaceStatisticsInternal Class" Url="html/T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.InterfaceStatisticsInternal.htm" />
+    <HelpKINode Title="InterfaceStatistics.InterfaceStatisticsInternal Members" Url="html/AllMembers.T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.InterfaceStatisticsInternal.htm" />
+    <HelpKINode Title="about InterfaceStatistics.InterfaceStatisticsInternal class" Url="html/T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.InterfaceStatisticsInternal.htm" />
+    <HelpKINode Title="all members" Url="html/AllMembers.T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.InterfaceStatisticsInternal.htm" />
+    <HelpKINode Title="fields" Url="html/Fields.T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.InterfaceStatisticsInternal.htm" />
+    <HelpKINode Title="methods" Url="html/Methods.T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.InterfaceStatisticsInternal.htm" />
+    <HelpKINode Title="properties" Url="html/Properties.T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.InterfaceStatisticsInternal.htm" />
+  </HelpKINode>
+  <HelpKINode Title="InterfaceStatistics.MarkRWOperationResult method" Url="html/M-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.MarkRWOperationResult.htm" />
+  <HelpKINode Title="InterfaceStatistics.myID_InterfaceNum property" Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.myID_InterfaceNum.htm" />
+  <HelpKINode Title="InterfaceStatistics.myStat field" Url="html/F-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.myStat.htm" />
+  <HelpKINode Title="InterfaceStatistics.NAME property" Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.NAME.htm" />
+  <HelpKINode Title="InterfaceStatistics.StandbyTime property" Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.StandbyTime.htm" />
+  <HelpKINode Title="InterfaceStatistics.ToHtml method" Url="html/M-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.ToHtml.htm" />
+  <HelpKINode Title="InterfaceStatistics.ToHtmlTableRow method" Url="html/M-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.ToHtmlTableRow.htm" />
+  <HelpKINode Title="InterfaceStatistics.ToString method" Url="html/M-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.ToString.htm" />
+  <HelpKINode Title="InterfaceStatistics.UpdateInterfaceState event" Url="html/E-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.UpdateInterfaceState.htm" />
+  <HelpKINode Title="InterfaceStatisticsInternal.Active property" Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.InterfaceStatisticsInternal.Active.htm" />
+  <HelpKINode Title="InterfaceStatisticsInternal.ActiveTime property" Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.InterfaceStatisticsInternal.ActiveTime.htm" />
+  <HelpKINode Title="InterfaceStatisticsInternal.FailTime property" Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.InterfaceStatisticsInternal.FailTime.htm" />
+  <HelpKINode Title="InterfaceStatisticsInternal.GetState2String property" Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.InterfaceStatisticsInternal.GetState2String.htm" />
+  <HelpKINode Title="InterfaceStatisticsInternal.myID_InterfaceNum field" Url="html/F-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.InterfaceStatisticsInternal.myID_InterfaceNum.htm" />
+  <HelpKINode Title="InterfaceStatisticsInternal.myID_Internal field" Url="html/F-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.InterfaceStatisticsInternal.myID_Internal.htm" />
+  <HelpKINode Title="InterfaceStatisticsInternal.myName field" Url="html/F-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.InterfaceStatisticsInternal.myName.htm" />
+  <HelpKINode Title="InterfaceStatisticsInternal.MyState property" Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.InterfaceStatisticsInternal.MyState.htm" />
+  <HelpKINode Title="InterfaceStatisticsInternal.StandbyTime property" Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.InterfaceStatisticsInternal.StandbyTime.htm" />
+  <HelpKINode Title="InterfaceStatisticsInternal.State property" Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.InterfaceStatisticsInternal.State.htm" />
+  <HelpKINode Title="InterfaceStatisticsInternal.ToString method" Url="html/M-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.InterfaceStatisticsInternal.ToString.htm" />
+  <HelpKINode Title="ISegmentStatistics interface">
+    <HelpKINode Title="ISegmentStatistics Interface" Url="html/T-CAS.CommServer.ProtocolHub.MonitorInterface.ISegmentStatistics.htm" />
+    <HelpKINode Title="ISegmentStatistics Members" Url="html/AllMembers.T-CAS.CommServer.ProtocolHub.MonitorInterface.ISegmentStatistics.htm" />
+    <HelpKINode Title="about ISegmentStatistics interface" Url="html/T-CAS.CommServer.ProtocolHub.MonitorInterface.ISegmentStatistics.htm" />
+    <HelpKINode Title="all members" Url="html/AllMembers.T-CAS.CommServer.ProtocolHub.MonitorInterface.ISegmentStatistics.htm" />
+    <HelpKINode Title="methods" Url="html/Methods.T-CAS.CommServer.ProtocolHub.MonitorInterface.ISegmentStatistics.htm" />
+    <HelpKINode Title="properties" Url="html/Properties.T-CAS.CommServer.ProtocolHub.MonitorInterface.ISegmentStatistics.htm" />
+  </HelpKINode>
+  <HelpKINode Title="ISegmentStatistics.MarkConnFail method" Url="html/M-CAS.CommServer.ProtocolHub.MonitorInterface.ISegmentStatistics.MarkConnFail.htm" />
+  <HelpKINode Title="ISegmentStatistics.NewState property" Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.ISegmentStatistics.NewState.htm" />
+  <HelpKINode Title="ISegmentStatistics.SetOvertimeCoefficient method" Url="html/M-CAS.CommServer.ProtocolHub.MonitorInterface.ISegmentStatistics.SetOvertimeCoefficient.htm" />
+  <HelpKINode Title="Item property">
+    <HelpKINode Title="Item Property " Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.SegmentStatisticsInternal.Item-System.Int32-.htm" />
+    <HelpKINode Title="Item Property " Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.ChannelStatistics.ChannelStatisticsInternal.Item-System.Int32-.htm" />
+  </HelpKINode>
+  <HelpKINode Title="IUpdateInternalStatistics interface">
+    <HelpKINode Title="IUpdateInternalStatistics Interface" Url="html/T-CAS.CommServer.ProtocolHub.MonitorInterface.IUpdateInternalStatistics.htm" />
+    <HelpKINode Title="IUpdateInternalStatistics Members" Url="html/AllMembers.T-CAS.CommServer.ProtocolHub.MonitorInterface.IUpdateInternalStatistics.htm" />
+    <HelpKINode Title="about IUpdateInternalStatistics interface" Url="html/T-CAS.CommServer.ProtocolHub.MonitorInterface.IUpdateInternalStatistics.htm" />
+    <HelpKINode Title="all members" Url="html/AllMembers.T-CAS.CommServer.ProtocolHub.MonitorInterface.IUpdateInternalStatistics.htm" />
+    <HelpKINode Title="methods" Url="html/Methods.T-CAS.CommServer.ProtocolHub.MonitorInterface.IUpdateInternalStatistics.htm" />
+  </HelpKINode>
+  <HelpKINode Title="IUpdateInternalStatistics.UpdateInternal method" Url="html/M-CAS.CommServer.ProtocolHub.MonitorInterface.IUpdateInternalStatistics.UpdateInternal.htm" />
+  <HelpKINode Title="KeepConnect property" Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.SegmentStatisticsInternal.KeepConnect.htm" />
+  <HelpKINode Title="License field" Url="html/F-CAS.CommServer.ProtocolHub.Communication.LicenseControl.Redundancy.License.htm" />
+  <HelpKINode Title="MarkConnFail method">
+    <HelpKINode Title="MarkConnFail Method " Url="html/M-CAS.CommServer.ProtocolHub.MonitorInterface.ISegmentStatistics.MarkConnFail.htm" />
+    <HelpKINode Title="MarkConnFail Method " Url="html/M-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.SegmentStatisticsInternal.MarkConnFail.htm" />
+  </HelpKINode>
+  <HelpKINode Title="MarkFail method" Url="html/M-CAS.CommServer.ProtocolHub.Communication.BaseStation.RetryFilter.MarkFail.htm" />
+  <HelpKINode Title="MarkNewState event">
+    <HelpKINode Title="MarkNewState Event" Url="html/E-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.StationStatistics.MarkNewState.htm" />
+    <HelpKINode Title="MarkNewState Event" Url="html/E-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.MarkNewState.htm" />
+  </HelpKINode>
+  <HelpKINode Title="MarkRWOperationResult method" Url="html/M-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.MarkRWOperationResult.htm" />
+  <HelpKINode Title="MarkSuccess method" Url="html/M-CAS.CommServer.ProtocolHub.Communication.BaseStation.RetryFilter.MarkSuccess.htm" />
+  <HelpKINode Title="Metronom class">
+    <HelpKINode Title="Metronom Class" Url="html/T-CAS.CommServer.ProtocolHub.MonitorInterface.Metronom.htm" />
+    <HelpKINode Title="Metronom Members" Url="html/AllMembers.T-CAS.CommServer.ProtocolHub.MonitorInterface.Metronom.htm" />
+    <HelpKINode Title="about Metronom class" Url="html/T-CAS.CommServer.ProtocolHub.MonitorInterface.Metronom.htm" />
+    <HelpKINode Title="all members" Url="html/AllMembers.T-CAS.CommServer.ProtocolHub.MonitorInterface.Metronom.htm" />
+    <HelpKINode Title="methods" Url="html/Methods.T-CAS.CommServer.ProtocolHub.MonitorInterface.Metronom.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Metronom.RefreshAble class">
+    <HelpKINode Title="Metronom.RefreshAble Class" Url="html/T-CAS.CommServer.ProtocolHub.MonitorInterface.Metronom.RefreshAble.htm" />
+    <HelpKINode Title="Metronom.RefreshAble Members" Url="html/AllMembers.T-CAS.CommServer.ProtocolHub.MonitorInterface.Metronom.RefreshAble.htm" />
+    <HelpKINode Title="about Metronom.RefreshAble class" Url="html/T-CAS.CommServer.ProtocolHub.MonitorInterface.Metronom.RefreshAble.htm" />
+    <HelpKINode Title="all members" Url="html/AllMembers.T-CAS.CommServer.ProtocolHub.MonitorInterface.Metronom.RefreshAble.htm" />
+    <HelpKINode Title="methods" Url="html/Methods.T-CAS.CommServer.ProtocolHub.MonitorInterface.Metronom.RefreshAble.htm" />
+  </HelpKINode>
+  <HelpKINode Title="myID field">
+    <HelpKINode Title="myID Field" Url="html/F-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.StationStatistics.StationStatisticsInternal.myID.htm" />
+    <HelpKINode Title="myID Field" Url="html/F-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.ChannelStatistics.ChannelStatisticsInternal.myID.htm" />
+  </HelpKINode>
+  <HelpKINode Title="MyID property" Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.SegmentStatisticsInternal.MyID.htm" />
+  <HelpKINode Title="myID property" Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.ChannelStatistics.myID.htm" />
+  <HelpKINode Title="myID_InterfaceNum field" Url="html/F-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.InterfaceStatisticsInternal.myID_InterfaceNum.htm" />
+  <HelpKINode Title="myID_InterfaceNum property" Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.myID_InterfaceNum.htm" />
+  <HelpKINode Title="myID_Internal field" Url="html/F-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.InterfaceStatisticsInternal.myID_Internal.htm" />
+  <HelpKINode Title="myName field">
+    <HelpKINode Title="myName Field" Url="html/F-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.InterfaceStatisticsInternal.myName.htm" />
+    <HelpKINode Title="myName Field" Url="html/F-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.StationStatistics.StationStatisticsInternal.myName.htm" />
+  </HelpKINode>
+  <HelpKINode Title="myName property">
+    <HelpKINode Title="myName Property " Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.myName.htm" />
+    <HelpKINode Title="myName Property " Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.ChannelStatistics.myName.htm" />
+    <HelpKINode Title="myName Property " Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.StationStatistics.myName.htm" />
+  </HelpKINode>
+  <HelpKINode Title="MyName property">
+    <HelpKINode Title="MyName Property " Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.ChannelStatistics.ChannelStatisticsInternal.MyName.htm" />
+    <HelpKINode Title="MyName Property " Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.SegmentStatisticsInternal.MyName.htm" />
+  </HelpKINode>
+  <HelpKINode Title="MyPriority property" Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.StationStatistics.StationStatisticsInternal.MyPriority.htm" />
+  <HelpKINode Title="myStat field">
+    <HelpKINode Title="myStat Field" Url="html/F-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.myStat.htm" />
+    <HelpKINode Title="myStat Field" Url="html/F-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.myStat.htm" />
+    <HelpKINode Title="myStat Field" Url="html/F-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.StationStatistics.myStat.htm" />
+  </HelpKINode>
+  <HelpKINode Title="MyState property" Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.InterfaceStatisticsInternal.MyState.htm" />
+  <HelpKINode Title="Name field" Url="html/F-CAS.CommServer.ProtocolHub.Communication.SegmentParameters.Name.htm" />
+  <HelpKINode Title="NAME property" Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.NAME.htm" />
+  <HelpKINode Title="NewState property" Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.ISegmentStatistics.NewState.htm" />
+  <HelpKINode Title="NewStateUpdateStatistics property" Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.NewStateUpdateStatistics.htm" />
+  <HelpKINode Title="OvertimeCoefficient_Avr property" Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.SegmentStatisticsInternal.OvertimeCoefficient_Avr.htm" />
+  <HelpKINode Title="OvertimeCoefficient_Max property" Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.SegmentStatisticsInternal.OvertimeCoefficient_Max.htm" />
+  <HelpKINode Title="OvertimeCoefficient_Min property" Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.SegmentStatisticsInternal.OvertimeCoefficient_Min.htm" />
+  <HelpKINode Title="PickupConnect property" Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.SegmentStatisticsInternal.PickupConnect.htm" />
+  <HelpKINode Title="Pipe class">
+    <HelpKINode Title="Pipe Class" Url="html/T-CAS.CommServer.ProtocolHub.Communication.BaseStation.Pipe.htm" />
+    <HelpKINode Title="Pipe Members" Url="html/AllMembers.T-CAS.CommServer.ProtocolHub.Communication.BaseStation.Pipe.htm" />
+    <HelpKINode Title="about Pipe class" Url="html/T-CAS.CommServer.ProtocolHub.Communication.BaseStation.Pipe.htm" />
+    <HelpKINode Title="all members" Url="html/AllMembers.T-CAS.CommServer.ProtocolHub.Communication.BaseStation.Pipe.htm" />
+    <HelpKINode Title="methods" Url="html/Methods.T-CAS.CommServer.ProtocolHub.Communication.BaseStation.Pipe.htm" />
+  </HelpKINode>
+  <HelpKINode Title="priority property" Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.StationStatistics.priority.htm" />
+  <HelpKINode Title="Quality property" Url="html/P-CAS.CommServer.ProtocolHub.Communication.BaseStation.RetryFilter.Quality.htm" />
+  <HelpKINode Title="ReadDelay property" Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.SegmentStatisticsInternal.ReadDelay.htm" />
+  <HelpKINode Title="ReadDelayAvr property" Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.ReadDelayAvr.htm" />
+  <HelpKINode Title="ReadDelayMax property" Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.ReadDelayMax.htm" />
+  <HelpKINode Title="ReadDelayMin property" Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.ReadDelayMin.htm" />
+  <HelpKINode Title="ReadWaitingToBeConn enumeration member" Url="html/T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.States.htm" />
+  <HelpKINode Title="ReadWaitingToBeConn field" Url="html/F-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.States.ReadWaitingToBeConn.htm" />
+  <HelpKINode Title="ReadWriteOperationsReadDataAssertion property" Url="html/P-CAS.CommServer.ProtocolHub.Communication.Properties.Resources.ReadWriteOperationsReadDataAssertion.htm" />
+  <HelpKINode Title="Redundancy class">
+    <HelpKINode Title="Redundancy Class" Url="html/T-CAS.CommServer.ProtocolHub.Communication.LicenseControl.Redundancy.htm" />
+    <HelpKINode Title="Redundancy Members" Url="html/AllMembers.T-CAS.CommServer.ProtocolHub.Communication.LicenseControl.Redundancy.htm" />
+    <HelpKINode Title="about Redundancy class" Url="html/T-CAS.CommServer.ProtocolHub.Communication.LicenseControl.Redundancy.htm" />
+    <HelpKINode Title="all members" Url="html/AllMembers.T-CAS.CommServer.ProtocolHub.Communication.LicenseControl.Redundancy.htm" />
+    <HelpKINode Title="fields" Url="html/Fields.T-CAS.CommServer.ProtocolHub.Communication.LicenseControl.Redundancy.htm" />
+    <HelpKINode Title="methods" Url="html/Methods.T-CAS.CommServer.ProtocolHub.Communication.LicenseControl.Redundancy.htm" />
+    <HelpKINode Title="properties" Url="html/Properties.T-CAS.CommServer.ProtocolHub.Communication.LicenseControl.Redundancy.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Redundancy.CheckIfAllowed method" Url="html/M-CAS.CommServer.ProtocolHub.Communication.LicenseControl.Redundancy.CheckIfAllowed.htm" />
+  <HelpKINode Title="Redundancy.License field" Url="html/F-CAS.CommServer.ProtocolHub.Communication.LicenseControl.Redundancy.License.htm" />
+  <HelpKINode Title="ReportGenerator class">
+    <HelpKINode Title="ReportGenerator Class" Url="html/T-CAS.CommServer.ProtocolHub.Communication.Diagnostic.ReportGenerator.htm" />
+    <HelpKINode Title="ReportGenerator Members" Url="html/AllMembers.T-CAS.CommServer.ProtocolHub.Communication.Diagnostic.ReportGenerator.htm" />
+    <HelpKINode Title="about ReportGenerator class" Url="html/T-CAS.CommServer.ProtocolHub.Communication.Diagnostic.ReportGenerator.htm" />
+    <HelpKINode Title="all members" Url="html/AllMembers.T-CAS.CommServer.ProtocolHub.Communication.Diagnostic.ReportGenerator.htm" />
+    <HelpKINode Title="constructor" Url="html/M-CAS.CommServer.ProtocolHub.Communication.Diagnostic.ReportGenerator.-ctor.htm" />
+    <HelpKINode Title="methods" Url="html/Methods.T-CAS.CommServer.ProtocolHub.Communication.Diagnostic.ReportGenerator.htm" />
+  </HelpKINode>
+  <HelpKINode Title="ReportGenerator.GetReportString method" Url="html/M-CAS.CommServer.ProtocolHub.Communication.Diagnostic.ReportGenerator.GetReportString.htm" />
+  <HelpKINode Title="ReportGenerator.ReportGenerator constructor" Url="html/M-CAS.CommServer.ProtocolHub.Communication.Diagnostic.ReportGenerator.-ctor.htm" />
+  <HelpKINode Title="Reset method" Url="html/M-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.Reset.htm" />
+  <HelpKINode Title="ResourceManager property" Url="html/P-CAS.CommServer.ProtocolHub.Communication.Properties.Resources.ResourceManager.htm" />
+  <HelpKINode Title="Resources class">
+    <HelpKINode Title="Resources Class" Url="html/T-CAS.CommServer.ProtocolHub.Communication.Properties.Resources.htm" />
+    <HelpKINode Title="Resources Members" Url="html/AllMembers.T-CAS.CommServer.ProtocolHub.Communication.Properties.Resources.htm" />
+    <HelpKINode Title="about Resources class" Url="html/T-CAS.CommServer.ProtocolHub.Communication.Properties.Resources.htm" />
+    <HelpKINode Title="all members" Url="html/AllMembers.T-CAS.CommServer.ProtocolHub.Communication.Properties.Resources.htm" />
+    <HelpKINode Title="methods" Url="html/Methods.T-CAS.CommServer.ProtocolHub.Communication.Properties.Resources.htm" />
+    <HelpKINode Title="properties" Url="html/Properties.T-CAS.CommServer.ProtocolHub.Communication.Properties.Resources.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Resources.ConsoleInterface_ChannelRegistrationError property" Url="html/P-CAS.CommServer.ProtocolHub.Communication.Properties.Resources.ConsoleInterface_ChannelRegistrationError.htm" />
+  <HelpKINode Title="Resources.Culture property" Url="html/P-CAS.CommServer.ProtocolHub.Communication.Properties.Resources.Culture.htm" />
+  <HelpKINode Title="Resources.ExceptionDuringReportCreation property" Url="html/P-CAS.CommServer.ProtocolHub.Communication.Properties.Resources.ExceptionDuringReportCreation.htm" />
+  <HelpKINode Title="Resources.ReadWriteOperationsReadDataAssertion property" Url="html/P-CAS.CommServer.ProtocolHub.Communication.Properties.Resources.ReadWriteOperationsReadDataAssertion.htm" />
+  <HelpKINode Title="Resources.ResourceManager property" Url="html/P-CAS.CommServer.ProtocolHub.Communication.Properties.Resources.ResourceManager.htm" />
+  <HelpKINode Title="Resources.TraceALRes_DatTransferEr property" Url="html/P-CAS.CommServer.ProtocolHub.Communication.Properties.Resources.TraceALRes_DatTransferEr.htm" />
+  <HelpKINode Title="Resources.TraceCommunicationError property" Url="html/P-CAS.CommServer.ProtocolHub.Communication.Properties.Resources.TraceCommunicationError.htm" />
+  <HelpKINode Title="Resources.TraceConnectionError property" Url="html/P-CAS.CommServer.ProtocolHub.Communication.Properties.Resources.TraceConnectionError.htm" />
+  <HelpKINode Title="Resources.TraceDataProviderError property" Url="html/P-CAS.CommServer.ProtocolHub.Communication.Properties.Resources.TraceDataProviderError.htm" />
+  <HelpKINode Title="Resources.TraceStateEntered property" Url="html/P-CAS.CommServer.ProtocolHub.Communication.Properties.Resources.TraceStateEntered.htm" />
+  <HelpKINode Title="Retry property" Url="html/P-CAS.CommServer.ProtocolHub.Communication.BaseStation.RetryFilter.Retry.htm" />
+  <HelpKINode Title="RetryFilter structure">
+    <HelpKINode Title="RetryFilter Members" Url="html/AllMembers.T-CAS.CommServer.ProtocolHub.Communication.BaseStation.RetryFilter.htm" />
+    <HelpKINode Title="RetryFilter Structure" Url="html/T-CAS.CommServer.ProtocolHub.Communication.BaseStation.RetryFilter.htm" />
+    <HelpKINode Title="about RetryFilter structure" Url="html/T-CAS.CommServer.ProtocolHub.Communication.BaseStation.RetryFilter.htm" />
+    <HelpKINode Title="all members" Url="html/AllMembers.T-CAS.CommServer.ProtocolHub.Communication.BaseStation.RetryFilter.htm" />
+    <HelpKINode Title="constructor" Url="html/M-CAS.CommServer.ProtocolHub.Communication.BaseStation.RetryFilter.-ctor.htm" />
+    <HelpKINode Title="methods" Url="html/Methods.T-CAS.CommServer.ProtocolHub.Communication.BaseStation.RetryFilter.htm" />
+    <HelpKINode Title="properties" Url="html/Properties.T-CAS.CommServer.ProtocolHub.Communication.BaseStation.RetryFilter.htm" />
+  </HelpKINode>
+  <HelpKINode Title="RetryFilter.MarkFail method" Url="html/M-CAS.CommServer.ProtocolHub.Communication.BaseStation.RetryFilter.MarkFail.htm" />
+  <HelpKINode Title="RetryFilter.MarkSuccess method" Url="html/M-CAS.CommServer.ProtocolHub.Communication.BaseStation.RetryFilter.MarkSuccess.htm" />
+  <HelpKINode Title="RetryFilter.Quality property" Url="html/P-CAS.CommServer.ProtocolHub.Communication.BaseStation.RetryFilter.Quality.htm" />
+  <HelpKINode Title="RetryFilter.Retry property" Url="html/P-CAS.CommServer.ProtocolHub.Communication.BaseStation.RetryFilter.Retry.htm" />
+  <HelpKINode Title="RetryFilter.RetryFilter constructor" Url="html/M-CAS.CommServer.ProtocolHub.Communication.BaseStation.RetryFilter.-ctor.htm" />
+  <HelpKINode Title="Segment class">
+    <HelpKINode Title="Segment Class" Url="html/T-CAS.CommServer.ProtocolHub.Communication.Diagnostic.Segment.htm" />
+    <HelpKINode Title="Segment Members" Url="html/AllMembers.T-CAS.CommServer.ProtocolHub.Communication.Diagnostic.Segment.htm" />
+    <HelpKINode Title="about Segment class" Url="html/T-CAS.CommServer.ProtocolHub.Communication.Diagnostic.Segment.htm" />
+    <HelpKINode Title="all members" Url="html/AllMembers.T-CAS.CommServer.ProtocolHub.Communication.Diagnostic.Segment.htm" />
+    <HelpKINode Title="events" Url="html/Events.T-CAS.CommServer.ProtocolHub.Communication.Diagnostic.Segment.htm" />
+    <HelpKINode Title="methods" Url="html/Methods.T-CAS.CommServer.ProtocolHub.Communication.Diagnostic.Segment.htm" />
+    <HelpKINode Title="properties" Url="html/Properties.T-CAS.CommServer.ProtocolHub.Communication.Diagnostic.Segment.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Segment.GetOPCPrefix property" Url="html/P-CAS.CommServer.ProtocolHub.Communication.Diagnostic.Segment.GetOPCPrefix.htm" />
+  <HelpKINode Title="SegmentAddress field" Url="html/F-CAS.CommServer.ProtocolHub.Communication.SegmentParameters.SegmentAddress.htm" />
+  <HelpKINode Title="segmentList field" Url="html/F-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.segmentList.htm" />
+  <HelpKINode Title="SegmentParameters class">
+    <HelpKINode Title="SegmentParameters Class" Url="html/T-CAS.CommServer.ProtocolHub.Communication.SegmentParameters.htm" />
+    <HelpKINode Title="SegmentParameters Members" Url="html/AllMembers.T-CAS.CommServer.ProtocolHub.Communication.SegmentParameters.htm" />
+    <HelpKINode Title="about SegmentParameters class" Url="html/T-CAS.CommServer.ProtocolHub.Communication.SegmentParameters.htm" />
+    <HelpKINode Title="all members" Url="html/AllMembers.T-CAS.CommServer.ProtocolHub.Communication.SegmentParameters.htm" />
+    <HelpKINode Title="constructor" Url="html/M-CAS.CommServer.ProtocolHub.Communication.SegmentParameters.-ctor.htm" />
+    <HelpKINode Title="fields" Url="html/Fields.T-CAS.CommServer.ProtocolHub.Communication.SegmentParameters.htm" />
+    <HelpKINode Title="methods" Url="html/Methods.T-CAS.CommServer.ProtocolHub.Communication.SegmentParameters.htm" />
+  </HelpKINode>
+  <HelpKINode Title="SegmentParameters.AllowPickupConnection field" Url="html/F-CAS.CommServer.ProtocolHub.Communication.SegmentParameters.AllowPickupConnection.htm" />
+  <HelpKINode Title="SegmentParameters.Name field" Url="html/F-CAS.CommServer.ProtocolHub.Communication.SegmentParameters.Name.htm" />
+  <HelpKINode Title="SegmentParameters.SegmentAddress field" Url="html/F-CAS.CommServer.ProtocolHub.Communication.SegmentParameters.SegmentAddress.htm" />
+  <HelpKINode Title="SegmentParameters.SegmentParameters constructor" Url="html/M-CAS.CommServer.ProtocolHub.Communication.SegmentParameters.-ctor.htm" />
+  <HelpKINode Title="SegmentParameters.TimeIdleKeepConnection field" Url="html/F-CAS.CommServer.ProtocolHub.Communication.SegmentParameters.TimeIdleKeepConnection.htm" />
+  <HelpKINode Title="SegmentParameters.TimeKeepConnrction field" Url="html/F-CAS.CommServer.ProtocolHub.Communication.SegmentParameters.TimeKeepConnrction.htm" />
+  <HelpKINode Title="SegmentParameters.TimeReconnect field" Url="html/F-CAS.CommServer.ProtocolHub.Communication.SegmentParameters.TimeReconnect.htm" />
+  <HelpKINode Title="SegmentParameters.TimeReconnectAfterFailure field" Url="html/F-CAS.CommServer.ProtocolHub.Communication.SegmentParameters.TimeReconnectAfterFailure.htm" />
+  <HelpKINode Title="SegmentStatistics class">
+    <HelpKINode Title="constructor" Url="html/M-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.-ctor.htm" />
+  </HelpKINode>
+  <HelpKINode Title="SegmentStatistics.Connected property" Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.Connected.htm" />
+  <HelpKINode Title="SegmentStatistics.ConnectTime property" Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.ConnectTime.htm" />
+  <HelpKINode Title="SegmentStatistics.ConnectTimeAvr property" Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.ConnectTimeAvr.htm" />
+  <HelpKINode Title="SegmentStatistics.ConnectTimeMax property" Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.ConnectTimeMax.htm" />
+  <HelpKINode Title="SegmentStatistics.ConnectTimeMin property" Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.ConnectTimeMin.htm" />
+  <HelpKINode Title="SegmentStatistics.CurrentStateAsString property" Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.CurrentStateAsString.htm" />
+  <HelpKINode Title="SegmentStatistics.GetCurrentState property" Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.GetCurrentState.htm" />
+  <HelpKINode Title="SegmentStatistics.GetFailCount property" Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.GetFailCount.htm" />
+  <HelpKINode Title="SegmentStatistics.GetHtmlTableRowDescription method" Url="html/M-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.GetHtmlTableRowDescription.htm" />
+  <HelpKINode Title="SegmentStatistics.GetMadeCount property" Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.GetMadeCount.htm" />
+  <HelpKINode Title="SegmentStatistics.GetOPCPrefix property" Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.GetOPCPrefix.htm" />
+  <HelpKINode Title="SegmentStatistics.GetOvertimeCoefficient property" Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.GetOvertimeCoefficient.htm" />
+  <HelpKINode Title="SegmentStatistics.MarkNewState event" Url="html/E-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.MarkNewState.htm" />
+  <HelpKINode Title="SegmentStatistics.myName property" Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.myName.htm" />
+  <HelpKINode Title="SegmentStatistics.myStat field" Url="html/F-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.myStat.htm" />
+  <HelpKINode Title="SegmentStatistics.NewStateUpdateStatistics property" Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.NewStateUpdateStatistics.htm" />
+  <HelpKINode Title="SegmentStatistics.ReadDelayAvr property" Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.ReadDelayAvr.htm" />
+  <HelpKINode Title="SegmentStatistics.ReadDelayMax property" Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.ReadDelayMax.htm" />
+  <HelpKINode Title="SegmentStatistics.ReadDelayMin property" Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.ReadDelayMin.htm" />
+  <HelpKINode Title="SegmentStatistics.Reset method" Url="html/M-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.Reset.htm" />
+  <HelpKINode Title="SegmentStatistics.SegmentStatistics constructor" Url="html/M-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.-ctor.htm" />
+  <HelpKINode Title="SegmentStatistics.SegmentStatisticsInternal class">
+    <HelpKINode Title="SegmentStatistics.SegmentStatisticsInternal Class" Url="html/T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.SegmentStatisticsInternal.htm" />
+    <HelpKINode Title="SegmentStatistics.SegmentStatisticsInternal Members" Url="html/AllMembers.T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.SegmentStatisticsInternal.htm" />
+    <HelpKINode Title="about SegmentStatistics.SegmentStatisticsInternal class" Url="html/T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.SegmentStatisticsInternal.htm" />
+    <HelpKINode Title="all members" Url="html/AllMembers.T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.SegmentStatisticsInternal.htm" />
+    <HelpKINode Title="methods" Url="html/Methods.T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.SegmentStatisticsInternal.htm" />
+    <HelpKINode Title="properties" Url="html/Properties.T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.SegmentStatisticsInternal.htm" />
+  </HelpKINode>
+  <HelpKINode Title="SegmentStatistics.StateChanged delegate" Url="html/T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.StateChanged.htm" />
+  <HelpKINode Title="SegmentStatistics.States enumeration" Url="html/T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.States.htm" />
+  <HelpKINode Title="SegmentStatistics.ToHtml method" Url="html/M-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.ToHtml.htm" />
+  <HelpKINode Title="SegmentStatistics.ToHtmlTableRow method" Url="html/M-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.ToHtmlTableRow.htm" />
+  <HelpKINode Title="SegmentStatistics.ToString method" Url="html/M-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.ToString.htm" />
+  <HelpKINode Title="SegmentStatistics.WriteDelayAvr property" Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.WriteDelayAvr.htm" />
+  <HelpKINode Title="SegmentStatistics.WriteDelayMax property" Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.WriteDelayMax.htm" />
+  <HelpKINode Title="SegmentStatistics.WriteDelayMin property" Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.WriteDelayMin.htm" />
+  <HelpKINode Title="SegmentStatisticsInternal.Address property" Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.SegmentStatisticsInternal.Address.htm" />
+  <HelpKINode Title="SegmentStatisticsInternal.AddtionalInformation property" Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.SegmentStatisticsInternal.AddtionalInformation.htm" />
+  <HelpKINode Title="SegmentStatisticsInternal.Connected property" Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.SegmentStatisticsInternal.Connected.htm" />
+  <HelpKINode Title="SegmentStatisticsInternal.ConnectTime property" Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.SegmentStatisticsInternal.ConnectTime.htm" />
+  <HelpKINode Title="SegmentStatisticsInternal.ConnFailCount property" Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.SegmentStatisticsInternal.ConnFailCount.htm" />
+  <HelpKINode Title="SegmentStatisticsInternal.ConnMadeCount property" Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.SegmentStatisticsInternal.ConnMadeCount.htm" />
+  <HelpKINode Title="SegmentStatisticsInternal.CurrentState property" Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.SegmentStatisticsInternal.CurrentState.htm" />
+  <HelpKINode Title="SegmentStatisticsInternal.CurrentStateAsString property" Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.SegmentStatisticsInternal.CurrentStateAsString.htm" />
+  <HelpKINode Title="SegmentStatisticsInternal.GetFailCount property" Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.SegmentStatisticsInternal.GetFailCount.htm" />
+  <HelpKINode Title="SegmentStatisticsInternal.GetMadeCount property" Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.SegmentStatisticsInternal.GetMadeCount.htm" />
+  <HelpKINode Title="SegmentStatisticsInternal.GetOvertimeCoefficient property" Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.SegmentStatisticsInternal.GetOvertimeCoefficient.htm" />
+  <HelpKINode Title="SegmentStatisticsInternal.GetSegmentConnectionTimeMinimumMximumAverage property" Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.SegmentStatisticsInternal.GetSegmentConnectionTimeMinimumMximumAverage.htm" />
+  <HelpKINode Title="SegmentStatisticsInternal.Item property" Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.SegmentStatisticsInternal.Item-System.Int32-.htm" />
+  <HelpKINode Title="SegmentStatisticsInternal.KeepConnect property" Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.SegmentStatisticsInternal.KeepConnect.htm" />
+  <HelpKINode Title="SegmentStatisticsInternal.MarkConnFail method" Url="html/M-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.SegmentStatisticsInternal.MarkConnFail.htm" />
+  <HelpKINode Title="SegmentStatisticsInternal.MyID property" Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.SegmentStatisticsInternal.MyID.htm" />
+  <HelpKINode Title="SegmentStatisticsInternal.MyName property" Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.SegmentStatisticsInternal.MyName.htm" />
+  <HelpKINode Title="SegmentStatisticsInternal.OvertimeCoefficient_Avr property" Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.SegmentStatisticsInternal.OvertimeCoefficient_Avr.htm" />
+  <HelpKINode Title="SegmentStatisticsInternal.OvertimeCoefficient_Max property" Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.SegmentStatisticsInternal.OvertimeCoefficient_Max.htm" />
+  <HelpKINode Title="SegmentStatisticsInternal.OvertimeCoefficient_Min property" Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.SegmentStatisticsInternal.OvertimeCoefficient_Min.htm" />
+  <HelpKINode Title="SegmentStatisticsInternal.PickupConnect property" Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.SegmentStatisticsInternal.PickupConnect.htm" />
+  <HelpKINode Title="SegmentStatisticsInternal.ReadDelay property" Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.SegmentStatisticsInternal.ReadDelay.htm" />
+  <HelpKINode Title="SegmentStatisticsInternal.SetOvertimeCoefficient method" Url="html/M-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.SegmentStatisticsInternal.SetOvertimeCoefficient.htm" />
+  <HelpKINode Title="SegmentStatisticsInternal.TimeIdleKeepConn property" Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.SegmentStatisticsInternal.TimeIdleKeepConn.htm" />
+  <HelpKINode Title="SegmentStatisticsInternal.TimeKeepConn property" Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.SegmentStatisticsInternal.TimeKeepConn.htm" />
+  <HelpKINode Title="SegmentStatisticsInternal.TimeReconnect property" Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.SegmentStatisticsInternal.TimeReconnect.htm" />
+  <HelpKINode Title="SegmentStatisticsInternal.TimeScan property" Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.SegmentStatisticsInternal.TimeScan.htm" />
+  <HelpKINode Title="SegmentStatisticsInternal.ToString method" Url="html/M-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.SegmentStatisticsInternal.ToString.htm" />
+  <HelpKINode Title="SegmentStatisticsInternal.WriteDelay property" Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.SegmentStatisticsInternal.WriteDelay.htm" />
+  <HelpKINode Title="SetOvertimeCoefficient method">
+    <HelpKINode Title="SetOvertimeCoefficient Method " Url="html/M-CAS.CommServer.ProtocolHub.MonitorInterface.ISegmentStatistics.SetOvertimeCoefficient.htm" />
+    <HelpKINode Title="SetOvertimeCoefficient Method " Url="html/M-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.SegmentStatisticsInternal.SetOvertimeCoefficient.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Standby enumeration member" Url="html/T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.InterfaceState.htm" />
+  <HelpKINode Title="Standby field" Url="html/F-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.InterfaceState.Standby.htm" />
+  <HelpKINode Title="StandbyTime property">
+    <HelpKINode Title="StandbyTime Property " Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.StandbyTime.htm" />
+    <HelpKINode Title="StandbyTime Property " Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.InterfaceStatisticsInternal.StandbyTime.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Start method" Url="html/M-CAS.CommServer.ProtocolHub.Communication.BaseStation.ConsoleIterface.Start.htm" />
+  <HelpKINode Title="State property" Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.InterfaceStatisticsInternal.State.htm" />
+  <HelpKINode Title="States.Connected field" Url="html/F-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.States.Connected.htm" />
+  <HelpKINode Title="States.Disconnected field" Url="html/F-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.States.Disconnected.htm" />
+  <HelpKINode Title="States.ReadWaitingToBeConn field" Url="html/F-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.States.ReadWaitingToBeConn.htm" />
+  <HelpKINode Title="States.WriteWaitingToBeConn field" Url="html/F-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.States.WriteWaitingToBeConn.htm" />
+  <HelpKINode Title="Station class">
+    <HelpKINode Title="Station Class" Url="html/T-CAS.CommServer.ProtocolHub.Communication.Diagnostic.Station.htm" />
+    <HelpKINode Title="Station Members" Url="html/AllMembers.T-CAS.CommServer.ProtocolHub.Communication.Diagnostic.Station.htm" />
+    <HelpKINode Title="about Station class" Url="html/T-CAS.CommServer.ProtocolHub.Communication.Diagnostic.Station.htm" />
+    <HelpKINode Title="all members" Url="html/AllMembers.T-CAS.CommServer.ProtocolHub.Communication.Diagnostic.Station.htm" />
+    <HelpKINode Title="constructor" Url="html/M-CAS.CommServer.ProtocolHub.Communication.Diagnostic.Station.-ctor.htm" />
+    <HelpKINode Title="events" Url="html/Events.T-CAS.CommServer.ProtocolHub.Communication.Diagnostic.Station.htm" />
+    <HelpKINode Title="methods" Url="html/Methods.T-CAS.CommServer.ProtocolHub.Communication.Diagnostic.Station.htm" />
+    <HelpKINode Title="properties" Url="html/Properties.T-CAS.CommServer.ProtocolHub.Communication.Diagnostic.Station.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Station.Station constructor" Url="html/M-CAS.CommServer.ProtocolHub.Communication.Diagnostic.Station.-ctor.htm" />
+  <HelpKINode Title="stationList field" Url="html/F-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.stationList.htm" />
+  <HelpKINode Title="StationState property">
+    <HelpKINode Title="StationState Property " Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.StationStatistics.StationStatisticsInternal.StationState.htm" />
+    <HelpKINode Title="StationState Property " Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.StationStatistics.StationState.htm" />
+  </HelpKINode>
+  <HelpKINode Title="StationStateString property" Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.StationStatistics.StationStatisticsInternal.StationStateString.htm" />
+  <HelpKINode Title="StationStatistics class">
+    <HelpKINode Title="constructor" Url="html/M-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.StationStatistics.-ctor.htm" />
+  </HelpKINode>
+  <HelpKINode Title="StationStatistics.AddInterface method" Url="html/M-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.StationStatistics.AddInterface.htm" />
+  <HelpKINode Title="StationStatistics.GetHtmlTableRowDescription method" Url="html/M-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.StationStatistics.GetHtmlTableRowDescription.htm" />
+  <HelpKINode Title="StationStatistics.MarkNewState event" Url="html/E-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.StationStatistics.MarkNewState.htm" />
+  <HelpKINode Title="StationStatistics.myName property" Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.StationStatistics.myName.htm" />
+  <HelpKINode Title="StationStatistics.myStat field" Url="html/F-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.StationStatistics.myStat.htm" />
+  <HelpKINode Title="StationStatistics.priority property" Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.StationStatistics.priority.htm" />
+  <HelpKINode Title="StationStatistics.StationState property" Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.StationStatistics.StationState.htm" />
+  <HelpKINode Title="StationStatistics.StationStatistics constructor" Url="html/M-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.StationStatistics.-ctor.htm" />
+  <HelpKINode Title="StationStatistics.StationStatisticsInternal class">
+    <HelpKINode Title="StationStatistics.StationStatisticsInternal Class" Url="html/T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.StationStatistics.StationStatisticsInternal.htm" />
+    <HelpKINode Title="StationStatistics.StationStatisticsInternal Members" Url="html/AllMembers.T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.StationStatistics.StationStatisticsInternal.htm" />
+    <HelpKINode Title="about StationStatistics.StationStatisticsInternal class" Url="html/T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.StationStatistics.StationStatisticsInternal.htm" />
+    <HelpKINode Title="all members" Url="html/AllMembers.T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.StationStatistics.StationStatisticsInternal.htm" />
+    <HelpKINode Title="fields" Url="html/Fields.T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.StationStatistics.StationStatisticsInternal.htm" />
+    <HelpKINode Title="methods" Url="html/Methods.T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.StationStatistics.StationStatisticsInternal.htm" />
+    <HelpKINode Title="properties" Url="html/Properties.T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.StationStatistics.StationStatisticsInternal.htm" />
+  </HelpKINode>
+  <HelpKINode Title="StationStatistics.ToHtml method" Url="html/M-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.StationStatistics.ToHtml.htm" />
+  <HelpKINode Title="StationStatistics.ToHtmlTableRow method" Url="html/M-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.StationStatistics.ToHtmlTableRow.htm" />
+  <HelpKINode Title="StationStatisticsInternal class">
+    <HelpKINode Title="constructor" Url="html/M-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.StationStatistics.StationStatisticsInternal.-ctor.htm" />
+  </HelpKINode>
+  <HelpKINode Title="StationStatisticsInternal.myID field" Url="html/F-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.StationStatistics.StationStatisticsInternal.myID.htm" />
+  <HelpKINode Title="StationStatisticsInternal.myName field" Url="html/F-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.StationStatistics.StationStatisticsInternal.myName.htm" />
+  <HelpKINode Title="StationStatisticsInternal.MyPriority property" Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.StationStatistics.StationStatisticsInternal.MyPriority.htm" />
+  <HelpKINode Title="StationStatisticsInternal.StationState property" Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.StationStatistics.StationStatisticsInternal.StationState.htm" />
+  <HelpKINode Title="StationStatisticsInternal.StationStateString property" Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.StationStatistics.StationStatisticsInternal.StationStateString.htm" />
+  <HelpKINode Title="StationStatisticsInternal.StationStatisticsInternal constructor" Url="html/M-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.StationStatistics.StationStatisticsInternal.-ctor.htm" />
+  <HelpKINode Title="StationStatisticsInternal.ToString method" Url="html/M-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.StationStatistics.StationStatisticsInternal.ToString.htm" />
+  <HelpKINode Title="Statistics class">
+    <HelpKINode Title="Statistics Class" Url="html/T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.htm" />
+    <HelpKINode Title="Statistics Members" Url="html/AllMembers.T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.htm" />
+    <HelpKINode Title="about Statistics class" Url="html/T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.htm" />
+    <HelpKINode Title="all members" Url="html/AllMembers.T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.htm" />
+    <HelpKINode Title="fields" Url="html/Fields.T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.htm" />
+    <HelpKINode Title="methods" Url="html/Methods.T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Statistics.channelList field" Url="html/F-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.channelList.htm" />
+  <HelpKINode Title="Statistics.ChannelStatistics class">
+    <HelpKINode Title="Statistics.ChannelStatistics Class" Url="html/T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.ChannelStatistics.htm" />
+    <HelpKINode Title="Statistics.ChannelStatistics Members" Url="html/AllMembers.T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.ChannelStatistics.htm" />
+    <HelpKINode Title="about Statistics.ChannelStatistics class" Url="html/T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.ChannelStatistics.htm" />
+    <HelpKINode Title="all members" Url="html/AllMembers.T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.ChannelStatistics.htm" />
+    <HelpKINode Title="methods" Url="html/Methods.T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.ChannelStatistics.htm" />
+    <HelpKINode Title="properties" Url="html/Properties.T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.ChannelStatistics.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Statistics.interfaceList field" Url="html/F-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.interfaceList.htm" />
+  <HelpKINode Title="Statistics.InterfaceStatistics class">
+    <HelpKINode Title="Statistics.InterfaceStatistics Class" Url="html/T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.htm" />
+    <HelpKINode Title="Statistics.InterfaceStatistics Members" Url="html/AllMembers.T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.htm" />
+    <HelpKINode Title="about Statistics.InterfaceStatistics class" Url="html/T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.htm" />
+    <HelpKINode Title="all members" Url="html/AllMembers.T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.htm" />
+    <HelpKINode Title="events" Url="html/Events.T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.htm" />
+    <HelpKINode Title="fields" Url="html/Fields.T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.htm" />
+    <HelpKINode Title="methods" Url="html/Methods.T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.htm" />
+    <HelpKINode Title="properties" Url="html/Properties.T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Statistics.ProtocolStatisticsUpdater class">
+    <HelpKINode Title="Statistics.ProtocolStatisticsUpdater Class" Url="html/T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.ProtocolStatisticsUpdater.htm" />
+    <HelpKINode Title="Statistics.ProtocolStatisticsUpdater Members" Url="html/AllMembers.T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.ProtocolStatisticsUpdater.htm" />
+    <HelpKINode Title="about Statistics.ProtocolStatisticsUpdater class" Url="html/T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.ProtocolStatisticsUpdater.htm" />
+    <HelpKINode Title="all members" Url="html/AllMembers.T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.ProtocolStatisticsUpdater.htm" />
+    <HelpKINode Title="methods" Url="html/Methods.T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.ProtocolStatisticsUpdater.htm" />
+    <HelpKINode Title="properties" Url="html/Properties.T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.ProtocolStatisticsUpdater.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Statistics.segmentList field" Url="html/F-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.segmentList.htm" />
+  <HelpKINode Title="Statistics.SegmentStatistics class">
+    <HelpKINode Title="Statistics.SegmentStatistics Class" Url="html/T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.htm" />
+    <HelpKINode Title="Statistics.SegmentStatistics Members" Url="html/AllMembers.T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.htm" />
+    <HelpKINode Title="about Statistics.SegmentStatistics class" Url="html/T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.htm" />
+    <HelpKINode Title="all members" Url="html/AllMembers.T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.htm" />
+    <HelpKINode Title="events" Url="html/Events.T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.htm" />
+    <HelpKINode Title="fields" Url="html/Fields.T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.htm" />
+    <HelpKINode Title="methods" Url="html/Methods.T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.htm" />
+    <HelpKINode Title="properties" Url="html/Properties.T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.htm" />
+  </HelpKINode>
+  <HelpKINode Title="Statistics.StateChanged delegate" Url="html/T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.StateChanged.htm" />
+  <HelpKINode Title="Statistics.stationList field" Url="html/F-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.stationList.htm" />
+  <HelpKINode Title="Statistics.StationStatistics class">
+    <HelpKINode Title="Statistics.StationStatistics Class" Url="html/T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.StationStatistics.htm" />
+    <HelpKINode Title="Statistics.StationStatistics Members" Url="html/AllMembers.T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.StationStatistics.htm" />
+    <HelpKINode Title="about Statistics.StationStatistics class" Url="html/T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.StationStatistics.htm" />
+    <HelpKINode Title="all members" Url="html/AllMembers.T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.StationStatistics.htm" />
+    <HelpKINode Title="events" Url="html/Events.T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.StationStatistics.htm" />
+    <HelpKINode Title="fields" Url="html/Fields.T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.StationStatistics.htm" />
+    <HelpKINode Title="methods" Url="html/Methods.T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.StationStatistics.htm" />
+    <HelpKINode Title="properties" Url="html/Properties.T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.StationStatistics.htm" />
+  </HelpKINode>
+  <HelpKINode Title="TimeIdleKeepConn property" Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.SegmentStatisticsInternal.TimeIdleKeepConn.htm" />
+  <HelpKINode Title="TimeIdleKeepConnection field" Url="html/F-CAS.CommServer.ProtocolHub.Communication.SegmentParameters.TimeIdleKeepConnection.htm" />
+  <HelpKINode Title="TimeKeepConn property" Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.SegmentStatisticsInternal.TimeKeepConn.htm" />
+  <HelpKINode Title="TimeKeepConnrction field" Url="html/F-CAS.CommServer.ProtocolHub.Communication.SegmentParameters.TimeKeepConnrction.htm" />
+  <HelpKINode Title="TimeReconnect field" Url="html/F-CAS.CommServer.ProtocolHub.Communication.SegmentParameters.TimeReconnect.htm" />
+  <HelpKINode Title="TimeReconnect property" Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.SegmentStatisticsInternal.TimeReconnect.htm" />
+  <HelpKINode Title="TimeReconnectAfterFailure field" Url="html/F-CAS.CommServer.ProtocolHub.Communication.SegmentParameters.TimeReconnectAfterFailure.htm" />
+  <HelpKINode Title="TimeScan property" Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.SegmentStatisticsInternal.TimeScan.htm" />
+  <HelpKINode Title="ToHtml method">
+    <HelpKINode Title="ToHtml Method " Url="html/M-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.ToHtml.htm" />
+    <HelpKINode Title="ToHtml Method " Url="html/M-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.StationStatistics.ToHtml.htm" />
+    <HelpKINode Title="ToHtml Method " Url="html/M-CAS.CommServer.ProtocolHub.Communication.Diagnostic.CommseverProtocol.ToHtml.htm" />
+    <HelpKINode Title="ToHtml Method " Url="html/M-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.ToHtml.htm" />
+  </HelpKINode>
+  <HelpKINode Title="ToHtmlTableRow method">
+    <HelpKINode Title="ToHtmlTableRow Method " Url="html/M-CAS.CommServer.ProtocolHub.Communication.Diagnostic.CommseverProtocol.ToHtmlTableRow.htm" />
+    <HelpKINode Title="ToHtmlTableRow Method " Url="html/M-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.StationStatistics.ToHtmlTableRow.htm" />
+    <HelpKINode Title="ToHtmlTableRow Method " Url="html/M-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.ToHtmlTableRow.htm" />
+    <HelpKINode Title="ToHtmlTableRow Method " Url="html/M-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.ToHtmlTableRow.htm" />
+  </HelpKINode>
+  <HelpKINode Title="ToString method">
+    <HelpKINode Title="ToString Method " Url="html/M-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.SegmentStatisticsInternal.ToString.htm" />
+    <HelpKINode Title="ToString Method " Url="html/M-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.ChannelStatistics.ToString.htm" />
+    <HelpKINode Title="ToString Method " Url="html/M-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.ChannelStatistics.ChannelStatisticsInternal.ToString.htm" />
+    <HelpKINode Title="ToString Method " Url="html/M-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.InterfaceStatisticsInternal.ToString.htm" />
+    <HelpKINode Title="ToString Method " Url="html/M-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.ToString.htm" />
+    <HelpKINode Title="ToString Method " Url="html/M-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.StationStatistics.StationStatisticsInternal.ToString.htm" />
+    <HelpKINode Title="ToString Method " Url="html/M-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.ToString.htm" />
+  </HelpKINode>
+  <HelpKINode Title="TraceALRes_DatTransferEr property" Url="html/P-CAS.CommServer.ProtocolHub.Communication.Properties.Resources.TraceALRes_DatTransferEr.htm" />
+  <HelpKINode Title="TraceCommunicationError property" Url="html/P-CAS.CommServer.ProtocolHub.Communication.Properties.Resources.TraceCommunicationError.htm" />
+  <HelpKINode Title="TraceConnectionError property" Url="html/P-CAS.CommServer.ProtocolHub.Communication.Properties.Resources.TraceConnectionError.htm" />
+  <HelpKINode Title="TraceDataProviderError property" Url="html/P-CAS.CommServer.ProtocolHub.Communication.Properties.Resources.TraceDataProviderError.htm" />
+  <HelpKINode Title="TraceStateEntered property" Url="html/P-CAS.CommServer.ProtocolHub.Communication.Properties.Resources.TraceStateEntered.htm" />
+  <HelpKINode Title="UpdateInterfaceState event" Url="html/E-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.UpdateInterfaceState.htm" />
+  <HelpKINode Title="UpdateInternal method" Url="html/M-CAS.CommServer.ProtocolHub.MonitorInterface.IUpdateInternalStatistics.UpdateInternal.htm" />
+  <HelpKINode Title="WriteDelay property" Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.SegmentStatisticsInternal.WriteDelay.htm" />
+  <HelpKINode Title="WriteDelayAvr property" Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.WriteDelayAvr.htm" />
+  <HelpKINode Title="WriteDelayMax property" Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.WriteDelayMax.htm" />
+  <HelpKINode Title="WriteDelayMin property" Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.WriteDelayMin.htm" />
+  <HelpKINode Title="WriteWaitingToBeConn enumeration member" Url="html/T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.States.htm" />
+  <HelpKINode Title="WriteWaitingToBeConn field" Url="html/F-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.States.WriteWaitingToBeConn.htm" />
+</HelpKI>

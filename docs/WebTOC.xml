@@ -1,0 +1,422 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<HelpTOC>
+
+  <HelpTOCNode Id="e9506aed-bb8a-4acc-970e-eee1a817a885" Title="CAS.CommServer.ProtocolHub.Communication Namespace" Url="html/N-CAS.CommServer.ProtocolHub.Communication.htm">
+    <HelpTOCNode Id="ad940c16-9a52-4135-8cad-a23bc8fbc07f" Title="CommServerComponent Class" Url="html/T-CAS.CommServer.ProtocolHub.Communication.CommServerComponent.htm">
+      <HelpTOCNode Title="CommServerComponent Members" Url="html/AllMembers.T-CAS.CommServer.ProtocolHub.Communication.CommServerComponent.htm" />
+      <HelpTOCNode Id="c90258fa-8e7c-4958-b752-3afc803bd7ca" Title="CommServerComponent Constructor " Url="html/Overload-CAS.CommServer.ProtocolHub.Communication.CommServerComponent.-ctor.htm">
+        <HelpTOCNode Title="CommServerComponent Constructor " Url="html/M-CAS.CommServer.ProtocolHub.Communication.CommServerComponent.-ctor.htm" />
+        <HelpTOCNode Title="CommServerComponent Constructor (IContainer)" Url="html/M-CAS.CommServer.ProtocolHub.Communication.CommServerComponent.-ctor_1.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="c7257f7f-dd19-4382-a2c3-5977c7b6a745" Title="CommServerComponent Methods" Url="html/Methods.T-CAS.CommServer.ProtocolHub.Communication.CommServerComponent.htm">
+        <HelpTOCNode Title="Initialize Method " Url="html/M-CAS.CommServer.ProtocolHub.Communication.CommServerComponent.Initialize.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Title="CommServerComponent Properties" Url="html/Properties.T-CAS.CommServer.ProtocolHub.Communication.CommServerComponent.htm" />
+      <HelpTOCNode Title="CommServerComponent Events" Url="html/Events.T-CAS.CommServer.ProtocolHub.Communication.CommServerComponent.htm" />
+    </HelpTOCNode>
+    <HelpTOCNode Id="acbe508f-8d0f-43ea-a1f8-cc1430745ab9" Title="CommServerInstaller Class" Url="html/T-CAS.CommServer.ProtocolHub.Communication.CommServerInstaller.htm">
+      <HelpTOCNode Title="CommServerInstaller Members" Url="html/AllMembers.T-CAS.CommServer.ProtocolHub.Communication.CommServerInstaller.htm" />
+      <HelpTOCNode Title="CommServerInstaller Constructor " Url="html/M-CAS.CommServer.ProtocolHub.Communication.CommServerInstaller.-ctor.htm" />
+      <HelpTOCNode Title="CommServerInstaller Methods" Url="html/Methods.T-CAS.CommServer.ProtocolHub.Communication.CommServerInstaller.htm" />
+      <HelpTOCNode Title="CommServerInstaller Properties" Url="html/Properties.T-CAS.CommServer.ProtocolHub.Communication.CommServerInstaller.htm" />
+      <HelpTOCNode Title="CommServerInstaller Events" Url="html/Events.T-CAS.CommServer.ProtocolHub.Communication.CommServerInstaller.htm" />
+    </HelpTOCNode>
+    <HelpTOCNode Id="9b9f5c1e-42d7-49f7-bfe7-4edeeee115fa" Title="SegmentParameters Class" Url="html/T-CAS.CommServer.ProtocolHub.Communication.SegmentParameters.htm">
+      <HelpTOCNode Title="SegmentParameters Members" Url="html/AllMembers.T-CAS.CommServer.ProtocolHub.Communication.SegmentParameters.htm" />
+      <HelpTOCNode Title="SegmentParameters Constructor " Url="html/M-CAS.CommServer.ProtocolHub.Communication.SegmentParameters.-ctor.htm" />
+      <HelpTOCNode Id="200e0e1c-3a43-4236-a882-5b61b22272be" Title="SegmentParameters Fields" Url="html/Fields.T-CAS.CommServer.ProtocolHub.Communication.SegmentParameters.htm">
+        <HelpTOCNode Title="AllowPickupConnection Field" Url="html/F-CAS.CommServer.ProtocolHub.Communication.SegmentParameters.AllowPickupConnection.htm" />
+        <HelpTOCNode Title="Name Field" Url="html/F-CAS.CommServer.ProtocolHub.Communication.SegmentParameters.Name.htm" />
+        <HelpTOCNode Title="SegmentAddress Field" Url="html/F-CAS.CommServer.ProtocolHub.Communication.SegmentParameters.SegmentAddress.htm" />
+        <HelpTOCNode Title="TimeIdleKeepConnection Field" Url="html/F-CAS.CommServer.ProtocolHub.Communication.SegmentParameters.TimeIdleKeepConnection.htm" />
+        <HelpTOCNode Title="TimeKeepConnrction Field" Url="html/F-CAS.CommServer.ProtocolHub.Communication.SegmentParameters.TimeKeepConnrction.htm" />
+        <HelpTOCNode Title="TimeReconnect Field" Url="html/F-CAS.CommServer.ProtocolHub.Communication.SegmentParameters.TimeReconnect.htm" />
+        <HelpTOCNode Title="TimeReconnectAfterFailure Field" Url="html/F-CAS.CommServer.ProtocolHub.Communication.SegmentParameters.TimeReconnectAfterFailure.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Title="SegmentParameters Methods" Url="html/Methods.T-CAS.CommServer.ProtocolHub.Communication.SegmentParameters.htm" />
+    </HelpTOCNode>
+  </HelpTOCNode>
+  <HelpTOCNode Id="57648b1d-498e-46ec-9cfa-b1072e71bc2e" Title="CAS.CommServer.ProtocolHub.Communication.BaseStation Namespace" Url="html/N-CAS.CommServer.ProtocolHub.Communication.BaseStation.htm">
+    <HelpTOCNode Id="779b9cf4-306e-444e-b88a-603496f9b600" Title="ConsoleIterface Class" Url="html/T-CAS.CommServer.ProtocolHub.Communication.BaseStation.ConsoleIterface.htm">
+      <HelpTOCNode Title="ConsoleIterface Members" Url="html/AllMembers.T-CAS.CommServer.ProtocolHub.Communication.BaseStation.ConsoleIterface.htm" />
+      <HelpTOCNode Id="91918877-48a4-4973-ad37-ed4ea9300556" Title="ConsoleIterface Methods" Url="html/Methods.T-CAS.CommServer.ProtocolHub.Communication.BaseStation.ConsoleIterface.htm">
+        <HelpTOCNode Title="GetInterface Method " Url="html/M-CAS.CommServer.ProtocolHub.Communication.BaseStation.ConsoleIterface.GetInterface.htm" />
+        <HelpTOCNode Title="GetInterfaceList Method " Url="html/M-CAS.CommServer.ProtocolHub.Communication.BaseStation.ConsoleIterface.GetInterfaceList.htm" />
+        <HelpTOCNode Title="GetInterfaceStates Method " Url="html/M-CAS.CommServer.ProtocolHub.Communication.BaseStation.ConsoleIterface.GetInterfaceStates.htm" />
+        <HelpTOCNode Title="GetProductName Method " Url="html/M-CAS.CommServer.ProtocolHub.Communication.BaseStation.ConsoleIterface.GetProductName.htm" />
+        <HelpTOCNode Title="GetProductVersion Method " Url="html/M-CAS.CommServer.ProtocolHub.Communication.BaseStation.ConsoleIterface.GetProductVersion.htm" />
+        <HelpTOCNode Title="GetProtocol Method " Url="html/M-CAS.CommServer.ProtocolHub.Communication.BaseStation.ConsoleIterface.GetProtocol.htm" />
+        <HelpTOCNode Title="GetProtocolList Method " Url="html/M-CAS.CommServer.ProtocolHub.Communication.BaseStation.ConsoleIterface.GetProtocolList.htm" />
+        <HelpTOCNode Title="GetReport Method " Url="html/M-CAS.CommServer.ProtocolHub.Communication.BaseStation.ConsoleIterface.GetReport.htm" />
+        <HelpTOCNode Title="GetRunTime Method " Url="html/M-CAS.CommServer.ProtocolHub.Communication.BaseStation.ConsoleIterface.GetRunTime.htm" />
+        <HelpTOCNode Title="GetSegment Method " Url="html/M-CAS.CommServer.ProtocolHub.Communication.BaseStation.ConsoleIterface.GetSegment.htm" />
+        <HelpTOCNode Title="GetSegmentList Method " Url="html/M-CAS.CommServer.ProtocolHub.Communication.BaseStation.ConsoleIterface.GetSegmentList.htm" />
+        <HelpTOCNode Title="GetSegmentStates Method " Url="html/M-CAS.CommServer.ProtocolHub.Communication.BaseStation.ConsoleIterface.GetSegmentStates.htm" />
+        <HelpTOCNode Title="GetStation Method " Url="html/M-CAS.CommServer.ProtocolHub.Communication.BaseStation.ConsoleIterface.GetStation.htm" />
+        <HelpTOCNode Title="GetStationList Method " Url="html/M-CAS.CommServer.ProtocolHub.Communication.BaseStation.ConsoleIterface.GetStationList.htm" />
+        <HelpTOCNode Title="GetStationStates Method " Url="html/M-CAS.CommServer.ProtocolHub.Communication.BaseStation.ConsoleIterface.GetStationStates.htm" />
+        <HelpTOCNode Title="Start Method " Url="html/M-CAS.CommServer.ProtocolHub.Communication.BaseStation.ConsoleIterface.Start.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="ca1edbe2-c429-4b21-ba89-b6702c3a0e95" Title="Interface Class" Url="html/T-CAS.CommServer.ProtocolHub.Communication.BaseStation.Interface.htm">
+      <HelpTOCNode Title="Interface Members" Url="html/AllMembers.T-CAS.CommServer.ProtocolHub.Communication.BaseStation.Interface.htm" />
+      <HelpTOCNode Title="Interface Methods" Url="html/Methods.T-CAS.CommServer.ProtocolHub.Communication.BaseStation.Interface.htm" />
+      <HelpTOCNode Title="Interface Properties" Url="html/Properties.T-CAS.CommServer.ProtocolHub.Communication.BaseStation.Interface.htm" />
+    </HelpTOCNode>
+    <HelpTOCNode Id="91de565c-5038-40f6-b023-c655f8347c0e" Title="Pipe Class" Url="html/T-CAS.CommServer.ProtocolHub.Communication.BaseStation.Pipe.htm">
+      <HelpTOCNode Title="Pipe Members" Url="html/AllMembers.T-CAS.CommServer.ProtocolHub.Communication.BaseStation.Pipe.htm" />
+      <HelpTOCNode Title="Pipe Methods" Url="html/Methods.T-CAS.CommServer.ProtocolHub.Communication.BaseStation.Pipe.htm" />
+    </HelpTOCNode>
+    <HelpTOCNode Id="472f1219-4ee4-46b7-8381-59f48028ebb6" Title="RetryFilter Structure" Url="html/T-CAS.CommServer.ProtocolHub.Communication.BaseStation.RetryFilter.htm">
+      <HelpTOCNode Title="RetryFilter Members" Url="html/AllMembers.T-CAS.CommServer.ProtocolHub.Communication.BaseStation.RetryFilter.htm" />
+      <HelpTOCNode Title="RetryFilter Constructor " Url="html/M-CAS.CommServer.ProtocolHub.Communication.BaseStation.RetryFilter.-ctor.htm" />
+      <HelpTOCNode Id="da609edb-680a-48ae-b970-b65c2a721d4c" Title="RetryFilter Methods" Url="html/Methods.T-CAS.CommServer.ProtocolHub.Communication.BaseStation.RetryFilter.htm">
+        <HelpTOCNode Title="MarkFail Method " Url="html/M-CAS.CommServer.ProtocolHub.Communication.BaseStation.RetryFilter.MarkFail.htm" />
+        <HelpTOCNode Title="MarkSuccess Method " Url="html/M-CAS.CommServer.ProtocolHub.Communication.BaseStation.RetryFilter.MarkSuccess.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="03e045bf-7485-477c-8cf0-5c0074095672" Title="RetryFilter Properties" Url="html/Properties.T-CAS.CommServer.ProtocolHub.Communication.BaseStation.RetryFilter.htm">
+        <HelpTOCNode Title="Quality Property " Url="html/P-CAS.CommServer.ProtocolHub.Communication.BaseStation.RetryFilter.Quality.htm" />
+        <HelpTOCNode Title="Retry Property " Url="html/P-CAS.CommServer.ProtocolHub.Communication.BaseStation.RetryFilter.Retry.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+  </HelpTOCNode>
+  <HelpTOCNode Id="ae12efd8-081d-47cb-8fde-38609977dd2a" Title="CAS.CommServer.ProtocolHub.Communication.Diagnostic Namespace" Url="html/N-CAS.CommServer.ProtocolHub.Communication.Diagnostic.htm">
+    <HelpTOCNode Id="40e1cf05-f0e3-4b1d-874a-cb531f6fb718" Title="CommServerProtocol Class" Url="html/T-CAS.CommServer.ProtocolHub.Communication.Diagnostic.CommServerProtocol.htm">
+      <HelpTOCNode Title="CommServerProtocol Members" Url="html/AllMembers.T-CAS.CommServer.ProtocolHub.Communication.Diagnostic.CommServerProtocol.htm" />
+      <HelpTOCNode Id="16ab7080-92fe-4bd6-bdca-720c189c0b78" Title="CommServerProtocol Methods" Url="html/Methods.T-CAS.CommServer.ProtocolHub.Communication.Diagnostic.CommServerProtocol.htm">
+        <HelpTOCNode Title="CreateNewProtocol Method " Url="html/M-CAS.CommServer.ProtocolHub.Communication.Diagnostic.CommServerProtocol.CreateNewProtocol.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Title="CommServerProtocol Properties" Url="html/Properties.T-CAS.CommServer.ProtocolHub.Communication.Diagnostic.CommServerProtocol.htm" />
+    </HelpTOCNode>
+    <HelpTOCNode Id="18b92c43-1c21-4111-bcb5-efa40151f2b0" Title="CommseverProtocol Class" Url="html/T-CAS.CommServer.ProtocolHub.Communication.Diagnostic.CommseverProtocol.htm">
+      <HelpTOCNode Title="CommseverProtocol Members" Url="html/AllMembers.T-CAS.CommServer.ProtocolHub.Communication.Diagnostic.CommseverProtocol.htm" />
+      <HelpTOCNode Title="CommseverProtocol Constructor " Url="html/M-CAS.CommServer.ProtocolHub.Communication.Diagnostic.CommseverProtocol.-ctor.htm" />
+      <HelpTOCNode Id="8fc72ff2-fbb9-4cf5-91b2-620de880b06b" Title="CommseverProtocol Methods" Url="html/Methods.T-CAS.CommServer.ProtocolHub.Communication.Diagnostic.CommseverProtocol.htm">
+        <HelpTOCNode Title="GetHtmlTableRowDescription Method " Url="html/M-CAS.CommServer.ProtocolHub.Communication.Diagnostic.CommseverProtocol.GetHtmlTableRowDescription.htm" />
+        <HelpTOCNode Title="ToHtml Method " Url="html/M-CAS.CommServer.ProtocolHub.Communication.Diagnostic.CommseverProtocol.ToHtml.htm" />
+        <HelpTOCNode Title="ToHtmlTableRow Method " Url="html/M-CAS.CommServer.ProtocolHub.Communication.Diagnostic.CommseverProtocol.ToHtmlTableRow.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="6d1d2dd7-e6bb-409c-9c93-d4918daef667" Title="Interface Class" Url="html/T-CAS.CommServer.ProtocolHub.Communication.Diagnostic.Interface.htm">
+      <HelpTOCNode Title="Interface Members" Url="html/AllMembers.T-CAS.CommServer.ProtocolHub.Communication.Diagnostic.Interface.htm" />
+      <HelpTOCNode Title="Interface Constructor " Url="html/M-CAS.CommServer.ProtocolHub.Communication.Diagnostic.Interface.-ctor.htm" />
+      <HelpTOCNode Title="Interface Methods" Url="html/Methods.T-CAS.CommServer.ProtocolHub.Communication.Diagnostic.Interface.htm" />
+      <HelpTOCNode Title="Interface Properties" Url="html/Properties.T-CAS.CommServer.ProtocolHub.Communication.Diagnostic.Interface.htm" />
+      <HelpTOCNode Title="Interface Events" Url="html/Events.T-CAS.CommServer.ProtocolHub.Communication.Diagnostic.Interface.htm" />
+    </HelpTOCNode>
+    <HelpTOCNode Id="7b8f01f5-d418-4254-8d23-72244b7b2b64" Title="ReportGenerator Class" Url="html/T-CAS.CommServer.ProtocolHub.Communication.Diagnostic.ReportGenerator.htm">
+      <HelpTOCNode Title="ReportGenerator Members" Url="html/AllMembers.T-CAS.CommServer.ProtocolHub.Communication.Diagnostic.ReportGenerator.htm" />
+      <HelpTOCNode Title="ReportGenerator Constructor " Url="html/M-CAS.CommServer.ProtocolHub.Communication.Diagnostic.ReportGenerator.-ctor.htm" />
+      <HelpTOCNode Id="038981a6-32b1-43b2-b3d3-ae5c126f9c77" Title="ReportGenerator Methods" Url="html/Methods.T-CAS.CommServer.ProtocolHub.Communication.Diagnostic.ReportGenerator.htm">
+        <HelpTOCNode Title="GetReportString Method " Url="html/M-CAS.CommServer.ProtocolHub.Communication.Diagnostic.ReportGenerator.GetReportString.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="0031d63f-bda4-4bcd-8381-da1578b7ac31" Title="Segment Class" Url="html/T-CAS.CommServer.ProtocolHub.Communication.Diagnostic.Segment.htm">
+      <HelpTOCNode Title="Segment Members" Url="html/AllMembers.T-CAS.CommServer.ProtocolHub.Communication.Diagnostic.Segment.htm" />
+      <HelpTOCNode Title="Segment Methods" Url="html/Methods.T-CAS.CommServer.ProtocolHub.Communication.Diagnostic.Segment.htm" />
+      <HelpTOCNode Id="9afcc61f-9f5a-4787-9e7c-1edbfe54e040" Title="Segment Properties" Url="html/Properties.T-CAS.CommServer.ProtocolHub.Communication.Diagnostic.Segment.htm">
+        <HelpTOCNode Title="GetOPCPrefix Property " Url="html/P-CAS.CommServer.ProtocolHub.Communication.Diagnostic.Segment.GetOPCPrefix.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Title="Segment Events" Url="html/Events.T-CAS.CommServer.ProtocolHub.Communication.Diagnostic.Segment.htm" />
+    </HelpTOCNode>
+    <HelpTOCNode Id="45087e92-f182-4f79-b4f9-82f96a93ad2c" Title="Station Class" Url="html/T-CAS.CommServer.ProtocolHub.Communication.Diagnostic.Station.htm">
+      <HelpTOCNode Title="Station Members" Url="html/AllMembers.T-CAS.CommServer.ProtocolHub.Communication.Diagnostic.Station.htm" />
+      <HelpTOCNode Title="Station Constructor " Url="html/M-CAS.CommServer.ProtocolHub.Communication.Diagnostic.Station.-ctor.htm" />
+      <HelpTOCNode Title="Station Methods" Url="html/Methods.T-CAS.CommServer.ProtocolHub.Communication.Diagnostic.Station.htm" />
+      <HelpTOCNode Title="Station Properties" Url="html/Properties.T-CAS.CommServer.ProtocolHub.Communication.Diagnostic.Station.htm" />
+      <HelpTOCNode Title="Station Events" Url="html/Events.T-CAS.CommServer.ProtocolHub.Communication.Diagnostic.Station.htm" />
+    </HelpTOCNode>
+  </HelpTOCNode>
+  <HelpTOCNode Id="9cfc9085-e45b-49b6-a1f1-bd1b24ff28a2" Title="CAS.CommServer.ProtocolHub.Communication.LicenseControl Namespace" Url="html/N-CAS.CommServer.ProtocolHub.Communication.LicenseControl.htm">
+    <HelpTOCNode Id="c8366211-4ca1-4d60-9a38-d2c39c54d5c3" Title="Redundancy Class" Url="html/T-CAS.CommServer.ProtocolHub.Communication.LicenseControl.Redundancy.htm">
+      <HelpTOCNode Title="Redundancy Members" Url="html/AllMembers.T-CAS.CommServer.ProtocolHub.Communication.LicenseControl.Redundancy.htm" />
+      <HelpTOCNode Id="755e68c2-9692-465c-9da5-3fcc62f79048" Title="Redundancy Fields" Url="html/Fields.T-CAS.CommServer.ProtocolHub.Communication.LicenseControl.Redundancy.htm">
+        <HelpTOCNode Title="License Field" Url="html/F-CAS.CommServer.ProtocolHub.Communication.LicenseControl.Redundancy.License.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="840e6768-79b2-48ab-9b00-ecac927172aa" Title="Redundancy Methods" Url="html/Methods.T-CAS.CommServer.ProtocolHub.Communication.LicenseControl.Redundancy.htm">
+        <HelpTOCNode Title="CheckIfAllowed Method " Url="html/M-CAS.CommServer.ProtocolHub.Communication.LicenseControl.Redundancy.CheckIfAllowed.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Title="Redundancy Properties" Url="html/Properties.T-CAS.CommServer.ProtocolHub.Communication.LicenseControl.Redundancy.htm" />
+    </HelpTOCNode>
+  </HelpTOCNode>
+  <HelpTOCNode Id="0bcece96-308b-4017-9ea2-b64216eb3051" Title="CAS.CommServer.ProtocolHub.Communication.Properties Namespace" Url="html/N-CAS.CommServer.ProtocolHub.Communication.Properties.htm">
+    <HelpTOCNode Id="7a19f711-295e-4279-9857-aa2490a062aa" Title="Resources Class" Url="html/T-CAS.CommServer.ProtocolHub.Communication.Properties.Resources.htm">
+      <HelpTOCNode Title="Resources Members" Url="html/AllMembers.T-CAS.CommServer.ProtocolHub.Communication.Properties.Resources.htm" />
+      <HelpTOCNode Title="Resources Methods" Url="html/Methods.T-CAS.CommServer.ProtocolHub.Communication.Properties.Resources.htm" />
+      <HelpTOCNode Id="55e70bd9-f594-4980-8aa7-20ebce5317fb" Title="Resources Properties" Url="html/Properties.T-CAS.CommServer.ProtocolHub.Communication.Properties.Resources.htm">
+        <HelpTOCNode Title="ConsoleInterface_ChannelRegistrationError Property " Url="html/P-CAS.CommServer.ProtocolHub.Communication.Properties.Resources.ConsoleInterface_ChannelRegistrationError.htm" />
+        <HelpTOCNode Title="Culture Property " Url="html/P-CAS.CommServer.ProtocolHub.Communication.Properties.Resources.Culture.htm" />
+        <HelpTOCNode Title="ExceptionDuringReportCreation Property " Url="html/P-CAS.CommServer.ProtocolHub.Communication.Properties.Resources.ExceptionDuringReportCreation.htm" />
+        <HelpTOCNode Title="ReadWriteOperationsReadDataAssertion Property " Url="html/P-CAS.CommServer.ProtocolHub.Communication.Properties.Resources.ReadWriteOperationsReadDataAssertion.htm" />
+        <HelpTOCNode Title="ResourceManager Property " Url="html/P-CAS.CommServer.ProtocolHub.Communication.Properties.Resources.ResourceManager.htm" />
+        <HelpTOCNode Title="TraceALRes_DatTransferEr Property " Url="html/P-CAS.CommServer.ProtocolHub.Communication.Properties.Resources.TraceALRes_DatTransferEr.htm" />
+        <HelpTOCNode Title="TraceCommunicationError Property " Url="html/P-CAS.CommServer.ProtocolHub.Communication.Properties.Resources.TraceCommunicationError.htm" />
+        <HelpTOCNode Title="TraceConnectionError Property " Url="html/P-CAS.CommServer.ProtocolHub.Communication.Properties.Resources.TraceConnectionError.htm" />
+        <HelpTOCNode Title="TraceDataProviderError Property " Url="html/P-CAS.CommServer.ProtocolHub.Communication.Properties.Resources.TraceDataProviderError.htm" />
+        <HelpTOCNode Title="TraceStateEntered Property " Url="html/P-CAS.CommServer.ProtocolHub.Communication.Properties.Resources.TraceStateEntered.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+  </HelpTOCNode>
+  <HelpTOCNode Id="1eb90675-256b-4579-b53b-baf13f9080eb" Title="CAS.CommServer.ProtocolHub.MonitorInterface Namespace" Url="html/N-CAS.CommServer.ProtocolHub.MonitorInterface.htm">
+    <HelpTOCNode Id="35283a01-e970-4bfc-9155-238d29dae336" Title="ConsoleInterfaceAbstract Class" Url="html/T-CAS.CommServer.ProtocolHub.MonitorInterface.ConsoleInterfaceAbstract.htm">
+      <HelpTOCNode Title="ConsoleInterfaceAbstract Members" Url="html/AllMembers.T-CAS.CommServer.ProtocolHub.MonitorInterface.ConsoleInterfaceAbstract.htm" />
+      <HelpTOCNode Id="95de6d15-360a-43c4-aacf-200234fdc8f3" Title="ConsoleInterfaceAbstract Methods" Url="html/Methods.T-CAS.CommServer.ProtocolHub.MonitorInterface.ConsoleInterfaceAbstract.htm">
+        <HelpTOCNode Title="GetInterface Method " Url="html/M-CAS.CommServer.ProtocolHub.MonitorInterface.ConsoleInterfaceAbstract.GetInterface.htm" />
+        <HelpTOCNode Title="GetInterfaceList Method " Url="html/M-CAS.CommServer.ProtocolHub.MonitorInterface.ConsoleInterfaceAbstract.GetInterfaceList.htm" />
+        <HelpTOCNode Title="GetInterfaceStates Method " Url="html/M-CAS.CommServer.ProtocolHub.MonitorInterface.ConsoleInterfaceAbstract.GetInterfaceStates.htm" />
+        <HelpTOCNode Title="GetProductName Method " Url="html/M-CAS.CommServer.ProtocolHub.MonitorInterface.ConsoleInterfaceAbstract.GetProductName.htm" />
+        <HelpTOCNode Title="GetProductVersion Method " Url="html/M-CAS.CommServer.ProtocolHub.MonitorInterface.ConsoleInterfaceAbstract.GetProductVersion.htm" />
+        <HelpTOCNode Title="GetProtocol Method " Url="html/M-CAS.CommServer.ProtocolHub.MonitorInterface.ConsoleInterfaceAbstract.GetProtocol.htm" />
+        <HelpTOCNode Title="GetProtocolList Method " Url="html/M-CAS.CommServer.ProtocolHub.MonitorInterface.ConsoleInterfaceAbstract.GetProtocolList.htm" />
+        <HelpTOCNode Title="GetReport Method " Url="html/M-CAS.CommServer.ProtocolHub.MonitorInterface.ConsoleInterfaceAbstract.GetReport.htm" />
+        <HelpTOCNode Title="GetRunTime Method " Url="html/M-CAS.CommServer.ProtocolHub.MonitorInterface.ConsoleInterfaceAbstract.GetRunTime.htm" />
+        <HelpTOCNode Title="GetSegment Method " Url="html/M-CAS.CommServer.ProtocolHub.MonitorInterface.ConsoleInterfaceAbstract.GetSegment.htm" />
+        <HelpTOCNode Title="GetSegmentList Method " Url="html/M-CAS.CommServer.ProtocolHub.MonitorInterface.ConsoleInterfaceAbstract.GetSegmentList.htm" />
+        <HelpTOCNode Title="GetSegmentStates Method " Url="html/M-CAS.CommServer.ProtocolHub.MonitorInterface.ConsoleInterfaceAbstract.GetSegmentStates.htm" />
+        <HelpTOCNode Title="GetStation Method " Url="html/M-CAS.CommServer.ProtocolHub.MonitorInterface.ConsoleInterfaceAbstract.GetStation.htm" />
+        <HelpTOCNode Title="GetStationList Method " Url="html/M-CAS.CommServer.ProtocolHub.MonitorInterface.ConsoleInterfaceAbstract.GetStationList.htm" />
+        <HelpTOCNode Title="GetStationStates Method " Url="html/M-CAS.CommServer.ProtocolHub.MonitorInterface.ConsoleInterfaceAbstract.GetStationStates.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="87b7b85d-7e00-4c1a-9101-95b2a713f624" Title="IInterface2SegmentLink Interface" Url="html/T-CAS.CommServer.ProtocolHub.MonitorInterface.IInterface2SegmentLink.htm">
+      <HelpTOCNode Title="IInterface2SegmentLink Members" Url="html/AllMembers.T-CAS.CommServer.ProtocolHub.MonitorInterface.IInterface2SegmentLink.htm" />
+      <HelpTOCNode Id="6d12e5b3-180c-4dd7-bd05-d96c1bfd4137" Title="IInterface2SegmentLink Methods" Url="html/Methods.T-CAS.CommServer.ProtocolHub.MonitorInterface.IInterface2SegmentLink.htm">
+        <HelpTOCNode Title="AddInterface Method " Url="html/M-CAS.CommServer.ProtocolHub.MonitorInterface.IInterface2SegmentLink.AddInterface.htm" />
+        <HelpTOCNode Title="GetProtocolStatistics Method " Url="html/M-CAS.CommServer.ProtocolHub.MonitorInterface.IInterface2SegmentLink.GetProtocolStatistics.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="7cb5a08d-4acd-4236-9fe6-898cb512f58b" Title="IInterface2SegmentLink Properties" Url="html/Properties.T-CAS.CommServer.ProtocolHub.MonitorInterface.IInterface2SegmentLink.htm">
+        <HelpTOCNode Title="GetOPCPrefix Property " Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.IInterface2SegmentLink.GetOPCPrefix.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="76b6fc54-06ed-4e17-bdd0-6140b5163766" Title="ISegmentStatistics Interface" Url="html/T-CAS.CommServer.ProtocolHub.MonitorInterface.ISegmentStatistics.htm">
+      <HelpTOCNode Title="ISegmentStatistics Members" Url="html/AllMembers.T-CAS.CommServer.ProtocolHub.MonitorInterface.ISegmentStatistics.htm" />
+      <HelpTOCNode Id="211e33f3-4f6b-4539-8fca-e26429154ccd" Title="ISegmentStatistics Methods" Url="html/Methods.T-CAS.CommServer.ProtocolHub.MonitorInterface.ISegmentStatistics.htm">
+        <HelpTOCNode Title="MarkConnFail Method " Url="html/M-CAS.CommServer.ProtocolHub.MonitorInterface.ISegmentStatistics.MarkConnFail.htm" />
+        <HelpTOCNode Title="SetOvertimeCoefficient Method " Url="html/M-CAS.CommServer.ProtocolHub.MonitorInterface.ISegmentStatistics.SetOvertimeCoefficient.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="8832bde3-e6ff-41cc-8c24-e73443679e5a" Title="ISegmentStatistics Properties" Url="html/Properties.T-CAS.CommServer.ProtocolHub.MonitorInterface.ISegmentStatistics.htm">
+        <HelpTOCNode Title="NewState Property " Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.ISegmentStatistics.NewState.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="7d179cdf-9d42-48c9-9200-16ce9a00d950" Title="IUpdateInternalStatistics Interface" Url="html/T-CAS.CommServer.ProtocolHub.MonitorInterface.IUpdateInternalStatistics.htm">
+      <HelpTOCNode Title="IUpdateInternalStatistics Members" Url="html/AllMembers.T-CAS.CommServer.ProtocolHub.MonitorInterface.IUpdateInternalStatistics.htm" />
+      <HelpTOCNode Id="d6705c43-73e9-46c8-b3d9-1a59ec5917f2" Title="IUpdateInternalStatistics Methods" Url="html/Methods.T-CAS.CommServer.ProtocolHub.MonitorInterface.IUpdateInternalStatistics.htm">
+        <HelpTOCNode Title="UpdateInternal Method " Url="html/M-CAS.CommServer.ProtocolHub.MonitorInterface.IUpdateInternalStatistics.UpdateInternal.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="2597ad28-c0e8-4ddc-89c8-ba8899697dbb" Title="Metronom Class" Url="html/T-CAS.CommServer.ProtocolHub.MonitorInterface.Metronom.htm">
+      <HelpTOCNode Title="Metronom Members" Url="html/AllMembers.T-CAS.CommServer.ProtocolHub.MonitorInterface.Metronom.htm" />
+      <HelpTOCNode Title="Metronom Methods" Url="html/Methods.T-CAS.CommServer.ProtocolHub.MonitorInterface.Metronom.htm" />
+    </HelpTOCNode>
+    <HelpTOCNode Id="c924b583-819c-4562-bbb7-4de9dc15d574" Title="Metronom.RefreshAble Class" Url="html/T-CAS.CommServer.ProtocolHub.MonitorInterface.Metronom.RefreshAble.htm">
+      <HelpTOCNode Title="Metronom.RefreshAble Members" Url="html/AllMembers.T-CAS.CommServer.ProtocolHub.MonitorInterface.Metronom.RefreshAble.htm" />
+      <HelpTOCNode Title="Metronom.RefreshAble Methods" Url="html/Methods.T-CAS.CommServer.ProtocolHub.MonitorInterface.Metronom.RefreshAble.htm" />
+    </HelpTOCNode>
+    <HelpTOCNode Id="7ea80591-4cc0-42c1-8986-9a4338bb301b" Title="Statistics Class" Url="html/T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.htm">
+      <HelpTOCNode Title="Statistics Members" Url="html/AllMembers.T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.htm" />
+      <HelpTOCNode Id="406adaf8-6aae-46ba-b051-a8f1814d4337" Title="Statistics Fields" Url="html/Fields.T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.htm">
+        <HelpTOCNode Title="channelList Field" Url="html/F-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.channelList.htm" />
+        <HelpTOCNode Title="interfaceList Field" Url="html/F-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.interfaceList.htm" />
+        <HelpTOCNode Title="segmentList Field" Url="html/F-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.segmentList.htm" />
+        <HelpTOCNode Title="stationList Field" Url="html/F-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.stationList.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Title="Statistics Methods" Url="html/Methods.T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.htm" />
+    </HelpTOCNode>
+    <HelpTOCNode Id="f17a7be6-8ea3-43d9-a7f7-6ac8c8b6041c" Title="Statistics.ChannelStatistics Class" Url="html/T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.ChannelStatistics.htm">
+      <HelpTOCNode Title="Statistics.ChannelStatistics Members" Url="html/AllMembers.T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.ChannelStatistics.htm" />
+      <HelpTOCNode Title="ChannelStatistics Constructor " Url="html/M-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.ChannelStatistics.-ctor.htm" />
+      <HelpTOCNode Id="0683768a-18ab-4625-9595-5573105035ff" Title="Statistics.ChannelStatistics Methods" Url="html/Methods.T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.ChannelStatistics.htm">
+        <HelpTOCNode Title="AddSegment Method " Url="html/M-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.ChannelStatistics.AddSegment.htm" />
+        <HelpTOCNode Title="GeatProtocolStatistics Method " Url="html/M-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.ChannelStatistics.GeatProtocolStatistics.htm" />
+        <HelpTOCNode Title="ToString Method " Url="html/M-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.ChannelStatistics.ToString.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="bf730202-8306-4b23-970b-eeae1d9593ca" Title="Statistics.ChannelStatistics Properties" Url="html/Properties.T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.ChannelStatistics.htm">
+        <HelpTOCNode Title="myID Property " Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.ChannelStatistics.myID.htm" />
+        <HelpTOCNode Title="myName Property " Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.ChannelStatistics.myName.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="e49cff4b-82cd-4adf-8e36-8e956063e43b" Title="ChannelStatistics.ChannelStatisticsInternal Class" Url="html/T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.ChannelStatistics.ChannelStatisticsInternal.htm">
+      <HelpTOCNode Title="ChannelStatistics.ChannelStatisticsInternal Members" Url="html/AllMembers.T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.ChannelStatistics.ChannelStatisticsInternal.htm" />
+      <HelpTOCNode Id="4eb41e24-8943-400c-b55d-66318972a8c8" Title="ChannelStatistics.ChannelStatisticsInternal Fields" Url="html/Fields.T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.ChannelStatistics.ChannelStatisticsInternal.htm">
+        <HelpTOCNode Title="myID Field" Url="html/F-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.ChannelStatistics.ChannelStatisticsInternal.myID.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="066a1371-86da-4951-a9c5-538036f73988" Title="ChannelStatistics.ChannelStatisticsInternal Methods" Url="html/Methods.T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.ChannelStatistics.ChannelStatisticsInternal.htm">
+        <HelpTOCNode Title="ToString Method " Url="html/M-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.ChannelStatistics.ChannelStatisticsInternal.ToString.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="ee701bc1-2a6a-4047-aee3-118cb3b8f78f" Title="ChannelStatistics.ChannelStatisticsInternal Properties" Url="html/Properties.T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.ChannelStatistics.ChannelStatisticsInternal.htm">
+        <HelpTOCNode Title="Item Property " Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.ChannelStatistics.ChannelStatisticsInternal.Item-System.Int32-.htm" />
+        <HelpTOCNode Title="MyName Property " Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.ChannelStatistics.ChannelStatisticsInternal.MyName.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="2855fdda-4dc1-4c40-84cc-8d31e2255f3a" Title="Statistics.InterfaceStatistics Class" Url="html/T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.htm">
+      <HelpTOCNode Title="Statistics.InterfaceStatistics Members" Url="html/AllMembers.T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.htm" />
+      <HelpTOCNode Title="InterfaceStatistics Constructor " Url="html/M-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.-ctor.htm" />
+      <HelpTOCNode Id="cca12bf9-5c74-4ac2-afb1-200303286ce7" Title="Statistics.InterfaceStatistics Fields" Url="html/Fields.T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.htm">
+        <HelpTOCNode Title="myStat Field" Url="html/F-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.myStat.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="174c466a-e1c8-4dd5-b5d9-0bdea1f0da3b" Title="Statistics.InterfaceStatistics Methods" Url="html/Methods.T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.htm">
+        <HelpTOCNode Title="GetHtmlTableRowDescription Method " Url="html/M-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.GetHtmlTableRowDescription.htm" />
+        <HelpTOCNode Title="MarkRWOperationResult Method " Url="html/M-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.MarkRWOperationResult.htm" />
+        <HelpTOCNode Title="ToHtml Method " Url="html/M-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.ToHtml.htm" />
+        <HelpTOCNode Title="ToHtmlTableRow Method " Url="html/M-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.ToHtmlTableRow.htm" />
+        <HelpTOCNode Title="ToString Method " Url="html/M-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.ToString.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="862f8ea7-3e6c-41ad-97d2-33d4d2c90385" Title="Statistics.InterfaceStatistics Properties" Url="html/Properties.T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.htm">
+        <HelpTOCNode Title="Active Property " Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.Active.htm" />
+        <HelpTOCNode Title="ActiveTime Property " Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.ActiveTime.htm" />
+        <HelpTOCNode Title="CurrentInterfaceState Property " Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.CurrentInterfaceState.htm" />
+        <HelpTOCNode Title="CurrentInterfaceStateUpdate Property " Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.CurrentInterfaceStateUpdate.htm" />
+        <HelpTOCNode Title="FailTime Property " Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.FailTime.htm" />
+        <HelpTOCNode Title="GetState Property " Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.GetState.htm" />
+        <HelpTOCNode Title="GetState2String Property " Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.GetState2String.htm" />
+        <HelpTOCNode Title="myID_InterfaceNum Property " Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.myID_InterfaceNum.htm" />
+        <HelpTOCNode Title="NAME Property " Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.NAME.htm" />
+        <HelpTOCNode Title="StandbyTime Property " Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.StandbyTime.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="da38be5d-dc59-406e-8513-2b5ca9f94ae3" Title="Statistics.InterfaceStatistics Events" Url="html/Events.T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.htm">
+        <HelpTOCNode Title="UpdateInterfaceState Event" Url="html/E-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.UpdateInterfaceState.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Title="InterfaceStatistics.InterfaceState Enumeration" Url="html/T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.InterfaceState.htm" />
+    <HelpTOCNode Title="InterfaceStatistics.InterfaceStateChanged Delegate" Url="html/T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.InterfaceStateChanged.htm" />
+    <HelpTOCNode Id="74ba8797-ba9b-4433-bc88-ed8c5fe026c5" Title="InterfaceStatistics.InterfaceStatisticsInternal Class" Url="html/T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.InterfaceStatisticsInternal.htm">
+      <HelpTOCNode Title="InterfaceStatistics.InterfaceStatisticsInternal Members" Url="html/AllMembers.T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.InterfaceStatisticsInternal.htm" />
+      <HelpTOCNode Id="71549554-649f-41b9-9408-2b8fb3d2c43b" Title="InterfaceStatistics.InterfaceStatisticsInternal Fields" Url="html/Fields.T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.InterfaceStatisticsInternal.htm">
+        <HelpTOCNode Title="myID_InterfaceNum Field" Url="html/F-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.InterfaceStatisticsInternal.myID_InterfaceNum.htm" />
+        <HelpTOCNode Title="myID_Internal Field" Url="html/F-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.InterfaceStatisticsInternal.myID_Internal.htm" />
+        <HelpTOCNode Title="myName Field" Url="html/F-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.InterfaceStatisticsInternal.myName.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="2061be83-fd6a-4041-b4e6-2690698ef14e" Title="InterfaceStatistics.InterfaceStatisticsInternal Methods" Url="html/Methods.T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.InterfaceStatisticsInternal.htm">
+        <HelpTOCNode Title="ToString Method " Url="html/M-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.InterfaceStatisticsInternal.ToString.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="d8d6cc17-0de9-4850-9743-f785878281bf" Title="InterfaceStatistics.InterfaceStatisticsInternal Properties" Url="html/Properties.T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.InterfaceStatisticsInternal.htm">
+        <HelpTOCNode Title="Active Property " Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.InterfaceStatisticsInternal.Active.htm" />
+        <HelpTOCNode Title="ActiveTime Property " Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.InterfaceStatisticsInternal.ActiveTime.htm" />
+        <HelpTOCNode Title="FailTime Property " Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.InterfaceStatisticsInternal.FailTime.htm" />
+        <HelpTOCNode Title="GetState2String Property " Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.InterfaceStatisticsInternal.GetState2String.htm" />
+        <HelpTOCNode Title="MyState Property " Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.InterfaceStatisticsInternal.MyState.htm" />
+        <HelpTOCNode Title="StandbyTime Property " Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.InterfaceStatisticsInternal.StandbyTime.htm" />
+        <HelpTOCNode Title="State Property " Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.InterfaceStatisticsInternal.State.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="0dcdef52-c304-4b68-adb0-168de67d8053" Title="Statistics.ProtocolStatisticsUpdater Class" Url="html/T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.ProtocolStatisticsUpdater.htm">
+      <HelpTOCNode Title="Statistics.ProtocolStatisticsUpdater Members" Url="html/AllMembers.T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.ProtocolStatisticsUpdater.htm" />
+      <HelpTOCNode Title="Statistics.ProtocolStatisticsUpdater Methods" Url="html/Methods.T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.ProtocolStatisticsUpdater.htm" />
+      <HelpTOCNode Title="Statistics.ProtocolStatisticsUpdater Properties" Url="html/Properties.T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.ProtocolStatisticsUpdater.htm" />
+    </HelpTOCNode>
+    <HelpTOCNode Id="47c07d53-b01a-4cd3-a640-84fd6a570472" Title="Statistics.SegmentStatistics Class" Url="html/T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.htm">
+      <HelpTOCNode Title="Statistics.SegmentStatistics Members" Url="html/AllMembers.T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.htm" />
+      <HelpTOCNode Title="SegmentStatistics Constructor " Url="html/M-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.-ctor.htm" />
+      <HelpTOCNode Id="32c9368e-f428-46e0-a5f3-034e34ecca1e" Title="Statistics.SegmentStatistics Fields" Url="html/Fields.T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.htm">
+        <HelpTOCNode Title="myStat Field" Url="html/F-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.myStat.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="829b88e8-d092-4e35-92fb-361ff1e4224a" Title="Statistics.SegmentStatistics Methods" Url="html/Methods.T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.htm">
+        <HelpTOCNode Title="GetHtmlTableRowDescription Method " Url="html/M-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.GetHtmlTableRowDescription.htm" />
+        <HelpTOCNode Title="Reset Method " Url="html/M-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.Reset.htm" />
+        <HelpTOCNode Title="ToHtml Method " Url="html/M-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.ToHtml.htm" />
+        <HelpTOCNode Title="ToHtmlTableRow Method " Url="html/M-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.ToHtmlTableRow.htm" />
+        <HelpTOCNode Title="ToString Method " Url="html/M-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.ToString.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="e6976b17-9804-4083-8817-d63e56f897d7" Title="Statistics.SegmentStatistics Properties" Url="html/Properties.T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.htm">
+        <HelpTOCNode Title="Connected Property " Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.Connected.htm" />
+        <HelpTOCNode Title="ConnectTime Property " Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.ConnectTime.htm" />
+        <HelpTOCNode Title="ConnectTimeAvr Property " Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.ConnectTimeAvr.htm" />
+        <HelpTOCNode Title="ConnectTimeMax Property " Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.ConnectTimeMax.htm" />
+        <HelpTOCNode Title="ConnectTimeMin Property " Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.ConnectTimeMin.htm" />
+        <HelpTOCNode Title="CurrentStateAsString Property " Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.CurrentStateAsString.htm" />
+        <HelpTOCNode Title="GetCurrentState Property " Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.GetCurrentState.htm" />
+        <HelpTOCNode Title="GetFailCount Property " Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.GetFailCount.htm" />
+        <HelpTOCNode Title="GetMadeCount Property " Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.GetMadeCount.htm" />
+        <HelpTOCNode Title="GetOPCPrefix Property " Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.GetOPCPrefix.htm" />
+        <HelpTOCNode Title="GetOvertimeCoefficient Property " Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.GetOvertimeCoefficient.htm" />
+        <HelpTOCNode Title="myName Property " Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.myName.htm" />
+        <HelpTOCNode Title="NewStateUpdateStatistics Property " Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.NewStateUpdateStatistics.htm" />
+        <HelpTOCNode Title="ReadDelayAvr Property " Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.ReadDelayAvr.htm" />
+        <HelpTOCNode Title="ReadDelayMax Property " Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.ReadDelayMax.htm" />
+        <HelpTOCNode Title="ReadDelayMin Property " Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.ReadDelayMin.htm" />
+        <HelpTOCNode Title="WriteDelayAvr Property " Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.WriteDelayAvr.htm" />
+        <HelpTOCNode Title="WriteDelayMax Property " Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.WriteDelayMax.htm" />
+        <HelpTOCNode Title="WriteDelayMin Property " Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.WriteDelayMin.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="e073b576-9481-4132-b7e9-ca5ec4119926" Title="Statistics.SegmentStatistics Events" Url="html/Events.T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.htm">
+        <HelpTOCNode Title="MarkNewState Event" Url="html/E-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.MarkNewState.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="025084b4-bdf5-4dec-9488-6e2c39d287c5" Title="SegmentStatistics.SegmentStatisticsInternal Class" Url="html/T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.SegmentStatisticsInternal.htm">
+      <HelpTOCNode Title="SegmentStatistics.SegmentStatisticsInternal Members" Url="html/AllMembers.T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.SegmentStatisticsInternal.htm" />
+      <HelpTOCNode Id="5e8c33e1-3d54-4226-945f-de3af2aed2b4" Title="SegmentStatistics.SegmentStatisticsInternal Methods" Url="html/Methods.T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.SegmentStatisticsInternal.htm">
+        <HelpTOCNode Title="MarkConnFail Method " Url="html/M-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.SegmentStatisticsInternal.MarkConnFail.htm" />
+        <HelpTOCNode Title="SetOvertimeCoefficient Method " Url="html/M-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.SegmentStatisticsInternal.SetOvertimeCoefficient.htm" />
+        <HelpTOCNode Title="ToString Method " Url="html/M-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.SegmentStatisticsInternal.ToString.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="39de82d5-ceb4-4e41-9409-4bf1adcc9c3d" Title="SegmentStatistics.SegmentStatisticsInternal Properties" Url="html/Properties.T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.SegmentStatisticsInternal.htm">
+        <HelpTOCNode Title="Address Property " Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.SegmentStatisticsInternal.Address.htm" />
+        <HelpTOCNode Title="AddtionalInformation Property " Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.SegmentStatisticsInternal.AddtionalInformation.htm" />
+        <HelpTOCNode Title="Connected Property " Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.SegmentStatisticsInternal.Connected.htm" />
+        <HelpTOCNode Title="ConnectTime Property " Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.SegmentStatisticsInternal.ConnectTime.htm" />
+        <HelpTOCNode Title="ConnFailCount Property " Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.SegmentStatisticsInternal.ConnFailCount.htm" />
+        <HelpTOCNode Title="ConnMadeCount Property " Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.SegmentStatisticsInternal.ConnMadeCount.htm" />
+        <HelpTOCNode Title="CurrentState Property " Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.SegmentStatisticsInternal.CurrentState.htm" />
+        <HelpTOCNode Title="CurrentStateAsString Property " Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.SegmentStatisticsInternal.CurrentStateAsString.htm" />
+        <HelpTOCNode Title="GetFailCount Property " Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.SegmentStatisticsInternal.GetFailCount.htm" />
+        <HelpTOCNode Title="GetMadeCount Property " Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.SegmentStatisticsInternal.GetMadeCount.htm" />
+        <HelpTOCNode Title="GetOvertimeCoefficient Property " Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.SegmentStatisticsInternal.GetOvertimeCoefficient.htm" />
+        <HelpTOCNode Title="GetSegmentConnectionTimeMinimumMximumAverage Property " Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.SegmentStatisticsInternal.GetSegmentConnectionTimeMinimumMximumAverage.htm" />
+        <HelpTOCNode Title="Item Property " Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.SegmentStatisticsInternal.Item-System.Int32-.htm" />
+        <HelpTOCNode Title="KeepConnect Property " Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.SegmentStatisticsInternal.KeepConnect.htm" />
+        <HelpTOCNode Title="MyID Property " Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.SegmentStatisticsInternal.MyID.htm" />
+        <HelpTOCNode Title="MyName Property " Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.SegmentStatisticsInternal.MyName.htm" />
+        <HelpTOCNode Title="OvertimeCoefficient_Avr Property " Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.SegmentStatisticsInternal.OvertimeCoefficient_Avr.htm" />
+        <HelpTOCNode Title="OvertimeCoefficient_Max Property " Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.SegmentStatisticsInternal.OvertimeCoefficient_Max.htm" />
+        <HelpTOCNode Title="OvertimeCoefficient_Min Property " Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.SegmentStatisticsInternal.OvertimeCoefficient_Min.htm" />
+        <HelpTOCNode Title="PickupConnect Property " Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.SegmentStatisticsInternal.PickupConnect.htm" />
+        <HelpTOCNode Title="ReadDelay Property " Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.SegmentStatisticsInternal.ReadDelay.htm" />
+        <HelpTOCNode Title="TimeIdleKeepConn Property " Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.SegmentStatisticsInternal.TimeIdleKeepConn.htm" />
+        <HelpTOCNode Title="TimeKeepConn Property " Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.SegmentStatisticsInternal.TimeKeepConn.htm" />
+        <HelpTOCNode Title="TimeReconnect Property " Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.SegmentStatisticsInternal.TimeReconnect.htm" />
+        <HelpTOCNode Title="TimeScan Property " Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.SegmentStatisticsInternal.TimeScan.htm" />
+        <HelpTOCNode Title="WriteDelay Property " Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.SegmentStatisticsInternal.WriteDelay.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Title="SegmentStatistics.StateChanged Delegate" Url="html/T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.StateChanged.htm" />
+    <HelpTOCNode Title="SegmentStatistics.States Enumeration" Url="html/T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.States.htm" />
+    <HelpTOCNode Title="Statistics.StateChanged Delegate" Url="html/T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.StateChanged.htm" />
+    <HelpTOCNode Id="dc68938c-547c-4454-a27b-81ae0eb52e32" Title="Statistics.StationStatistics Class" Url="html/T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.StationStatistics.htm">
+      <HelpTOCNode Title="Statistics.StationStatistics Members" Url="html/AllMembers.T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.StationStatistics.htm" />
+      <HelpTOCNode Title="StationStatistics Constructor " Url="html/M-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.StationStatistics.-ctor.htm" />
+      <HelpTOCNode Id="e81862e7-9b23-4f7b-965c-b1cff6dd8317" Title="Statistics.StationStatistics Fields" Url="html/Fields.T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.StationStatistics.htm">
+        <HelpTOCNode Title="myStat Field" Url="html/F-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.StationStatistics.myStat.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="f1ed598c-8830-444e-937a-16808944bbe2" Title="Statistics.StationStatistics Methods" Url="html/Methods.T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.StationStatistics.htm">
+        <HelpTOCNode Title="AddInterface Method " Url="html/M-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.StationStatistics.AddInterface.htm" />
+        <HelpTOCNode Title="GetHtmlTableRowDescription Method " Url="html/M-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.StationStatistics.GetHtmlTableRowDescription.htm" />
+        <HelpTOCNode Title="ToHtml Method " Url="html/M-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.StationStatistics.ToHtml.htm" />
+        <HelpTOCNode Title="ToHtmlTableRow Method " Url="html/M-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.StationStatistics.ToHtmlTableRow.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="54610df6-870b-46e4-b78c-1e7a705124f4" Title="Statistics.StationStatistics Properties" Url="html/Properties.T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.StationStatistics.htm">
+        <HelpTOCNode Title="myName Property " Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.StationStatistics.myName.htm" />
+        <HelpTOCNode Title="priority Property " Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.StationStatistics.priority.htm" />
+        <HelpTOCNode Title="StationState Property " Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.StationStatistics.StationState.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="cc880f03-a51e-412b-8807-3d00c506c3bb" Title="Statistics.StationStatistics Events" Url="html/Events.T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.StationStatistics.htm">
+        <HelpTOCNode Title="MarkNewState Event" Url="html/E-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.StationStatistics.MarkNewState.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+    <HelpTOCNode Id="5eb3f731-20f8-4626-a557-a9efd2570145" Title="StationStatistics.StationStatisticsInternal Class" Url="html/T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.StationStatistics.StationStatisticsInternal.htm">
+      <HelpTOCNode Title="StationStatistics.StationStatisticsInternal Members" Url="html/AllMembers.T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.StationStatistics.StationStatisticsInternal.htm" />
+      <HelpTOCNode Title="StationStatisticsInternal Constructor " Url="html/M-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.StationStatistics.StationStatisticsInternal.-ctor.htm" />
+      <HelpTOCNode Id="d3f9a865-b4d7-4a7f-bffa-61fa422e2ac2" Title="StationStatistics.StationStatisticsInternal Fields" Url="html/Fields.T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.StationStatistics.StationStatisticsInternal.htm">
+        <HelpTOCNode Title="myID Field" Url="html/F-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.StationStatistics.StationStatisticsInternal.myID.htm" />
+        <HelpTOCNode Title="myName Field" Url="html/F-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.StationStatistics.StationStatisticsInternal.myName.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="5805ae08-4e7d-406c-a9ee-3d968533c005" Title="StationStatistics.StationStatisticsInternal Methods" Url="html/Methods.T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.StationStatistics.StationStatisticsInternal.htm">
+        <HelpTOCNode Title="ToString Method " Url="html/M-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.StationStatistics.StationStatisticsInternal.ToString.htm" />
+      </HelpTOCNode>
+      <HelpTOCNode Id="5a0c5cfb-e649-4c61-946e-a38ed7d78866" Title="StationStatistics.StationStatisticsInternal Properties" Url="html/Properties.T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.StationStatistics.StationStatisticsInternal.htm">
+        <HelpTOCNode Title="MyPriority Property " Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.StationStatistics.StationStatisticsInternal.MyPriority.htm" />
+        <HelpTOCNode Title="StationState Property " Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.StationStatistics.StationStatisticsInternal.StationState.htm" />
+        <HelpTOCNode Title="StationStateString Property " Url="html/P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.StationStatistics.StationStatisticsInternal.StationStateString.htm" />
+      </HelpTOCNode>
+    </HelpTOCNode>
+  </HelpTOCNode>
+</HelpTOC>

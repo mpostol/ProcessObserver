@@ -1,0 +1,1662 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"[]>
+<html>
+  <head><link rel="shortcut icon" href="../favicon.ico" />
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <meta name="save" content="history" />
+    <title>CAS.CommServer.ProtocolHub.MonitorInterface Namespace</title>
+    <link rel="stylesheet" type="text/css" href="../styles/lightweight.css" xmlns:MSHelp="http://msdn.microsoft.com/mshelp" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:msxsl="urn:schemas-microsoft-com:xslt" />
+    <link rel="stylesheet" type="text/css" href="../styles/lw-code.css" xmlns:MSHelp="http://msdn.microsoft.com/mshelp" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:msxsl="urn:schemas-microsoft-com:xslt" />
+    <script type="text/javascript" xmlns:MSHelp="http://msdn.microsoft.com/mshelp" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:msxsl="urn:schemas-microsoft-com:xslt" src="../scripts/languageSelector.js"> </script>
+    <meta name="container" content="CAS.CommServer.ProtocolHub.MonitorInterface" xmlns:MSHelp="http://msdn.microsoft.com/mshelp" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:msxsl="urn:schemas-microsoft-com:xslt" />
+    <meta name="file" content="N-CAS.CommServer.ProtocolHub.MonitorInterface" xmlns:MSHelp="http://msdn.microsoft.com/mshelp" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:msxsl="urn:schemas-microsoft-com:xslt" />
+    <meta name="guid" content="N-CAS.CommServer.ProtocolHub.MonitorInterface" xmlns:MSHelp="http://msdn.microsoft.com/mshelp" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:msxsl="urn:schemas-microsoft-com:xslt" />
+    <xml xmlns:MSHelp="http://msdn.microsoft.com/mshelp" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:msxsl="urn:schemas-microsoft-com:xslt">
+      <MSHelp:Attr Name="AssetID" Value="N:CAS.CommServer.ProtocolHub.MonitorInterface" />
+      <MSHelp:TOCTitle Title="CAS.CommServer.ProtocolHub.MonitorInterface Namespace" />
+      <MSHelp:RLTitle Title="CAS.CommServer.ProtocolHub.MonitorInterface Namespace ()" />
+      <MSHelp:Keyword Index="A" Term="N:CAS.CommServer.ProtocolHub.MonitorInterface" />
+      <MSHelp:Keyword Index="A" Term="frlrfCASCommServerProtocolHubMonitorInterface" />
+      <MSHelp:Keyword Index="K" Term="CAS.CommServer.ProtocolHub.MonitorInterface namespace" />
+      <MSHelp:Keyword Index="F" Term="CAS.CommServer.ProtocolHub.MonitorInterface" />
+      <MSHelp:Attr Name="HelpPriority" Value="1" />
+      <MSHelp:Attr Name="DevLang" Value="CSharp" />
+      <MSHelp:Attr Name="DevLang" Value="VB" />
+      <MSHelp:Attr Name="Locale" Value="en-us" />
+      <MSHelp:Attr Name="TopicType" Value="kbSyntax" />
+      <MSHelp:Attr Name="TopicType" Value="apiref" />
+    </xml>
+  <link rel="stylesheet" href="../TOC.css"><script type="text/javascript" src="../TOC.js"></script></head>
+  <body onload="javascript: Initialize('.aspx');" onresize="javascript: ResizeTree();">
+            <div id="TOCDiv" class="TOCDiv" style="width: 310px; float: left; position: relative; ">
+
+            <div id="divSearchOpts" class="SearchOpts" style="height: 95px; display: none;">
+                <div class="SearchOptsInner">
+                    <img class="TOCLink" onclick="javascript: ShowHideSearch(false);" src="../Close.png" height="24" width="24" alt="Hide Search" title="Hide Search" style="float: right;" />
+                    <span class="Title">Keyword(s) to search:</span>
+                </div>
+                <div class="SearchOptsInner">
+                    <input id="txtSearchText" type="text" style="width: 95.5%;" onkeypress="javascript: return OnSearchTextKeyPress(event);" />
+                </div>
+                <div class="SearchOptsInner">
+                    <input id="chkSortByTitle" type="checkbox" />&nbsp;Sort results by title
+                    <input type="button" value="Search" onclick="javascript: return PerformSearch();" style="float: right;" />
+                </div>
+            </div>
+
+            <div id="divIndexOpts" class="IndexOpts" style="height: 28px; display: none;">
+                <img class="TOCLink" onclick="javascript: ShowHideIndex(false);"
+                     src="../Close.png" height="24" width="24" alt="Hide Keyword Index" title="Hide Keyword Index" style="float: right;" />
+                <span class="Title">Keyword Index</span>
+            </div>
+
+            <div id="divNavOpts" class="NavOpts" style="height: 28px;">
+                <!--<img class="TOCLink" onclick="javascript: SyncTOC();" src="../SyncTOC.png"
+                     height="24" width="24" alt="Sync to TOC" title="Sync to TOC" />-->
+                <img class="TOCLink" onclick="javascript: ExpandOrCollapseAll(true);"
+                     src="../ExpandAll.png" height="24" width="24" alt="Expand all" title="Expand all" />
+                <img class="TOCLink" onclick="javascript: ExpandOrCollapseAll(false);"
+                     src="../CollapseAll.png" height="24" width="24" alt="Collapse all" title="Collapse all" />
+                <!--<img class="TOCLink" onclick="javascript: alert('Please make sure to use either Index.aspx or Index.php to enable the Keyword Index feature.');"
+                     src="../Index.png" height="24" width="24" alt="Keyword Index" title="Keyword Index" />-->
+                <img class="TOCLink" onclick="javascript: ShowHideSearch(true);"
+                     src="../Search.png" height="24" width="24" alt="Search" title="Search" />
+                <img class="TOCLink" onclick="javascript: ShowDirectLink();"
+                     src="../Link.png" height="24" width="24" alt="Get direct link to the displayed topic" title="Get direct link to the displayed topic" />
+                <a href="#" onclick="javascript: window.history.go(-1); return false;">
+                    <img class="TOCLink" style="float: right;"
+                         src="../Back.png" height="24" width="24" alt="Previous page" title="Previous page" />
+                </a>
+            </div>
+
+            <div class="Tree" id="divSearchResults" style="display: none;"
+                 onselectstart="javascript: return false;">
+            </div>
+
+            <div class="Tree" id="divIndexResults" style="display: none;"
+                 onselectstart="javascript: return false;">
+            </div>
+
+            <div class="Tree" id="divTree" onselectstart="javascript: return false;">
+              <div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="../Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="N-CAS.CommServer.ProtocolHub.Communication.htm" target="_self">CAS.CommServer.ProtocolHub.Communication Namespace</a>
+<div class="Hidden">
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="../Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="T-CAS.CommServer.ProtocolHub.Communication.CommServerComponent.htm" target="_self">CommServerComponent Class</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="AllMembers.T-CAS.CommServer.ProtocolHub.Communication.CommServerComponent.htm" target="_self">CommServerComponent Members</a>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="../Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="Overload-CAS.CommServer.ProtocolHub.Communication.CommServerComponent.-ctor.htm" target="_self">CommServerComponent Constructor </a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-CAS.CommServer.ProtocolHub.Communication.CommServerComponent.-ctor.htm" target="_self">CommServerComponent Constructor </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-CAS.CommServer.ProtocolHub.Communication.CommServerComponent.-ctor_1.htm" target="_self">CommServerComponent Constructor (IContainer)</a>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="../Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="Methods.T-CAS.CommServer.ProtocolHub.Communication.CommServerComponent.htm" target="_self">CommServerComponent Methods</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-CAS.CommServer.ProtocolHub.Communication.CommServerComponent.Initialize.htm" target="_self">Initialize Method </a>
+</div>
+</div>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="Properties.T-CAS.CommServer.ProtocolHub.Communication.CommServerComponent.htm" target="_self">CommServerComponent Properties</a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="Events.T-CAS.CommServer.ProtocolHub.Communication.CommServerComponent.htm" target="_self">CommServerComponent Events</a>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="../Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="T-CAS.CommServer.ProtocolHub.Communication.CommServerInstaller.htm" target="_self">CommServerInstaller Class</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="AllMembers.T-CAS.CommServer.ProtocolHub.Communication.CommServerInstaller.htm" target="_self">CommServerInstaller Members</a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-CAS.CommServer.ProtocolHub.Communication.CommServerInstaller.-ctor.htm" target="_self">CommServerInstaller Constructor </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="Methods.T-CAS.CommServer.ProtocolHub.Communication.CommServerInstaller.htm" target="_self">CommServerInstaller Methods</a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="Properties.T-CAS.CommServer.ProtocolHub.Communication.CommServerInstaller.htm" target="_self">CommServerInstaller Properties</a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="Events.T-CAS.CommServer.ProtocolHub.Communication.CommServerInstaller.htm" target="_self">CommServerInstaller Events</a>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="../Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="T-CAS.CommServer.ProtocolHub.Communication.SegmentParameters.htm" target="_self">SegmentParameters Class</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="AllMembers.T-CAS.CommServer.ProtocolHub.Communication.SegmentParameters.htm" target="_self">SegmentParameters Members</a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-CAS.CommServer.ProtocolHub.Communication.SegmentParameters.-ctor.htm" target="_self">SegmentParameters Constructor </a>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="../Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="Fields.T-CAS.CommServer.ProtocolHub.Communication.SegmentParameters.htm" target="_self">SegmentParameters Fields</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="F-CAS.CommServer.ProtocolHub.Communication.SegmentParameters.AllowPickupConnection.htm" target="_self">AllowPickupConnection Field</a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="F-CAS.CommServer.ProtocolHub.Communication.SegmentParameters.Name.htm" target="_self">Name Field</a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="F-CAS.CommServer.ProtocolHub.Communication.SegmentParameters.SegmentAddress.htm" target="_self">SegmentAddress Field</a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="F-CAS.CommServer.ProtocolHub.Communication.SegmentParameters.TimeIdleKeepConnection.htm" target="_self">TimeIdleKeepConnection Field</a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="F-CAS.CommServer.ProtocolHub.Communication.SegmentParameters.TimeKeepConnrction.htm" target="_self">TimeKeepConnrction Field</a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="F-CAS.CommServer.ProtocolHub.Communication.SegmentParameters.TimeReconnect.htm" target="_self">TimeReconnect Field</a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="F-CAS.CommServer.ProtocolHub.Communication.SegmentParameters.TimeReconnectAfterFailure.htm" target="_self">TimeReconnectAfterFailure Field</a>
+</div>
+</div>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="Methods.T-CAS.CommServer.ProtocolHub.Communication.SegmentParameters.htm" target="_self">SegmentParameters Methods</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="../Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="N-CAS.CommServer.ProtocolHub.Communication.BaseStation.htm" target="_self">CAS.CommServer.ProtocolHub.Communication.BaseStation Namespace</a>
+<div class="Hidden">
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="../Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="T-CAS.CommServer.ProtocolHub.Communication.BaseStation.ConsoleIterface.htm" target="_self">ConsoleIterface Class</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="AllMembers.T-CAS.CommServer.ProtocolHub.Communication.BaseStation.ConsoleIterface.htm" target="_self">ConsoleIterface Members</a>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="../Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="Methods.T-CAS.CommServer.ProtocolHub.Communication.BaseStation.ConsoleIterface.htm" target="_self">ConsoleIterface Methods</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-CAS.CommServer.ProtocolHub.Communication.BaseStation.ConsoleIterface.GetInterface.htm" target="_self">GetInterface Method </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-CAS.CommServer.ProtocolHub.Communication.BaseStation.ConsoleIterface.GetInterfaceList.htm" target="_self">GetInterfaceList Method </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-CAS.CommServer.ProtocolHub.Communication.BaseStation.ConsoleIterface.GetInterfaceStates.htm" target="_self">GetInterfaceStates Method </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-CAS.CommServer.ProtocolHub.Communication.BaseStation.ConsoleIterface.GetProductName.htm" target="_self">GetProductName Method </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-CAS.CommServer.ProtocolHub.Communication.BaseStation.ConsoleIterface.GetProductVersion.htm" target="_self">GetProductVersion Method </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-CAS.CommServer.ProtocolHub.Communication.BaseStation.ConsoleIterface.GetProtocol.htm" target="_self">GetProtocol Method </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-CAS.CommServer.ProtocolHub.Communication.BaseStation.ConsoleIterface.GetProtocolList.htm" target="_self">GetProtocolList Method </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-CAS.CommServer.ProtocolHub.Communication.BaseStation.ConsoleIterface.GetReport.htm" target="_self">GetReport Method </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-CAS.CommServer.ProtocolHub.Communication.BaseStation.ConsoleIterface.GetRunTime.htm" target="_self">GetRunTime Method </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-CAS.CommServer.ProtocolHub.Communication.BaseStation.ConsoleIterface.GetSegment.htm" target="_self">GetSegment Method </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-CAS.CommServer.ProtocolHub.Communication.BaseStation.ConsoleIterface.GetSegmentList.htm" target="_self">GetSegmentList Method </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-CAS.CommServer.ProtocolHub.Communication.BaseStation.ConsoleIterface.GetSegmentStates.htm" target="_self">GetSegmentStates Method </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-CAS.CommServer.ProtocolHub.Communication.BaseStation.ConsoleIterface.GetStation.htm" target="_self">GetStation Method </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-CAS.CommServer.ProtocolHub.Communication.BaseStation.ConsoleIterface.GetStationList.htm" target="_self">GetStationList Method </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-CAS.CommServer.ProtocolHub.Communication.BaseStation.ConsoleIterface.GetStationStates.htm" target="_self">GetStationStates Method </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-CAS.CommServer.ProtocolHub.Communication.BaseStation.ConsoleIterface.Start.htm" target="_self">Start Method </a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="../Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="T-CAS.CommServer.ProtocolHub.Communication.BaseStation.Interface.htm" target="_self">Interface Class</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="AllMembers.T-CAS.CommServer.ProtocolHub.Communication.BaseStation.Interface.htm" target="_self">Interface Members</a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="Methods.T-CAS.CommServer.ProtocolHub.Communication.BaseStation.Interface.htm" target="_self">Interface Methods</a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="Properties.T-CAS.CommServer.ProtocolHub.Communication.BaseStation.Interface.htm" target="_self">Interface Properties</a>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="../Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="T-CAS.CommServer.ProtocolHub.Communication.BaseStation.Pipe.htm" target="_self">Pipe Class</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="AllMembers.T-CAS.CommServer.ProtocolHub.Communication.BaseStation.Pipe.htm" target="_self">Pipe Members</a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="Methods.T-CAS.CommServer.ProtocolHub.Communication.BaseStation.Pipe.htm" target="_self">Pipe Methods</a>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="../Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="T-CAS.CommServer.ProtocolHub.Communication.BaseStation.RetryFilter.htm" target="_self">RetryFilter Structure</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="AllMembers.T-CAS.CommServer.ProtocolHub.Communication.BaseStation.RetryFilter.htm" target="_self">RetryFilter Members</a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-CAS.CommServer.ProtocolHub.Communication.BaseStation.RetryFilter.-ctor.htm" target="_self">RetryFilter Constructor </a>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="../Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="Methods.T-CAS.CommServer.ProtocolHub.Communication.BaseStation.RetryFilter.htm" target="_self">RetryFilter Methods</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-CAS.CommServer.ProtocolHub.Communication.BaseStation.RetryFilter.MarkFail.htm" target="_self">MarkFail Method </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-CAS.CommServer.ProtocolHub.Communication.BaseStation.RetryFilter.MarkSuccess.htm" target="_self">MarkSuccess Method </a>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="../Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="Properties.T-CAS.CommServer.ProtocolHub.Communication.BaseStation.RetryFilter.htm" target="_self">RetryFilter Properties</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="P-CAS.CommServer.ProtocolHub.Communication.BaseStation.RetryFilter.Quality.htm" target="_self">Quality Property </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="P-CAS.CommServer.ProtocolHub.Communication.BaseStation.RetryFilter.Retry.htm" target="_self">Retry Property </a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="../Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="N-CAS.CommServer.ProtocolHub.Communication.Diagnostic.htm" target="_self">CAS.CommServer.ProtocolHub.Communication.Diagnostic Namespace</a>
+<div class="Hidden">
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="../Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="T-CAS.CommServer.ProtocolHub.Communication.Diagnostic.CommServerProtocol.htm" target="_self">CommServerProtocol Class</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="AllMembers.T-CAS.CommServer.ProtocolHub.Communication.Diagnostic.CommServerProtocol.htm" target="_self">CommServerProtocol Members</a>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="../Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="Methods.T-CAS.CommServer.ProtocolHub.Communication.Diagnostic.CommServerProtocol.htm" target="_self">CommServerProtocol Methods</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-CAS.CommServer.ProtocolHub.Communication.Diagnostic.CommServerProtocol.CreateNewProtocol.htm" target="_self">CreateNewProtocol Method </a>
+</div>
+</div>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="Properties.T-CAS.CommServer.ProtocolHub.Communication.Diagnostic.CommServerProtocol.htm" target="_self">CommServerProtocol Properties</a>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="../Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="T-CAS.CommServer.ProtocolHub.Communication.Diagnostic.CommseverProtocol.htm" target="_self">CommseverProtocol Class</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="AllMembers.T-CAS.CommServer.ProtocolHub.Communication.Diagnostic.CommseverProtocol.htm" target="_self">CommseverProtocol Members</a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-CAS.CommServer.ProtocolHub.Communication.Diagnostic.CommseverProtocol.-ctor.htm" target="_self">CommseverProtocol Constructor </a>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="../Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="Methods.T-CAS.CommServer.ProtocolHub.Communication.Diagnostic.CommseverProtocol.htm" target="_self">CommseverProtocol Methods</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-CAS.CommServer.ProtocolHub.Communication.Diagnostic.CommseverProtocol.GetHtmlTableRowDescription.htm" target="_self">GetHtmlTableRowDescription Method </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-CAS.CommServer.ProtocolHub.Communication.Diagnostic.CommseverProtocol.ToHtml.htm" target="_self">ToHtml Method </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-CAS.CommServer.ProtocolHub.Communication.Diagnostic.CommseverProtocol.ToHtmlTableRow.htm" target="_self">ToHtmlTableRow Method </a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="../Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="T-CAS.CommServer.ProtocolHub.Communication.Diagnostic.Interface.htm" target="_self">Interface Class</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="AllMembers.T-CAS.CommServer.ProtocolHub.Communication.Diagnostic.Interface.htm" target="_self">Interface Members</a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-CAS.CommServer.ProtocolHub.Communication.Diagnostic.Interface.-ctor.htm" target="_self">Interface Constructor </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="Methods.T-CAS.CommServer.ProtocolHub.Communication.Diagnostic.Interface.htm" target="_self">Interface Methods</a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="Properties.T-CAS.CommServer.ProtocolHub.Communication.Diagnostic.Interface.htm" target="_self">Interface Properties</a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="Events.T-CAS.CommServer.ProtocolHub.Communication.Diagnostic.Interface.htm" target="_self">Interface Events</a>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="../Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="T-CAS.CommServer.ProtocolHub.Communication.Diagnostic.ReportGenerator.htm" target="_self">ReportGenerator Class</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="AllMembers.T-CAS.CommServer.ProtocolHub.Communication.Diagnostic.ReportGenerator.htm" target="_self">ReportGenerator Members</a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-CAS.CommServer.ProtocolHub.Communication.Diagnostic.ReportGenerator.-ctor.htm" target="_self">ReportGenerator Constructor </a>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="../Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="Methods.T-CAS.CommServer.ProtocolHub.Communication.Diagnostic.ReportGenerator.htm" target="_self">ReportGenerator Methods</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-CAS.CommServer.ProtocolHub.Communication.Diagnostic.ReportGenerator.GetReportString.htm" target="_self">GetReportString Method </a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="../Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="T-CAS.CommServer.ProtocolHub.Communication.Diagnostic.Segment.htm" target="_self">Segment Class</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="AllMembers.T-CAS.CommServer.ProtocolHub.Communication.Diagnostic.Segment.htm" target="_self">Segment Members</a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="Methods.T-CAS.CommServer.ProtocolHub.Communication.Diagnostic.Segment.htm" target="_self">Segment Methods</a>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="../Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="Properties.T-CAS.CommServer.ProtocolHub.Communication.Diagnostic.Segment.htm" target="_self">Segment Properties</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="P-CAS.CommServer.ProtocolHub.Communication.Diagnostic.Segment.GetOPCPrefix.htm" target="_self">GetOPCPrefix Property </a>
+</div>
+</div>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="Events.T-CAS.CommServer.ProtocolHub.Communication.Diagnostic.Segment.htm" target="_self">Segment Events</a>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="../Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="T-CAS.CommServer.ProtocolHub.Communication.Diagnostic.Station.htm" target="_self">Station Class</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="AllMembers.T-CAS.CommServer.ProtocolHub.Communication.Diagnostic.Station.htm" target="_self">Station Members</a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-CAS.CommServer.ProtocolHub.Communication.Diagnostic.Station.-ctor.htm" target="_self">Station Constructor </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="Methods.T-CAS.CommServer.ProtocolHub.Communication.Diagnostic.Station.htm" target="_self">Station Methods</a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="Properties.T-CAS.CommServer.ProtocolHub.Communication.Diagnostic.Station.htm" target="_self">Station Properties</a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="Events.T-CAS.CommServer.ProtocolHub.Communication.Diagnostic.Station.htm" target="_self">Station Events</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="../Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="N-CAS.CommServer.ProtocolHub.Communication.LicenseControl.htm" target="_self">CAS.CommServer.ProtocolHub.Communication.LicenseControl Namespace</a>
+<div class="Hidden">
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="../Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="T-CAS.CommServer.ProtocolHub.Communication.LicenseControl.Redundancy.htm" target="_self">Redundancy Class</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="AllMembers.T-CAS.CommServer.ProtocolHub.Communication.LicenseControl.Redundancy.htm" target="_self">Redundancy Members</a>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="../Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="Fields.T-CAS.CommServer.ProtocolHub.Communication.LicenseControl.Redundancy.htm" target="_self">Redundancy Fields</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="F-CAS.CommServer.ProtocolHub.Communication.LicenseControl.Redundancy.License.htm" target="_self">License Field</a>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="../Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="Methods.T-CAS.CommServer.ProtocolHub.Communication.LicenseControl.Redundancy.htm" target="_self">Redundancy Methods</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-CAS.CommServer.ProtocolHub.Communication.LicenseControl.Redundancy.CheckIfAllowed.htm" target="_self">CheckIfAllowed Method </a>
+</div>
+</div>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="Properties.T-CAS.CommServer.ProtocolHub.Communication.LicenseControl.Redundancy.htm" target="_self">Redundancy Properties</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="../Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="N-CAS.CommServer.ProtocolHub.Communication.Properties.htm" target="_self">CAS.CommServer.ProtocolHub.Communication.Properties Namespace</a>
+<div class="Hidden">
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="../Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="T-CAS.CommServer.ProtocolHub.Communication.Properties.Resources.htm" target="_self">Resources Class</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="AllMembers.T-CAS.CommServer.ProtocolHub.Communication.Properties.Resources.htm" target="_self">Resources Members</a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="Methods.T-CAS.CommServer.ProtocolHub.Communication.Properties.Resources.htm" target="_self">Resources Methods</a>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="../Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="Properties.T-CAS.CommServer.ProtocolHub.Communication.Properties.Resources.htm" target="_self">Resources Properties</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="P-CAS.CommServer.ProtocolHub.Communication.Properties.Resources.ConsoleInterface_ChannelRegistrationError.htm" target="_self">ConsoleInterface_ChannelRegistrationError Property </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="P-CAS.CommServer.ProtocolHub.Communication.Properties.Resources.Culture.htm" target="_self">Culture Property </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="P-CAS.CommServer.ProtocolHub.Communication.Properties.Resources.ExceptionDuringReportCreation.htm" target="_self">ExceptionDuringReportCreation Property </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="P-CAS.CommServer.ProtocolHub.Communication.Properties.Resources.ReadWriteOperationsReadDataAssertion.htm" target="_self">ReadWriteOperationsReadDataAssertion Property </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="P-CAS.CommServer.ProtocolHub.Communication.Properties.Resources.ResourceManager.htm" target="_self">ResourceManager Property </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="P-CAS.CommServer.ProtocolHub.Communication.Properties.Resources.TraceALRes_DatTransferEr.htm" target="_self">TraceALRes_DatTransferEr Property </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="P-CAS.CommServer.ProtocolHub.Communication.Properties.Resources.TraceCommunicationError.htm" target="_self">TraceCommunicationError Property </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="P-CAS.CommServer.ProtocolHub.Communication.Properties.Resources.TraceConnectionError.htm" target="_self">TraceConnectionError Property </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="P-CAS.CommServer.ProtocolHub.Communication.Properties.Resources.TraceDataProviderError.htm" target="_self">TraceDataProviderError Property </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="P-CAS.CommServer.ProtocolHub.Communication.Properties.Resources.TraceStateEntered.htm" target="_self">TraceStateEntered Property </a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="../Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="N-CAS.CommServer.ProtocolHub.MonitorInterface.htm" target="_self">CAS.CommServer.ProtocolHub.MonitorInterface Namespace</a>
+<div class="Hidden">
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="../Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="T-CAS.CommServer.ProtocolHub.MonitorInterface.ConsoleInterfaceAbstract.htm" target="_self">ConsoleInterfaceAbstract Class</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="AllMembers.T-CAS.CommServer.ProtocolHub.MonitorInterface.ConsoleInterfaceAbstract.htm" target="_self">ConsoleInterfaceAbstract Members</a>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="../Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="Methods.T-CAS.CommServer.ProtocolHub.MonitorInterface.ConsoleInterfaceAbstract.htm" target="_self">ConsoleInterfaceAbstract Methods</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-CAS.CommServer.ProtocolHub.MonitorInterface.ConsoleInterfaceAbstract.GetInterface.htm" target="_self">GetInterface Method </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-CAS.CommServer.ProtocolHub.MonitorInterface.ConsoleInterfaceAbstract.GetInterfaceList.htm" target="_self">GetInterfaceList Method </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-CAS.CommServer.ProtocolHub.MonitorInterface.ConsoleInterfaceAbstract.GetInterfaceStates.htm" target="_self">GetInterfaceStates Method </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-CAS.CommServer.ProtocolHub.MonitorInterface.ConsoleInterfaceAbstract.GetProductName.htm" target="_self">GetProductName Method </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-CAS.CommServer.ProtocolHub.MonitorInterface.ConsoleInterfaceAbstract.GetProductVersion.htm" target="_self">GetProductVersion Method </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-CAS.CommServer.ProtocolHub.MonitorInterface.ConsoleInterfaceAbstract.GetProtocol.htm" target="_self">GetProtocol Method </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-CAS.CommServer.ProtocolHub.MonitorInterface.ConsoleInterfaceAbstract.GetProtocolList.htm" target="_self">GetProtocolList Method </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-CAS.CommServer.ProtocolHub.MonitorInterface.ConsoleInterfaceAbstract.GetReport.htm" target="_self">GetReport Method </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-CAS.CommServer.ProtocolHub.MonitorInterface.ConsoleInterfaceAbstract.GetRunTime.htm" target="_self">GetRunTime Method </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-CAS.CommServer.ProtocolHub.MonitorInterface.ConsoleInterfaceAbstract.GetSegment.htm" target="_self">GetSegment Method </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-CAS.CommServer.ProtocolHub.MonitorInterface.ConsoleInterfaceAbstract.GetSegmentList.htm" target="_self">GetSegmentList Method </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-CAS.CommServer.ProtocolHub.MonitorInterface.ConsoleInterfaceAbstract.GetSegmentStates.htm" target="_self">GetSegmentStates Method </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-CAS.CommServer.ProtocolHub.MonitorInterface.ConsoleInterfaceAbstract.GetStation.htm" target="_self">GetStation Method </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-CAS.CommServer.ProtocolHub.MonitorInterface.ConsoleInterfaceAbstract.GetStationList.htm" target="_self">GetStationList Method </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-CAS.CommServer.ProtocolHub.MonitorInterface.ConsoleInterfaceAbstract.GetStationStates.htm" target="_self">GetStationStates Method </a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="../Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="T-CAS.CommServer.ProtocolHub.MonitorInterface.IInterface2SegmentLink.htm" target="_self">IInterface2SegmentLink Interface</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="AllMembers.T-CAS.CommServer.ProtocolHub.MonitorInterface.IInterface2SegmentLink.htm" target="_self">IInterface2SegmentLink Members</a>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="../Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="Methods.T-CAS.CommServer.ProtocolHub.MonitorInterface.IInterface2SegmentLink.htm" target="_self">IInterface2SegmentLink Methods</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-CAS.CommServer.ProtocolHub.MonitorInterface.IInterface2SegmentLink.AddInterface.htm" target="_self">AddInterface Method </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-CAS.CommServer.ProtocolHub.MonitorInterface.IInterface2SegmentLink.GetProtocolStatistics.htm" target="_self">GetProtocolStatistics Method </a>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="../Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="Properties.T-CAS.CommServer.ProtocolHub.MonitorInterface.IInterface2SegmentLink.htm" target="_self">IInterface2SegmentLink Properties</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="P-CAS.CommServer.ProtocolHub.MonitorInterface.IInterface2SegmentLink.GetOPCPrefix.htm" target="_self">GetOPCPrefix Property </a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="../Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="T-CAS.CommServer.ProtocolHub.MonitorInterface.ISegmentStatistics.htm" target="_self">ISegmentStatistics Interface</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="AllMembers.T-CAS.CommServer.ProtocolHub.MonitorInterface.ISegmentStatistics.htm" target="_self">ISegmentStatistics Members</a>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="../Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="Methods.T-CAS.CommServer.ProtocolHub.MonitorInterface.ISegmentStatistics.htm" target="_self">ISegmentStatistics Methods</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-CAS.CommServer.ProtocolHub.MonitorInterface.ISegmentStatistics.MarkConnFail.htm" target="_self">MarkConnFail Method </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-CAS.CommServer.ProtocolHub.MonitorInterface.ISegmentStatistics.SetOvertimeCoefficient.htm" target="_self">SetOvertimeCoefficient Method </a>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="../Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="Properties.T-CAS.CommServer.ProtocolHub.MonitorInterface.ISegmentStatistics.htm" target="_self">ISegmentStatistics Properties</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="P-CAS.CommServer.ProtocolHub.MonitorInterface.ISegmentStatistics.NewState.htm" target="_self">NewState Property </a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="../Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="T-CAS.CommServer.ProtocolHub.MonitorInterface.IUpdateInternalStatistics.htm" target="_self">IUpdateInternalStatistics Interface</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="AllMembers.T-CAS.CommServer.ProtocolHub.MonitorInterface.IUpdateInternalStatistics.htm" target="_self">IUpdateInternalStatistics Members</a>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="../Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="Methods.T-CAS.CommServer.ProtocolHub.MonitorInterface.IUpdateInternalStatistics.htm" target="_self">IUpdateInternalStatistics Methods</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-CAS.CommServer.ProtocolHub.MonitorInterface.IUpdateInternalStatistics.UpdateInternal.htm" target="_self">UpdateInternal Method </a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="../Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="T-CAS.CommServer.ProtocolHub.MonitorInterface.Metronom.htm" target="_self">Metronom Class</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="AllMembers.T-CAS.CommServer.ProtocolHub.MonitorInterface.Metronom.htm" target="_self">Metronom Members</a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="Methods.T-CAS.CommServer.ProtocolHub.MonitorInterface.Metronom.htm" target="_self">Metronom Methods</a>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="../Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="T-CAS.CommServer.ProtocolHub.MonitorInterface.Metronom.RefreshAble.htm" target="_self">Metronom.RefreshAble Class</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="AllMembers.T-CAS.CommServer.ProtocolHub.MonitorInterface.Metronom.RefreshAble.htm" target="_self">Metronom.RefreshAble Members</a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="Methods.T-CAS.CommServer.ProtocolHub.MonitorInterface.Metronom.RefreshAble.htm" target="_self">Metronom.RefreshAble Methods</a>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="../Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.htm" target="_self">Statistics Class</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="AllMembers.T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.htm" target="_self">Statistics Members</a>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="../Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="Fields.T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.htm" target="_self">Statistics Fields</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="F-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.channelList.htm" target="_self">channelList Field</a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="F-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.interfaceList.htm" target="_self">interfaceList Field</a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="F-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.segmentList.htm" target="_self">segmentList Field</a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="F-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.stationList.htm" target="_self">stationList Field</a>
+</div>
+</div>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="Methods.T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.htm" target="_self">Statistics Methods</a>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="../Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.ChannelStatistics.htm" target="_self">Statistics.ChannelStatistics Class</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="AllMembers.T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.ChannelStatistics.htm" target="_self">Statistics.ChannelStatistics Members</a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.ChannelStatistics.-ctor.htm" target="_self">ChannelStatistics Constructor </a>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="../Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="Methods.T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.ChannelStatistics.htm" target="_self">Statistics.ChannelStatistics Methods</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.ChannelStatistics.AddSegment.htm" target="_self">AddSegment Method </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.ChannelStatistics.GeatProtocolStatistics.htm" target="_self">GeatProtocolStatistics Method </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.ChannelStatistics.ToString.htm" target="_self">ToString Method </a>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="../Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="Properties.T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.ChannelStatistics.htm" target="_self">Statistics.ChannelStatistics Properties</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.ChannelStatistics.myID.htm" target="_self">myID Property </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.ChannelStatistics.myName.htm" target="_self">myName Property </a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="../Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.ChannelStatistics.ChannelStatisticsInternal.htm" target="_self">ChannelStatistics.ChannelStatisticsInternal Class</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="AllMembers.T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.ChannelStatistics.ChannelStatisticsInternal.htm" target="_self">ChannelStatistics.ChannelStatisticsInternal Members</a>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="../Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="Fields.T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.ChannelStatistics.ChannelStatisticsInternal.htm" target="_self">ChannelStatistics.ChannelStatisticsInternal Fields</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="F-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.ChannelStatistics.ChannelStatisticsInternal.myID.htm" target="_self">myID Field</a>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="../Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="Methods.T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.ChannelStatistics.ChannelStatisticsInternal.htm" target="_self">ChannelStatistics.ChannelStatisticsInternal Methods</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.ChannelStatistics.ChannelStatisticsInternal.ToString.htm" target="_self">ToString Method </a>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="../Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="Properties.T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.ChannelStatistics.ChannelStatisticsInternal.htm" target="_self">ChannelStatistics.ChannelStatisticsInternal Properties</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.ChannelStatistics.ChannelStatisticsInternal.Item-System.Int32-.htm" target="_self">Item Property </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.ChannelStatistics.ChannelStatisticsInternal.MyName.htm" target="_self">MyName Property </a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="../Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.htm" target="_self">Statistics.InterfaceStatistics Class</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="AllMembers.T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.htm" target="_self">Statistics.InterfaceStatistics Members</a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.-ctor.htm" target="_self">InterfaceStatistics Constructor </a>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="../Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="Fields.T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.htm" target="_self">Statistics.InterfaceStatistics Fields</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="F-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.myStat.htm" target="_self">myStat Field</a>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="../Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="Methods.T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.htm" target="_self">Statistics.InterfaceStatistics Methods</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.GetHtmlTableRowDescription.htm" target="_self">GetHtmlTableRowDescription Method </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.MarkRWOperationResult.htm" target="_self">MarkRWOperationResult Method </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.ToHtml.htm" target="_self">ToHtml Method </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.ToHtmlTableRow.htm" target="_self">ToHtmlTableRow Method </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.ToString.htm" target="_self">ToString Method </a>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="../Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="Properties.T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.htm" target="_self">Statistics.InterfaceStatistics Properties</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.Active.htm" target="_self">Active Property </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.ActiveTime.htm" target="_self">ActiveTime Property </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.CurrentInterfaceState.htm" target="_self">CurrentInterfaceState Property </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.CurrentInterfaceStateUpdate.htm" target="_self">CurrentInterfaceStateUpdate Property </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.FailTime.htm" target="_self">FailTime Property </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.GetState.htm" target="_self">GetState Property </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.GetState2String.htm" target="_self">GetState2String Property </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.myID_InterfaceNum.htm" target="_self">myID_InterfaceNum Property </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.NAME.htm" target="_self">NAME Property </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.StandbyTime.htm" target="_self">StandbyTime Property </a>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="../Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="Events.T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.htm" target="_self">Statistics.InterfaceStatistics Events</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="E-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.UpdateInterfaceState.htm" target="_self">UpdateInterfaceState Event</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.InterfaceState.htm" target="_self">InterfaceStatistics.InterfaceState Enumeration</a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.InterfaceStateChanged.htm" target="_self">InterfaceStatistics.InterfaceStateChanged Delegate</a>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="../Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.InterfaceStatisticsInternal.htm" target="_self">InterfaceStatistics.InterfaceStatisticsInternal Class</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="AllMembers.T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.InterfaceStatisticsInternal.htm" target="_self">InterfaceStatistics.InterfaceStatisticsInternal Members</a>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="../Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="Fields.T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.InterfaceStatisticsInternal.htm" target="_self">InterfaceStatistics.InterfaceStatisticsInternal Fields</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="F-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.InterfaceStatisticsInternal.myID_InterfaceNum.htm" target="_self">myID_InterfaceNum Field</a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="F-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.InterfaceStatisticsInternal.myID_Internal.htm" target="_self">myID_Internal Field</a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="F-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.InterfaceStatisticsInternal.myName.htm" target="_self">myName Field</a>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="../Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="Methods.T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.InterfaceStatisticsInternal.htm" target="_self">InterfaceStatistics.InterfaceStatisticsInternal Methods</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.InterfaceStatisticsInternal.ToString.htm" target="_self">ToString Method </a>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="../Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="Properties.T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.InterfaceStatisticsInternal.htm" target="_self">InterfaceStatistics.InterfaceStatisticsInternal Properties</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.InterfaceStatisticsInternal.Active.htm" target="_self">Active Property </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.InterfaceStatisticsInternal.ActiveTime.htm" target="_self">ActiveTime Property </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.InterfaceStatisticsInternal.FailTime.htm" target="_self">FailTime Property </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.InterfaceStatisticsInternal.GetState2String.htm" target="_self">GetState2String Property </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.InterfaceStatisticsInternal.MyState.htm" target="_self">MyState Property </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.InterfaceStatisticsInternal.StandbyTime.htm" target="_self">StandbyTime Property </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.InterfaceStatisticsInternal.State.htm" target="_self">State Property </a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="../Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.ProtocolStatisticsUpdater.htm" target="_self">Statistics.ProtocolStatisticsUpdater Class</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="AllMembers.T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.ProtocolStatisticsUpdater.htm" target="_self">Statistics.ProtocolStatisticsUpdater Members</a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="Methods.T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.ProtocolStatisticsUpdater.htm" target="_self">Statistics.ProtocolStatisticsUpdater Methods</a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="Properties.T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.ProtocolStatisticsUpdater.htm" target="_self">Statistics.ProtocolStatisticsUpdater Properties</a>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="../Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.htm" target="_self">Statistics.SegmentStatistics Class</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="AllMembers.T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.htm" target="_self">Statistics.SegmentStatistics Members</a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.-ctor.htm" target="_self">SegmentStatistics Constructor </a>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="../Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="Fields.T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.htm" target="_self">Statistics.SegmentStatistics Fields</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="F-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.myStat.htm" target="_self">myStat Field</a>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="../Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="Methods.T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.htm" target="_self">Statistics.SegmentStatistics Methods</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.GetHtmlTableRowDescription.htm" target="_self">GetHtmlTableRowDescription Method </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.Reset.htm" target="_self">Reset Method </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.ToHtml.htm" target="_self">ToHtml Method </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.ToHtmlTableRow.htm" target="_self">ToHtmlTableRow Method </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.ToString.htm" target="_self">ToString Method </a>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="../Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="Properties.T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.htm" target="_self">Statistics.SegmentStatistics Properties</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.Connected.htm" target="_self">Connected Property </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.ConnectTime.htm" target="_self">ConnectTime Property </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.ConnectTimeAvr.htm" target="_self">ConnectTimeAvr Property </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.ConnectTimeMax.htm" target="_self">ConnectTimeMax Property </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.ConnectTimeMin.htm" target="_self">ConnectTimeMin Property </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.CurrentStateAsString.htm" target="_self">CurrentStateAsString Property </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.GetCurrentState.htm" target="_self">GetCurrentState Property </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.GetFailCount.htm" target="_self">GetFailCount Property </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.GetMadeCount.htm" target="_self">GetMadeCount Property </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.GetOPCPrefix.htm" target="_self">GetOPCPrefix Property </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.GetOvertimeCoefficient.htm" target="_self">GetOvertimeCoefficient Property </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.myName.htm" target="_self">myName Property </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.NewStateUpdateStatistics.htm" target="_self">NewStateUpdateStatistics Property </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.ReadDelayAvr.htm" target="_self">ReadDelayAvr Property </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.ReadDelayMax.htm" target="_self">ReadDelayMax Property </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.ReadDelayMin.htm" target="_self">ReadDelayMin Property </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.WriteDelayAvr.htm" target="_self">WriteDelayAvr Property </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.WriteDelayMax.htm" target="_self">WriteDelayMax Property </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.WriteDelayMin.htm" target="_self">WriteDelayMin Property </a>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="../Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="Events.T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.htm" target="_self">Statistics.SegmentStatistics Events</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="E-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.MarkNewState.htm" target="_self">MarkNewState Event</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="../Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.SegmentStatisticsInternal.htm" target="_self">SegmentStatistics.SegmentStatisticsInternal Class</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="AllMembers.T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.SegmentStatisticsInternal.htm" target="_self">SegmentStatistics.SegmentStatisticsInternal Members</a>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="../Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="Methods.T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.SegmentStatisticsInternal.htm" target="_self">SegmentStatistics.SegmentStatisticsInternal Methods</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.SegmentStatisticsInternal.MarkConnFail.htm" target="_self">MarkConnFail Method </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.SegmentStatisticsInternal.SetOvertimeCoefficient.htm" target="_self">SetOvertimeCoefficient Method </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.SegmentStatisticsInternal.ToString.htm" target="_self">ToString Method </a>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="../Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="Properties.T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.SegmentStatisticsInternal.htm" target="_self">SegmentStatistics.SegmentStatisticsInternal Properties</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.SegmentStatisticsInternal.Address.htm" target="_self">Address Property </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.SegmentStatisticsInternal.AddtionalInformation.htm" target="_self">AddtionalInformation Property </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.SegmentStatisticsInternal.Connected.htm" target="_self">Connected Property </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.SegmentStatisticsInternal.ConnectTime.htm" target="_self">ConnectTime Property </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.SegmentStatisticsInternal.ConnFailCount.htm" target="_self">ConnFailCount Property </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.SegmentStatisticsInternal.ConnMadeCount.htm" target="_self">ConnMadeCount Property </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.SegmentStatisticsInternal.CurrentState.htm" target="_self">CurrentState Property </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.SegmentStatisticsInternal.CurrentStateAsString.htm" target="_self">CurrentStateAsString Property </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.SegmentStatisticsInternal.GetFailCount.htm" target="_self">GetFailCount Property </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.SegmentStatisticsInternal.GetMadeCount.htm" target="_self">GetMadeCount Property </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.SegmentStatisticsInternal.GetOvertimeCoefficient.htm" target="_self">GetOvertimeCoefficient Property </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.SegmentStatisticsInternal.GetSegmentConnectionTimeMinimumMximumAverage.htm" target="_self">GetSegmentConnectionTimeMinimumMximumAverage Property </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.SegmentStatisticsInternal.Item-System.Int32-.htm" target="_self">Item Property </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.SegmentStatisticsInternal.KeepConnect.htm" target="_self">KeepConnect Property </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.SegmentStatisticsInternal.MyID.htm" target="_self">MyID Property </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.SegmentStatisticsInternal.MyName.htm" target="_self">MyName Property </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.SegmentStatisticsInternal.OvertimeCoefficient_Avr.htm" target="_self">OvertimeCoefficient_Avr Property </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.SegmentStatisticsInternal.OvertimeCoefficient_Max.htm" target="_self">OvertimeCoefficient_Max Property </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.SegmentStatisticsInternal.OvertimeCoefficient_Min.htm" target="_self">OvertimeCoefficient_Min Property </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.SegmentStatisticsInternal.PickupConnect.htm" target="_self">PickupConnect Property </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.SegmentStatisticsInternal.ReadDelay.htm" target="_self">ReadDelay Property </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.SegmentStatisticsInternal.TimeIdleKeepConn.htm" target="_self">TimeIdleKeepConn Property </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.SegmentStatisticsInternal.TimeKeepConn.htm" target="_self">TimeKeepConn Property </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.SegmentStatisticsInternal.TimeReconnect.htm" target="_self">TimeReconnect Property </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.SegmentStatisticsInternal.TimeScan.htm" target="_self">TimeScan Property </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.SegmentStatisticsInternal.WriteDelay.htm" target="_self">WriteDelay Property </a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.StateChanged.htm" target="_self">SegmentStatistics.StateChanged Delegate</a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.States.htm" target="_self">SegmentStatistics.States Enumeration</a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.StateChanged.htm" target="_self">Statistics.StateChanged Delegate</a>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="../Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.StationStatistics.htm" target="_self">Statistics.StationStatistics Class</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="AllMembers.T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.StationStatistics.htm" target="_self">Statistics.StationStatistics Members</a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.StationStatistics.-ctor.htm" target="_self">StationStatistics Constructor </a>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="../Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="Fields.T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.StationStatistics.htm" target="_self">Statistics.StationStatistics Fields</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="F-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.StationStatistics.myStat.htm" target="_self">myStat Field</a>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="../Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="Methods.T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.StationStatistics.htm" target="_self">Statistics.StationStatistics Methods</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.StationStatistics.AddInterface.htm" target="_self">AddInterface Method </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.StationStatistics.GetHtmlTableRowDescription.htm" target="_self">GetHtmlTableRowDescription Method </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.StationStatistics.ToHtml.htm" target="_self">ToHtml Method </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.StationStatistics.ToHtmlTableRow.htm" target="_self">ToHtmlTableRow Method </a>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="../Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="Properties.T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.StationStatistics.htm" target="_self">Statistics.StationStatistics Properties</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.StationStatistics.myName.htm" target="_self">myName Property </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.StationStatistics.priority.htm" target="_self">priority Property </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.StationStatistics.StationState.htm" target="_self">StationState Property </a>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="../Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="Events.T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.StationStatistics.htm" target="_self">Statistics.StationStatistics Events</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="E-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.StationStatistics.MarkNewState.htm" target="_self">MarkNewState Event</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="../Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.StationStatistics.StationStatisticsInternal.htm" target="_self">StationStatistics.StationStatisticsInternal Class</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="AllMembers.T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.StationStatistics.StationStatisticsInternal.htm" target="_self">StationStatistics.StationStatisticsInternal Members</a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.StationStatistics.StationStatisticsInternal.-ctor.htm" target="_self">StationStatisticsInternal Constructor </a>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="../Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="Fields.T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.StationStatistics.StationStatisticsInternal.htm" target="_self">StationStatistics.StationStatisticsInternal Fields</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="F-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.StationStatistics.StationStatisticsInternal.myID.htm" target="_self">myID Field</a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="F-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.StationStatistics.StationStatisticsInternal.myName.htm" target="_self">myName Field</a>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="../Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="Methods.T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.StationStatistics.StationStatisticsInternal.htm" target="_self">StationStatistics.StationStatisticsInternal Methods</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="M-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.StationStatistics.StationStatisticsInternal.ToString.htm" target="_self">ToString Method </a>
+</div>
+</div>
+</div>
+<div class="TreeNode">
+<img class="TreeNodeImg" onclick="javascript: Toggle(this);" src="../Collapsed.png"/><a class="UnselectedNode" onclick="javascript: return Expand(this);" href="Properties.T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.StationStatistics.StationStatisticsInternal.htm" target="_self">StationStatistics.StationStatisticsInternal Properties</a>
+<div class="Hidden">
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.StationStatistics.StationStatisticsInternal.MyPriority.htm" target="_self">MyPriority Property </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.StationStatistics.StationStatisticsInternal.StationState.htm" target="_self">StationState Property </a>
+</div>
+<div class="TreeItem">
+<img src="../Item.gif"/><a class="UnselectedNode" onclick="javascript: return SelectNode(this);" href="P-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.StationStatistics.StationStatisticsInternal.StationStateString.htm" target="_self">StationStateString Property </a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+            </div>
+
+        </div>
+
+        <div id="TOCSizer" class="TOCSizer" onmousedown="OnMouseDown(event)" onselectstart="javascript: return false;"></div>
+        
+        <div id ="TopicContent" name="TopicContent" class="TopicContent" style="float: none; margin-left: 312px;height: -webkit-fill-available;display:block;overflow: auto;">
+          <div class="header" xmlns:MSHelp="http://msdn.microsoft.com/mshelp" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:msxsl="urn:schemas-microsoft-com:xslt">
+      <table class="headerBar cl_lightweight_topnav_slice" border="0" cellpadding="0" cellspacing="0">
+        <tbody>
+          <tr>
+            <td class="leftSection cl_lightweight_header_leftSection_wave leftSectionImageClusterOverride" />
+            <td class="rightSection cl_lightweight_header_rightSection_wave rightSectionImageClusterOverride">
+              <div class="tabContainer">Rel 4.10</div>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+          <!-- Content Starts Here -->
+          <div class="contentPlaceHolder" xmlns:MSHelp="http://msdn.microsoft.com/mshelp" xmlns:mshelp="http://msdn.microsoft.com/mshelp" xmlns:ddue="http://ddue.schemas.microsoft.com/authoring/2003/5" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:msxsl="urn:schemas-microsoft-com:xslt">
+      <div class="content">
+        <div class="topicContainer">
+          <div class="topic">
+            <p class="majorTitle" />
+            <h1 class="title">CAS.CommServer.ProtocolHub.MonitorInterface Namespace</h1>
+            <div id="mainSection">
+              <div id="mainBody">
+                <div class="LW_CollapsibleArea_Container">
+                  <div class="LW_CollapsibleArea_TitleDiv">
+                    <h2 class="LW_CollapsibleArea_Title">Classes</h2>
+                    <div class="LW_CollapsibleArea_HrDiv">
+                      <hr class="LW_CollapsibleArea_Hr" />
+                    </div>
+                  </div>
+                  <a id="classSection">
+                    <!---->
+                  </a>
+                  <table id="typeList" class="members">
+                    <tr>
+                      <th class="iconColumn">
+           
+       </th>
+                      <th class="nameColumn">Class</th>
+                      <th class="descriptionColumn">Description</th>
+                    </tr>
+                    <tr>
+                      <td>
+                        <img src="../icons/pubclass.gif" alt="Public class" title="Public class" />
+                      </td>
+                      <td>
+                        <a href="T-CAS.CommServer.ProtocolHub.MonitorInterface.ConsoleInterfaceAbstract.htm">ConsoleInterfaceAbstract</a>
+                      </td>
+                      <td>
+                        <div class="summary">
+   Summary description for ConsoleInterfaceAbstract.
+   </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <img src="../icons/pubclass.gif" alt="Public class" title="Public class" />
+                      </td>
+                      <td>
+                        <a href="T-CAS.CommServer.ProtocolHub.MonitorInterface.Metronom.htm">Metronom</a>
+                      </td>
+                      <td>
+                        <div class="summary">
+   Provides statistic information to management level - human machine interface (HMI)
+   </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <img src="../icons/pubclass.gif" alt="Public class" title="Public class" />
+                      </td>
+                      <td>
+                        <a href="T-CAS.CommServer.ProtocolHub.MonitorInterface.Metronom.RefreshAble.htm">Metronom<span class="languageSpecificText"><span class="cs">.</span><span class="vb">.</span><span class="cpp">::</span><span class="nu">.</span><span class="fs">.</span></span>RefreshAble</a>
+                      </td>
+                      <td>
+                        <div class="summary">
+   Provides statistic information to management level - human machine interface (HMI)
+   </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <img src="../icons/pubclass.gif" alt="Public class" title="Public class" />
+                      </td>
+                      <td>
+                        <a href="T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.htm">Statistics</a>
+                      </td>
+                      <td>
+                        <div class="summary">
+   Communication statistics management class
+   </div>
+                        <div class="summary">
+   Communication statistics management class
+   </div>
+                        <div class="summary">
+   Communication statistics management class
+   </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <img src="../icons/pubclass.gif" alt="Public class" title="Public class" />
+                      </td>
+                      <td>
+                        <a href="T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.ChannelStatistics.htm">Statistics<span class="languageSpecificText"><span class="cs">.</span><span class="vb">.</span><span class="cpp">::</span><span class="nu">.</span><span class="fs">.</span></span>ChannelStatistics</a>
+                      </td>
+                      <td>
+                        <div class="summary">
+    Title   : Channel statistics management class
+   </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <img src="../icons/pubclass.gif" alt="Public class" title="Public class" />
+                      </td>
+                      <td>
+                        <a href="T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.ChannelStatistics.ChannelStatisticsInternal.htm">Statistics<span class="languageSpecificText"><span class="cs">.</span><span class="vb">.</span><span class="cpp">::</span><span class="nu">.</span><span class="fs">.</span></span>ChannelStatistics<span class="languageSpecificText"><span class="cs">.</span><span class="vb">.</span><span class="cpp">::</span><span class="nu">.</span><span class="fs">.</span></span>ChannelStatisticsInternal</a>
+                      </td>
+                      <td>
+                        <div class="summary">
+   Channel statistics management class (internal statistics - that are send through remoting)
+   </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <img src="../icons/pubclass.gif" alt="Public class" title="Public class" />
+                      </td>
+                      <td>
+                        <a href="T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.htm">Statistics<span class="languageSpecificText"><span class="cs">.</span><span class="vb">.</span><span class="cpp">::</span><span class="nu">.</span><span class="fs">.</span></span>InterfaceStatistics</a>
+                      </td>
+                      <td>
+                        <div class="summary">
+   Provides statistic information to management level - human machine interface (HMI)
+   </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <img src="../icons/pubclass.gif" alt="Public class" title="Public class" />
+                      </td>
+                      <td>
+                        <a href="T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.InterfaceStatisticsInternal.htm">Statistics<span class="languageSpecificText"><span class="cs">.</span><span class="vb">.</span><span class="cpp">::</span><span class="nu">.</span><span class="fs">.</span></span>InterfaceStatistics<span class="languageSpecificText"><span class="cs">.</span><span class="vb">.</span><span class="cpp">::</span><span class="nu">.</span><span class="fs">.</span></span>InterfaceStatisticsInternal</a>
+                      </td>
+                      <td>
+                        <div class="summary">
+   provides statistic information to management level - human machine interface (HMI)(internal statistics - that are send through remoting)
+   </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <img src="../icons/pubclass.gif" alt="Public class" title="Public class" />
+                      </td>
+                      <td>
+                        <a href="T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.ProtocolStatisticsUpdater.htm">Statistics<span class="languageSpecificText"><span class="cs">.</span><span class="vb">.</span><span class="cpp">::</span><span class="nu">.</span><span class="fs">.</span></span>ProtocolStatisticsUpdater</a>
+                      </td>
+                      <td>
+                        <div class="summary">
+   this is helper class to add refresh possibility to Protocol class
+   </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <img src="../icons/pubclass.gif" alt="Public class" title="Public class" />
+                      </td>
+                      <td>
+                        <a href="T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.htm">Statistics<span class="languageSpecificText"><span class="cs">.</span><span class="vb">.</span><span class="cpp">::</span><span class="nu">.</span><span class="fs">.</span></span>SegmentStatistics</a>
+                      </td>
+                      <td>
+                        <div class="summary">
+    Title   : Communication statistics management class
+   </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <img src="../icons/pubclass.gif" alt="Public class" title="Public class" />
+                      </td>
+                      <td>
+                        <a href="T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.SegmentStatisticsInternal.htm">Statistics<span class="languageSpecificText"><span class="cs">.</span><span class="vb">.</span><span class="cpp">::</span><span class="nu">.</span><span class="fs">.</span></span>SegmentStatistics<span class="languageSpecificText"><span class="cs">.</span><span class="vb">.</span><span class="cpp">::</span><span class="nu">.</span><span class="fs">.</span></span>SegmentStatisticsInternal</a>
+                      </td>
+                      <td>
+                        <div class="summary">
+   Communication statistics management class  (internal statistics - that are send through remoting)
+   </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <img src="../icons/pubclass.gif" alt="Public class" title="Public class" />
+                      </td>
+                      <td>
+                        <a href="T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.StationStatistics.htm">Statistics<span class="languageSpecificText"><span class="cs">.</span><span class="vb">.</span><span class="cpp">::</span><span class="nu">.</span><span class="fs">.</span></span>StationStatistics</a>
+                      </td>
+                      <td>
+                        <div class="summary">
+   Provides statistic informaton to management level - human mascine interface (HMI)
+   </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <img src="../icons/pubclass.gif" alt="Public class" title="Public class" />
+                      </td>
+                      <td>
+                        <a href="T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.StationStatistics.StationStatisticsInternal.htm">Statistics<span class="languageSpecificText"><span class="cs">.</span><span class="vb">.</span><span class="cpp">::</span><span class="nu">.</span><span class="fs">.</span></span>StationStatistics<span class="languageSpecificText"><span class="cs">.</span><span class="vb">.</span><span class="cpp">::</span><span class="nu">.</span><span class="fs">.</span></span>StationStatisticsInternal</a>
+                      </td>
+                      <td>
+                        <div class="summary">
+   Provides statistic informaton to management level - human mascine interface (HMI) (internal statistics - that are send through remoting)
+   </div>
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+                <div class="LW_CollapsibleArea_Container">
+                  <div class="LW_CollapsibleArea_TitleDiv">
+                    <h2 class="LW_CollapsibleArea_Title">Interfaces</h2>
+                    <div class="LW_CollapsibleArea_HrDiv">
+                      <hr class="LW_CollapsibleArea_Hr" />
+                    </div>
+                  </div>
+                  <a id="interfaceSection">
+                    <!---->
+                  </a>
+                  <table id="typeList" class="members">
+                    <tr>
+                      <th class="iconColumn">
+           
+       </th>
+                      <th class="nameColumn">Interface</th>
+                      <th class="descriptionColumn">Description</th>
+                    </tr>
+                    <tr>
+                      <td>
+                        <img src="../icons/pubinterface.gif" alt="Public interface" title="Public interface" />
+                      </td>
+                      <td>
+                        <a href="T-CAS.CommServer.ProtocolHub.MonitorInterface.IInterface2SegmentLink.htm">IInterface2SegmentLink</a>
+                      </td>
+                      <td>
+                        <div class="summary">
+   Interlink between the Interface and Segment statistic object
+   </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <img src="../icons/pubinterface.gif" alt="Public interface" title="Public interface" />
+                      </td>
+                      <td>
+                        <a href="T-CAS.CommServer.ProtocolHub.MonitorInterface.ISegmentStatistics.htm">ISegmentStatistics</a>
+                      </td>
+                      <td>
+                        <div class="summary">
+   Interface of the Segment Statistics
+   </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <img src="../icons/pubinterface.gif" alt="Public interface" title="Public interface" />
+                      </td>
+                      <td>
+                        <a href="T-CAS.CommServer.ProtocolHub.MonitorInterface.IUpdateInternalStatistics.htm">IUpdateInternalStatistics</a>
+                      </td>
+                      <td>
+                        <div class="summary">
+   Interface Update Internal Statistics
+   </div>
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+                <div class="LW_CollapsibleArea_Container">
+                  <div class="LW_CollapsibleArea_TitleDiv">
+                    <h2 class="LW_CollapsibleArea_Title">Delegates</h2>
+                    <div class="LW_CollapsibleArea_HrDiv">
+                      <hr class="LW_CollapsibleArea_Hr" />
+                    </div>
+                  </div>
+                  <a id="delegateSection">
+                    <!---->
+                  </a>
+                  <table id="typeList" class="members">
+                    <tr>
+                      <th class="iconColumn">
+           
+       </th>
+                      <th class="nameColumn">Delegate</th>
+                      <th class="descriptionColumn">Description</th>
+                    </tr>
+                    <tr>
+                      <td>
+                        <img src="../icons/pubdelegate.gif" alt="Public delegate" title="Public delegate" />
+                      </td>
+                      <td>
+                        <a href="T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.InterfaceStateChanged.htm">Statistics<span class="languageSpecificText"><span class="cs">.</span><span class="vb">.</span><span class="cpp">::</span><span class="nu">.</span><span class="fs">.</span></span>InterfaceStatistics<span class="languageSpecificText"><span class="cs">.</span><span class="vb">.</span><span class="cpp">::</span><span class="nu">.</span><span class="fs">.</span></span>InterfaceStateChanged</a>
+                      </td>
+                      <td>
+                        <div class="summary">
+   delegate  that is used when interface state is changed
+   </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <img src="../icons/pubdelegate.gif" alt="Public delegate" title="Public delegate" />
+                      </td>
+                      <td>
+                        <a href="T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.StateChanged.htm">Statistics<span class="languageSpecificText"><span class="cs">.</span><span class="vb">.</span><span class="cpp">::</span><span class="nu">.</span><span class="fs">.</span></span>SegmentStatistics<span class="languageSpecificText"><span class="cs">.</span><span class="vb">.</span><span class="cpp">::</span><span class="nu">.</span><span class="fs">.</span></span>StateChanged</a>
+                      </td>
+                      <td>
+                        <div class="summary">
+   Delegate that is used when state is changed
+   </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <img src="../icons/pubdelegate.gif" alt="Public delegate" title="Public delegate" />
+                      </td>
+                      <td>
+                        <a href="T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.StateChanged.htm">Statistics<span class="languageSpecificText"><span class="cs">.</span><span class="vb">.</span><span class="cpp">::</span><span class="nu">.</span><span class="fs">.</span></span>StateChanged</a>
+                      </td>
+                      <td>
+                        <div class="summary">
+    Title   : Communication statistics management class
+   </div>
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+                <div class="LW_CollapsibleArea_Container">
+                  <div class="LW_CollapsibleArea_TitleDiv">
+                    <h2 class="LW_CollapsibleArea_Title">Enumerations</h2>
+                    <div class="LW_CollapsibleArea_HrDiv">
+                      <hr class="LW_CollapsibleArea_Hr" />
+                    </div>
+                  </div>
+                  <a id="enumerationSection">
+                    <!---->
+                  </a>
+                  <table id="typeList" class="members">
+                    <tr>
+                      <th class="iconColumn">
+           
+       </th>
+                      <th class="nameColumn">Enumeration</th>
+                      <th class="descriptionColumn">Description</th>
+                    </tr>
+                    <tr>
+                      <td>
+                        <img src="../icons/pubenumeration.gif" alt="Public enumeration" title="Public enumeration" />
+                      </td>
+                      <td>
+                        <a href="T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics.InterfaceState.htm">Statistics<span class="languageSpecificText"><span class="cs">.</span><span class="vb">.</span><span class="cpp">::</span><span class="nu">.</span><span class="fs">.</span></span>InterfaceStatistics<span class="languageSpecificText"><span class="cs">.</span><span class="vb">.</span><span class="cpp">::</span><span class="nu">.</span><span class="fs">.</span></span>InterfaceState</a>
+                      </td>
+                      <td>
+                        <div class="summary">
+   states of the interfaces
+   </div>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>
+                        <img src="../icons/pubenumeration.gif" alt="Public enumeration" title="Public enumeration" />
+                      </td>
+                      <td>
+                        <a href="T-CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.SegmentStatistics.States.htm">Statistics<span class="languageSpecificText"><span class="cs">.</span><span class="vb">.</span><span class="cpp">::</span><span class="nu">.</span><span class="fs">.</span></span>SegmentStatistics<span class="languageSpecificText"><span class="cs">.</span><span class="vb">.</span><span class="cpp">::</span><span class="nu">.</span><span class="fs">.</span></span>States</a>
+                      </td>
+                      <td>
+                        <div class="summary">
+   States of the segment
+   </div>
+                      </td>
+                    </tr>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="footer">
+        <div id="footer" class="footerContainer">
+          <div class="footerLogoContainer">
+            <div style="margin-top:5px">
+              <span class="customCopyrightFooter">UAOOI Process Observer</span>
+            </div>
+            <div style="margin-top:5px" class="copyrightFooter">Help File generated with GhostDoc</div>
+            <div> </div>
+          </div>
+        </div>
+      </div>
+    </div>
+          <!-- /Content Ends Here -->
+        </div>
+
+
+  </body>
+</html>
