@@ -1,19 +1,10 @@
 ﻿<#@ template debug="false" hostspecific="false" language="C#" #>
 <#@ output extension=".cs" #>
-//_______________________________________________________________
-//  Title   : Assembly info for: <#=m_AssemblyTitle#>
-//  System  : Microsoft VisualStudio 2015 / C#
-//  $LastChangedDate:  $
-//  $Rev:  $
-//  $LastChangedBy: $
-//  $URL:  $
-//  $Id:  $
+//___________________________________________________________________________________
 //
-//  <#=AssemblyCopyright#>
-//  <#=Phone#>
-//  <#=Email#>
-//  <#=Url#>
-//_______________________________________________________________
+//  Copyright (C) 2019, Mariusz Postol LODZ POLAND.
+//
+//___________________________________________________________________________________
 
 using System.Reflection;
 using System.Runtime.InteropServices;
@@ -28,10 +19,10 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyCulture("")]
 
 [assembly: Guid("9f3155f3-599c-4a1c-b3fb-16e8cc305051")]
-[assembly: AssemblyVersion("<#= SFTagVersion #>.*")]
-[assembly: AssemblyFileVersion("<#= SFTagVersion #>")]
+[assembly: AssemblyVersion("<#= CASCommServerProtocolHubTagVersion #>.*")]
+[assembly: AssemblyFileVersion("<#= CASCommServerProtocolHubTagVersion #>")]
 
-<#@ include file = ".\AssemblyInfo.t4" #>
+<#@ include file = "CAS.OPC.t4" #>
 <#+
 string m_AssemblyTitle = "<Define Assembly Title>";
 #>

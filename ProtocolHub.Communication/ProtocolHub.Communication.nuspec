@@ -2,10 +2,10 @@
 <package xmlns="http://schemas.microsoft.com/packaging/2011/08/nuspec.xsd">
   <metadata>
     <id>CAS.CommServer.ProtocolHub.Communication</id>
-    <version>4.02.00</version>
+    <version>4.02.02</version>
     <title>Redundant, multi-protocol, multi-channel communication hub for large scale distributed systems.</title>
-    <authors>CAS</authors>
-    <owners>commsvr.com</owners>
+    <authors>Mariusz Postol</authors>
+    <owners>Mariusz Postol</owners>
     <projectUrl>svn://svnserver.hq.cas.com.pl/VS/trunk/CommServer.DA.Server/ProtocolHub.Communication</projectUrl>
     <licenseUrl>http://www.commsvr.com/DownloadCenter/ProductSoftware/LicenseAgreement.aspx</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
@@ -19,7 +19,7 @@
     <releaseNotes>
       Released for Maintenance 2016
     </releaseNotes>
-    <copyright>Copyright (c) 2017 CAS LODZ POLAND</copyright>
+    <copyright>Copyright (C) 2019, Mariusz Postol LODZ POLAND.</copyright>
     <tags>Communication Engine, CommServer, Protocol Hub.</tags>
     <dependencies>
       <dependency id="CAS.CodeProtect" version="6.1.3"  />

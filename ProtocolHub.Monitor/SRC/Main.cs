@@ -1,18 +1,10 @@
-
-//_______________________________________________________________
-//  Title   : CommServer Monitor Console MainForm
-//  System  : Microsoft VisualStudio 2015 / C#
-//  $LastChangedDate$
-//  $Rev$
-//  $LastChangedBy$
-//  $URL$
-//  $Id$
+//___________________________________________________________________________________
 //
-//  Copyright (C) 2017, CAS LODZ POLAND.
-//  TEL: +48 608 61 98 99 
-//  mailto://techsupp@cas.eu
-//  http://www.cas.eu
-//_______________________________________________________________
+//  Copyright (C) 2019, Mariusz Postol LODZ POLAND.
+//
+//  To be in touch join the community at GITTER: https://gitter.im/mpostol/OPC-UA-OOI
+//___________________________________________________________________________________
+
 
 using CAS.CommServer.ProtocolHub.MonitorInterface;
 using CAS.CommServerConsole.Properties;
@@ -322,7 +314,11 @@ namespace CAS.CommServerConsole
       InterfaceListView.Refresh();
     }
     #endregion
-    #region Creator
+
+    #region constructor
+    /// <summary>
+    /// Initializes a new instance of the <see cref="MainForm"/> class.
+    /// </summary>
     public MainForm()
     {
       InitializeComponent();

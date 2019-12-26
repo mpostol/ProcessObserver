@@ -4,8 +4,8 @@
     <id>Define.Assembly.Title</id>
     <version>1.00.00</version>
     <title>Define.Assembly.Title - CAS CommServer Family</title>
-    <authors>CAS</authors>
-    <owners>commsvr.com</owners>
+    <authors>Mariusz Postol</authors>
+    <owners>Mariusz Postol</owners>
     <projectUrl>http://www.commsvr.com/Download/a.b.c</projectUrl>
     <licenseUrl>http://www.commsvr.com/DownloadCenter/ProductSoftware/LicenseAgreement.aspx</licenseUrl>
     <requireLicenseAcceptance>false</requireLicenseAcceptance>
@@ -19,7 +19,7 @@
     <releaseNotes>
       Add releaseNotes if needed.
     </releaseNotes>
-    <copyright>Copyright (c) 2017 CAS LODZ POLAND</copyright>
+    <copyright>Copyright (C) 2019, Mariusz Postol LODZ POLAND.</copyright>
     <tags>OPCUA, CommServer, ASMD, Address Space Model Designer.</tags>
   </metadata>
   <files>
