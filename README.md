@@ -7,4 +7,5 @@ Consider titles
 
 ## See also
 
-- [Process Observer - Main Technology Features](http://www.commsvr.com/Howitworks/Technologie.aspx) 
+- [Process Observer - Main Technology Features](http://www.commsvr.com/Howitworks/Technologie.aspx)
+- [CommServer\Theory of operation](http://www.commsvr.com/OPC-Help/Index.aspx?topic=html/2dea0752-d490-47e6-8444-ac73e07601fc.htm)
