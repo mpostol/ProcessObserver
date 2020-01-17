@@ -1,6 +1,6 @@
 # Process Observer
 
-## Preface 
+## Preface
 
 Process-Observer is an archetype that allows creation consistent, homogeneous real-time representation of the underlying process. This representation is a kind of a process state and behavior replica, which exposes real-time process data to the network using standardized interfaces like OPC Classic, OPC Unified Architecture, OPC PubSub, AMQP, MQTT, etc. In other words, it supports Machine to Sensors Connectivity (M2S), i.e. it allows an open, uniform, secure and standards-based communication solution between sensors, actuators, controllers and the upper layer applications.
 
@@ -31,7 +31,9 @@ In this scenario, one Server acts as a Client of another Server. In the presente
 
 ## Related work
 
-The Process-Observer concept has been implemented as a generic communication engine used by the CAS CommServer Classic and Unified Architecture servers. This implementation is optimized for highly distributed applications. Engaging an intermediate component as a driver for plant-floor devices is a middleware archetype used worldwide in thousands of applications. But to provide a consistent sole representation of a distributed real-time process at the upper layer boundary - according to the model - the CommServer™ has to implement unique features optimizing utilization of the underlying communication infrastructure as follows:
+### CommServer
+
+The Process-Observer concept has been implemented as a generic communication engine used by the CAS CommServer Classic and Unified Architecture servers. This implementation is optimized for highly distributed applications. Engaging an intermediate component as a driver for plant-floor devices is a middleware archetype used worldwide in thousands of applications. But to provide a consistent sole representation of a distributed real-time process at the upper layer boundary - according to the model - the CommServer has to implement unique features optimizing utilization of the underlying communication infrastructure as follows:
 
 - **Multi-Protocol** capability: many protocols can be implemented as DataProvider components and plugged-in and utilized simultaneously 
 - **Multi-Medium** capability: any physical layer technology can be used to start building a communication stack
@@ -42,6 +44,20 @@ The Process-Observer concept has been implemented as a generic communication eng
 - **Optimal Transfer Algorithm**: is responsible for minimizing the difference between the individual process data update rate as required by clients and the current sampling rate of process control units
 
 To get detailed description explore the [CommServer Help documentation][CommSvr.Help].
+
+### Helpers
+
+The library [mpostol/PO.Common](https://github.com/mpostol/PO.Common) contains common projects for the `Process-Observer` implementation. The projects are listed in the following table.
+
+Id | Title
+---|-
+`CAS.CommServer.DA.ItemDescriberEditor` | Item Describer Editor
+`CAS.CommServer.DA.ItemDescriber` | Item Describer Library
+`CAS.CommServer.DeviceSimulator` | Device Simulator for CommServer family
+`CAS.CommServer.DAServerConfiguration` | CAS.CommServer.ProtocolHub configuration
+`CAS.CommServer.DAClientConfiguration` | OPC Classic Client Configuration Library
+`CAS.CommServer.CommonBus` | CAS CommServer Family Common Communication Functionality
+
 
 ## See also
 
