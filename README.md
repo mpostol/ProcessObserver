@@ -58,7 +58,6 @@ Id | Title
 `CAS.CommServer.DAClientConfiguration` | OPC Classic Client Configuration Library
 `CAS.CommServer.CommonBus` | CAS CommServer Family Common Communication Functionality
 
-
 ## See also
 
 - Mariusz Postol, [Object Oriented Internet](https://ieeexplore.ieee.org/abstract/document/7321562), [3rd International Conference on Innovative Network Systems and Applications](https://fedcsis.org/2015/inetsapp), 2015, [IEEE Xplore Digital Library](https://ieeexplore.ieee.org/abstract/document/7321562) [![DOI](https://img.shields.io/badge/DOI-10.15439%2F2015F160-blue)](https://fedcsis.org/proceedings/2015/pliks/160.pdf)
@@ -83,5 +82,3 @@ Process Observer has been implemented as the component OPC UA and Classic server
 ProtocolHub is part of ProcessObserver. 
 
 -->
-
-
