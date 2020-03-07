@@ -7,7 +7,8 @@
     <ProjectGuid>{E1351D09-7241-44C3-A292-8D46E322A61D}</ProjectGuid>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ApplicationIcon>CAS_ikona_02.ico</ApplicationIcon>
+    <ApplicationIcon>
+    </ApplicationIcon>
     <AssemblyKeyContainerName>
     </AssemblyKeyContainerName>
     <AssemblyName>CAS.CommServer.ProtocolHub.Communication</AssemblyName>
@@ -42,7 +43,7 @@
     <IsWebBootstrapper>true</IsWebBootstrapper>
     <UseApplicationTrust>false</UseApplicationTrust>
     <BootstrapperEnabled>true</BootstrapperEnabled>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -110,9 +111,8 @@
       <HintPath>..\packages\CAS.CommServer.OPCClassic.SDK.Core.2.01.1062\lib\net451\CAS.CommServer.OPCClassicSDK.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="CAS.CommServer.ProtocolHub.ItemDescriber, Version=5.1.6.25004, Culture=neutral, PublicKeyToken=8832ff1a67ea61a3, processorArchitecture=MSIL">
-      <HintPath>..\packages\CAS.CommServer.ProtocolHub.ItemDescriber.5.01.06\lib\net451\CAS.CommServer.ProtocolHub.ItemDescriber.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="CAS.CommServer.ProtocolHub.ItemDescriber, Version=6.0.0.31965, Culture=neutral, PublicKeyToken=8832ff1a67ea61a3, processorArchitecture=MSIL">
+      <HintPath>..\packages\CAS.CommServer.ProtocolHub.ItemDescriber.6.0.0-Alpha\lib\net472\CAS.CommServer.ProtocolHub.ItemDescriber.dll</HintPath>
     </Reference>
     <Reference Include="CAS.CommServer.ProtocolHub.MonitorInterface, Version=4.1.0.31758, Culture=neutral, PublicKeyToken=8832ff1a67ea61a3, processorArchitecture=MSIL">
       <HintPath>..\packages\CAS.CommServer.ProtocolHub.MonitorInterface.4.01.00\lib\net461\CAS.CommServer.ProtocolHub.MonitorInterface.dll</HintPath>
@@ -139,6 +139,12 @@
     <Reference Include="System.Runtime.Remoting" />
     <Reference Include="System.Xml">
       <Name>System.XML</Name>
+    </Reference>
+    <Reference Include="UAOOI.ProcessObserver.RealTime, Version=6.0.0.0, Culture=neutral, PublicKeyToken=8832ff1a67ea61a3, processorArchitecture=MSIL">
+      <HintPath>..\packages\UAOOI.ProcessObserver.RealTime.6.0.0-Alpha\lib\net451\UAOOI.ProcessObserver.RealTime.dll</HintPath>
+    </Reference>
+    <Reference Include="UAOOI.ProcessObserver.RealTimeCore, Version=6.0.0.0, Culture=neutral, PublicKeyToken=8832ff1a67ea61a3, processorArchitecture=MSIL">
+      <HintPath>..\packages\UAOOI.ProcessObserver.RealTime.6.0.0-Alpha\lib\net451\UAOOI.ProcessObserver.RealTimeCore.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -236,6 +242,7 @@
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Logo64.PNG" />
     <Content Include="Properties\AssemblyInfo.tt">
       <Generator>TextTemplatingFileGenerator</Generator>
       <LastGenOutput>AssemblyInfo.cs</LastGenOutput>
