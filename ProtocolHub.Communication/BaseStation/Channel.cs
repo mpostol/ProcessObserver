@@ -1,17 +1,9 @@
-//_______________________________________________________________
-//  Title   : Channel implementation
-//  System  : Microsoft VisualStudio 2015 / C#
-//  $LastChangedDate$
-//  $Rev$
-//  $LastChangedBy$
-//  $URL$
-//  $Id$
+//___________________________________________________________________________________
 //
-//  Copyright (C) 2016, CAS LODZ POLAND.
-//  TEL: +48 (42) 686 25 47
-//  mailto://techsupp@cas.eu
-//  http://www.cas.eu
-//_______________________________________________________________
+//  Copyright (C) 2020, Mariusz Postol LODZ POLAND.
+//
+//  To be in touch join the community at GITTER: https://gitter.im/mpostol/OPC-UA-OOI
+//___________________________________________________________________________________
 
 using CAS.CommServer.ProtocolHub.Communication.LicenseControl;
 using CAS.CommServer.ProtocolHub.MonitorInterface;
@@ -38,7 +30,7 @@ namespace CAS.CommServer.ProtocolHub.Communication.BaseStation
     private const string m_src = "CAS.Lib.CommServer.Channel";
     private Statistics.ChannelStatistics myStatistics;
     private static ArrayList myChannels = new ArrayList();
-    private IApplicationLayerMaster CreateApplicationProtocol(ComunicationNet.ProtocolRow protocol, CommServerComponent parent, PluginCollection plugins)
+    private IApplicationLayerMaster CreateApplicationProtocol(ComunicationNet.ProtocolRow protocol, CommServerComponent parent, PluginCollection plugins, ISettingsBase settings)
     {
       CommServerComponent.Tracer.TraceVerbose(60, m_src, "Creating protocol: " + protocol.Name);
       if (protocol.IsDPIdentifierNull())
@@ -69,7 +61,7 @@ namespace CAS.CommServer.ProtocolHub.Communication.BaseStation
             _format = "Problem with: {0} because of general failure: {1}.";
             CommServerComponent.Tracer.TraceWarning(90, m_src, String.Format(_format, protocol.DPConfig, e.ToString()));
           }
-          IProtocolParent cStatistic = Diagnostic.CommServerProtocol.CreateNewProtocol(protocol.DPConfig, protocol.Name, protocol.ProtocolID, _DataProviderID.GetSettingsHumanReadableFormat(), myStatistics);
+          IProtocolParent cStatistic = Diagnostic.CommServerProtocol.CreateNewProtocol(protocol.DPConfig, protocol.Name, protocol.ProtocolID, _DataProviderID.GetSettingsHumanReadableFormat(), myStatistics, settings);
           IApplicationLayerMaster chnProtocol = _DataProviderID.GetApplicationLayerMaster(cStatistic, parent.m_CommonBusControl);
           CommServerComponent.Tracer.TraceVerbose(95, m_src, "I have created the DataProvider helper object.");
           return chnProtocol;
@@ -92,6 +84,7 @@ namespace CAS.CommServer.ProtocolHub.Communication.BaseStation
       return null;
     }
     private SegmentStateMachine CurrSegment = null;
+
     #region 
     public override void NewOvertimeCoefficient(long min, long max, long avr)
     {
@@ -109,7 +102,7 @@ namespace CAS.CommServer.ProtocolHub.Communication.BaseStation
     #endregion
 
     #region creator
-    private Channel(ComunicationNet.ChannelsRow myCDsc, CommServerComponent parent, bool demoVersion)
+    private Channel(ComunicationNet.ChannelsRow myCDsc, CommServerComponent parent, bool demoVersion, ISettingsBase settings)
       : base(false, "ChannelSegTOL_" + myCDsc.Name)
     {
       CommServerComponent.Tracer.TraceVerbose(150, m_src, "Creating channel: " + myCDsc.Name);
@@ -118,7 +111,7 @@ namespace CAS.CommServer.ProtocolHub.Communication.BaseStation
       PluginCollection m_Plugins = new PluginCollection(parent.m_CommonBusControl);
       foreach (ComunicationNet.ProtocolRow proto in myCDsc.GetProtocolRows())
       {
-        IApplicationLayerMaster chnProtocol = CreateApplicationProtocol(proto, parent, m_Plugins);
+        IApplicationLayerMaster chnProtocol = CreateApplicationProtocol(proto, parent, m_Plugins, settings);
         if (chnProtocol != null)
         {
           foreach (ComunicationNet.SegmentsRow currDSC in proto.GetSegmentsRows())
@@ -144,13 +137,13 @@ namespace CAS.CommServer.ProtocolHub.Communication.BaseStation
     #endregion
 
     #region API
-    internal static void InitializeChannels(ComunicationNet.ChannelsDataTable channelsConfigTable, CommServerComponent parent, bool demoVersion)
+    internal static void InitializeChannels(ComunicationNet.ChannelsDataTable channelsConfigTable, CommServerComponent parent, bool demoVersion, ISettingsBase settings)
     {
       Segment.DemoMode = demoVersion;
       foreach (ComunicationNet.ChannelsRow currRow in channelsConfigTable)
         try
         {
-          myChannels.Add(new Channel(currRow, parent, demoVersion));
+          myChannels.Add(new Channel(currRow, parent, demoVersion, settings));
         }
         catch (LicenseException ex)
         {

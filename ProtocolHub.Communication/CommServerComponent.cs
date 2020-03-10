@@ -1,27 +1,18 @@
-//<summary>
-//_______________________________________________________________
-//  Title   : CommServer main component
-//  System  : Microsoft VisualStudio 2015 / C#
-//  $LastChangedDate$
-//  $Rev$
-//  $LastChangedBy$
-//  $URL$
-//  $Id$
+//___________________________________________________________________________________
 //
-//  Copyright (C) 2016, CAS LODZ POLAND.
-//  TEL: +48 (42) 686 25 47
-//  mailto://techsupp@cas.eu
-//  http://www.cas.eu
-//_______________________________________________________________
+//  Copyright (C) 2020, Mariusz Postol LODZ POLAND.
+//
+//  To be in touch join the community at GITTER: https://gitter.im/mpostol/OPC-UA-OOI
+//___________________________________________________________________________________
 
 using CAS.CommServer.ProtocolHub.Communication.BaseStation;
+using CAS.CommServer.ProtocolHub.MonitorInterface;
 using CAS.Lib.CodeProtect;
 using CAS.Lib.CodeProtect.LicenseDsc;
 using CAS.Lib.CodeProtect.Properties;
 using CAS.Lib.RTLib.Processes;
 using System;
 using System.ComponentModel;
-using System.Diagnostics;
 using System.Reflection;
 using System.Runtime.InteropServices;
 
@@ -41,13 +32,9 @@ namespace CAS.CommServer.ProtocolHub.Communication
     private static System.Timers.Timer m_RunTimeout;
     private void m_RunTimeout_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
     {
-      EventLogMonitor.WriteToEventLog
-       ("Runtime expired – server entered demo mode – no data will be read. ",
-       System.Diagnostics.EventLogEntryType.Warning, (int)Error.CommServer_CommServerComponent, 72
-       );
+      EventLogMonitor.WriteToEventLog("Runtime expired – server entered demo mode – no data will be read. ", Lib.RTLib.Processes.EventLogEntryType.Warning, (int)Error.CommServer_CommServerComponent, 72);
       Segment.DemoMode = true;
     }
-    private static TraceEvent m_traceEvent_internal = new TraceEvent("CAS.Lib.CommServer");
     #endregion
 
     #region IDisposable
@@ -61,7 +48,7 @@ namespace CAS.CommServer.ProtocolHub.Communication
       {
         components.Dispose();
       }
-      m_traceEvent_internal.TraceEventClose();
+      Tracer.TraceEventClose();
       base.Dispose(disposing);
     }
     #endregion
@@ -71,30 +58,15 @@ namespace CAS.CommServer.ProtocolHub.Communication
     /// Gets the tracer.
     /// </summary>
     /// <value>The tracer.</value>
-    internal static TraceEvent Tracer
-    {
-      get
-      {
-        return m_traceEvent_internal;
-      }
-    }
+    internal static TraceEvent Tracer { get; } = new TraceEvent("CAS.Lib.CommServer");
     /// <summary>
     /// Provides time the server is up in seconds
     /// </summary>
-    internal static uint RunTime
-    {
-      get
-      {
-        return Lib.RTLib.Processes.Stopwatch.ConvertTo_s(m_RuntimeStopWatch.Read);
-      }
-    }
+    internal static uint RunTime => Lib.RTLib.Processes.Stopwatch.ConvertTo_s(m_RuntimeStopWatch.Read);
     /// <summary>
     /// Provides name of the source to be used while instating to register it the EventLog engine.
     /// </summary>
-    internal static string Source
-    {
-      get { return Assembly.GetExecutingAssembly().GetName().Name; }
-    }
+    internal static string Source => Assembly.GetExecutingAssembly().GetName().Name;
     /// <summary>
     /// Adds components to components container.
     /// </summary>
@@ -114,7 +86,7 @@ namespace CAS.CommServer.ProtocolHub.Communication
     /// Initializes the Main CommServer Component using specified configuration file name.
     /// </summary>
     /// <param name="configurationFileName">The configuration file name.</param>
-    public void Initialize(string configurationFileName)
+    public void Initialize(string configurationFileName, ISettingsBase settings)
     {
       if (m_isInitialized)
         throw new ApplicationException("Only one initialization of CommServerComponent is allowed.");
@@ -123,23 +95,22 @@ namespace CAS.CommServer.ProtocolHub.Communication
       bool m_DemoVer = true;
       int cRTConstrain = 2;
       int cVConstrain = 15;
-      License lic = null;
-      LicenseManager.IsValid(this.GetType(), this, out lic);
+      LicenseManager.IsValid(this.GetType(), this, out License lic);
       LicenseFile m_license = lic as LicenseFile;
       if (m_license == null)
-        EventLogMonitor.WriteToEventLog(Resources.Tx_LicNoFileErr, EventLogEntryType.Error, cEventID, 93);
+        EventLogMonitor.WriteToEventLog(Resources.Tx_LicNoFileErr, Lib.RTLib.Processes.EventLogEntryType.Error, cEventID, 93);
       else
         using (lic)
         {
           MaintenanceControlComponent mcc = new MaintenanceControlComponent();
           if (mcc.Warning != null)
             Tracer.TraceWarning(143, this.GetType().Name, "The following warning(s) appeared during loading the license: " + mcc.Warning);
-          if (m_license.FailureReason != String.Empty)
-            EventLogMonitor.WriteToEventLog(m_license.FailureReason, EventLogEntryType.Error, cEventID, 95);
+          if (m_license.FailureReason != string.Empty)
+            EventLogMonitor.WriteToEventLog(m_license.FailureReason, Lib.RTLib.Processes.EventLogEntryType.Error, cEventID, 95);
           else
           {
             m_DemoVer = false;
-            EventLogMonitor.WriteToEventLog("Opened the license: " + m_license.ToString(), EventLogEntryType.Information, cEventID, 98);
+            EventLogMonitor.WriteToEventLog("Opened the license: " + m_license.ToString(), Lib.RTLib.Processes.EventLogEntryType.Information, cEventID, 98);
             cRTConstrain = m_license.RunTimeConstrain;
             if (m_license.VolumeConstrain < 0)
               cVConstrain = int.MaxValue;
@@ -148,7 +119,7 @@ namespace CAS.CommServer.ProtocolHub.Communication
           }
         }
       if (m_DemoVer)
-        EventLogMonitor.WriteToEventLog(Resources.Tx_LicDemoModeInfo, EventLogEntryType.Information, cEventID, 98);
+        EventLogMonitor.WriteToEventLog(Resources.Tx_LicDemoModeInfo, Lib.RTLib.Processes.EventLogEntryType.Information, cEventID, 98);
       string cProductName;
       string cProductVersion;
       string cFullName;
@@ -157,21 +128,21 @@ namespace CAS.CommServer.ProtocolHub.Communication
       cFullName = Assembly.GetExecutingAssembly().GetName().FullName;
       ulong vd = m_RuntimeStopWatch.Start;
       int cVcounter = cVConstrain;
-      EventLogMonitor.WriteToEventLog("Communication server started - product name:" + cFullName, EventLogEntryType.Information, (int)Error.CommServer_CommServerComponent, 130);
-      Initialization.InitializeServer(this, m_DemoVer, ref cVcounter, configurationFileName);
+      EventLogMonitor.WriteToEventLog("Communication server started - product name:" + cFullName, Lib.RTLib.Processes.EventLogEntryType.Information, (int)Error.CommServer_CommServerComponent, 130);
+      Initialization.InitializeServer(this, m_DemoVer, ref cVcounter, configurationFileName, settings);
       ConsoleIterface.Start(cProductName, cProductVersion);
       if (cVcounter <= 0)
         EventLogMonitor.WriteToEventLog("Some tags have not been added due to license limitation – the volume constrain have been reached",
-           EventLogEntryType.Warning, (int)Error.CommServer_CommServerComponent, 134);
+           Lib.RTLib.Processes.EventLogEntryType.Warning, (int)Error.CommServer_CommServerComponent, 134);
       else
       {
         string msg = string.Format("Initiated {0} tags, The license allows you to add {1} more tags. ", cVConstrain - cVcounter, cVcounter);
-        EventLogMonitor.WriteToEventLog(msg, EventLogEntryType.Information, (int)Error.CommServer_CommServerComponent, 139);
+        EventLogMonitor.WriteToEventLog(msg, Lib.RTLib.Processes.EventLogEntryType.Information, (int)Error.CommServer_CommServerComponent, 139);
       }
       if (cRTConstrain > 0)
       {
         string msg = string.Format("Runtime of the product is constrained up to {0} hours.", cRTConstrain);
-        EventLogMonitor.WriteToEventLog(msg, EventLogEntryType.Warning, (int)Error.CommServer_CommServerComponent, 145);
+        EventLogMonitor.WriteToEventLog(msg, Lib.RTLib.Processes.EventLogEntryType.Warning, (int)Error.CommServer_CommServerComponent, 145);
         m_RunTimeout = new System.Timers.Timer(cRTConstrain * 60 * 60 * 1000);
         m_RunTimeout.Start();
         m_RunTimeout.Elapsed += new System.Timers.ElapsedEventHandler(m_RunTimeout_Elapsed);

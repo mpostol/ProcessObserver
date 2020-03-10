@@ -34,6 +34,7 @@ namespace CAS.CommServer.ProtocolHub.Communication.Diagnostic
     /// <returns>HTML report</returns>
     public override string GetReportString()
     {
+      DateTimeProvider _DateTimeProvider = new DateTimeProvider(true);
       StringBuilder sb = new StringBuilder();
       //wpisujemy nag³ówek
       sb.Append(this.getHeader());
@@ -46,7 +47,7 @@ namespace CAS.CommServer.ProtocolHub.Communication.Diagnostic
         //
         //Miejsce na wlasciwe dane
         sb.Append(@"<table border='0' align='center' width='1200' class='t1'>");
-        sb.Append(@"<tr><td  class='k1'>Report time </td><td  class='k2'>" + DateTimeProvider.GetCurrentTime().ToString() + "</td></tr>");
+        sb.Append(@"<tr><td  class='k1'>Report time </td><td  class='k2'>" + _DateTimeProvider.GetCurrentTime().ToString() + "</td></tr>");
         sb.Append(@"<tr><td  class='k1'>Run Time [s] </td><td class='k2'>" + CommServerComponent.RunTime.ToString() + "</td></tr>");
         sb.Append(@"<tr><td  class='k1'>Configuration file </td><td class='k2'>" + CAS.Lib.RTLib.Management.AppConfigManagement.filename + "</td></tr>");
         sb.Append(@"<tr><td  class='k1'>Program Name </td><td class='k2'>" + System.Reflection.Assembly.GetExecutingAssembly().GetName().FullName + "</td></tr>");

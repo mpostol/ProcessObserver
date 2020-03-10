@@ -209,10 +209,10 @@ namespace CAS.CommServer.ProtocolHub.Communication.Diagnostic
     private OPCValTag Tag_TimeCharGap;
     private OPCValTag Tag_RxBytesTransferred;
     private OPCValTag Tag_TxBytesTransferred;
-    private CommServerProtocol(string protocolPar, string Name, long ID, string protocolPar_humanreadable, Statistics.ChannelStatistics MyChannelStatistics)
-      : base(protocolPar, Name, ID, protocolPar_humanreadable)
+    private CommServerProtocol(string protocolPar, string Name, long ID, string protocolPar_humanreadable, Statistics.ChannelStatistics MyChannelStatistics, ISettingsBase settings)
+      : base(protocolPar, Name, ID, protocolPar_humanreadable, settings)
     {
-      prefix = Cnf.OPCPathChannels + MyChannelStatistics.ToString() + "/" + Name;
+      prefix = settings["OPCPathChannels"] + MyChannelStatistics.ToString() + "/" + Name;
       Tag_RXDBSucc = new OPCValTag(prefix + "/RX+", typeof(ulong));
       Tag_RXDBFail = new OPCValTag(prefix + "/RX-", typeof(ulong));
       Tag_TXDBSucc = new OPCValTag(prefix + "/TX+", typeof(ulong));
@@ -239,10 +239,11 @@ namespace CAS.CommServer.ProtocolHub.Communication.Diagnostic
     /// <param name="ID">The identifier of the protocol.</param>
     /// <param name="protocolPar_HumanReadable">The protocol parameters as human readable string.</param>
     /// <param name="MyChannelStatistics">My channel statistics.</param>
-    /// <returns>Returns <see cref="IProtocolParent"/></returns>
-    public static IProtocolParent CreateNewProtocol(string protocolPar, string Name, long ID, string protocolPar_HumanReadable, Statistics.ChannelStatistics MyChannelStatistics)
+    /// <param name="settings">The settings.</param>
+    /// <returns>Returns <see cref="IProtocolParent" /></returns>
+    public static IProtocolParent CreateNewProtocol(string protocolPar, string Name, long ID, string protocolPar_HumanReadable, Statistics.ChannelStatistics MyChannelStatistics, ISettingsBase settings)
     {
-      return new CommServerProtocol(protocolPar, Name, ID, protocolPar_HumanReadable, MyChannelStatistics);
+      return new CommServerProtocol(protocolPar, Name, ID, protocolPar_HumanReadable, MyChannelStatistics, settings);
     }
     /// <summary>
     /// Refreshes this instance.

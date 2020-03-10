@@ -1,20 +1,15 @@
-//<summary>
-//  Title   : NReport Generator
-//  System  : Microsoft Visual C# .NET 2005
-//  $LastChangedDate$
-//  $Rev$
-//  $LastChangedBy$
-//  $URL$
-//  $Id$
+//___________________________________________________________________________________
 //
-//  Copyright (C)2006, CAS LODZ POLAND.
-//  TEL: +48 (42) 686 25 47
-//  mailto:techsupp@cas.com.pl
-//  http:\\www.cas.eu
-//</summary>
+//  Copyright (C) 2020, Mariusz Postol LODZ POLAND.
+//
+//  To be in touch join the community at GITTER: https://gitter.im/mpostol/OPC-UA-OOI
+//___________________________________________________________________________________
 
 using System;
+using System.Diagnostics;
+using System.Drawing;
 using System.IO;
+using System.Reflection;
 
 namespace CAS.Lib.RTLib.Utils
 {
@@ -24,6 +19,8 @@ namespace CAS.Lib.RTLib.Utils
   [Obsolete("Must be rewritten. Use translation pr style-sheet.")]
   public abstract class ReportGenerator
   {
+
+    private DateTimeProvider m_DateTimeProvider;
     /// <summary>
     /// temporary destination filename
     /// </summary>
@@ -38,9 +35,9 @@ namespace CAS.Lib.RTLib.Utils
     /// <returns></returns>
     protected virtual string getHeader()
     {
-      System.Reflection.Assembly thisApp = System.Reflection.Assembly.GetExecutingAssembly();
+      System.Reflection.Assembly thisApp = Assembly.GetExecutingAssembly();
       string[] inforesources = thisApp.GetManifestResourceNames();
-      System.IO.Stream file = null;
+      Stream file = null;
       foreach (string resourcename in inforesources)
       {
         if (resourcename.LastIndexOf("cas_logo.gif") > 0)
@@ -51,8 +48,8 @@ namespace CAS.Lib.RTLib.Utils
       }
       if (file != null)
       {
-        System.Drawing.Image img = System.Drawing.Image.FromStream(file);
-        img.Save(System.IO.Path.GetTempPath() + "\\cas_logo.gif");
+        Image img = Image.FromStream(file);
+        img.Save(Path.GetTempPath() + "\\cas_logo.gif");
       }
 
       //TODO: dopisac kopiowanie naszej ikony
@@ -75,7 +72,7 @@ namespace CAS.Lib.RTLib.Utils
 <!DOCTYPE HTML PUBLIC '-//W3C//DTD HTML 4.0 Transitional//EN'>
 <HTML>
 <HEAD>
-<title>" + this.reporttitle + " DateTime=" + DateTimeProvider.GetCurrentTime().ToString().Replace(":", "") + @"</title>
+<title>" + reporttitle + " DateTime=" + m_DateTimeProvider.GetCurrentTime().ToString().Replace(":", "") + @"</title>
 <meta http-equiv=Content-Type content='text/html; charset=windows-1250'>
 <META NAME='Author' CONTENT='Maciej Zbrzezny'>
 <META NAME='Keywords' CONTENT='report'>
@@ -118,7 +115,6 @@ td.k5{background-color:#eeeee0 ; text-decoration: none; font-family: times new r
         ";
 
     }
-
     /// <summary>
     /// generation a report
     /// </summary>
@@ -129,6 +125,7 @@ td.k5{background-color:#eeeee0 ; text-decoration: none; font-family: times new r
     /// <param name="title">The title of the report.</param>
     public ReportGenerator(string title)
     {
+      m_DateTimeProvider = new DateTimeProvider(true);
       reporttitle = title;
       DestFilename = System.IO.Path.GetTempFileName() + ".html";
       //TODO remove call to this method - it calls abstract member
@@ -139,7 +136,7 @@ td.k5{background-color:#eeeee0 ; text-decoration: none; font-family: times new r
     /// </summary>
     public void DisplayReport()
     {
-      System.Diagnostics.Process.Start(DestFilename);
+      Process.Start(DestFilename);
     }
     /// <summary>
     /// Displays the report.
@@ -160,5 +157,6 @@ td.k5{background-color:#eeeee0 ; text-decoration: none; font-family: times new r
     /// </summary>
     /// <returns></returns>
     public abstract string GetReportString();
+
   }
 }

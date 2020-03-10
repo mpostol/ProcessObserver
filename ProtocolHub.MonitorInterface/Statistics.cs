@@ -111,6 +111,7 @@ namespace CAS.CommServer.ProtocolHub.MonitorInterface
   [Serializable]
   public partial class Statistics
   {
+    
     #region PRIVATE
     private enum RWOperationRes : ushort
     { ORReadGood, ORWriteGood, ORCRCError, ORIncoplete, ORTimeout, ORMaxTimeRound };
