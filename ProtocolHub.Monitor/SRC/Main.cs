@@ -5,19 +5,16 @@
 //  To be in touch join the community at GITTER: https://gitter.im/mpostol/OPC-UA-OOI
 //___________________________________________________________________________________
 
-
 using CAS.CommServer.ProtocolHub.MonitorInterface;
 using CAS.CommServerConsole.Properties;
-using CAS.Lib.ControlLibrary;
-using CAS.Lib.RTLib.Management;
 using CAS.Lib.RTLib.Processes;
-using CAS.Windows.Forms.CodeProtectControls;
 using System;
 using System.Collections.Generic;
 using System.Reflection;
 using System.Runtime.Remoting.Channels;
 using System.Runtime.Remoting.Channels.Tcp;
 using System.Windows.Forms;
+using UAOOI.Windows.Forms;
 
 namespace CAS.CommServerConsole
 {

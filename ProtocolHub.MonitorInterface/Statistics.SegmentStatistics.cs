@@ -761,9 +761,9 @@ namespace CAS.CommServer.ProtocolHub.MonitorInterface
         segmentList.Add( this );
         myChannel = chn;
         myChannel.AddSegment( this );
-        mmaConnectTime.markNewVal += new MinMaxAvr.newVal( MMAStopWatch_markNewVal );
-        mmaReadDelay.markNewVal += new MinMaxAvr.newVal( MMAStopWatch_markNewVal );
-        mmaWriteDelay.markNewVal += new MinMaxAvr.newVal( MMAStopWatch_markNewVal );
+        mmaConnectTime.MarkNewVal += new MinMaxAvr.newVal( MMAStopWatch_markNewVal );
+        mmaReadDelay.MarkNewVal += new MinMaxAvr.newVal( MMAStopWatch_markNewVal );
+        mmaWriteDelay.MarkNewVal += new MinMaxAvr.newVal( MMAStopWatch_markNewVal );
         MMAStopWatch_markNewVal( 0, 0, 0 );
       }
 

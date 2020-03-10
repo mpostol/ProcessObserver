@@ -13,7 +13,6 @@
 //  http://www.cas.eu
 //_______________________________________________________________
 
-
 using CAS.CommServer.ProtocolHub.Communication.Properties;
 using CAS.CommServer.ProtocolHub.MonitorInterface;
 using CAS.Lib.RTLib.Management;
@@ -25,14 +24,14 @@ using System.Text;
 namespace CAS.CommServer.ProtocolHub.Communication.Diagnostic
 {
   /// <summary>
-  /// Class that generate html report about CommServer state
+  /// Class that generate HTML report about CommServer state
   /// </summary>
   public class ReportGenerator : CAS.Lib.RTLib.Utils.ReportGenerator
   {
     /// <summary>
     /// Gets the string that represents the report.
     /// </summary>
-    /// <returns>html report</returns>
+    /// <returns>HTML report</returns>
     public override string GetReportString()
     {
       StringBuilder sb = new StringBuilder();

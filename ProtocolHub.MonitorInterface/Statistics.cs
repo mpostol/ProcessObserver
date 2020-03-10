@@ -1,18 +1,9 @@
-//_______________________________________________________________
-//  Title   : Communication statistics management class
-//  System  : Microsoft VisualStudio 2015 / C#
-//  $LastChangedDate$
-//  $Rev$
-//  $LastChangedBy$
-//  $URL$
-//  $Id$
+//___________________________________________________________________________________
 //
-//  Copyright (C) 2016, CAS LODZ POLAND.
-//  TEL: +48 (42) 686 25 47
-//  mailto://techsupp@cas.eu
-//  http://www.cas.eu
-//_______________________________________________________________
-
+//  Copyright (C) 2020, Mariusz Postol LODZ POLAND.
+//
+//  To be in touch join the community at GITTER: https://gitter.im/mpostol/OPC-UA-OOI
+//___________________________________________________________________________________
 
 using CAS.Lib.RTLib.Management;
 using CAS.Lib.RTLib.Processes;
@@ -30,7 +21,7 @@ namespace CAS.CommServer.ProtocolHub.MonitorInterface
     /// <summary>
     /// source "CAS.BaseStation.Management.Statistics"
     /// </summary>
-    internal static readonly TraceEvent TraceSource = new TraceEvent( "CAS.BaseStation.Management.Statistics" );
+    internal static readonly TraceEvent TraceSource = new TraceEvent("CAS.BaseStation.Management.Statistics");
   }
   /// <summary>
   /// Interface Update Internal Statistics
@@ -48,21 +39,23 @@ namespace CAS.CommServer.ProtocolHub.MonitorInterface
   [Serializable]
   public class Metronom
   {
+
     #region private
     private delegate void StateChanged();
     private static event StateChanged stateChangedEvnt;
     private static CAS.Lib.RTLib.Processes.MonitoredThread clock;
     private static void MonitoringMet()
     {
-      while ( true )
+      while (true)
       {
-        System.Threading.Thread.Sleep( TimeSpan.FromSeconds( 1 ) );
-        clock.ResetWatchDog( 10 );
-        if ( stateChangedEvnt != null )
+        System.Threading.Thread.Sleep(TimeSpan.FromSeconds(1));
+        clock.ResetWatchDog(10);
+        if (stateChangedEvnt != null)
           stateChangedEvnt();
       }
     }
     #endregion
+
     #region public
     /// <summary>
     /// Provides statistic information to management level - human machine interface (HMI)
@@ -76,24 +69,24 @@ namespace CAS.CommServer.ProtocolHub.MonitorInterface
       protected abstract void refresh();
       private void RefreshHandler()
       {
-        string mySource = "Metronom.RefreshAble:" + this.GetType().Name;
+        string mySource = "Metronom.RefreshAble:" + GetType().Name;
         try
         {
           refresh();
         }
-        catch ( Exception ex )
+        catch (Exception ex)
         {
           string message = ex.Message +
 #if DEBUG
  "; stacktrace:" + ex.StackTrace.ToString() +
 #endif
  "";
-          StatisticsTracer.TraceSource.TraceError( 104, mySource, message );
+          StatisticsTracer.TraceSource.TraceError(104, mySource, message);
         }
       }
       internal RefreshAble()
       {
-        stateChangedEvnt += new StateChanged( RefreshHandler );
+        stateChangedEvnt += new StateChanged(RefreshHandler);
       }
     }
     static Metronom()
@@ -103,13 +96,14 @@ namespace CAS.CommServer.ProtocolHub.MonitorInterface
         600,
         "Metronom main scanner thread had to be timed out after 600s inactivity and cause system reboot",
         800,
-        new System.Threading.ThreadStart( MonitoringMet ),
+        new System.Threading.ThreadStart(MonitoringMet),
         "Metronom",
         true,
         ThreadPriority.Normal
         );
     }
     #endregion
+
   }
   /// <summary>
   /// Communication statistics management class
@@ -118,14 +112,15 @@ namespace CAS.CommServer.ProtocolHub.MonitorInterface
   public partial class Statistics
   {
     #region PRIVATE
-    private enum RWOperationRes: ushort
+    private enum RWOperationRes : ushort
     { ORReadGood, ORWriteGood, ORCRCError, ORIncoplete, ORTimeout, ORMaxTimeRound };
     /// <summary>
     ///  Title   : Communication statistics management class
     /// </summary>
     #endregion PUBLIC
+
     #region PUBLIC refresh
-    public delegate void StateChanged( bool currState );
+    public delegate void StateChanged(bool currState);
     /// <summary>
     /// list of station see:<see cref="StationStatistics"/>
     /// </summary>
@@ -143,14 +138,16 @@ namespace CAS.CommServer.ProtocolHub.MonitorInterface
     /// </summary>
     public static System.Collections.ArrayList interfaceList = new System.Collections.ArrayList();
     /// <summary>
-    /// Provides statistic informaton to management level - human mascine interface (HMI)
+    /// Provides statistic information to management level - human machine interface (HMI)
     /// </summary>
     [Serializable]
-    public abstract class StationStatistics: Metronom.RefreshAble, IHtmlOutput
+    public abstract class StationStatistics : Metronom.RefreshAble, IHtmlOutput
     {
+
       #region PRIVATE
       private System.Collections.ArrayList myInterfaceList = new System.Collections.ArrayList();
       #endregion
+
       #region PUBLIC
       /// <summary>
       /// Provides statistic informaton to management level - human mascine interface (HMI) (internal statistics - that are send through remoting)
@@ -172,24 +169,12 @@ namespace CAS.CommServer.ProtocolHub.MonitorInterface
         /// Gets a value indicating whether priority is set.
         /// </summary>
         /// <value><c>true</c> if priority otherwise, <c>false</c>.</value>
-        public bool MyPriority
-        {
-          get
-          {
-            return myPriority;
-          }
-        }
+        public bool MyPriority => myPriority;
         /// <summary>
         /// Gets a value indicating whether station is on.
         /// </summary>
         /// <value><c>true</c> if station is on otherwise, <c>false</c>.</value>
-        internal bool MyOn
-        {
-          get
-          {
-            return myOn;
-          }
-        }
+        internal bool MyOn => myOn;
         /// <summary>
         /// Gets the state of the station.
         /// </summary>
@@ -199,9 +184,9 @@ namespace CAS.CommServer.ProtocolHub.MonitorInterface
           get
           {
             int state = 0;
-            if ( myOn )
+            if (myOn)
               state = 1;
-            if ( MyPriority )
+            if (MyPriority)
               state += 2;
             return state;
           }
@@ -215,11 +200,11 @@ namespace CAS.CommServer.ProtocolHub.MonitorInterface
           get
           {
             string state = "";
-            if ( myOn )
+            if (myOn)
               state += "Active";
-            if ( myPriority )
+            if (myPriority)
               state += "HiPriority";
-            if ( state == "" )
+            if (state == "")
               state = "Not Active";
             return state;
           }
@@ -240,7 +225,7 @@ namespace CAS.CommServer.ProtocolHub.MonitorInterface
         /// </summary>
         /// <param name="name">The name.</param>
         /// <param name="ID">The ID.</param>
-        public StationStatisticsInternal( string name, long ID )
+        public StationStatisticsInternal(string name, long ID)
         {
           myName = name;
           myID = ID;
@@ -258,32 +243,20 @@ namespace CAS.CommServer.ProtocolHub.MonitorInterface
       /// Adds the interface.
       /// </summary>
       /// <param name="intr">The interface statistics.</param>
-      public void AddInterface( InterfaceStatistics intr )
+      public void AddInterface(InterfaceStatistics intr)
       {
-        myInterfaceList.Add( intr );
+        myInterfaceList.Add(intr);
       }
       /// <summary>
       /// Gets  name.
       /// </summary>
       /// <value> name.</value>
-      public string myName
-      {
-        get
-        {
-          return myStat.myName;
-        }
-      }
+      public string myName => myStat.myName;
       /// <summary>
       /// Gets a value indicating whether  on.
       /// </summary>
       /// <value><c>true</c> if station is on otherwise, <c>false</c>.</value>
-      protected bool myOn
-      {
-        get
-        {
-          return myStat.myOn;
-        }
-      }
+      protected bool myOn => myStat.myOn;
       /// <summary>
       /// Gets or sets a value indicating whether [station state].
       /// </summary>
@@ -293,13 +266,10 @@ namespace CAS.CommServer.ProtocolHub.MonitorInterface
         set
         {
           myStat.myOn = value;
-          if ( MarkNewState != null )
-            MarkNewState( value );
+          if (MarkNewState != null)
+            MarkNewState(value);
         }
-        get
-        {
-          return myStat.myOn;
-        }
+        get => myStat.myOn;
       }
       /// <summary>
       /// Gets or sets a value indicating whether this <see cref="StationStatistics"/> is priority.
@@ -307,23 +277,17 @@ namespace CAS.CommServer.ProtocolHub.MonitorInterface
       /// <value><c>true</c> if priority; otherwise, <c>false</c>.</value>
       public bool priority
       {
-        set
-        {
-          myStat.myPriority = value;
-        }
-        get
-        {
-          return myStat.myPriority;
-        }
+        set => myStat.myPriority = value;
+        get => myStat.myPriority;
       } //Station
       /// <summary>
       /// Initializes a new instance of the <see cref="StationStatistics"/> class.
       /// </summary>
       /// <param name="currDsc">The curr DSC.</param>
-      public StationStatistics( CommunicationDSC.StationRow currDsc )
+      public StationStatistics(CommunicationDSC.StationRow currDsc)
       {
-        stationList.Add( this );
-        myStat = new StationStatisticsInternal( currDsc.Name, currDsc.StationID );
+        stationList.Add(this);
+        myStat = new StationStatisticsInternal(currDsc.Name, currDsc.StationID);
       }
       #region IHtmlOutput Members
       /// <summary>
@@ -338,7 +302,7 @@ namespace CAS.CommServer.ProtocolHub.MonitorInterface
         get
         {
           changecolor = !changecolor;
-          if ( changecolor )
+          if (changecolor)
             return "k41";
           return "k4";
         }
@@ -367,10 +331,10 @@ namespace CAS.CommServer.ProtocolHub.MonitorInterface
         string RowClassAct = RowClass;
         string ret = "";
         ret += "<tr>";
-        ret += "<td class='" + RowClassAct + "'>&nbsp;" + this.myStat.myID.ToString() + "</td>";
-        ret += "<td class='" + RowClassAct + "'>&nbsp;" + this.myStat.myName + "</td>";
-        ret += "<td class='" + RowClassAct + "'>&nbsp;" + this.StationState + "</td>";
-        ret += "<td class='" + RowClassAct + "'>&nbsp;" + this.priority + "</td>";
+        ret += "<td class='" + RowClassAct + "'>&nbsp;" + myStat.myID.ToString() + "</td>";
+        ret += "<td class='" + RowClassAct + "'>&nbsp;" + myStat.myName + "</td>";
+        ret += "<td class='" + RowClassAct + "'>&nbsp;" + StationState + "</td>";
+        ret += "<td class='" + RowClassAct + "'>&nbsp;" + priority + "</td>";
         ret += "</tr>";
         return ret;
       }
@@ -391,36 +355,37 @@ namespace CAS.CommServer.ProtocolHub.MonitorInterface
     /// this is helper class to add refresh possibility to Protocol class
     /// </summary>
     [Serializable]
-    public abstract class ProtocolStatisticsUpdater: Protocol
+    public abstract class ProtocolStatisticsUpdater : Protocol
     {
-      private MyStatisticsRefresh MyRefresher;
+      private readonly MyStatisticsRefresh MyRefresher;
       /// <summary>
       /// Refreshes this instance.
       /// </summary>
-      internal protected abstract void refresh();
-      private class MyStatisticsRefresh: Metronom.RefreshAble
+      protected internal abstract void refresh();
+      private class MyStatisticsRefresh : Metronom.RefreshAble
       {
-        ProtocolStatisticsUpdater m_parent;
+        private ProtocolStatisticsUpdater m_parent;
         protected override void refresh()
         {
           m_parent.refresh();
         }
-        internal MyStatisticsRefresh( ProtocolStatisticsUpdater parent )
+        internal MyStatisticsRefresh(ProtocolStatisticsUpdater parent)
         {
           m_parent = parent;
         }
       }
       /// <summary>
-      /// Initializes a new instance of the <see cref="ProtocolStatisticsUpdater"/> class.
+      /// Initializes a new instance of the <see cref="ProtocolStatisticsUpdater" /> class.
       /// </summary>
       /// <param name="protocolPar">The protocol parameters.</param>
       /// <param name="Name">The name.</param>
       /// <param name="ID">The ID.</param>
       /// <param name="protocolPar_humanreadable">The protocol human readable.</param>
-      protected ProtocolStatisticsUpdater( string protocolPar, string Name, long ID, string protocolPar_humanreadable )
-        : base( protocolPar, Name, ID, protocolPar_humanreadable )
+      /// <param name="settingsBase"> Gets or sets the value of the specified settings property.</param>
+      protected ProtocolStatisticsUpdater(string protocolPar, string Name, long ID, string protocolPar_humanreadable, ISettingsBase settingsBase)
+        : base(protocolPar, Name, ID, protocolPar_humanreadable, settingsBase)
       {
-        MyRefresher = new MyStatisticsRefresh( this );
+        MyRefresher = new MyStatisticsRefresh(this);
       }
     }
     /// <summary>
@@ -429,9 +394,11 @@ namespace CAS.CommServer.ProtocolHub.MonitorInterface
     [Serializable]
     public class ChannelStatistics
     {
+
       #region PRIVATE
       private System.Collections.ArrayList mySegmentList = new System.Collections.ArrayList();
       #endregion
+
       #region PUBLIC
       /// <summary>
       /// Channel statistics management class (internal statistics - that are send through remoting)
@@ -448,14 +415,8 @@ namespace CAS.CommServer.ProtocolHub.MonitorInterface
         /// Gets name.
         /// </summary>
         /// <value>name.</value>
-        public string MyName
-        {
-          get
-          {
-            return myName;
-          }
-        }
-        private uint[] packetsCount = new uint[] { 0, 0, 0, 0, 0, 0 };
+        public string MyName => myName;
+        private readonly uint[] packetsCount = new uint[] { 0, 0, 0, 0, 0, 0 };
         /// <summary>
         /// Returns a <see cref="T:System.String"/> that represents the current <see cref="T:System.Object"/>.
         /// </summary>
@@ -471,7 +432,7 @@ namespace CAS.CommServer.ProtocolHub.MonitorInterface
         /// </summary>
         /// <param name="name">The name.</param>
         /// <param name="id">The id.</param>
-        internal ChannelStatisticsInternal( string name, long id )
+        internal ChannelStatisticsInternal(string name, long id)
         {
           myName = name;
           myID = id;
@@ -480,41 +441,24 @@ namespace CAS.CommServer.ProtocolHub.MonitorInterface
         /// Gets or sets the <see cref="System.UInt32"/> at the specified index.
         /// </summary>
         /// <value></value>
-        public uint this[ int index ]
+        public uint this[int index]
         {
-          get
-          {
-            return packetsCount[ index ];
-          }
-          set
-          {
-            packetsCount[ index ] = value;
-          }
+          get => packetsCount[index];
+          set => packetsCount[index] = value;
         }
       };
-      ChannelStatisticsInternal myStat;
+
+      private ChannelStatisticsInternal myStat;
       /// <summary>
       /// Gets name.
       /// </summary>
       /// <value>name.</value>
-      public string myName
-      {
-        get
-        {
-          return myStat.MyName;
-        }
-      }
+      public string myName => myStat.MyName;
       /// <summary>
       /// Gets ID.
       /// </summary>
       /// <value>ID.</value>
-      public long myID
-      {
-        get
-        {
-          return myStat.myID;
-        }
-      }
+      public long myID => myStat.myID;
       /// <summary>
       /// Returns a <see cref="T:System.String"/> that represents the current <see cref="T:System.Object"/>.
       /// </summary>
@@ -527,20 +471,20 @@ namespace CAS.CommServer.ProtocolHub.MonitorInterface
       /// </summary>
       /// <param name="counters">The counters.</param>
       /// <param name="isAnySuccess">if set to <c>true</c> [is any success].</param>
-      public void GeatProtocolStatistics( ref uint[] counters, out bool isAnySuccess )
+      public void GeatProtocolStatistics(ref uint[] counters, out bool isAnySuccess)
       {
-        lock ( this )
+        lock (this)
         {
-          for ( ushort idx = 0; idx < counters.Length; idx++ )
+          for (ushort idx = 0; idx < counters.Length; idx++)
           {
-            counters[ idx ] = counters[ idx ] - myStat[ idx ];
+            counters[idx] = counters[idx] - myStat[idx];
           }
           isAnySuccess =
-            ( counters[ (ushort)RWOperationRes.ORReadGood ] > 0 ) |
-            ( counters[ (ushort)RWOperationRes.ORWriteGood ] > 0 );
-          for ( ushort idx = 0; idx < counters.Length; idx++ )
+            (counters[(ushort)RWOperationRes.ORReadGood] > 0) |
+            (counters[(ushort)RWOperationRes.ORWriteGood] > 0);
+          for (ushort idx = 0; idx < counters.Length; idx++)
           {
-            myStat[ idx ] += counters[ idx ];
+            myStat[idx] += counters[idx];
           }
         }
       }//GeatProtocolStatistics
@@ -548,20 +492,21 @@ namespace CAS.CommServer.ProtocolHub.MonitorInterface
       /// Adds the segment.
       /// </summary>
       /// <param name="sgmt">The segment statistics.</param>
-      public void AddSegment( SegmentStatistics sgmt )
+      public void AddSegment(SegmentStatistics sgmt)
       {
-        mySegmentList.Add( sgmt );
+        mySegmentList.Add(sgmt);
       }
       /// <summary>
       /// Initializes a new instance of the <see cref="ChannelStatistics"/> class.
       /// </summary>
       /// <param name="currDsc">The channel row desriptor.</param>
-      public ChannelStatistics( CommunicationDSC.ChannelsRow currDsc )
+      public ChannelStatistics(CommunicationDSC.ChannelsRow currDsc)
       {
-        channelList.Add( this );
-        myStat = new ChannelStatisticsInternal( currDsc.Name, currDsc.ChannelID );
+        channelList.Add(this);
+        myStat = new ChannelStatisticsInternal(currDsc.Name, currDsc.ChannelID);
       }
       #endregion
+
     }//Channel
     #endregion
   }//Interface
