@@ -5,6 +5,7 @@
 //  To be in touch join the community at GITTER: https://gitter.im/mpostol/OPC-UA-OOI
 //___________________________________________________________________________________
 
+using CAS.CommServer.ProtocolHub.Communication.Properties;
 using System;
 using System.Diagnostics;
 using System.Runtime.Remoting.Activation;

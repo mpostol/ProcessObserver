@@ -83,11 +83,38 @@ namespace CAS.CommServer.ProtocolHub.Communication.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to There are {0} processes inside Watchdog..
+        /// </summary>
+        public static string InsideWatchdogMessageFormat {
+            get {
+                return ResourceManager.GetString("InsideWatchdogMessageFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to New maximum delay = {0} mS reached at {1} while calling {2}.
+        /// </summary>
+        public static string MaxDelayMessageFormat {
+            get {
+                return ResourceManager.GetString("MaxDelayMessageFormat", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Assertion during read from dataAddress: {0}|{1}|{2} , pipeInterface.address {3}, case {4}..
         /// </summary>
         public static string ReadWriteOperationsReadDataAssertion {
             get {
                 return ResourceManager.GetString("ReadWriteOperationsReadDataAssertion", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to I had to reboot the system at: {0} while calling {1}.
+        /// </summary>
+        public static string RestartMessageFormat {
+            get {
+                return ResourceManager.GetString("RestartMessageFormat", resourceCulture);
             }
         }
         
@@ -133,6 +160,15 @@ namespace CAS.CommServer.ProtocolHub.Communication.Properties {
         public static string TraceStateEntered {
             get {
                 return ResourceManager.GetString("TraceStateEntered", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Stopwatch expected value should be 0, but the value is {0} ms..
+        /// </summary>
+        public static string WatchdogStopwatchIsNotZeroMessageFormat {
+            get {
+                return ResourceManager.GetString("WatchdogStopwatchIsNotZeroMessageFormat", resourceCulture);
             }
         }
     }
