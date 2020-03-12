@@ -102,8 +102,8 @@
     <Reference Include="CAS.CodeProtect, Version=7.0.0.18157, Culture=neutral, PublicKeyToken=8832ff1a67ea61a3, processorArchitecture=MSIL">
       <HintPath>..\packages\CAS.CodeProtect.7.0.1-Bravo\lib\net451\CAS.CodeProtect.dll</HintPath>
     </Reference>
-    <Reference Include="CAS.CommServer.CommonBus, Version=6.0.3.39215, Culture=neutral, PublicKeyToken=8832ff1a67ea61a3, processorArchitecture=MSIL">
-      <HintPath>..\packages\CAS.CommServer.CommonBus.6.0.3-Charlie\lib\net472\CAS.CommServer.CommonBus.dll</HintPath>
+    <Reference Include="CAS.CommServer.CommonBus, Version=6.10.0.39952, Culture=neutral, PublicKeyToken=8832ff1a67ea61a3, processorArchitecture=MSIL">
+      <HintPath>..\packages\CAS.CommServer.CommonBus.6.10.0-Delta\lib\net472\CAS.CommServer.CommonBus.dll</HintPath>
     </Reference>
     <Reference Include="CAS.CommServer.DAServerConfiguration, Version=6.0.3.39215, Culture=neutral, PublicKeyToken=8832ff1a67ea61a3, processorArchitecture=MSIL">
       <HintPath>..\packages\CAS.CommServer.DAServerConfiguration.6.0.3-Charlie\lib\net472\CAS.CommServer.DAServerConfiguration.dll</HintPath>
@@ -204,8 +204,8 @@
     <Reference Include="System.Xml">
       <Name>System.XML</Name>
     </Reference>
-    <Reference Include="UAOOI.ProcessObserver.RealTime, Version=6.0.2.0, Culture=neutral, PublicKeyToken=8832ff1a67ea61a3, processorArchitecture=MSIL">
-      <HintPath>..\packages\UAOOI.ProcessObserver.RealTime.6.0.2-Charlie\lib\net451\UAOOI.ProcessObserver.RealTime.dll</HintPath>
+    <Reference Include="UAOOI.ProcessObserver.RealTime, Version=6.1.0.0, Culture=neutral, PublicKeyToken=8832ff1a67ea61a3, processorArchitecture=MSIL">
+      <HintPath>..\packages\UAOOI.ProcessObserver.RealTime.6.1.0-Delta\lib\net451\UAOOI.ProcessObserver.RealTime.dll</HintPath>
     </Reference>
     <Reference Include="WindowsBase" />
   </ItemGroup>

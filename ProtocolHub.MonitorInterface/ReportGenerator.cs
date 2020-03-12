@@ -10,6 +10,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Reflection;
+using UAOOI.ProcessObserver.RealTime.Utils;
 
 namespace CAS.Lib.RTLib.Utils
 {

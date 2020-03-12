@@ -97,8 +97,8 @@
     <Reference Include="System.Xml">
       <Name>System.XML</Name>
     </Reference>
-    <Reference Include="UAOOI.ProcessObserver.RealTime, Version=6.0.2.0, Culture=neutral, PublicKeyToken=8832ff1a67ea61a3, processorArchitecture=MSIL">
-      <HintPath>..\packages\UAOOI.ProcessObserver.RealTime.6.0.2-Charlie\lib\net451\UAOOI.ProcessObserver.RealTime.dll</HintPath>
+    <Reference Include="UAOOI.ProcessObserver.RealTime, Version=6.1.0.0, Culture=neutral, PublicKeyToken=8832ff1a67ea61a3, processorArchitecture=MSIL">
+      <HintPath>..\packages\UAOOI.ProcessObserver.RealTime.6.1.0-Delta\lib\net451\UAOOI.ProcessObserver.RealTime.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

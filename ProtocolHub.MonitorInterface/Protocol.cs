@@ -6,9 +6,10 @@
 //___________________________________________________________________________________
 
 using CAS.CommServer.ProtocolHub.MonitorInterface;
-using CAS.Lib.RTLib.Utils;
 using System;
 using System.Collections.Generic;
+using UAOOI.ProcessObserver.RealTime.Management;
+using UAOOI.ProcessObserver.RealTime.Utils;
 
 namespace CAS.Lib.RTLib.Management
 {
@@ -21,7 +22,7 @@ namespace CAS.Lib.RTLib.Management
   {
 
     #region PRIVATE
-    private Processes.Stopwatch TimeSlaveResponseDelayStopwatch = new Processes.Stopwatch();
+    private UAOOI.ProcessObserver.RealTime.Processes.Stopwatch TimeSlaveResponseDelayStopwatch = new UAOOI.ProcessObserver.RealTime.Processes.Stopwatch();
     private MinMaxAvr m_TimeSlaveResponseDelay;
     private ProtocolInternal m_StatisticData = new ProtocolInternal();
     private ProtocolDsc m_Descriptor;
@@ -299,7 +300,7 @@ namespace CAS.Lib.RTLib.Management
       ulong lastSWReading = 0;
       lastSWReading = TimeSlaveResponseDelayStopwatch.Stop;
       m_TimeSlaveResponseDelay.Add =
-        (long)( CAS.Lib.RTLib.Processes.Stopwatch.ConvertTo_ms( lastSWReading ) );
+        (long)(UAOOI.ProcessObserver.RealTime.Processes.Stopwatch.ConvertTo_ms( lastSWReading ) );
     }
     /// <summary>
     /// Gets the ProtocolParameters description as a string. 

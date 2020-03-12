@@ -6,9 +6,9 @@
 //___________________________________________________________________________________
 
 using CAS.Lib.RTLib.Management;
-using CAS.Lib.RTLib.Processes;
 using System;
 using System.Threading;
+using UAOOI.ProcessObserver.RealTime.Processes;
 using CommunicationDSC = CAS.NetworkConfigLib.ComunicationNet;
 
 namespace CAS.CommServer.ProtocolHub.MonitorInterface
@@ -43,7 +43,7 @@ namespace CAS.CommServer.ProtocolHub.MonitorInterface
     #region private
     private delegate void StateChanged();
     private static event StateChanged stateChangedEvnt;
-    private static CAS.Lib.RTLib.Processes.MonitoredThread clock;
+    private static MonitoredThread clock;
     private static void MonitoringMet()
     {
       while (true)
@@ -111,7 +111,7 @@ namespace CAS.CommServer.ProtocolHub.MonitorInterface
   [Serializable]
   public partial class Statistics
   {
-    
+
     #region PRIVATE
     private enum RWOperationRes : ushort
     { ORReadGood, ORWriteGood, ORCRCError, ORIncoplete, ORTimeout, ORMaxTimeRound };
@@ -468,7 +468,7 @@ namespace CAS.CommServer.ProtocolHub.MonitorInterface
       /// </returns>
       public override string ToString() { return myName; }
       /// <summary>
-      /// Geats the protocol statistics.
+      /// Gets the protocol statistics.
       /// </summary>
       /// <param name="counters">The counters.</param>
       /// <param name="isAnySuccess">if set to <c>true</c> [is any success].</param>
@@ -477,16 +477,12 @@ namespace CAS.CommServer.ProtocolHub.MonitorInterface
         lock (this)
         {
           for (ushort idx = 0; idx < counters.Length; idx++)
-          {
             counters[idx] = counters[idx] - myStat[idx];
-          }
           isAnySuccess =
             (counters[(ushort)RWOperationRes.ORReadGood] > 0) |
             (counters[(ushort)RWOperationRes.ORWriteGood] > 0);
           for (ushort idx = 0; idx < counters.Length; idx++)
-          {
             myStat[idx] += counters[idx];
-          }
         }
       }//GeatProtocolStatistics
       /// <summary>
@@ -500,7 +496,7 @@ namespace CAS.CommServer.ProtocolHub.MonitorInterface
       /// <summary>
       /// Initializes a new instance of the <see cref="ChannelStatistics"/> class.
       /// </summary>
-      /// <param name="currDsc">The channel row desriptor.</param>
+      /// <param name="currDsc">The channel row descriptor.</param>
       public ChannelStatistics(CommunicationDSC.ChannelsRow currDsc)
       {
         channelList.Add(this);
