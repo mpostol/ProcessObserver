@@ -1,139 +1,84 @@
-//<summary>
-//  Title   : ImportTagsForSimulation
-//  System  : Microsoft Visual C# .NET 2005
-//  $LastChangedDate$
-//  $Rev$
-//  $LastChangedBy$
-//  $URL$
-//  $Id$
-//  History :
-//  20081006 mzbrzezny: implementation of ItemAccessRights and StateTrigger
-//    mzbrzezny - 2007-08-03:
-//    created
+//___________________________________________________________________________________
 //
-//  Copyright (C)2006, CAS LODZ POLAND.
-//  TEL: +48 (42) 686 25 47
-//  mailto:techsupp@cas.eu
-//  http://www.cas.eu
-//</summary>
+//  Copyright (C) 2020, Mariusz Postol LODZ POLAND.
+//
+//  To be in touch join the community at GITTER: https://gitter.im/mpostol/OPC-UA-OOI
+//___________________________________________________________________________________
 
-using CAS.Lib.RTLib;
 using CAS.NetworkConfigLib;
-using CAS.Windows.Forms;
 using System;
 using System.ComponentModel;
+using UAOOI.ProcessObserver.RealTime;
+using UAOOI.Windows.Forms;
 
 namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI.Import
 {
   /// <summary>
   /// Summary description for ImportTagsForSimulation.
   /// </summary>
-  internal class ImportTagsForSimulation: ImportFunctionRootClass
+  internal class ImportTagsForSimulation : ImportFunctionRootClass
   {
 
     #region ImportTagsForSimulationInfo
-    internal class ImportTagsForSimulationInfo: CAS.Lib.ControlLibrary.ImportFileControll.ImportInfo
+    internal class ImportTagsForSimulationInfo : ImportFileControll.ImportInfo
     {
+
       #region private
-      uint m_stationID = 0;
-      uint m_address = 0;
-      uint m_datatype = 0;
+      private uint m_stationID = 0;
+      private uint m_address = 0;
+      private uint m_datatype = 0;
       #endregion
-      public override string ImportName
-      {
-        get { return "Import Tags for simulation"; }
-      }
-      public override string InitialDirectory
-      {
-        get
-        {
-          return AppDomain.CurrentDomain.BaseDirectory;
-        }
-      }
+
+      public override string ImportName => "Import Tags for simulation";
+      public override string InitialDirectory => AppDomain.CurrentDomain.BaseDirectory;
       /// <summary>
-      /// deafult browse filter for the dialog which is used for selecting a file
+      /// default browse filter for the dialog which is used for selecting a file
       /// </summary>
-      public override string BrowseFilter
-      {
-        get
-        {
-          return "Tags for simulation TXT file (*.TXT)|*.TXT";
-        }
-      }
+      public override string BrowseFilter => "Tags for simulation TXT file (*.TXT)|*.TXT";
       /// <summary>
-      /// deafult extension for the dialog which is used for selecting a file
+      /// default extension for the dialog which is used for selecting a file
       /// </summary>
-      public override string DefaultExt
-      {
-        get
-        {
-          return ".TXT";
-        }
-      }
+      public override string DefaultExt => ".TXT";
       /// <summary>
       /// text that is used to show the information about this importing function
       /// </summary>
-      public override string InformationText
-      {
-        get
-        {
-          return "This function immport tags from file - each line in file is one tag name";
-        }
-      }
+      public override string InformationText => "This function import tags from file - each line in file is one tag name";
       [
-      BrowsableAttribute( true ),
-      CategoryAttribute( "Settings" ),
-      DescriptionAttribute( "ID of the station" )
+      BrowsableAttribute(true),
+      CategoryAttribute("Settings"),
+      DescriptionAttribute("ID of the station")
       ]
       public uint StationID
       {
-        get
-        {
-          return m_stationID;
-        }
-        set
-        {
-          m_stationID = value;
-        }
+        get => m_stationID;
+        set => m_stationID = value;
       }
       [
-      BrowsableAttribute( true ),
-      CategoryAttribute( "Settings" ),
-      DescriptionAttribute( "Address of this DataBlock" )
+      BrowsableAttribute(true),
+      CategoryAttribute("Settings"),
+      DescriptionAttribute("Address of this DataBlock")
       ]
       public uint Address
       {
-        get
-        {
-          return m_address;
-        }
-        set
-        {
-          m_address = value;
-        }
+        get => m_address;
+        set => m_address = value;
       }
       [
-      BrowsableAttribute( true ),
-      CategoryAttribute( "Settings" ),
-      DescriptionAttribute( "Data type of this DataBlock" )
+      BrowsableAttribute(true),
+      CategoryAttribute("Settings"),
+      DescriptionAttribute("Data type of this DataBlock")
       ]
       public uint DataType
       {
-        get
-        {
-          return m_datatype;
-        }
-        set
-        {
-          m_datatype = value;
-        }
+        get => m_datatype;
+        set => m_datatype = value;
       }
 
     }
     #endregion
 
     #region private
-    private CAS.NetworkConfigLib.ComunicationNet m_database;
+    private readonly CAS.NetworkConfigLib.ComunicationNet m_database;
     private ImportTagsForSimulationInfo m_ImportTagsForSimulationInfo;
     #endregion
 
@@ -156,7 +101,7 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI.Import
       grow.TimeScanFast = 1000;
       grow.TimeOut = 10000;
       grow.TimeOutFast = 10000;
-      HMI.ConfigurationManagement.ProtocolHubConfiguration.Groups.AddGroupsRow( grow );
+      ConfigurationManagement.ProtocolHubConfiguration.Groups.AddGroupsRow(grow);
       //dodajemy datablock
       ComunicationNet.DataBlocksRow drow = HMI.ConfigurationManagement.ProtocolHubConfiguration.DataBlocks.NewDataBlocksRow();
       drow.GroupID = grow.GroupID;
@@ -164,21 +109,21 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI.Import
       drow.Name = "SimulationDB_" + grow.GroupID.ToString();
       drow.Address = address;
       drow.DataType = datatype;
-      HMI.ConfigurationManagement.ProtocolHubConfiguration.DataBlocks.AddDataBlocksRow( drow );
+      ConfigurationManagement.ProtocolHubConfiguration.DataBlocks.AddDataBlocksRow(drow);
       //teraz otworzymy plik i dodamy wszystkie tagi:
-      System.IO.StreamReader plik = new System.IO.StreamReader( filename, System.Text.Encoding.Default );
+      System.IO.StreamReader plik = new System.IO.StreamReader(filename, System.Text.Encoding.Default);
       string plikzawartosc = plik.ReadToEnd();
       plik.Close();
       string Tagname = "-- unknowname --";
-      while ( plikzawartosc.Length > 0 )
+      while (plikzawartosc.Length > 0)
       {
         try
         {
-          int pos = plikzawartosc.IndexOf( "\r\n" );
-          if ( pos < 0 )
+          int pos = plikzawartosc.IndexOf("\r\n");
+          if (pos < 0)
             pos = plikzawartosc.Length;
-          Tagname = plikzawartosc.Substring( 0, pos );
-          plikzawartosc = plikzawartosc.Remove( 0, pos + 2 );
+          Tagname = plikzawartosc.Substring(0, pos);
+          plikzawartosc = plikzawartosc.Remove(0, pos + 2);
           //dodajemy taga:
           ComunicationNet.TagsRow trow = HMI.ConfigurationManagement.ProtocolHubConfiguration.Tags.NewTagsRow();
           trow.Name = Tagname;
@@ -188,7 +133,7 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI.Import
           trow.StateMask = 0;
           trow.StateTrigger = (sbyte)StateTrigger.None;
           trow.Alarm = false;
-          HMI.ConfigurationManagement.ProtocolHubConfiguration.Tags.AddTagsRow( trow );
+          ConfigurationManagement.ProtocolHubConfiguration.Tags.AddTagsRow(trow);
           changes_number++;
         }
         catch (
@@ -198,7 +143,7 @@ Exception
 #endif
  )
         {
-          AppendToLog( "problem with tag:" + Tagname + " :"
+          AppendToLog("problem with tag:" + Tagname + " :"
 #if DEBUG
  + ex.Message.ToString()
 #endif
@@ -206,18 +151,18 @@ Exception
         }
       }
       #endregion IMPORT
-      AppendToLog( "Number of changed tags: " + changes_number.ToString() );
+      AppendToLog("Number of changed tags: " + changes_number.ToString());
     }
 
     #endregion
 
     #region creator
-    public ImportTagsForSimulation( CAS.NetworkConfigLib.ComunicationNet database, System.Windows.Forms.Form parrent_form )
-      : base( parrent_form )
+    public ImportTagsForSimulation(CAS.NetworkConfigLib.ComunicationNet database, System.Windows.Forms.Form parrent_form)
+      : base(parrent_form)
     {
       m_database = database;
       m_ImportTagsForSimulationInfo = new ImportTagsForSimulationInfo();
-      SetImportInfo( m_ImportTagsForSimulationInfo );
+      SetImportInfo(m_ImportTagsForSimulationInfo);
     }
     #endregion
 

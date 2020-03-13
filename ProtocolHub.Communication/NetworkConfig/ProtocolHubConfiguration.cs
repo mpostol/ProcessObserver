@@ -6,9 +6,9 @@
 //___________________________________________________________________________________
 
 using CAS.Lib.RTLib.Database;
-using CAS.Lib.RTLib.Processes;
 using CAS.NetworkConfigLib;
 using System;
+using UAOOI.ProcessObserver.RealTime.Processes;
 
 namespace CAS.CommServer.ProtocolHub.Communication.NetworkConfig
 {
@@ -20,7 +20,7 @@ namespace CAS.CommServer.ProtocolHub.Communication.NetworkConfig
   {
 
     #region PRIVATE
-    private string filename;
+    private readonly string filename;
     #endregion
 
     #region PUBLIC
@@ -55,15 +55,11 @@ namespace CAS.CommServer.ProtocolHub.Communication.NetworkConfig
       }
       catch (System.IO.IOException ioex)
       {
-        CAS.Lib.RTLib.Processes.EventLogMonitor.WriteToEventLogError(
-          "Problem with CommServer configuration file:" + ioex.Message,
-          (int)Error.CommServer_Configuration);
+        EventLogMonitor.WriteToEventLogError("Problem with CommServer configuration file:" + ioex.Message, (int)Error.CommServer_Configuration);
       }
       catch (Exception ex)
       {
-        CAS.Lib.RTLib.Processes.EventLogMonitor.WriteToEventLogError(
-          "Problem with CommServer XML configuration file :" + filename +
-          " - in directory: " + CAS.Lib.RTLib.Win32API.Application.Path + " error: " + ex.ToString(),
+        EventLogMonitor.WriteToEventLogError("Problem with CommServer XML configuration file :" + filename + " - in directory: " + UAOOI.ProcessObserver.RealTime.Win32API.Application.Path + " error: " + ex.ToString(),
           (int)Error.CommServer_Configuration);
       }
     }

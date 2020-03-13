@@ -8,7 +8,6 @@
 using CAS.CommServer.ProtocolHub.MonitorInterface;
 using CAS.CommServerConsole.Properties;
 using CAS.Lib.RTLib.Management;
-using CAS.Lib.RTLib.Processes;
 using System;
 using System.Collections.Generic;
 using System.Reflection;
@@ -16,6 +15,7 @@ using System.Runtime.Remoting.Channels;
 using System.Runtime.Remoting.Channels.Tcp;
 using System.Threading;
 using System.Windows.Forms;
+using UAOOI.ProcessObserver.RealTime.Processes;
 using UAOOI.Windows.Forms;
 using UAOOI.Windows.Forms.CodeProtectControls;
 

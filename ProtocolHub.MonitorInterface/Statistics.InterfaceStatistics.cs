@@ -420,9 +420,9 @@ namespace CAS.CommServer.ProtocolHub.MonitorInterface
 
       void IUpdateInternalStatistics.UpdateInternal()
       {
-        myStat.UpdateTimers(CAS.Lib.RTLib.Processes.Stopwatch.ConvertTo_s(activeTime.Read),
-          CAS.Lib.RTLib.Processes.Stopwatch.ConvertTo_s(failTime.Read),
-          CAS.Lib.RTLib.Processes.Stopwatch.ConvertTo_s(standbyTime.Read));
+        myStat.UpdateTimers(UAOOI.ProcessObserver.RealTime.Processes.Stopwatch.ConvertTo_s(activeTime.Read),
+          UAOOI.ProcessObserver.RealTime.Processes.Stopwatch.ConvertTo_s(failTime.Read),
+          UAOOI.ProcessObserver.RealTime.Processes.Stopwatch.ConvertTo_s(standbyTime.Read));
       }
 
       #endregion

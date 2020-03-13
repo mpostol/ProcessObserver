@@ -115,8 +115,8 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
       this.licenseInformationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.oToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
       this.enterTheUnlockCodeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-      this.backForwardTreViewToolStrip1 = new CAS.Lib.ControlLibrary.BackForwardTreViewToolStrip();
-      this.searchTreeViewToolStrip1 = new CAS.Lib.ControlLibrary.SearchTreeViewToolStrip();
+      this.backForwardTreViewToolStrip1 = new UAOOI.Windows.Forms.BackForwardTreViewToolStrip();
+      this.searchTreeViewToolStrip1 = new UAOOI.Windows.Forms.SearchTreeViewToolStrip();
       this.bwSave = new System.ComponentModel.BackgroundWorker();
       this.m_helpProvider = new System.Windows.Forms.HelpProvider();
       this.cm_commonBusControl = new CAS.Lib.CommonBus.CommonBusControl( this.components );
@@ -912,7 +912,7 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
     private System.Windows.Forms.ToolStripMenuItem licenseInformationToolStripMenuItem;
     private System.Windows.Forms.ToolStripMenuItem oToolStripMenuItem;
     private System.Windows.Forms.ToolStripMenuItem enterTheUnlockCodeToolStripMenuItem;
-    private CAS.Lib.ControlLibrary.BackForwardTreViewToolStrip backForwardTreViewToolStrip1;
-    private CAS.Lib.ControlLibrary.SearchTreeViewToolStrip searchTreeViewToolStrip1;
+    private UAOOI.Windows.Forms.BackForwardTreViewToolStrip backForwardTreViewToolStrip1;
+    private UAOOI.Windows.Forms.SearchTreeViewToolStrip searchTreeViewToolStrip1;
   }
 }

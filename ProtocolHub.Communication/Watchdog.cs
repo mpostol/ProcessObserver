@@ -14,6 +14,7 @@ using System.Runtime.Remoting.Messaging;
 using System.Security.Permissions;
 using System.Text;
 using System.Threading;
+using UAOOI.ProcessObserver.RealTime.Processes;
 
 namespace CAS.Lib.RTLib.Processes
 {
@@ -40,6 +41,7 @@ namespace CAS.Lib.RTLib.Processes
       return id;
     }
     #endregion
+
     #region ContextAttribute
     /// <summary>
     /// Returns a Boolean value indicating whether the context parameter meets the context attribute's requirements.
@@ -73,6 +75,7 @@ namespace CAS.Lib.RTLib.Processes
       ctorMsg.ContextProperties.Add(new WatchdogProperty(m_ObjectName, m_deadline));
     }
     #endregion
+
     #region constructor
     /// <summary>
     /// Initializes a new instance of the <see cref="WatchdogAttribute"/> class.
@@ -96,10 +99,12 @@ namespace CAS.Lib.RTLib.Processes
   /// </summary>
   public class WatchdogSink : IMessageSink
   {
+
     #region private
     private IMessageSink m_Next;
     private WatchdogProperty m_Property; //obiekt na rzecz kt°rego nale¨y wywo-aä metod‡
     #endregion
+
     #region IMessageSink Members
     /// <summary>
     /// Asynchronously processes the given message.
@@ -142,6 +147,7 @@ namespace CAS.Lib.RTLib.Processes
       return retMsg;
     }
     #endregion
+
     #region constructor
     /// <summary>
     /// Initializes a new instance of the <see cref="WatchdogSink"/> class.
@@ -154,6 +160,7 @@ namespace CAS.Lib.RTLib.Processes
       m_Property = property;
     }
     #endregion
+
   }
   /// <summary>
   /// Watchdog property to be added to the guarded by the Watchdog object
@@ -229,6 +236,7 @@ namespace CAS.Lib.RTLib.Processes
       }
     }
     #endregion
+
     #region IContributeObjectSink Members
     /// <summary>
     /// Chains the message sink of the provided server object in front of the given sink chain.
@@ -242,6 +250,7 @@ namespace CAS.Lib.RTLib.Processes
       return new WatchdogSink(nextSink, this);
     }
     #endregion
+    
     #region IContextProperty Members
     /// <summary>
     /// Called when the context is frozen.
@@ -285,6 +294,7 @@ namespace CAS.Lib.RTLib.Processes
       }
     }
     #endregion
+    
     #region public
     /// <summary>
     /// Enters the guarded by the watchdog object.
@@ -325,6 +335,7 @@ namespace CAS.Lib.RTLib.Processes
       }
     }
     #endregion
+
     #region constructor
     /// <summary>
     /// Initializes a new instance of the <see cref="WatchdogProperty"/> class.
@@ -340,7 +351,8 @@ namespace CAS.Lib.RTLib.Processes
       m_deadline = deadline;
     }
     #endregion
-#if DEBUG
+
+    #if DEBUG
     /// <summary>
     /// counts the number of times when restart should occurs
     /// </summary>
@@ -356,4 +368,5 @@ namespace CAS.Lib.RTLib.Processes
     }
 #endif
   }
+
 }

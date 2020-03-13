@@ -6,13 +6,14 @@
 //___________________________________________________________________________________
 
 using CAS.CommServer.ProtocolHub.MonitorInterface;
-using CAS.Lib.RTLib;
-using CAS.Lib.RTLib.Management;
 using CAS.NetworkConfigLib;
 using System;
+using UAOOI.ProcessObserver.RealTime;
+using UAOOI.ProcessObserver.RealTime.Management;
 
 namespace CAS.CommServer.ProtocolHub.Communication.Diagnostic
 {
+
   /// <summary>
   /// Summary description for Interface.
   /// </summary>
@@ -108,6 +109,7 @@ namespace CAS.CommServer.ProtocolHub.Communication.Diagnostic
     private OPCValTag Tag_TotalConnTime;
     private readonly string m_prefix;
     #endregion
+
     #region public
     /// <summary>
     /// Refreshes this instance.
@@ -268,4 +270,5 @@ namespace CAS.CommServer.ProtocolHub.Communication.Diagnostic
       Tag_TxBytesTransferred.Val = this.StatisticData.GetTxBytesTransferred;
     }
   }
+
 }

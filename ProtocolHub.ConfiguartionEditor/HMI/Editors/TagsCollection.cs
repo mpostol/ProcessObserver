@@ -1,32 +1,19 @@
-//<summary>
-//  Title   : Tag Collection Form
-//  System  : Microsoft Visual C# .NET 2005
-//  $LastChangedDate$
-//  $Rev$
-//  $LastChangedBy$
-//  $URL$
-//  $Id$
-//  History :
-//    20081203: mzbrzezny: fixed issue with configuration disappearing when clicking on cancel in tag collection window
-//    20081007: mzbrzezny: cleanup after unfinished add operation is added
-//    20081006: mzbrzezny: if DataBlock row is detached (not connected to the table) no items ca be created (the message is displayed)
-//    20081003 - mzbrzezny: changes related to sorted dictionary and item default settings implementation
-//    20070610 - mpostol - created
+//___________________________________________________________________________________
 //
-//  Copyright (C)2006, CAS LODZ POLAND.
-//  TEL: +48 (42) 686 25 47
-//  mailto:techsupp@cas.eu
-//  http://www.cas.eu
-//</summary>
+//  Copyright (C) 2020, Mariusz Postol LODZ POLAND.
+//
+//  To be in touch join the community at GITTER: https://gitter.im/mpostol/OPC-UA-OOI
+//___________________________________________________________________________________
 
 using CAS.CommServer.ProtocolHub.ConfigurationEditor.Properties;
-using CAS.Lib.ControlLibrary;
 using CAS.NetworkConfigLib;
 using System;
 using System.Windows.Forms;
+using UAOOI.Windows.Forms;
 
 namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI.Editors
 {
+
   /// <summary>
   /// Form that allow to sort tags
   /// </summary>
@@ -175,4 +162,5 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI.Editors
     #endregion
 
   }
+
 }

@@ -10,13 +10,13 @@ using CAS.CommServer.ProtocolHub.MonitorInterface;
 using CAS.Lib.CommonBus;
 using CAS.Lib.CommonBus.ApplicationLayer;
 using CAS.Lib.CommonBus.Management;
-using CAS.Lib.RTLib.Management;
-using CAS.Lib.RTLib.Processes;
 using CAS.NetworkConfigLib;
 using System;
 using System.Collections;
 using System.ComponentModel;
 using System.Xml;
+using UAOOI.ProcessObserver.RealTime.Management;
+using UAOOI.ProcessObserver.RealTime.Processes;
 
 namespace CAS.CommServer.ProtocolHub.Communication.BaseStation
 {
@@ -28,7 +28,7 @@ namespace CAS.CommServer.ProtocolHub.Communication.BaseStation
 
     #region private
     private const string m_src = "CAS.Lib.CommServer.Channel";
-    private Statistics.ChannelStatistics myStatistics;
+    private readonly Statistics.ChannelStatistics myStatistics;
     private static ArrayList myChannels = new ArrayList();
     private IApplicationLayerMaster CreateApplicationProtocol(ComunicationNet.ProtocolRow protocol, CommServerComponent parent, PluginCollection plugins, ISettingsBase settings)
     {
@@ -39,14 +39,14 @@ namespace CAS.CommServer.ProtocolHub.Communication.BaseStation
         CommServerComponent.Tracer.TraceWarning(65, m_src, "The protocol is not set so it cannot be created, channel = " + this.myStatistics.myName);
         return null;
       }
-      CommServerComponent.Tracer.TraceVerbose(69, m_src, String.Format("Trying to find data provider: {0}", protocol.DPIdentifier.ToString()));
+      CommServerComponent.Tracer.TraceVerbose(69, m_src, string.Format("Trying to find data provider: {0}", protocol.DPIdentifier.ToString()));
       try
       {
         IDataProviderID _DataProviderID = plugins[protocol.DPIdentifier];
         if (_DataProviderID != null)
         {
           string _format = "OK I have got DataProvider. Name = {0} [{1}]";
-          CommServerComponent.Tracer.TraceVerbose(77, m_src, String.Format(_format, _DataProviderID.Title, _DataProviderID.GetDataProviderDescription.FullName));
+          CommServerComponent.Tracer.TraceVerbose(77, m_src, string.Format(_format, _DataProviderID.Title, _DataProviderID.GetDataProviderDescription.FullName));
           try
           {
             _DataProviderID.SetSettings(protocol.DPConfig);
@@ -54,12 +54,12 @@ namespace CAS.CommServer.ProtocolHub.Communication.BaseStation
           catch (XmlException xe)
           {
             _format = "Problem with: {0} because of Xml content: {1}.";
-            CommServerComponent.Tracer.TraceWarning(85, m_src, String.Format(_format, protocol.DPConfig, xe.ToString()));
+            CommServerComponent.Tracer.TraceWarning(85, m_src, string.Format(_format, protocol.DPConfig, xe.ToString()));
           }
           catch (Exception e)
           {
             _format = "Problem with: {0} because of general failure: {1}.";
-            CommServerComponent.Tracer.TraceWarning(90, m_src, String.Format(_format, protocol.DPConfig, e.ToString()));
+            CommServerComponent.Tracer.TraceWarning(90, m_src, string.Format(_format, protocol.DPConfig, e.ToString()));
           }
           IProtocolParent cStatistic = Diagnostic.CommServerProtocol.CreateNewProtocol(protocol.DPConfig, protocol.Name, protocol.ProtocolID, _DataProviderID.GetSettingsHumanReadableFormat(), myStatistics, settings);
           IApplicationLayerMaster chnProtocol = _DataProviderID.GetApplicationLayerMaster(cStatistic, parent.m_CommonBusControl);
@@ -75,11 +75,11 @@ namespace CAS.CommServer.ProtocolHub.Communication.BaseStation
       catch (System.ComponentModel.LicenseException ex)
       {
         string _format = "The component cannot be granted a license: {0}.";
-        CommServerComponent.Tracer.TraceWarning(108, m_src, String.Format(_format, ex.LicensedType.ToString()));
+        CommServerComponent.Tracer.TraceWarning(108, m_src, string.Format(_format, ex.LicensedType.ToString()));
       }
       catch (Exception _ex)
       {
-        CommServerComponent.Tracer.TraceWarning(112, m_src, String.Format("Some problem encountered while trying to get a DataProvider. Exception {0}.", _ex.Message));
+        CommServerComponent.Tracer.TraceWarning(112, m_src, string.Format("Some problem encountered while trying to get a DataProvider. Exception {0}.", _ex.Message));
       }
       return null;
     }
@@ -117,10 +117,12 @@ namespace CAS.CommServer.ProtocolHub.Communication.BaseStation
           foreach (ComunicationNet.SegmentsRow currDSC in proto.GetSegmentsRows())
           {
             SegmentParameters parameters = new SegmentParameters(currDSC);
-            Diagnostic.Segment segmentStatistic = new Diagnostic.Segment(currDSC,  myStatistics);
+            Diagnostic.Segment segmentStatistic = new Diagnostic.Segment(currDSC, myStatistics);
             Segment segment = new Segment
-              (currDSC, (byte)proto.MaxNumberOfRetries, chnProtocol, parameters, demoVersion, segmentStatistic, this);
-            segment.Cycle = parameters.TimeReconnect;
+              (currDSC, (byte)proto.MaxNumberOfRetries, chnProtocol, parameters, demoVersion, segmentStatistic, this)
+            {
+              Cycle = parameters.TimeReconnect
+            };
             segment.ResetCounter();
           }
         }

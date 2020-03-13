@@ -1,39 +1,20 @@
-//<summary>
-//  Title   : Serial Settings wrapper to be used in property grid panel
-//  System  : Microsoft Visual C# .NET 
-//  $LastChangedDate$
-//  $Rev$
-//  $LastChangedBy$
-//  $URL$
-//  $Id$
-//  History :
-//  20081007: mzbrzezny: cleanup after unfinished add operation is added
-//  20081007: mzbrzezny: protection from wrong values in AccesRights and StateTRigger (for backwards compatibility)
-//  20081007: mzbrzezny: new properties:
-//                       Default (suggested) name from DataProvider 
-//                       Default (suggested) data type from DataProvider 
-//                       Default (suggested) access rights from DataProvider 
-//  20081006: mzbrzezny: station name in the construction is taken from datablock wrapper instead of dataset
-//  20081006 mzbrzezny: implementation of ItemAccessRights and StateTrigger
-//  20081003: mzbrzezny: cleanup, item default settings implementation
-//  2006: created
+//___________________________________________________________________________________
 //
-//  Copyright (C)2008, CAS LODZ POLAND.
-//  TEL: +48 (42) 686 25 47
-//  mailto:techsupp@cas.eu
-//  http://www.cas.eu
-//</summary>
+//  Copyright (C) 2020, Mariusz Postol LODZ POLAND.
+//
+//  To be in touch join the community at GITTER: https://gitter.im/mpostol/OPC-UA-OOI
+//___________________________________________________________________________________
 
+using CAS.CommServer.ProtocolHub.ConfigurationEditor.Properties;
+using CAS.Lib.CommonBus;
+using CAS.NetworkConfigLib;
 using System;
 using System.ComponentModel;
 using System.Data;
 using System.Text;
 using System.Windows.Forms;
-using CAS.Lib.CommonBus;
-using CAS.Lib.RTLib;
-using CAS.NetworkConfigLib;
-using CAS.Lib.RTLib.Utils;
-using CAS.CommServer.ProtocolHub.ConfigurationEditor.Properties;
+using UAOOI.ProcessObserver.RealTime;
+using UAOOI.ProcessObserver.RealTime.Utils;
 
 namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
 {
@@ -50,19 +31,15 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
   /// DefaultValueAttribute – Identifies the property's default value. This is useful when you want to provide a default value for a property and later determine if the property's value is different than the default. Apply this attribute to all properties. 
   /// DefaultPropertyAttribute – Identifies the default property for the class. The default property for a class gets the focus first when the class is selected in the grid. Apply this attribute to the AppSettings class. 
   /// </remarks>
-  [DefaultProperty( "Name" )]
-  internal partial class TagsRowWrapper: Action<ComunicationNet.TagsRow>
+  [DefaultProperty("Name")]
+  internal partial class TagsRowWrapper : Action<ComunicationNet.TagsRow>
   {
+
     #region private
-    DataBlocksRowWrapper dataBlockRowWrapper;
-    private IItemDefaultSettings DefaultSettings
-    {
-      get
-      {
-        return dataBlockRowWrapper.GetItemDefaultSettings( RealAddress );
-      }
-    }
+    private DataBlocksRowWrapper dataBlockRowWrapper;
+    private IItemDefaultSettings DefaultSettings => dataBlockRowWrapper.GetItemDefaultSettings(RealAddress);
     #endregion
+
     #region Constructor
 
     /// <summary>
@@ -71,11 +48,11 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
     /// <param name="parent">Tags row</param>
     /// <param name="DataBlockRowWrapper">The data block row wrapper.</param>
     /// <param name="UseDefaultSettings">if set to <c>true</c> [use default settings from DataProvider is enabled].</param>
-    public TagsRowWrapper( ComunicationNet.TagsRow parent, DataBlocksRowWrapper DataBlockRowWrapper, bool UseDefaultSettings )
-      : base( parent )
+    public TagsRowWrapper(ComunicationNet.TagsRow parent, DataBlocksRowWrapper DataBlockRowWrapper, bool UseDefaultSettings)
+      : base(parent)
     {
       dataBlockRowWrapper = DataBlockRowWrapper;
-      if ( UseDefaultSettings && DefaultSettings != null )
+      if (UseDefaultSettings && DefaultSettings != null)
       {
         Name = DataBlockRowWrapper.StationName + "/" + DefaultSettings.Name;
         DataTypeConversion = DefaultSettings.DefaultType.ToString();
@@ -83,27 +60,22 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
       }
     }
     #endregion
+
     #region Properties for PropertyGrid
 
     /// <summary>
     /// Gets the human readable name for the tag
     /// </summary>
     [
-    BrowsableAttribute( true ),
-    CategoryAttribute( "General Settings" ),
-    DefaultValueAttribute( "Human readable name" ),
-    DescriptionAttribute( "Human readable name for the tag" )
+    BrowsableAttribute(true),
+    CategoryAttribute("General Settings"),
+    DefaultValueAttribute("Human readable name"),
+    DescriptionAttribute("Human readable name for the tag")
     ]
     public string Name
     {
-      get
-      {
-        return ( m_Parent.Name );
-      }
-      set
-      {
-        m_Parent.Name = value;
-      }
+      get => (m_Parent.Name);
+      set => m_Parent.Name = value;
     }
 
     /// <summary>
@@ -111,71 +83,59 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
     /// </summary>
     [
 #if DEBUG
-BrowsableAttribute( true ),
-CategoryAttribute( "XXX debug" ),
+BrowsableAttribute(true),
+CategoryAttribute("XXX debug"),
 #else
     BrowsableAttribute( false ),
     CategoryAttribute( "General Settings" ),
 #endif
- DefaultValueAttribute( 0 ),
-DescriptionAttribute( "Station identifier that the tag is coupled  with" )
+ DefaultValueAttribute(0),
+DescriptionAttribute("Station identifier that the tag is coupled  with")
 ]
-    public long StationID
-    {
-      get
-      {
-        return ( m_Parent.DataBlocksRow.GroupsRow.StationID );
-      }
-    }
+    public long StationID => (m_Parent.DataBlocksRow.GroupsRow.StationID);
     /// <summary>
     /// Gets the tag identifier
     /// </summary>
     [
 #if DEBUG
-BrowsableAttribute( true ),
-CategoryAttribute( "XXX debug" ),
+BrowsableAttribute(true),
+CategoryAttribute("XXX debug"),
 #else
     BrowsableAttribute( false ),
     CategoryAttribute( "General Settings" ),
 #endif
- DefaultValueAttribute( 0 ),
-    DescriptionAttribute( "Unique tag identifier" )
+ DefaultValueAttribute(0),
+    DescriptionAttribute("Unique tag identifier")
     ]
     public long TagID
     {
-      get { return ( m_Parent.TagID ); }
-      set { m_Parent.TagID = value; }
+      get => (m_Parent.TagID);
+      set => m_Parent.TagID = value;
     }
     /// <summary>
     /// Gets the address of the block the tag belongs to
     /// </summary>
     [
 #if DEBUG
-BrowsableAttribute( true ),
-CategoryAttribute( "XXX debug" ),
+BrowsableAttribute(true),
+CategoryAttribute("XXX debug"),
 #else
     BrowsableAttribute( false ),
     CategoryAttribute( "General Settings" ),
 #endif
- DefaultValueAttribute( 0 ),
-    DescriptionAttribute( "Address of the block the tag belongs to. The block with selected address must be previously defined. There is one to one relation between process variables located in the physical device and tags holding current value of the equivalent variable in the OPC server. Actual position of the process variable in the continuous address space represented by the block is determined by the tag numerical identifier. Tags are sorted in the block using these identifiers, and the actual variable address is a sum of the block address and position of the tag in the block. Therefore, the block length is determined by the number of tags belonging to it, and there are no gaps between process variables, whose values are held in the equivalent tags." )
+ DefaultValueAttribute(0),
+    DescriptionAttribute("Address of the block the tag belongs to. The block with selected address must be previously defined. There is one to one relation between process variables located in the physical device and tags holding current value of the equivalent variable in the OPC server. Actual position of the process variable in the continuous address space represented by the block is determined by the tag numerical identifier. Tags are sorted in the block using these identifiers, and the actual variable address is a sum of the block address and position of the tag in the block. Therefore, the block length is determined by the number of tags belonging to it, and there are no gaps between process variables, whose values are held in the equivalent tags.")
     ]
-    public ulong Address
-    {
-      get
-      {
-        return ( m_Parent.DataBlocksRow.Address );
-      }
-    }
+    public ulong Address => (m_Parent.DataBlocksRow.Address);
     /// <summary>
     /// Gets the value informs that it indicates that the corresponding tag is inherently writable. For example, a value representing physical output or an adjustable parameter such as a setpoint or alarm limit would generally be writable.
     /// </summary>
     [
-    BrowsableAttribute( true ),
-    CategoryAttribute( "General Settings" ),
-    DefaultValueAttribute( false ),
-    TypeConverter( typeof( GenericEnumTypeConverterHelper<ItemAccessRights> ) ),
-    DescriptionAttribute( "Indicates if this item is read only, write only or read/write. This is NOT related to security but rather to the nature of the underlying hardware" )
+    BrowsableAttribute(true),
+    CategoryAttribute("General Settings"),
+    DefaultValueAttribute(false),
+    TypeConverter(typeof(GenericEnumTypeConverterHelper<ItemAccessRights>)),
+    DescriptionAttribute("Indicates if this item is read only, write only or read/write. This is NOT related to security but rather to the nature of the underlying hardware")
     ]
     public string AccessRights
     {
@@ -183,29 +143,26 @@ CategoryAttribute( "XXX debug" ),
       {
         try
         {
-          return ( GenericEnumTypeConverterHelper<ItemAccessRights>.GetNameFromValue( m_Parent.AccessRights ) );
+          return (GenericEnumTypeConverterHelper<ItemAccessRights>.GetNameFromValue(m_Parent.AccessRights));
         }
-        catch ( Exception ex )
+        catch (Exception ex)
         {
-          MessageBox.Show( String.Format( Resources.tx_TagRowWrapper_AccessRights, ex.Message ) );
+          MessageBox.Show(string.Format(Resources.tx_TagRowWrapper_AccessRights, ex.Message));
           m_Parent.AccessRights = (sbyte)DefaultSettings.AccessRights;
           return DefaultAccessRights;
         }
       }
-      set
-      {
-        m_Parent.AccessRights = (sbyte)GenericEnumTypeConverterHelper<ItemAccessRights>.GetValueFromString( value );
-      }
+      set => m_Parent.AccessRights = (sbyte)GenericEnumTypeConverterHelper<ItemAccessRights>.GetValueFromString(value);
     }
     /// <summary>
     /// Gets the value informs that this tag is used to switch on the FAST scanning mode (see StateMask for additional details)
     /// </summary>
     [
-    BrowsableAttribute( true ),
-    CategoryAttribute( "Special functions" ),
-    DefaultValueAttribute( false ),
-    TypeConverter( typeof( GenericEnumTypeConverterHelper<StateTrigger> ) ),
-    DescriptionAttribute( "Indicates wheter there is any state trigger associated with this item. The triggers could be low or high or none." )
+    BrowsableAttribute(true),
+    CategoryAttribute("Special functions"),
+    DefaultValueAttribute(false),
+    TypeConverter(typeof(GenericEnumTypeConverterHelper<StateTrigger>)),
+    DescriptionAttribute("Indicates wheter there is any state trigger associated with this item. The triggers could be low or high or none.")
     ]
     public string StateTrigger
     {
@@ -213,138 +170,108 @@ CategoryAttribute( "XXX debug" ),
       {
         try
         {
-          return ( GenericEnumTypeConverterHelper<StateTrigger>.GetNameFromValue( m_Parent.StateTrigger ) );
+          return (GenericEnumTypeConverterHelper<StateTrigger>.GetNameFromValue(m_Parent.StateTrigger));
         }
-        catch ( Exception ex )
+        catch (Exception ex)
         {
-          MessageBox.Show( String.Format( Resources.tx_TagRowWrapper_StateTrigger, ex.Message ) );
+          MessageBox.Show(string.Format(Resources.tx_TagRowWrapper_StateTrigger, ex.Message));
           m_Parent.StateTrigger = (sbyte)CAS.NetworkConfigLib.StateTrigger.None;
           return CAS.NetworkConfigLib.StateTrigger.None.ToString();
         }
 
       }
-      set
-      {
-        m_Parent.StateTrigger = (sbyte)GenericEnumTypeConverterHelper<StateTrigger>.GetValueFromString( value );
-      }
+      set => m_Parent.StateTrigger = (sbyte)GenericEnumTypeConverterHelper<StateTrigger>.GetValueFromString(value);
     }
     /// <summary>
     /// Gets the value that informs if there is an alarm linked with  this tag (the server is obligated to listen on the channel this tag belongs to and pick up incoming connection)
     /// </summary>
     [
-    BrowsableAttribute( true ),
-    CategoryAttribute( "Special functions" ),
-    DefaultValueAttribute( false ),
-    DescriptionAttribute( "This attribute informs if there is an alarm linked with  this tag (the server is obligated to listen on the channel this tag belongs to and pick up incoming connection).  If true, the remote station is able to establish connection with the server, and the server will service it." )
+    BrowsableAttribute(true),
+    CategoryAttribute("Special functions"),
+    DefaultValueAttribute(false),
+    DescriptionAttribute("This attribute informs if there is an alarm linked with  this tag (the server is obligated to listen on the channel this tag belongs to and pick up incoming connection).  If true, the remote station is able to establish connection with the server, and the server will service it.")
     ]
     public bool Alarm
     {
-      get
-      {
-        return ( m_Parent.Alarm );
-      }
-      set
-      {
-        m_Parent.Alarm = value;
-      }
+      get => (m_Parent.Alarm);
+      set => m_Parent.Alarm = value;
     }
     /// <summary>
     /// Gets the alarm mask that defines condition when the remote station is in the alarm state, and as a result should start to establish connection to the server in an independent alarm channel (e.g. the second ISDN B channel)
     /// </summary>
     [
-    BrowsableAttribute( true ),
-    CategoryAttribute( "Special functions" ),
-    DefaultValueAttribute( 0 ),
-    DescriptionAttribute( "Alarm mask defines condition when the remote station is in the alarm state, and as a result should start to establish connection to the server in an independent alarm channel (e.g. the second ISDN B channel)" )
+    BrowsableAttribute(true),
+    CategoryAttribute("Special functions"),
+    DefaultValueAttribute(0),
+    DescriptionAttribute("Alarm mask defines condition when the remote station is in the alarm state, and as a result should start to establish connection to the server in an independent alarm channel (e.g. the second ISDN B channel)")
     ]
     public ulong AlarmMask
     {
-      get
-      {
-        return ( m_Parent.AlarmMask );
-      }
-      set
-      {
-        m_Parent.AlarmMask = value;
-      }
+      get => (m_Parent.AlarmMask);
+      set => m_Parent.AlarmMask = value;
     }
     /// <summary>
     /// Gets the value that defines conditions when the remote station is to enter the alarm state and the scan mode should be switched  – this conditions are used to switch between the fast and normal scan modes. 
     /// </summary>
     [
-    BrowsableAttribute( true ),
-    CategoryAttribute( "Special functions" ),
-    DefaultValueAttribute( 0 ),
-    DescriptionAttribute( "Defines conditions when the remote station is to enter the alarm state and the scan mode should be switched  – this conditions are used to switch between the fast and normal scan modes. Logical operations (and, xor) are used to check the condition:  . If this condition is true, the scan mode is switched depending on the StateHighTrigger or StateLowTrigger setting." )
+    BrowsableAttribute(true),
+    CategoryAttribute("Special functions"),
+    DefaultValueAttribute(0),
+    DescriptionAttribute("Defines conditions when the remote station is to enter the alarm state and the scan mode should be switched  – this conditions are used to switch between the fast and normal scan modes. Logical operations (and, xor) are used to check the condition:  . If this condition is true, the scan mode is switched depending on the StateHighTrigger or StateLowTrigger setting.")
     ]
     public ulong StateMask
     {
-      get
-      {
-        return ( m_Parent.StateMask );
-      }
-      set
-      {
-        m_Parent.StateMask = value;
-      }
+      get => (m_Parent.StateMask);
+      set => m_Parent.StateMask = value;
     }
     /// <summary>
     /// Gets or sets Conversion requirements in human readable format. 
     /// DataTypeConversion identifiers are converted to string format based on OPCTypes 
     /// </summary>
     [
-    BrowsableAttribute( true ),
-    TypeConverter( typeof( TagsRowWrapper.OPCDataTypeConverter ) ),
-    CategoryAttribute( "Special functions" ),
-    DefaultValueAttribute( 0 ),
-    DescriptionAttribute( "Coversion requirements. Data will be available in required type (if conversion is possible)." )
+    BrowsableAttribute(true),
+    TypeConverter(typeof(TagsRowWrapper.OPCDataTypeConverter)),
+    CategoryAttribute("Special functions"),
+    DefaultValueAttribute(0),
+    DescriptionAttribute("Coversion requirements. Data will be available in required type (if conversion is possible).")
     ]
     public string DataTypeConversion
     {
       get
       {
-        if ( m_Parent.IsDataTypeConversionNull() )
+        if (m_Parent.IsDataTypeConversionNull())
           return "N/A";
         else
           return m_Parent.DataTypeConversion;
       }
-      set
-      {
-        m_Parent.DataTypeConversion = value;
-      }
+      set => m_Parent.DataTypeConversion = value;
     }
     /// <summary>
     /// Gets the real address.
     /// </summary>
     /// <value>The real address.</value>
     [
-    BrowsableAttribute( true ),
-    CategoryAttribute( "Information" ),
-    DefaultValueAttribute( 0 ),
-    DescriptionAttribute( "Real Address in the address space" )
+    BrowsableAttribute(true),
+    CategoryAttribute("Information"),
+    DefaultValueAttribute(0),
+    DescriptionAttribute("Real Address in the address space")
     ]
-    public ulong RealAddress
-    {
-      get
-      {
-        return dataBlockRowWrapper.CaclculateTagRealAddressBasedOnTagID( this.TagID );
-      }
-    }
+    public ulong RealAddress => dataBlockRowWrapper.CaclculateTagRealAddressBasedOnTagID(this.TagID);
     /// <summary>
     /// Gets the name of the default.
     /// </summary>
     /// <value>The name of the default.</value>
     [
-BrowsableAttribute( true ),
-CategoryAttribute( "Information" ),
-DefaultValueAttribute( 0 ),
-DescriptionAttribute( "Default (suggested) name from DataProvider " )
+BrowsableAttribute(true),
+CategoryAttribute("Information"),
+DefaultValueAttribute(0),
+DescriptionAttribute("Default (suggested) name from DataProvider ")
 ]
     public string DefaultName
     {
       get
       {
-        if ( DefaultSettings == null )
+        if (DefaultSettings == null)
           return "";
         return DefaultSettings.Name;
       }
@@ -354,31 +281,31 @@ DescriptionAttribute( "Default (suggested) name from DataProvider " )
     /// </summary>
     /// <value>The type of the default.</value>
     [
-BrowsableAttribute( true ),
-CategoryAttribute( "Information" ),
-DefaultValueAttribute( 0 ),
-DescriptionAttribute( "Default (suggested) data type from DataProvider " )
+BrowsableAttribute(true),
+CategoryAttribute("Information"),
+DefaultValueAttribute(0),
+DescriptionAttribute("Default (suggested) data type from DataProvider ")
 ]
     public string DefaultType
     {
       get
       {
-        if ( DefaultSettings == null )
+        if (DefaultSettings == null)
           return "";
         return DefaultSettings.DefaultType.ToString();
       }
     }
     [
-BrowsableAttribute( true ),
-CategoryAttribute( "Information" ),
-DefaultValueAttribute( 0 ),
-DescriptionAttribute( "Default (suggested) access rights from DataProvider " )
+BrowsableAttribute(true),
+CategoryAttribute("Information"),
+DefaultValueAttribute(0),
+DescriptionAttribute("Default (suggested) access rights from DataProvider ")
 ]
     public string DefaultAccessRights
     {
       get
       {
-        if ( DefaultSettings == null )
+        if (DefaultSettings == null)
           return "";
         return DefaultSettings.AccessRights.ToString();
       }
@@ -388,40 +315,41 @@ DescriptionAttribute( "Default (suggested) access rights from DataProvider " )
     /// </summary>
     [
 #if DEBUG
-BrowsableAttribute( true ),
-CategoryAttribute( "XXX debug" ),
+BrowsableAttribute(true),
+CategoryAttribute("XXX debug"),
 #else
         BrowsableAttribute( false ),
         CategoryAttribute( "Information" ),
 #endif
- DefaultValueAttribute( "Additional information" ),
-DescriptionAttribute( "AdditionalInfo from DataProvider" )
+ DefaultValueAttribute("Additional information"),
+DescriptionAttribute("AdditionalInfo from DataProvider")
 ]
     public string AdditionalInfo
     {
       get
       {
         StringBuilder sb = new StringBuilder();
-        sb.AppendLine( "Additional information: " );
-        if ( DefaultSettings != null )
+        sb.AppendLine("Additional information: ");
+        if (DefaultSettings != null)
         {
-          sb.AppendLine( "Default settings: " );
-          sb.AppendLine( "name: " + DefaultSettings.Name );
-          sb.AppendLine( "type: " + DefaultSettings.DefaultType.ToString() );
-          sb.AppendLine( "availiable types:" );
-          foreach ( Type t in DefaultSettings.AvailiableTypes )
-            sb.Append( t.ToString() + "; " );
+          sb.AppendLine("Default settings: ");
+          sb.AppendLine("name: " + DefaultSettings.Name);
+          sb.AppendLine("type: " + DefaultSettings.DefaultType.ToString());
+          sb.AppendLine("available types:");
+          foreach (Type t in DefaultSettings.AvailiableTypes)
+            sb.Append(t.ToString() + "; ");
           sb.AppendLine();
-          sb.AppendLine( "access rights: " + DefaultSettings.AccessRights.ToString() );
+          sb.AppendLine("access rights: " + DefaultSettings.AccessRights.ToString());
         }
         else
         {
-          sb.Append( "Cannot obtain default settings" );
+          sb.Append("Cannot obtain default settings");
         }
-        return ( sb.ToString() );
+        return (sb.ToString());
       }
     }
     #endregion //Properties for PropertyGrid
+
     #region Overrides
     #region Object override
     /// <summary>
@@ -435,7 +363,7 @@ DescriptionAttribute( "AdditionalInfo from DataProvider" )
     {
       //musimy wyczyscic wszystkie properties
       ComunicationNet.ItemPropertiesTableRow[] myproperties = m_Parent.GetItemPropertiesTableRows();
-      foreach ( ComunicationNet.ItemPropertiesTableRow iptr in myproperties )
+      foreach (ComunicationNet.ItemPropertiesTableRow iptr in myproperties)
         iptr.Delete();
     }
     /// <summary>
@@ -444,8 +372,8 @@ DescriptionAttribute( "AdditionalInfo from DataProvider" )
     /// <returns><see cref="TagBitRowWrapper"/> object</returns>
     public override IAction CreateNewChildObject()
     {
-      ComunicationNet.TagBitDataTable dt = ( (ComunicationNet)( m_Parent.Table.DataSet ) ).TagBit;
-      return new TagBitRowWrapper( dt.NewTagBitRow( m_Parent, String.Empty ) );
+      ComunicationNet.TagBitDataTable dt = ((ComunicationNet)(m_Parent.Table.DataSet)).TagBit;
+      return new TagBitRowWrapper(dt.NewTagBitRow(m_Parent, string.Empty));
     }
     /// <summary>
     /// Creates tagbit row in treeview
@@ -453,25 +381,25 @@ DescriptionAttribute( "AdditionalInfo from DataProvider" )
     public override void CreateNodes()
     {
       base.CreateNodes();
-      foreach ( ComunicationNet.TagBitRow curr in m_Parent.GetTagBitRows() )
-        if ( curr.RowState != DataRowState.Deleted )
+      foreach (ComunicationNet.TagBitRow curr in m_Parent.GetTagBitRows())
+        if (curr.RowState != DataRowState.Deleted)
         {
-          TagBitRowWrapper newWrapper = new TagBitRowWrapper( curr );
-          newWrapper.AddActionTreeNode( m_Node, 16, 16 );
+          TagBitRowWrapper newWrapper = new TagBitRowWrapper(curr);
+          newWrapper.AddActionTreeNode(m_Node, 16, 16);
         }
     }
     /// <summary>
     /// Pastes specified <see cref="TagBitRowWrapper"/> object under this wrapper
     /// </summary>
     /// <param name="objToPaste"><see cref="TagBitRowWrapper"/> object to be pasted</param>
-    public override void PasteChildObject( IAction objToPaste )
+    public override void PasteChildObject(IAction objToPaste)
     {
-      if ( ( objToPaste is TagBitRowWrapper ) )
+      if ((objToPaste is TagBitRowWrapper))
       {
         TagBitRowWrapper wrapperToPaste = objToPaste as TagBitRowWrapper;
         ComunicationNet.TagBitRow rowToPaste = wrapperToPaste.DataRow;
-        ComunicationNet.TagBitDataTable dt = ( (ComunicationNet)( m_Parent.Table.DataSet ) ).TagBit;
-        dt.NewTagBitRow( m_Parent, rowToPaste );
+        ComunicationNet.TagBitDataTable dt = ((ComunicationNet)(m_Parent.Table.DataSet)).TagBit;
+        dt.NewTagBitRow(m_Parent, rowToPaste);
       }
     }
     /// <summary>
@@ -479,13 +407,13 @@ DescriptionAttribute( "AdditionalInfo from DataProvider" )
     /// </summary>
     /// <param name="objToPaste">Object to check</param>
     /// <returns>True if specified object is <see cref="TagBitRowWrapper"/></returns>
-    public override bool CanBePastedAsChild( IAction objToPaste )
+    public override bool CanBePastedAsChild(IAction objToPaste)
     {
       Action<ComunicationNet.TagBitRow> cRTP = objToPaste as Action<ComunicationNet.TagBitRow>;
-      if ( cRTP == null )
+      if (cRTP == null)
         return false;
-      ComunicationNet.TagBitDataTable cTab = ( (ComunicationNet)m_Parent.Table.DataSet ).TagBit;
-      return !cTab.Contain( TagID, cRTP.DataRow.Name );
+      ComunicationNet.TagBitDataTable cTab = ((ComunicationNet)m_Parent.Table.DataSet).TagBit;
+      return !cTab.Contain(TagID, cRTP.DataRow.Name);
     }
     /// <summary>
     /// Checks if specified <see cref="IAction"/> object can be moved 
@@ -496,10 +424,10 @@ DescriptionAttribute( "AdditionalInfo from DataProvider" )
     /// Moves specified <see cref="TagsRowWrapper"/> object under this wrapper
     /// </summary>
     /// <param name="objToPaste"><see cref="TagsRowWrapper"/> object to be pasted</param>
-    public override void MoveChildObject( IAction objToPaste )
+    public override void MoveChildObject(IAction objToPaste)
     {
       TagBitRowWrapper wrapperToPaste = objToPaste as TagBitRowWrapper;
-      if ( wrapperToPaste == null )
+      if (wrapperToPaste == null)
         return;
       ComunicationNet.TagBitRow rowToPaste = wrapperToPaste.DataRow;
       rowToPaste.BeginEdit();
@@ -508,19 +436,20 @@ DescriptionAttribute( "AdditionalInfo from DataProvider" )
     }
     #endregion
     #endregion
+
     #region TypeConverter class
 
     /// <summary>
     /// This class is used in DataTypeConverter dropdown list 
     /// </summary>
-    private class OPCDataTypeConverter: StringConverter
+    private class OPCDataTypeConverter : StringConverter
     {
       /// <summary>
       /// Gets a value indicating whether this object supports a standard set of values that can be picked from a list. 
       /// </summary>
       /// <param name="context">An <see cref="ITypeDescriptorContext"/> that provides a format context. </param>
       /// <returns>Always returns <b>true</b> - means show a combobox </returns>
-      public override bool GetStandardValuesSupported( ITypeDescriptorContext context )
+      public override bool GetStandardValuesSupported(ITypeDescriptorContext context)
       {
         //true means show a combobox
         return true;
@@ -530,7 +459,7 @@ DescriptionAttribute( "AdditionalInfo from DataProvider" )
       /// </summary>
       /// <param name="context">An <see cref="ITypeDescriptorContext"/> that provides a format context. </param>
       /// <returns>Always returns <b>true</b> - means it limits to list</returns>
-      public override bool GetStandardValuesExclusive( ITypeDescriptorContext context )
+      public override bool GetStandardValuesExclusive(ITypeDescriptorContext context)
       {
         //true will limit to list. false will show the list, but allow free-form entry
         return false;
@@ -542,15 +471,16 @@ DescriptionAttribute( "AdditionalInfo from DataProvider" )
       /// <returns>A <see cref="TypeConverter.StandardValuesCollection"/>  that holds a standard set of valid values </returns>
       public override
           StandardValuesCollection
-          GetStandardValues( ITypeDescriptorContext context )
+          GetStandardValues(ITypeDescriptorContext context)
       {
-        IItemDefaultSettings contextsettigns=( (TagsRowWrapper)context.Instance ).DefaultSettings;
-        if ( contextsettigns != null )
-          return new StandardValuesCollection( contextsettigns.AvailiableTypes );
+        IItemDefaultSettings contextsettigns = ((TagsRowWrapper)context.Instance).DefaultSettings;
+        if (contextsettigns != null)
+          return new StandardValuesCollection(contextsettigns.AvailiableTypes);
         else
           return null;
       }
     }
     #endregion
+
   }
 }

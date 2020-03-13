@@ -48,7 +48,7 @@ namespace CAS.CommServer.ProtocolHub.MonitorInterface
     {
       while (true)
       {
-        System.Threading.Thread.Sleep(TimeSpan.FromSeconds(1));
+        Thread.Sleep(TimeSpan.FromSeconds(1));
         clock.ResetWatchDog(10);
         if (stateChangedEvnt != null)
           stateChangedEvnt();
@@ -91,13 +91,13 @@ namespace CAS.CommServer.ProtocolHub.MonitorInterface
     }
     static Metronom()
     {
-      clock = new CAS.Lib.RTLib.Processes.MonitoredThread
+      clock = new MonitoredThread
         (
         600,
-        "Metronom main scanner thread had to be timed out after 600s inactivity and cause system reboot",
+        "Metronome main scanner thread had to be timed out after 600s inactivity and cause system reboot",
         800,
         new System.Threading.ThreadStart(MonitoringMet),
-        "Metronom",
+        "Metronome",
         true,
         ThreadPriority.Normal
         );

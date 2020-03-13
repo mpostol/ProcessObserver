@@ -1,24 +1,16 @@
-//_______________________________________________________________
-//  Title   : ImportBlockCSV
-//  System  : Microsoft VisualStudio 2015 / C#
-//  $LastChangedDate$
-//  $Rev$
-//  $LastChangedBy$
-//  $URL$
-//  $Id$
+//___________________________________________________________________________________
 //
-//  Copyright (C) 2016, CAS LODZ POLAND.
-//  TEL: +48 (42) 686 25 47
-//  mailto://techsupp@cas.eu
-//  http://www.cas.eu
-//_______________________________________________________________
+//  Copyright (C) 2020, Mariusz Postol LODZ POLAND.
+//
+//  To be in touch join the community at GITTER: https://gitter.im/mpostol/OPC-UA-OOI
+//___________________________________________________________________________________
 
-using CAS.Lib.RTLib;
 using CAS.NetworkConfigLib;
-using CAS.Windows.Forms;
 using System;
 using System.ComponentModel;
 using System.Windows.Forms;
+using UAOOI.ProcessObserver.RealTime;
+using UAOOI.Windows.Forms;
 
 namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI.Import
 {
@@ -34,7 +26,7 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI.Import
     #endregion
 
     #region ImportBlockCSVInfo
-    internal class ImportBlockCSVInfo : CAS.Lib.ControlLibrary.ImportFileControll.ImportInfo
+    internal class ImportBlockCSVInfo : ImportFileControll.ImportInfo
     {
       public override string ImportName
       {

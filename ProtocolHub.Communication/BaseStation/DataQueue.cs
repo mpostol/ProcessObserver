@@ -1,33 +1,27 @@
-//_______________________________________________________________
-//  Title   : OPC server handling class
-//  System  : Microsoft VisualStudio 2015 / C#
-//  $LastChangedDate$
-//  $Rev$
-//  $LastChangedBy$
-//  $URL$
-//  $Id$
+//___________________________________________________________________________________
 //
-//  Copyright (C) 2016, CAS LODZ POLAND.
-//  TEL: +48 (42) 686 25 47
-//  mailto://techsupp@cas.eu
-//  http://www.cas.eu
-//_______________________________________________________________
+//  Copyright (C) 2020, Mariusz Postol LODZ POLAND.
+//
+//  To be in touch join the community at GITTER: https://gitter.im/mpostol/OPC-UA-OOI
+//___________________________________________________________________________________
 
 using CAS.Lib.CommonBus.ApplicationLayer;
-using CAS.Lib.RTLib;
-using CAS.Lib.RTLib.Processes;
 using CAS.NetworkConfigLib;
 using System;
 using System.Collections;
+using UAOOI.ProcessObserver.RealTime;
+using UAOOI.ProcessObserver.RealTime.Processes;
 using NetConfig = CAS.NetworkConfigLib.ComunicationNet;
 
 namespace CAS.CommServer.ProtocolHub.Communication.BaseStation
 {
+
   /// <summary>
   /// OPC tags data queue handling class.
   /// </summary>
   internal sealed class DataQueue : HandlerWaitTimeList<DataBlock>
   {
+
     #region PRIVATE
     private static DataQueue myDataQueue;
     protected override void Handler(DataBlock currDatBlock) { ((DataDescription)currDatBlock).InvalidateTag(); }
@@ -48,6 +42,7 @@ namespace CAS.CommServer.ProtocolHub.Communication.BaseStation
           #region PRIVATE
           private int BitNumber;
           #endregion PRIVATE
+
           #region PUBLIC
           //          public override void UpdateTag(object val)
           //          {
@@ -80,16 +75,19 @@ namespace CAS.CommServer.ProtocolHub.Communication.BaseStation
         /// </summary>
         private class DataWriteDescription : IBlockDescription
         {
+
           #region PRIVATE
           private int myAddress;
           private short myDataType;
           private IDataWrite writeToStation;
           #endregion PRIVATE
+          
           #region IBlockDescription
           int IBlockDescription.length { get { return 1; } }
           int IBlockDescription.startAddress { get { return myAddress; } }
           short IBlockDescription.dataType { get { return myDataType; } }
           #endregion
+
           #region PUBLIC
           internal bool WriteData(object data)
           {
@@ -108,12 +106,14 @@ namespace CAS.CommServer.ProtocolHub.Communication.BaseStation
             //this.myStation=0; //MZTD: ew. do zaimplementowania
           }
           #endregion
+
         }
         private DataWriteDescription myDWD = null;
         private bool writableTag = false;
         //MZ: Bit Tags:
         private System.Collections.ArrayList TagBitList;
         #endregion PRIVATE
+
         #region PUBLIC
         public override void UpdateTag(object val)
         {
@@ -194,6 +194,7 @@ namespace CAS.CommServer.ProtocolHub.Communication.BaseStation
             this.TagBitList = null;
         }
         #endregion
+
       }// Tag
       internal override void UpdateAllTags(IReadValue val)
       {
@@ -241,6 +242,7 @@ namespace CAS.CommServer.ProtocolHub.Communication.BaseStation
 
     }// class DataDescription
     #endregion
+
     #region INIT
     internal static void finalize()
     {
@@ -256,5 +258,7 @@ namespace CAS.CommServer.ProtocolHub.Communication.BaseStation
       myDataQueue = new DataQueue();
     }
     #endregion
+
   }//class DataQueue
+
 }//namespace BaseStation

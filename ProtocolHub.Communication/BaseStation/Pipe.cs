@@ -1,25 +1,17 @@
-//_______________________________________________________________
-//  Title   : Pipe description class
-//  System  : Microsoft VisualStudio 2015 / C#
-//  $LastChangedDate$
-//  $Rev$
-//  $LastChangedBy$
-//  $URL$
-//  $Id$
+//___________________________________________________________________________________
 //
-//  Copyright (C) 2016, CAS LODZ POLAND.
-//  TEL: +48 (42) 686 25 47
-//  mailto://techsupp@cas.eu
-//  http://www.cas.eu
-//_______________________________________________________________
+//  Copyright (C) 2020, Mariusz Postol LODZ POLAND.
+//
+//  To be in touch join the community at GITTER: https://gitter.im/mpostol/OPC-UA-OOI
+//___________________________________________________________________________________
 
 using CAS.CommServer.ProtocolHub.Communication.LicenseControl;
 using CAS.CommServer.ProtocolHub.MonitorInterface;
 using CAS.Lib.CommonBus.ApplicationLayer;
-using CAS.Lib.RTLib.Processes;
 using CAS.NetworkConfigLib;
 using System;
 using System.Collections;
+using UAOOI.ProcessObserver.RealTime.Processes;
 
 namespace CAS.CommServer.ProtocolHub.Communication.BaseStation
 {
@@ -104,18 +96,16 @@ namespace CAS.CommServer.ProtocolHub.Communication.BaseStation
       #region private
       private RetryFilter myRetries;
       private enum State { Ioff, Ion, Ihold };
-      readonly private Pipe myPipe;
+      private readonly Pipe myPipe;
       private State myInterfaceState = State.Ioff;
       private State interfaceState
       {
-        get { return myInterfaceState; }
-        set
-        {
-          myInterfaceState = value;
-        }
+        get => myInterfaceState;
+        set => myInterfaceState = value;
       }
+
       // lista wskaŸników do kolejki TO segmentu 
-      ArrayList myPipeDataBlockList = new ArrayList();
+      private ArrayList myPipeDataBlockList = new ArrayList();
       private void DataBlocksScanningOff()
       {
         foreach (PipeDataBlock curr in myPipeDataBlockList)
@@ -123,15 +113,15 @@ namespace CAS.CommServer.ProtocolHub.Communication.BaseStation
       }
       #endregion
       #region PUBLIC
-      internal protected override RetryFilter Retries { get { return myRetries; } }
+      protected internal override RetryFilter Retries => myRetries;
       /// <summary>
       ///  Title   : Pipe description class 
       /// </summary>
       internal class PipeDataBlock : WaitTimeList<PipeDataBlock>.TODescriptor
       {
         #region PRIVATE
-        readonly private DataQueue.DataDescription myData;
-        readonly private PipeInterface myInterface;
+        private readonly DataQueue.DataDescription myData;
+        private readonly PipeInterface myInterface;
         /// <summary>
         /// Event handler - marks new scannin time of datablock
         /// </summary>
@@ -143,21 +133,15 @@ namespace CAS.CommServer.ProtocolHub.Communication.BaseStation
         }
         #endregion
         #region PUBLIC
-        internal IBlockDescription GetBlockDescription
-        {
-          get { return myData; }
-        }
+        internal IBlockDescription GetBlockDescription => myData;
         internal void UpdateAllTags(IReadValue val)
         {
           myInterface.myRetries.MarkSuccess();
           myData.UpdateAllTags(val);
         }
-        internal ushort InterfaceAddr
-        {
-          get { return myInterface.address; }
-        }
-        internal byte GetRetries { get { return myInterface.Retries.Retry; } }
-        internal PipeInterface CoupledInterface { get { return myInterface; } }
+        internal ushort InterfaceAddr => myInterface.address;
+        internal byte GetRetries => myInterface.Retries.Retry;
+        internal PipeInterface CoupledInterface => myInterface;
         internal void MarkEndOfRWOperation()
         {
           myInterface.MarkEndOfRWOperation();

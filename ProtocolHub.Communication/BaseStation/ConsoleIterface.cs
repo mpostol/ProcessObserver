@@ -8,12 +8,12 @@
 using CAS.CommServer.ProtocolHub.Communication.Properties;
 using CAS.CommServer.ProtocolHub.MonitorInterface;
 using CAS.Lib.RTLib.Management;
-using CAS.Lib.RTLib.Processes;
 using System;
 using System.Collections.Generic;
 using System.Runtime.Remoting;
 using System.Runtime.Remoting.Channels;
 using System.Runtime.Remoting.Channels.Tcp;
+using UAOOI.ProcessObserver.RealTime.Processes;
 using static CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics;
 
 namespace CAS.CommServer.ProtocolHub.Communication.BaseStation
@@ -237,7 +237,7 @@ namespace CAS.CommServer.ProtocolHub.Communication.BaseStation
           EventLogMonitor.WriteToEventLog
             (
               String.Format(Resources.ConsoleInterface_ChannelRegistrationError, ex.Message),
-              EventLogEntryType.Error, (int)CAS.Lib.RTLib.Processes.Error.CommServer_CommServerComponent, 267
+              EventLogEntryType.Error, (int)Error.CommServer_CommServerComponent, 267
             );
         }
         //rejestracja OPCRealtimeDataAccess

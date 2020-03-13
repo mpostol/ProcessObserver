@@ -1,27 +1,16 @@
-//<summary>
-//  Title   : Adding new Station and Interface couple.
-//  System  : Microsoft Visual C# .NET 
-//  $LastChangedDate$
-//  $Rev$
-//  $LastChangedBy$
-//  $URL$
-//  $Id$
-//  History :
-//    20080905: mzbrzezny: this object is responsible for automatically assign interface number
-//    TSiwecki Created
+//___________________________________________________________________________________
 //
-//  Copyright (C)2008, CAS LODZ POLAND.
-//  TEL: +48 (42) 686 25 47
-//  mailto:techsupp@cas.eu
-//  http://www.cas.eu
-//</summary>
+//  Copyright (C) 2020, Mariusz Postol LODZ POLAND.
+//
+//  To be in touch join the community at GITTER: https://gitter.im/mpostol/OPC-UA-OOI
+//___________________________________________________________________________________
 
 using CAS.CommServer.ProtocolHub.ConfigurationEditor.Properties;
-using CAS.Lib.ControlLibrary;
 using CAS.NetworkConfigLib;
 using System;
 using System.Data;
 using System.Windows.Forms;
+using UAOOI.Windows.Forms;
 
 namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
 {

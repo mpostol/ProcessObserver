@@ -1,43 +1,16 @@
-// <summary>
-//  Title   : Config tree view for Network Config
-//  Author  : Mariusz Postol
-//  System  : Microsoft Visual C# .NET
-//  $LastChangedDate$
-//  $Rev$
-//  $LastChangedBy$
-//  $URL$
-//  $Id$
-//  History :
-//    20081203: mzbrzezny: ConfigTreeView: fixed: issue with save button, undoredomanager is switched off, database.accept, rejectchanges  functionality is used when enforce constrain fails
-//    20081105: mzbrzezny: ConfigTreeView: fixed: sometimes exception after cleanup after unfinished add operation is added
-//    20081007: mzbrzezny: cleanup after unfinished add operation is added
-//    20081006: mzbrzezny: constrains are turned off while trying to add new object. clicked object on tree is selected automaticly
-//    MPostol 15-03-2007:
-//      Wydzielilem plik designer, poniewa¿ znikala inicjacja zmiennej m_PNavigator, ale to nic nie dalo.
-//    Tomasz Siwecki 12.2006 - 2.2007
-//    implementation
-//    Mariusz Schabowski - 2006-09-20
-//    small changes 
-//    Mariusz Postol - 2006-09-19
-//    adapted to new view
-//    Mariusz Postol - 2004
-//    created
+//___________________________________________________________________________________
 //
-//  Copyright (C)2008, CAS LODZ POLAND.
-//  TEL: 42' 686 25 47
-//  mailto:techsupp@cas.eu
-//  http://www.cas.eu
-// </summary>
+//  Copyright (C) 2020, Mariusz Postol LODZ POLAND.
+//
+//  To be in touch join the community at GITTER: https://gitter.im/mpostol/OPC-UA-OOI
+//___________________________________________________________________________________
 
 using CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI.Exceptions;
 using CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI.Import;
 using CAS.CommServer.ProtocolHub.ConfigurationEditor.Properties;
 using CAS.Lib.CodeProtect;
 using CAS.Lib.CodeProtect.LicenseDsc;
-using CAS.Lib.ControlLibrary;
 using CAS.Lib.RTLib.Database;
-using CAS.Lib.RTLib.Processes;
-using CAS.Windows.Forms.CodeProtectControls;
 using System;
 using System.ComponentModel;
 using System.Data;
@@ -46,11 +19,14 @@ using System.IO;
 using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
+using UAOOI.ProcessObserver.RealTime.Processes;
+using UAOOI.Windows.Forms;
+using UAOOI.Windows.Forms.CodeProtectControls;
 
 namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
 {
   /// <summary>
-  /// Config tree view for Network Config
+  /// Configuration tree view for Network Configuration
   /// </summary>
   [LicenseProvider(typeof(CodeProtectLP))]
   [GuidAttribute("577750FC-CF14-406f-B367-41CE15563265")]
@@ -73,7 +49,7 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
       if (m_license != null)
         usr = m_license.User.Organization + "[" + m_license.User.Email + "]";
       Assembly cMyAss = Assembly.GetEntryAssembly();
-      using (AboutForm cAboutForm = new CAS.Lib.ControlLibrary.AboutForm(null, usr, cMyAss))
+      using (AboutForm cAboutForm = new AboutForm(null, usr, cMyAss))
       {
         cAboutForm.ShowDialog(this);
       }
@@ -277,7 +253,7 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
         }
     }
     #endregion
-    #region Add/Delate
+    #region Add/Delete
     private void add()
     {
       TreeNode tn = m_PNavigator.cn_TreeView.SelectedNode;
@@ -325,7 +301,7 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
             catch (Exception ex)
             {
               MessageBox.Show
-                ("I cannot add new object to the configuration becase: " + ex.Message,
+                ("I cannot add new object to the configuration because: " + ex.Message,
                 Resources.tx_configtreeview_error_messagebox_title, MessageBoxButtons.OK, MessageBoxIcon.Error);
               ok = false;
             }
@@ -338,7 +314,7 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
           catch (Exception ex)
           {
             MessageBox.Show
-              ("I cannot add new object to the configuration becase: " + ex.Message,
+              ("I cannot add new object to the configuration because: " + ex.Message,
               Resources.tx_configtreeview_error_messagebox_title, MessageBoxButtons.OK, MessageBoxIcon.Error);
             m_configDataBase.RejectChanges();
             m_configDataBase.EnforceConstraints = true;
@@ -847,7 +823,7 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
       if (m_license != null)
         usr = m_license.User.Organization + "[" + m_license.User.Email + "]";
       Assembly cMyAss = Assembly.GetEntryAssembly();
-      using (LicenseForm cAboutForm = new CAS.Lib.ControlLibrary.LicenseForm(null, usr, cMyAss))
+      using (LicenseForm cAboutForm = new LicenseForm(null, usr, cMyAss))
       {
         using (Licenses cLicDial = new Licenses())
         {

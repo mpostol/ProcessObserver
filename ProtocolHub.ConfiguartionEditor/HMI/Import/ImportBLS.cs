@@ -1,29 +1,18 @@
-//<summary>
-//  Title   : ImportBLS
-//  System  : Microsoft Visual C# .NET 2005
-//  $LastChangedDate$
-//  $Rev$
-//  $LastChangedBy$
-//  $URL$
-//  $Id$
-//  History :
-//  20081006 mzbrzezny: implementation of ItemAccessRights and StateTrigger
-//    2003: created
+//___________________________________________________________________________________
 //
-//  Copyright (C)2006, CAS LODZ POLAND.
-//  TEL: +48 (42) 686 25 47
-//  mailto:techsupp@cas.eu
-//  http://www.cas.eu
-//</summary>
+//  Copyright (C) 2020, Mariusz Postol LODZ POLAND.
+//
+//  To be in touch join the community at GITTER: https://gitter.im/mpostol/OPC-UA-OOI
+//___________________________________________________________________________________
 
-using CAS.Lib.RTLib;
 using CAS.NetworkConfigLib;
-using CAS.Windows.Forms;
 using System;
 using System.Collections;
 using System.ComponentModel;
 using System.IO;
 using System.Text.RegularExpressions;
+using UAOOI.ProcessObserver.RealTime;
+using UAOOI.Windows.Forms;
 
 namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI.Import
 {
@@ -33,14 +22,17 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI.Import
   internal class ImportBLS: ImportFunctionRootClass
   {
     internal enum PROTOCOL { SBUS, MODBUS };
+
     #region ImportBLSInfo
-    internal class ImportBLSInfo: CAS.Lib.ControlLibrary.ImportFileControll.ImportInfo
+    internal class ImportBLSInfo: ImportFileControll.ImportInfo
     {
+
       #region private
       uint tout2tscan = 10;
       uint tf2tn = 1;
       PROTOCOL m_protocol;
       #endregion
+
       public override string ImportName
       {
         get { return "Import BLS"; }
@@ -53,7 +45,7 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI.Import
         }
       }
       /// <summary>
-      /// deafult browse filter for the dialog which is used for selecting a file
+      /// default browse filter for the dialog which is used for selecting a file
       /// </summary>
       public override string BrowseFilter
       {
@@ -63,7 +55,7 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI.Import
         }
       }
       /// <summary>
-      /// deafult extension for the dialog which is used for selecting a file
+      /// default extension for the dialog which is used for selecting a file
       /// </summary>
       public override string DefaultExt
       {
@@ -132,11 +124,13 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI.Import
       }
     }
     #endregion
+
     #region private
     private CAS.NetworkConfigLib.ComunicationNet m_database;
     private ImportBLSInfo m_ImportBLSInfo;
     private int TagsAdded_number = 0;
     #endregion
+
     #region ImportFunctionRootClass
     protected override void DoTheImport()
     {
@@ -262,7 +256,8 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI.Import
       AppendToLog( "Number of Tags added: " + TagsAdded_number.ToString() );
     }
     #endregion
-    #region creator
+
+    #region constructor
     public ImportBLS( CAS.NetworkConfigLib.ComunicationNet database, System.Windows.Forms.Form parrent_form )
       :
       base( parrent_form )
@@ -272,6 +267,7 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI.Import
       SetImportInfo( m_ImportBLSInfo );
     }
     #endregion
+
     //enum that indicate the protocol type for conversion
     internal ArrayList DataBloksColl = new ArrayList(); //array to store read data
     /// <summary>

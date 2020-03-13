@@ -731,7 +731,7 @@ namespace CAS.CommServer.ProtocolHub.MonitorInterface
 
       void IUpdateInternalStatistics.UpdateInternal()
       {
-        myStat.ConnectTime = CAS.Lib.RTLib.Processes.Stopwatch.ConvertTo_s(connectTime.Read);
+        myStat.ConnectTime = Stopwatch.ConvertTo_s(connectTime.Read);
       }
 
       #endregion

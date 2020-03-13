@@ -139,27 +139,19 @@ namespace BaseStation
 }
 #endif
 #if COMMSERVER
-//_______________________________________________________________
-//  Title   : Segment implementation.
-//  System  : Microsoft VisualStudio 2015 / C#
-//  $LastChangedDate$
-//  $Rev$
-//  $LastChangedBy$
-//  $URL$
-//  $Id$
+//___________________________________________________________________________________
 //
-//  Copyright (C) 2016, CAS LODZ POLAND.
-//  TEL: +48 (42) 686 25 47
-//  mailto://techsupp@cas.eu
-//  http://www.cas.eu
-//_______________________________________________________________
+//  Copyright (C) 2020, Mariusz Postol LODZ POLAND.
+//
+//  To be in touch join the community at GITTER: https://gitter.im/mpostol/OPC-UA-OOI
+//___________________________________________________________________________________
 
 using CAS.CommServer.ProtocolHub.Communication.LicenseControl;
 using CAS.CommServer.ProtocolHub.MonitorInterface;
 using CAS.Lib.CommonBus.ApplicationLayer;
-using CAS.Lib.RTLib.Processes;
 using CAS.NetworkConfigLib;
 using System;
+using UAOOI.ProcessObserver.RealTime.Processes;
 using InterfacesRowDSC = CAS.NetworkConfigLib.ComunicationNet.InterfacesRow;
 using SegmentsRowDSC = CAS.NetworkConfigLib.ComunicationNet.SegmentsRow;
 
@@ -178,6 +170,7 @@ namespace CAS.CommServer.ProtocolHub.Communication.BaseStation
     /// </summary>
     private sealed class SegmentInterface : Pipe.PipeInterface
     {
+
       #region private
       private Segment mySegment;
       private void myStateMachine_DisconnectedAfterFailureEntered(object sender, EventArgs e)
@@ -185,6 +178,7 @@ namespace CAS.CommServer.ProtocolHub.Communication.BaseStation
         this.SwitchIOffAfterFailure();
       }
       #endregion
+
       #region internal
       /// <summary>
       /// Writes the data.
@@ -192,7 +186,7 @@ namespace CAS.CommServer.ProtocolHub.Communication.BaseStation
       /// <param name="data">The data.</param>
       /// <param name="dataAddress">The data address.</param>
       /// <returns></returns>
-      internal protected override bool WriteData(object data, IBlockDescription dataAddress)
+      protected internal override bool WriteData(object data, IBlockDescription dataAddress)
       {
         return mySegment.WriteData(data, dataAddress, this);
       }
@@ -202,11 +196,12 @@ namespace CAS.CommServer.ProtocolHub.Communication.BaseStation
       /// <param name="data">The data.</param>
       /// <param name="dataAddress">The data address.</param>
       /// <returns></returns>
-      internal protected override bool ReadData(out object data, IBlockDescription dataAddress)
+      protected internal override bool ReadData(out object data, IBlockDescription dataAddress)
       {
         return mySegment.ReadData(out data, dataAddress, this);
       }
       #endregion
+
       #region creator
       /// <summary>
       /// Initializes a new instance of the <see cref="SegmentInterface"/> class.
@@ -227,9 +222,11 @@ namespace CAS.CommServer.ProtocolHub.Communication.BaseStation
         CommServerComponent.Tracer.TraceVerbose(240, m_Src, "Port: " + interfaceParameters.Name + " has been created");
       }
       #endregion
+
     }
     private sealed class SegmentWaitTimeList : HandlerWaitTimeList<SegmentInterface.PipeDataBlock>
     {
+
       #region private
       private Segment mySegment;
       private void AddInterfaces(InterfacesRowDSC[] interfaceList, byte defRetries)
@@ -241,7 +238,7 @@ namespace CAS.CommServer.ProtocolHub.Communication.BaseStation
           if (currSt != null)
             try
             {
-              var si = new SegmentInterface(new InterfaceParameters(currRow), currSt, this, mySegment, defRetries);
+              SegmentInterface si = new SegmentInterface(new InterfaceParameters(currRow), currSt, this, mySegment, defRetries);
               si.ResetCounter();
             }
             catch (System.ComponentModel.LicenseException ex)
@@ -251,6 +248,7 @@ namespace CAS.CommServer.ProtocolHub.Communication.BaseStation
         }
       }
       #endregion
+
       #region HandlerWaitTimeList implementation
       /// <summary>
       /// Handlers the specified list item.
@@ -261,7 +259,7 @@ namespace CAS.CommServer.ProtocolHub.Communication.BaseStation
         mySegment.ReadData(listItem);
       }
       /// <summary>
-      /// New values of the overtime coefficient. Event handler invocekd every time new values are available.
+      /// New values of the overtime coefficient. Event handler triggered every time new values are available.
       /// </summary>
       /// <param name="min">The min.</param>
       /// <param name="max">The max.</param>
@@ -271,6 +269,7 @@ namespace CAS.CommServer.ProtocolHub.Communication.BaseStation
         mySegment.myStatistics.SetOvertimeCoefficient(min, max, average);
       }
       #endregion
+
       #region creator
       /// <summary>
       /// Initializes a new instance of the <see cref="SegmentWaitTimeList"/> class.
@@ -286,10 +285,11 @@ namespace CAS.CommServer.ProtocolHub.Communication.BaseStation
         AddInterfaces(interfacesList, retries);
       }
       #endregion
+
     }//SegmentWaitTimeList
 
     private ISegmentStatistics myStatistics;
-    private SegmentWaitTimeList dataQueue;
+    private readonly SegmentWaitTimeList dataQueue;
     private void PickUpHandler() { }
 
     #endregion
