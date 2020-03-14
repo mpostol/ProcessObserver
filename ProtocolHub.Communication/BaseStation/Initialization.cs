@@ -15,6 +15,7 @@
 
 using BaseStation.ItemDescriber;
 using CAS.CommServer.ProtocolHub.Communication.NetworkConfig;
+using CAS.CommServer.ProtocolHub.MonitorInterface;
 using System;
 
 namespace CAS.CommServer.ProtocolHub.Communication.BaseStation
@@ -38,7 +39,7 @@ namespace CAS.CommServer.ProtocolHub.Communication.BaseStation
     /// <param name="demoVer">true if there is no valid license, false otherwise</param>
     /// <param name="valueConstrain">Number of item I can instantiate according of the license. �1 if unlimited. Valid if cDemoVer is false.</param>
     /// <param name="configurationFileName">Name of the configuration file.</param>
-    internal static void InitializeServer(CommServerComponent parent, bool demoVer, ref int valueConstrain, string configurationFileName)
+    internal static void InitializeServer(CommServerComponent parent, bool demoVer, ref int valueConstrain, string configurationFileName, ISettingsBase settings)
     {
       ProtocolHubConfiguration xml = new ProtocolHubConfiguration(configurationFileName, true);
       try
@@ -51,7 +52,7 @@ namespace CAS.CommServer.ProtocolHub.Communication.BaseStation
       }
       //CAS.OpcSvr.Da.NETServer.Initialization.InitComponent();
       Station.InitStations(xml.configuration.Station, ref valueConstrain);
-      Channel.InitializeChannels(xml.configuration.Channels, parent, demoVer);
+      Channel.InitializeChannels(xml.configuration.Channels, parent, demoVer, settings);
       Station.SwitchOnDataScanning();
     }
     internal static void Finalise()

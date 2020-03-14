@@ -1,26 +1,9 @@
-//<summary>
-//  Title   : Configuration Management
-//  System  : Microsoft Visual C# .NET 
-//  $LastChangedDate$
-//  $Rev$
-//  $LastChangedBy$
-//  $URL$
-//  $Id$
-//  History :
-//    20081203: mzbrzezny: undoredomanager is switched off
-//    20081022: mzbrzezny: modification to clear function
-//    Tomek Siwecki - 2007-2-19
-//    Refomated and some code changes
-//    Mariusz Postol - 2006-10-19
-//      reformated
-//    Maciej Zbrzezny - 2006-09-19
-//    created
+//___________________________________________________________________________________
 //
-//  Copyright (C)2008, CAS LODZ POLAND.
-//  TEL: +48 (42) 686 25 47
-//  mailto:techsupp@cas.eu
-//  http://www.cas.eu
-//</summary>
+//  Copyright (C) 2020, Mariusz Postol LODZ POLAND.
+//
+//  To be in touch join the community at GITTER: https://gitter.im/mpostol/OPC-UA-OOI
+//___________________________________________________________________________________
 
 using CAS.CommServer.ProtocolHub.ConfigurationEditor.Properties;
 using CAS.Lib.RTLib.Database;

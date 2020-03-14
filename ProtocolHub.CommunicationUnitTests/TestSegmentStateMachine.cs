@@ -1,17 +1,9 @@
-//_______________________________________________________________
-//  Title   : Name of Application
-//  System  : Microsoft VisualStudio 2015 / C#
-//  $LastChangedDate$
-//  $Rev$
-//  $LastChangedBy$
-//  $URL$
-//  $Id$
+//___________________________________________________________________________________
 //
-//  Copyright (C) 2016, CAS LODZ POLAND.
-//  TEL: +48 (42) 686 25 47
-//  mailto://techsupp@cas.eu
-//  http://www.cas.eu
-//_______________________________________________________________
+//  Copyright (C) 2020, Mariusz Postol LODZ POLAND.
+//
+//  To be in touch join the community at GITTER: https://gitter.im/mpostol/OPC-UA-OOI
+//___________________________________________________________________________________
 
 #pragma warning disable 1591
 
@@ -20,17 +12,18 @@ using CAS.CommServer.ProtocolHub.Communication.BaseStation;
 using CAS.CommServer.ProtocolHub.CommunicationUnitTests.Instrumentation;
 using CAS.CommServer.ProtocolHub.MonitorInterface;
 using CAS.Lib.CommonBus.ApplicationLayer;
-using CAS.Lib.RTLib.Processes;
 using CAS.NetworkConfigLib;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Diagnostics;
 using System.IO;
 using System.Threading;
+using UAOOI.ProcessObserver.RealTime.Processes;
 using DiagnosticSegment = CAS.CommServer.ProtocolHub.Communication.Diagnostic.Segment;
 
 namespace CAS.CommServer.ProtocolHub.CommunicationUnitTests
 {
+
   [TestClass]
   [DeploymentItem("DefaultConfig.xml")]
   public class TestSegmentStateMachine

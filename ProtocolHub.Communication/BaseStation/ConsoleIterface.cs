@@ -1,27 +1,19 @@
-//<summary>
-//  Title   : ConsoleIterface
-//  System  : Microsoft Visual C# .NET 2005
-//  $LastChangedDate$
-//  $Rev$
-//  $LastChangedBy$
-//  $URL$
-//  $Id$
+//___________________________________________________________________________________
 //
-//  Copyright (C)2006, CAS LODZ POLAND.
-//  TEL: +48 (42) 686 25 47
-//  mailto:techsupp@cas.eu
-//  http://www.cas.eu
-//</summary>
+//  Copyright (C) 2020, Mariusz Postol LODZ POLAND.
+//
+//  To be in touch join the community at GITTER: https://gitter.im/mpostol/OPC-UA-OOI
+//___________________________________________________________________________________
 
 using CAS.CommServer.ProtocolHub.Communication.Properties;
 using CAS.CommServer.ProtocolHub.MonitorInterface;
 using CAS.Lib.RTLib.Management;
-using CAS.Lib.RTLib.Processes;
 using System;
 using System.Collections.Generic;
 using System.Runtime.Remoting;
 using System.Runtime.Remoting.Channels;
 using System.Runtime.Remoting.Channels.Tcp;
+using UAOOI.ProcessObserver.RealTime.Processes;
 using static CAS.CommServer.ProtocolHub.MonitorInterface.Statistics.InterfaceStatistics;
 
 namespace CAS.CommServer.ProtocolHub.Communication.BaseStation
@@ -33,31 +25,17 @@ namespace CAS.CommServer.ProtocolHub.Communication.BaseStation
   {
     private class StatisticAndIUpdatePair<StatT>
     {
-      private StatT statT;
-      private IUpdateInternalStatistics m_UpdateObject;
       internal StatisticAndIUpdatePair(StatT StatisticsObject, IUpdateInternalStatistics IUpdateInternalStatisticsObject)
       {
-        statT = StatisticsObject;
-        m_UpdateObject = IUpdateInternalStatisticsObject;
+        this.StatisticsObject = StatisticsObject;
+        this.IUpdateInternalStatisticsObject = IUpdateInternalStatisticsObject;
       }
-      internal StatT StatisticsObject
-      {
-        get
-        {
-          return statT;
-        }
-      }
-      internal IUpdateInternalStatistics IUpdateInternalStatisticsObject
-      {
-        get
-        {
-          return m_UpdateObject;
-        }
-      }
+      internal StatT StatisticsObject { get; }
+      internal IUpdateInternalStatistics IUpdateInternalStatisticsObject { get; }
       internal StatT GetStatisticsObjectUpdated()
       {
-        m_UpdateObject.UpdateInternal();
-        return statT;
+        IUpdateInternalStatisticsObject.UpdateInternal();
+        return StatisticsObject;
       }
     }
     private static SortedList<long, Statistics.StationStatistics.StationStatisticsInternal> stationlist;
@@ -127,8 +105,6 @@ namespace CAS.CommServer.ProtocolHub.Communication.BaseStation
           listStationStates[element.Key] = myValue;
       }
       return listStationStates;
-
-
     }
     /// <summary>
     /// Gets the station list.
@@ -261,7 +237,7 @@ namespace CAS.CommServer.ProtocolHub.Communication.BaseStation
           EventLogMonitor.WriteToEventLog
             (
               String.Format(Resources.ConsoleInterface_ChannelRegistrationError, ex.Message),
-              System.Diagnostics.EventLogEntryType.Error, (int)CAS.Lib.RTLib.Processes.Error.CommServer_CommServerComponent, 267
+              EventLogEntryType.Error, (int)Error.CommServer_CommServerComponent, 267
             );
         }
         //rejestracja OPCRealtimeDataAccess

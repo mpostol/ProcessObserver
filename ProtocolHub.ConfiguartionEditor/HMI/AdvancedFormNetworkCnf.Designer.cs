@@ -1,27 +1,18 @@
-//_______________________________________________________________
-//  Title   : AdvancedFormNetworkConfig
-//  System  : Microsoft VisualStudio 2015 / C#
-//  $LastChangedDate$
-//  $Rev$
-//  $LastChangedBy$
-//  $URL$
-//  $Id$
+//___________________________________________________________________________________
 //
-//  Copyright (C) 2016, CAS LODZ POLAND.
-//  TEL: +48 (42) 686 25 47
-//  mailto://techsupp@cas.eu
-//  http://www.cas.eu
-//_______________________________________________________________
-
+//  Copyright (C) 2020, Mariusz Postol LODZ POLAND.
+//
+//  To be in touch join the community at GITTER: https://gitter.im/mpostol/OPC-UA-OOI
+//___________________________________________________________________________________
 
 using CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI.Import;
 using CAS.NetworkConfigLib;
-using CAS.Windows.Forms;
 using System;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
+using UAOOI.Windows.Forms;
 
 namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
 {
@@ -174,25 +165,25 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
       // Required for Windows Form Designer support
       //
       InitializeComponent();
-      InitConfigDataBase( true );
+      InitConfigDataBase(true);
       InitializeAdvanceComponent();
     }
     /// <summary>
     /// Clean up any resources being used.
     /// </summary>
-    protected override void Dispose( bool disposing )
+    protected override void Dispose(bool disposing)
     {
-      if ( disposing )
+      if (disposing)
       {
-        if ( components != null )
+        if (components != null)
         {
           components.Dispose();
         }
       }
-      base.Dispose( disposing );
+      base.Dispose(disposing);
     }
     #region ComboBoxColumn
-    internal class DataGridComboBoxColumn: DataGridTextBoxColumn
+    internal class DataGridComboBoxColumn : DataGridTextBoxColumn
     {
       // Hosted combobox control
       private ComboBox comboBox;
@@ -210,7 +201,7 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
         this.comboBox.DropDownStyle = ComboBoxStyle.DropDownList;
 
         // Add event handler for notification when combobox loses focus
-        this.comboBox.Leave += new EventHandler( comboBox_Leave );
+        this.comboBox.Leave += new EventHandler(comboBox_Leave);
       }
       // Property to provide access to combobox 
       public ComboBox ComboBox
@@ -219,14 +210,14 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
       }
 
       // On edit, add scroll event handler, and display combobox
-      protected override void Edit( System.Windows.Forms.CurrencyManager
+      protected override void Edit(System.Windows.Forms.CurrencyManager
           source, int rowNum, System.Drawing.Rectangle bounds, bool readOnly,
-          string instantText, bool cellIsVisible )
+          string instantText, bool cellIsVisible)
       {
-        base.Edit( source, rowNum, bounds, readOnly, instantText,
-            cellIsVisible );
+        base.Edit(source, rowNum, bounds, readOnly, instantText,
+            cellIsVisible);
 
-        if ( !readOnly && cellIsVisible )
+        if (!readOnly && cellIsVisible)
         {
           // Save current row in the DataGrid and currency manager 
           // associated with the data source for the DataGrid
@@ -235,7 +226,7 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
 
           // Add event handler for DataGrid scroll notification
           this.DataGridTableStyle.DataGrid.Scroll
-              += new EventHandler( DataGrid_Scroll );
+              += new EventHandler(DataGrid_Scroll);
 
           // Site the combobox control within the current cell
           this.comboBox.Parent = this.TextBox.Parent;
@@ -243,12 +234,12 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
               this.DataGridTableStyle.DataGrid.GetCurrentCellBounds();
           this.comboBox.Location = rect.Location;
           this.comboBox.Size =
-              new Size( this.TextBox.Size.Width,
-              this.comboBox.Size.Height );
+              new Size(this.TextBox.Size.Width,
+              this.comboBox.Size.Height);
 
           // Set combobox selection to given text
           this.comboBox.SelectedIndex =
-              this.comboBox.FindStringExact( this.TextBox.Text );
+              this.comboBox.FindStringExact(this.TextBox.Text);
 
           // Make the combobox visible and place on top textbox control
           this.comboBox.Show();
@@ -261,94 +252,94 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
       // value member to find the associated display member by iterating 
       // over bound data source
       protected override object
-          GetColumnValueAtRow( System.Windows.Forms.CurrencyManager source,
-          int rowNum )
+          GetColumnValueAtRow(System.Windows.Forms.CurrencyManager source,
+          int rowNum)
       {
         // Given a row number in the DataGrid, get the display member
-        object obj = base.GetColumnValueAtRow( source, rowNum );
+        object obj = base.GetColumnValueAtRow(source, rowNum);
 
         // Iterate through the data source bound to the ColumnComboBox
         CurrencyManager cm = (CurrencyManager)
-            ( this.DataGridTableStyle.DataGrid.BindingContext[ this.comboBox.DataSource ] );
+            (this.DataGridTableStyle.DataGrid.BindingContext[this.comboBox.DataSource]);
         // Assumes the associated DataGrid is bound to a DataView or 
         // DataTable 
-        DataView dataview = ( (DataView)cm.List );
+        DataView dataview = ((DataView)cm.List);
 
         int i;
 
-        for ( i = 0; i < dataview.Count; i++ )
+        for (i = 0; i < dataview.Count; i++)
         {
-          if ( obj.Equals( dataview[ i ][ this.comboBox.ValueMember ] ) )
+          if (obj.Equals(dataview[i][this.comboBox.ValueMember]))
             break;
         }
 
-        if ( i < dataview.Count )
-          return dataview[ i ][ this.comboBox.DisplayMember ];
+        if (i < dataview.Count)
+          return dataview[i][this.comboBox.DisplayMember];
 
         return DBNull.Value;
       }
       // Given a row and a display member, iterate over bound data source to 
       // find the associated value member.  Set this value member.
       protected override void
-          SetColumnValueAtRow( System.Windows.Forms.CurrencyManager source,
-          int rowNum, object value )
+          SetColumnValueAtRow(System.Windows.Forms.CurrencyManager source,
+          int rowNum, object value)
       {
         object s = value;
 
         // Iterate through the data source bound to the ColumnComboBox
         CurrencyManager cm = (CurrencyManager)
-            ( this.DataGridTableStyle.DataGrid.BindingContext[ this.comboBox.DataSource ] );
+            (this.DataGridTableStyle.DataGrid.BindingContext[this.comboBox.DataSource]);
         // Assumes the associated DataGrid is bound to a DataView or 
         // DataTable 
-        DataView dataview = ( (DataView)cm.List );
+        DataView dataview = ((DataView)cm.List);
         int i;
 
-        for ( i = 0; i < dataview.Count; i++ )
+        for (i = 0; i < dataview.Count; i++)
         {
-          if ( s.Equals( dataview[ i ][ this.comboBox.DisplayMember ] ) )
+          if (s.Equals(dataview[i][this.comboBox.DisplayMember]))
             break;
         }
 
         // If set item was found return corresponding value, 
         // otherwise return DbNull.Value
-        if ( i < dataview.Count )
-          s = dataview[ i ][ this.comboBox.ValueMember ];
+        if (i < dataview.Count)
+          s = dataview[i][this.comboBox.ValueMember];
         else
           s = DBNull.Value;
 
         int oldpos = source.Position;
-        if ( source.Position != rowNum )
+        if (source.Position != rowNum)
         {
           source.Position = rowNum;
         }
-        base.SetColumnValueAtRow( source, rowNum, s );
-        if ( source.Position != oldpos )
+        base.SetColumnValueAtRow(source, rowNum, s);
+        if (source.Position != oldpos)
         {
           source.Position = oldpos;
         }
       }
       // On DataGrid scroll, hide the combobox
-      private void DataGrid_Scroll( object sender, EventArgs e )
+      private void DataGrid_Scroll(object sender, EventArgs e)
       {
         this.comboBox.Hide();
       }
       // On combobox losing focus, set the column value, hide the combobox,
       // and unregister scroll event handler
-      private void comboBox_Leave( object sender, EventArgs e )
+      private void comboBox_Leave(object sender, EventArgs e)
       {
         DataRowView rowView = (DataRowView)this.comboBox.SelectedItem;
         //try
-        if ( this.comboBox.SelectedValue != null )
+        if (this.comboBox.SelectedValue != null)
         {
-          object s = rowView.Row[ this.comboBox.DisplayMember ];
+          object s = rowView.Row[this.comboBox.DisplayMember];
 
           int oldpos = this.cm.Position;
-          if ( this.cm.Position != this.iCurrentRow )
+          if (this.cm.Position != this.iCurrentRow)
           {
             this.cm.Position = this.iCurrentRow;
           }
-          SetColumnValueAtRow( this.cm, this.iCurrentRow, s );
-          if ( this.cm.Position != oldpos )
+          SetColumnValueAtRow(this.cm, this.iCurrentRow, s);
+          if (this.cm.Position != oldpos)
           {
             this.cm.Position = oldpos;
           }
@@ -362,7 +353,7 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
         }*/
         this.comboBox.Hide();
         this.DataGridTableStyle.DataGrid.Scroll -=
-            new EventHandler( DataGrid_Scroll );
+            new EventHandler(DataGrid_Scroll);
       }
     }
 
@@ -566,7 +557,7 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
       this.Protocols_MaxNumberColumn = new System.Windows.Forms.DataGridTextBoxColumn();
       this.Protocols_ProtocolTypeColumn = new CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI.AdvancedFormNetworkConfig.DataGridComboBoxColumn();
       this.dataGridChannels = new System.Windows.Forms.DataGrid();
-      this.channelsBindingSource = new System.Windows.Forms.BindingSource( this.components );
+      this.channelsBindingSource = new System.Windows.Forms.BindingSource(this.components);
       this.tabPageCommStruc = new System.Windows.Forms.TabPage();
       this.tableLayoutPanel3 = new System.Windows.Forms.TableLayoutPanel();
       this.dataGrid3 = new System.Windows.Forms.DataGrid();
@@ -620,7 +611,7 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
       this.openFileDialogXMLFile = new System.Windows.Forms.OpenFileDialog();
       this.saveXMLFileDialog = new System.Windows.Forms.SaveFileDialog();
       this.eventLog1 = new System.Diagnostics.EventLog();
-      this.mainMenu1 = new System.Windows.Forms.MainMenu( this.components );
+      this.mainMenu1 = new System.Windows.Forms.MainMenu(this.components);
       this.menuFile = new System.Windows.Forms.MenuItem();
       this.menuFile_Open = new System.Windows.Forms.MenuItem();
       this.menuFile_Clear_All = new System.Windows.Forms.MenuItem();
@@ -638,104 +629,104 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
       this.menuItem10 = new System.Windows.Forms.MenuItem();
       this.menuItemMODBUS_bls = new System.Windows.Forms.MenuItem();
       this.menuItemTags_for_Simulation = new System.Windows.Forms.MenuItem();
-      this.protocolsBindingSource = new System.Windows.Forms.BindingSource( this.components );
-      this.protocolBindingSource = new System.Windows.Forms.BindingSource( this.components );
-      this.comunicationNetBindingSource = new System.Windows.Forms.BindingSource( this.components );
-      this.dataBlocksBindingSource = new System.Windows.Forms.BindingSource( this.components );
+      this.protocolsBindingSource = new System.Windows.Forms.BindingSource(this.components);
+      this.protocolBindingSource = new System.Windows.Forms.BindingSource(this.components);
+      this.comunicationNetBindingSource = new System.Windows.Forms.BindingSource(this.components);
+      this.dataBlocksBindingSource = new System.Windows.Forms.BindingSource(this.components);
       this.dataGridTextBoxColumn1 = new System.Windows.Forms.DataGridTextBoxColumn();
       this.TabNetworkStructure.SuspendLayout();
       this.tabPageProtocol.SuspendLayout();
       this.tableLayoutPanel1.SuspendLayout();
-      ( (System.ComponentModel.ISupportInitialize)( this.dataGridSerial ) ).BeginInit();
-      ( (System.ComponentModel.ISupportInitialize)( this.dataGridProtocol ) ).BeginInit();
-      ( (System.ComponentModel.ISupportInitialize)( this.dataGridChannels ) ).BeginInit();
-      ( (System.ComponentModel.ISupportInitialize)( this.channelsBindingSource ) ).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.dataGridSerial)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.dataGridProtocol)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.dataGridChannels)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.channelsBindingSource)).BeginInit();
       this.tabPageCommStruc.SuspendLayout();
       this.tableLayoutPanel3.SuspendLayout();
-      ( (System.ComponentModel.ISupportInitialize)( this.dataGrid3 ) ).BeginInit();
-      ( (System.ComponentModel.ISupportInitialize)( this.dataGrid2 ) ).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.dataGrid3)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.dataGrid2)).BeginInit();
       this.tableLayoutPanel4.SuspendLayout();
-      ( (System.ComponentModel.ISupportInitialize)( this.dataGrid8 ) ).BeginInit();
-      ( (System.ComponentModel.ISupportInitialize)( this.dataGrid1 ) ).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.dataGrid8)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.dataGrid1)).BeginInit();
       this.tabData.SuspendLayout();
       this.tableLayoutPanel2.SuspendLayout();
-      ( (System.ComponentModel.ISupportInitialize)( this.dataGrid_datablocks ) ).BeginInit();
-      ( (System.ComponentModel.ISupportInitialize)( this.dataGrid_Groups ) ).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.dataGrid_datablocks)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.dataGrid_Groups)).BeginInit();
       this.tabData2.SuspendLayout();
       this.tableLayoutPanel5.SuspendLayout();
-      ( (System.ComponentModel.ISupportInitialize)( this.dataGrid_tagbits ) ).BeginInit();
-      ( (System.ComponentModel.ISupportInitialize)( this.dataGrid_tags ) ).BeginInit();
-      ( (System.ComponentModel.ISupportInitialize)( this.eventLog1 ) ).BeginInit();
-      ( (System.ComponentModel.ISupportInitialize)( this.protocolsBindingSource ) ).BeginInit();
-      ( (System.ComponentModel.ISupportInitialize)( this.protocolBindingSource ) ).BeginInit();
-      ( (System.ComponentModel.ISupportInitialize)( this.comunicationNetBindingSource ) ).BeginInit();
-      ( (System.ComponentModel.ISupportInitialize)( this.dataBlocksBindingSource ) ).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.dataGrid_tagbits)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.dataGrid_tags)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.eventLog1)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.protocolsBindingSource)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.protocolBindingSource)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.comunicationNetBindingSource)).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.dataBlocksBindingSource)).BeginInit();
       this.SuspendLayout();
       // 
       // TabNetworkStructure
       // 
-      this.TabNetworkStructure.Anchor = ( (System.Windows.Forms.AnchorStyles)( ( ( ( System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom )
-                  | System.Windows.Forms.AnchorStyles.Left )
-                  | System.Windows.Forms.AnchorStyles.Right ) ) );
-      this.TabNetworkStructure.Controls.Add( this.tabPageProtocol );
-      this.TabNetworkStructure.Controls.Add( this.tabPageCommStruc );
-      this.TabNetworkStructure.Controls.Add( this.tabData );
-      this.TabNetworkStructure.Controls.Add( this.tabData2 );
-      this.TabNetworkStructure.Location = new System.Drawing.Point( 12, 8 );
+      this.TabNetworkStructure.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                  | System.Windows.Forms.AnchorStyles.Left)
+                  | System.Windows.Forms.AnchorStyles.Right)));
+      this.TabNetworkStructure.Controls.Add(this.tabPageProtocol);
+      this.TabNetworkStructure.Controls.Add(this.tabPageCommStruc);
+      this.TabNetworkStructure.Controls.Add(this.tabData);
+      this.TabNetworkStructure.Controls.Add(this.tabData2);
+      this.TabNetworkStructure.Location = new System.Drawing.Point(12, 8);
       this.TabNetworkStructure.Name = "TabNetworkStructure";
       this.TabNetworkStructure.SelectedIndex = 0;
       this.TabNetworkStructure.ShowToolTips = true;
-      this.TabNetworkStructure.Size = new System.Drawing.Size( 903, 253 );
+      this.TabNetworkStructure.Size = new System.Drawing.Size(903, 253);
       this.TabNetworkStructure.TabIndex = 8;
       // 
       // tabPageProtocol
       // 
-      this.tabPageProtocol.Controls.Add( this.tableLayoutPanel1 );
-      this.tabPageProtocol.Location = new System.Drawing.Point( 4, 22 );
+      this.tabPageProtocol.Controls.Add(this.tableLayoutPanel1);
+      this.tabPageProtocol.Location = new System.Drawing.Point(4, 22);
       this.tabPageProtocol.Name = "tabPageProtocol";
-      this.tabPageProtocol.Size = new System.Drawing.Size( 895, 227 );
+      this.tabPageProtocol.Size = new System.Drawing.Size(895, 227);
       this.tabPageProtocol.TabIndex = 2;
       this.tabPageProtocol.Text = "Protocols";
       // 
       // tableLayoutPanel1
       // 
-      this.tableLayoutPanel1.Anchor = ( (System.Windows.Forms.AnchorStyles)( ( ( ( System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom )
-                  | System.Windows.Forms.AnchorStyles.Left )
-                  | System.Windows.Forms.AnchorStyles.Right ) ) );
+      this.tableLayoutPanel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                  | System.Windows.Forms.AnchorStyles.Left)
+                  | System.Windows.Forms.AnchorStyles.Right)));
       this.tableLayoutPanel1.ColumnCount = 1;
-      this.tableLayoutPanel1.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 100F ) );
-      this.tableLayoutPanel1.Controls.Add( this.dataGridSerial, 0, 2 );
-      this.tableLayoutPanel1.Controls.Add( this.dataGridProtocol, 0, 1 );
-      this.tableLayoutPanel1.Controls.Add( this.dataGridChannels, 0, 0 );
-      this.tableLayoutPanel1.Location = new System.Drawing.Point( 3, 3 );
+      this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+      this.tableLayoutPanel1.Controls.Add(this.dataGridSerial, 0, 2);
+      this.tableLayoutPanel1.Controls.Add(this.dataGridProtocol, 0, 1);
+      this.tableLayoutPanel1.Controls.Add(this.dataGridChannels, 0, 0);
+      this.tableLayoutPanel1.Location = new System.Drawing.Point(3, 3);
       this.tableLayoutPanel1.Name = "tableLayoutPanel1";
       this.tableLayoutPanel1.RowCount = 3;
-      this.tableLayoutPanel1.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 33F ) );
-      this.tableLayoutPanel1.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 33F ) );
-      this.tableLayoutPanel1.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 34F ) );
-      this.tableLayoutPanel1.Size = new System.Drawing.Size( 889, 221 );
+      this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33F));
+      this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33F));
+      this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 34F));
+      this.tableLayoutPanel1.Size = new System.Drawing.Size(889, 221);
       this.tableLayoutPanel1.TabIndex = 4;
       // 
       // dataGridSerial
       // 
-      this.dataGridSerial.Anchor = ( (System.Windows.Forms.AnchorStyles)( ( ( ( System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom )
-                  | System.Windows.Forms.AnchorStyles.Left )
-                  | System.Windows.Forms.AnchorStyles.Right ) ) );
+      this.dataGridSerial.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                  | System.Windows.Forms.AnchorStyles.Left)
+                  | System.Windows.Forms.AnchorStyles.Right)));
       this.dataGridSerial.CaptionText = "Serial ports";
       this.dataGridSerial.DataMember = "";
       this.dataGridSerial.HeaderForeColor = System.Drawing.SystemColors.ControlText;
-      this.dataGridSerial.Location = new System.Drawing.Point( 3, 147 );
+      this.dataGridSerial.Location = new System.Drawing.Point(3, 147);
       this.dataGridSerial.Name = "dataGridSerial";
-      this.dataGridSerial.Size = new System.Drawing.Size( 883, 71 );
+      this.dataGridSerial.Size = new System.Drawing.Size(883, 71);
       this.dataGridSerial.TabIndex = 1;
-      this.dataGridSerial.TableStyles.AddRange( new System.Windows.Forms.DataGridTableStyle[] {
-            this.SerialportsTableSyle} );
-      this.dataGridSerial.Navigate += new System.Windows.Forms.NavigateEventHandler( this.dataGrid10_Navigate );
+      this.dataGridSerial.TableStyles.AddRange(new System.Windows.Forms.DataGridTableStyle[] {
+            this.SerialportsTableSyle});
+      this.dataGridSerial.Navigate += new System.Windows.Forms.NavigateEventHandler(this.dataGrid10_Navigate);
       // 
       // SerialportsTableSyle
       // 
       this.SerialportsTableSyle.DataGrid = this.dataGridSerial;
-      this.SerialportsTableSyle.GridColumnStyles.AddRange( new System.Windows.Forms.DataGridColumnStyle[] {
+      this.SerialportsTableSyle.GridColumnStyles.AddRange(new System.Windows.Forms.DataGridColumnStyle[] {
             this.Serialports_SerialNumColumn,
             this.Serialports_ProtocolIDColumn,
             this.Serialports_BaudRateColumn,
@@ -760,7 +751,7 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
             this.Serialports_txQueueColumn,
             this.Serialports_autoReopenColumn,
             this.Serialports_checkAllSendsColumn,
-            this.Serialports_SerialTypeColumn} );
+            this.Serialports_SerialTypeColumn});
       this.SerialportsTableSyle.HeaderForeColor = System.Drawing.SystemColors.ControlText;
       this.SerialportsTableSyle.MappingName = "SerialSetings";
       // 
@@ -948,23 +939,23 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
       // 
       // dataGridProtocol
       // 
-      this.dataGridProtocol.Anchor = ( (System.Windows.Forms.AnchorStyles)( ( ( ( System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom )
-                  | System.Windows.Forms.AnchorStyles.Left )
-                  | System.Windows.Forms.AnchorStyles.Right ) ) );
+      this.dataGridProtocol.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                  | System.Windows.Forms.AnchorStyles.Left)
+                  | System.Windows.Forms.AnchorStyles.Right)));
       this.dataGridProtocol.CaptionText = "Protocols";
       this.dataGridProtocol.DataMember = "";
       this.dataGridProtocol.HeaderForeColor = System.Drawing.SystemColors.ControlText;
-      this.dataGridProtocol.Location = new System.Drawing.Point( 3, 75 );
+      this.dataGridProtocol.Location = new System.Drawing.Point(3, 75);
       this.dataGridProtocol.Name = "dataGridProtocol";
-      this.dataGridProtocol.Size = new System.Drawing.Size( 883, 66 );
+      this.dataGridProtocol.Size = new System.Drawing.Size(883, 66);
       this.dataGridProtocol.TabIndex = 0;
-      this.dataGridProtocol.TableStyles.AddRange( new System.Windows.Forms.DataGridTableStyle[] {
-            this.ProtocolsTableStyle} );
+      this.dataGridProtocol.TableStyles.AddRange(new System.Windows.Forms.DataGridTableStyle[] {
+            this.ProtocolsTableStyle});
       // 
       // ProtocolsTableStyle
       // 
       this.ProtocolsTableStyle.DataGrid = this.dataGridProtocol;
-      this.ProtocolsTableStyle.GridColumnStyles.AddRange( new System.Windows.Forms.DataGridColumnStyle[] {
+      this.ProtocolsTableStyle.GridColumnStyles.AddRange(new System.Windows.Forms.DataGridColumnStyle[] {
             this.Protocols_ProtocolIDColumn,
             this.Protocols_NameColumn,
             this.Protocols_ChannelIDColumn,
@@ -973,7 +964,7 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
             this.Protocols_CharacterTimeOutColumn,
             this.Protocols_InterframeGapColumn,
             this.Protocols_MaxNumberColumn,
-            this.Protocols_ProtocolTypeColumn} );
+            this.Protocols_ProtocolTypeColumn});
       this.ProtocolsTableStyle.HeaderForeColor = System.Drawing.SystemColors.ControlText;
       // 
       // Protocols_ProtocolIDColumn
@@ -1047,70 +1038,70 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
       // 
       // dataGridChannels
       // 
-      this.dataGridChannels.Anchor = ( (System.Windows.Forms.AnchorStyles)( ( ( ( System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom )
-                  | System.Windows.Forms.AnchorStyles.Left )
-                  | System.Windows.Forms.AnchorStyles.Right ) ) );
+      this.dataGridChannels.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                  | System.Windows.Forms.AnchorStyles.Left)
+                  | System.Windows.Forms.AnchorStyles.Right)));
       this.dataGridChannels.CaptionText = "Channels";
       this.dataGridChannels.DataMember = "";
       this.dataGridChannels.DataSource = this.channelsBindingSource;
       this.dataGridChannels.HeaderForeColor = System.Drawing.SystemColors.ControlText;
-      this.dataGridChannels.Location = new System.Drawing.Point( 3, 3 );
+      this.dataGridChannels.Location = new System.Drawing.Point(3, 3);
       this.dataGridChannels.Name = "dataGridChannels";
-      this.dataGridChannels.Size = new System.Drawing.Size( 883, 66 );
+      this.dataGridChannels.Size = new System.Drawing.Size(883, 66);
       this.dataGridChannels.TabIndex = 2;
       // 
       // channelsBindingSource
       // 
       this.channelsBindingSource.DataMember = "Channels";
-      this.channelsBindingSource.DataSource = typeof( CAS.NetworkConfigLib.ComunicationNet );
+      this.channelsBindingSource.DataSource = typeof(CAS.NetworkConfigLib.ComunicationNet);
       // 
       // tabPageCommStruc
       // 
-      this.tabPageCommStruc.Controls.Add( this.tableLayoutPanel3 );
-      this.tabPageCommStruc.Location = new System.Drawing.Point( 4, 22 );
+      this.tabPageCommStruc.Controls.Add(this.tableLayoutPanel3);
+      this.tabPageCommStruc.Location = new System.Drawing.Point(4, 22);
       this.tabPageCommStruc.Name = "tabPageCommStruc";
-      this.tabPageCommStruc.Size = new System.Drawing.Size( 895, 227 );
+      this.tabPageCommStruc.Size = new System.Drawing.Size(895, 227);
       this.tabPageCommStruc.TabIndex = 0;
       this.tabPageCommStruc.Text = "Com structure";
       // 
       // tableLayoutPanel3
       // 
-      this.tableLayoutPanel3.Anchor = ( (System.Windows.Forms.AnchorStyles)( ( ( ( System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom )
-                  | System.Windows.Forms.AnchorStyles.Left )
-                  | System.Windows.Forms.AnchorStyles.Right ) ) );
+      this.tableLayoutPanel3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                  | System.Windows.Forms.AnchorStyles.Left)
+                  | System.Windows.Forms.AnchorStyles.Right)));
       this.tableLayoutPanel3.ColumnCount = 1;
-      this.tableLayoutPanel3.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 100F ) );
-      this.tableLayoutPanel3.Controls.Add( this.dataGrid3, 0, 2 );
-      this.tableLayoutPanel3.Controls.Add( this.dataGrid2, 0, 1 );
-      this.tableLayoutPanel3.Controls.Add( this.tableLayoutPanel4, 0, 0 );
-      this.tableLayoutPanel3.Location = new System.Drawing.Point( 3, 3 );
+      this.tableLayoutPanel3.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+      this.tableLayoutPanel3.Controls.Add(this.dataGrid3, 0, 2);
+      this.tableLayoutPanel3.Controls.Add(this.dataGrid2, 0, 1);
+      this.tableLayoutPanel3.Controls.Add(this.tableLayoutPanel4, 0, 0);
+      this.tableLayoutPanel3.Location = new System.Drawing.Point(3, 3);
       this.tableLayoutPanel3.Name = "tableLayoutPanel3";
       this.tableLayoutPanel3.RowCount = 3;
-      this.tableLayoutPanel3.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 34F ) );
-      this.tableLayoutPanel3.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 33F ) );
-      this.tableLayoutPanel3.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 33F ) );
-      this.tableLayoutPanel3.Size = new System.Drawing.Size( 889, 221 );
+      this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 34F));
+      this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33F));
+      this.tableLayoutPanel3.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 33F));
+      this.tableLayoutPanel3.Size = new System.Drawing.Size(889, 221);
       this.tableLayoutPanel3.TabIndex = 6;
       // 
       // dataGrid3
       // 
-      this.dataGrid3.Anchor = ( (System.Windows.Forms.AnchorStyles)( ( ( ( System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom )
-                  | System.Windows.Forms.AnchorStyles.Left )
-                  | System.Windows.Forms.AnchorStyles.Right ) ) );
+      this.dataGrid3.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                  | System.Windows.Forms.AnchorStyles.Left)
+                  | System.Windows.Forms.AnchorStyles.Right)));
       this.dataGrid3.CaptionText = "Interfaces";
       this.dataGrid3.DataMember = "";
       this.dataGrid3.HeaderForeColor = System.Drawing.SystemColors.ControlText;
-      this.dataGrid3.Location = new System.Drawing.Point( 3, 150 );
+      this.dataGrid3.Location = new System.Drawing.Point(3, 150);
       this.dataGrid3.Name = "dataGrid3";
-      this.dataGrid3.Size = new System.Drawing.Size( 883, 68 );
+      this.dataGrid3.Size = new System.Drawing.Size(883, 68);
       this.dataGrid3.TabIndex = 3;
-      this.dataGrid3.TableStyles.AddRange( new System.Windows.Forms.DataGridTableStyle[] {
-            this.InterfacesTableStyle} );
+      this.dataGrid3.TableStyles.AddRange(new System.Windows.Forms.DataGridTableStyle[] {
+            this.InterfacesTableStyle});
       // 
       // InterfacesTableStyle
       // 
       this.InterfacesTableStyle.DataGrid = this.dataGrid3;
-      this.InterfacesTableStyle.GridColumnStyles.AddRange( new System.Windows.Forms.DataGridColumnStyle[] {
+      this.InterfacesTableStyle.GridColumnStyles.AddRange(new System.Windows.Forms.DataGridColumnStyle[] {
             this.Interfaces_NameColumn,
             this.Interfaces_SegmentIDColumn,
             this.Interfaces_ChannelIDColumn,
@@ -1118,7 +1109,7 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
             this.Interfaces_AddressColumn,
             this.Interfaces_InactTimeColumn,
             this.Interfaces_InactTimeAFailureColumn,
-            this.Interfaces_InterfaceNumColumn} );
+            this.Interfaces_InterfaceNumColumn});
       this.InterfacesTableStyle.HeaderForeColor = System.Drawing.SystemColors.ControlText;
       this.InterfacesTableStyle.MappingName = "Interfaces";
       // 
@@ -1182,23 +1173,23 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
       // 
       // dataGrid2
       // 
-      this.dataGrid2.Anchor = ( (System.Windows.Forms.AnchorStyles)( ( ( ( System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom )
-                  | System.Windows.Forms.AnchorStyles.Left )
-                  | System.Windows.Forms.AnchorStyles.Right ) ) );
+      this.dataGrid2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                  | System.Windows.Forms.AnchorStyles.Left)
+                  | System.Windows.Forms.AnchorStyles.Right)));
       this.dataGrid2.CaptionText = "Segments";
       this.dataGrid2.DataMember = "";
       this.dataGrid2.HeaderForeColor = System.Drawing.SystemColors.ControlText;
-      this.dataGrid2.Location = new System.Drawing.Point( 3, 78 );
+      this.dataGrid2.Location = new System.Drawing.Point(3, 78);
       this.dataGrid2.Name = "dataGrid2";
-      this.dataGrid2.Size = new System.Drawing.Size( 883, 66 );
+      this.dataGrid2.Size = new System.Drawing.Size(883, 66);
       this.dataGrid2.TabIndex = 2;
-      this.dataGrid2.TableStyles.AddRange( new System.Windows.Forms.DataGridTableStyle[] {
-            this.SegmentsTableStyle} );
+      this.dataGrid2.TableStyles.AddRange(new System.Windows.Forms.DataGridTableStyle[] {
+            this.SegmentsTableStyle});
       // 
       // SegmentsTableStyle
       // 
       this.SegmentsTableStyle.DataGrid = this.dataGrid2;
-      this.SegmentsTableStyle.GridColumnStyles.AddRange( new System.Windows.Forms.DataGridColumnStyle[] {
+      this.SegmentsTableStyle.GridColumnStyles.AddRange(new System.Windows.Forms.DataGridColumnStyle[] {
             this.Segments_NameColumn,
             this.Segments_SegmentIDColumn,
             this.Segments_ChannelIDColumn,
@@ -1209,7 +1200,7 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
             this.Segments_PickupConnColumn,
             this.Segments_timeKeepConnColumn,
             this.Segments_TimeReconnectColumn,
-            this.Segments_TimeIdleKeepConn} );
+            this.Segments_TimeIdleKeepConn});
       this.SegmentsTableStyle.HeaderForeColor = System.Drawing.SystemColors.ControlText;
       this.SegmentsTableStyle.MappingName = "Segments";
       // 
@@ -1299,120 +1290,120 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
       // 
       // tableLayoutPanel4
       // 
-      this.tableLayoutPanel4.Anchor = ( (System.Windows.Forms.AnchorStyles)( ( ( ( System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom )
-                  | System.Windows.Forms.AnchorStyles.Left )
-                  | System.Windows.Forms.AnchorStyles.Right ) ) );
+      this.tableLayoutPanel4.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                  | System.Windows.Forms.AnchorStyles.Left)
+                  | System.Windows.Forms.AnchorStyles.Right)));
       this.tableLayoutPanel4.ColumnCount = 2;
-      this.tableLayoutPanel4.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
-      this.tableLayoutPanel4.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
-      this.tableLayoutPanel4.Controls.Add( this.dataGrid8, 0, 0 );
-      this.tableLayoutPanel4.Controls.Add( this.dataGrid1, 1, 0 );
-      this.tableLayoutPanel4.Location = new System.Drawing.Point( 3, 3 );
+      this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+      this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+      this.tableLayoutPanel4.Controls.Add(this.dataGrid8, 0, 0);
+      this.tableLayoutPanel4.Controls.Add(this.dataGrid1, 1, 0);
+      this.tableLayoutPanel4.Location = new System.Drawing.Point(3, 3);
       this.tableLayoutPanel4.Name = "tableLayoutPanel4";
       this.tableLayoutPanel4.RowCount = 1;
-      this.tableLayoutPanel4.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
-      this.tableLayoutPanel4.Size = new System.Drawing.Size( 883, 69 );
+      this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+      this.tableLayoutPanel4.Size = new System.Drawing.Size(883, 69);
       this.tableLayoutPanel4.TabIndex = 4;
       // 
       // dataGrid8
       // 
       this.dataGrid8.AlternatingBackColor = System.Drawing.Color.Lavender;
-      this.dataGrid8.Anchor = ( (System.Windows.Forms.AnchorStyles)( ( ( ( System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom )
-                  | System.Windows.Forms.AnchorStyles.Left )
-                  | System.Windows.Forms.AnchorStyles.Right ) ) );
+      this.dataGrid8.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                  | System.Windows.Forms.AnchorStyles.Left)
+                  | System.Windows.Forms.AnchorStyles.Right)));
       this.dataGrid8.BackColor = System.Drawing.Color.WhiteSmoke;
       this.dataGrid8.BackgroundColor = System.Drawing.Color.LightGray;
       this.dataGrid8.BorderStyle = System.Windows.Forms.BorderStyle.None;
       this.dataGrid8.CaptionBackColor = System.Drawing.Color.LightSteelBlue;
-      this.dataGrid8.CaptionFont = new System.Drawing.Font( "Microsoft Sans Serif", 8F );
+      this.dataGrid8.CaptionFont = new System.Drawing.Font("Microsoft Sans Serif", 8F);
       this.dataGrid8.CaptionForeColor = System.Drawing.Color.MidnightBlue;
       this.dataGrid8.CaptionText = "Channels";
       this.dataGrid8.DataMember = "";
       this.dataGrid8.FlatMode = true;
-      this.dataGrid8.Font = new System.Drawing.Font( "Microsoft Sans Serif", 8F );
+      this.dataGrid8.Font = new System.Drawing.Font("Microsoft Sans Serif", 8F);
       this.dataGrid8.ForeColor = System.Drawing.Color.MidnightBlue;
       this.dataGrid8.GridLineColor = System.Drawing.Color.Gainsboro;
       this.dataGrid8.GridLineStyle = System.Windows.Forms.DataGridLineStyle.None;
       this.dataGrid8.HeaderBackColor = System.Drawing.Color.MidnightBlue;
-      this.dataGrid8.HeaderFont = new System.Drawing.Font( "Microsoft Sans Serif", 8F );
+      this.dataGrid8.HeaderFont = new System.Drawing.Font("Microsoft Sans Serif", 8F);
       this.dataGrid8.HeaderForeColor = System.Drawing.Color.WhiteSmoke;
       this.dataGrid8.LinkColor = System.Drawing.Color.Teal;
-      this.dataGrid8.Location = new System.Drawing.Point( 3, 3 );
+      this.dataGrid8.Location = new System.Drawing.Point(3, 3);
       this.dataGrid8.Name = "dataGrid8";
       this.dataGrid8.ParentRowsBackColor = System.Drawing.Color.Gainsboro;
       this.dataGrid8.ParentRowsForeColor = System.Drawing.Color.MidnightBlue;
       this.dataGrid8.SelectionBackColor = System.Drawing.Color.CadetBlue;
       this.dataGrid8.SelectionForeColor = System.Drawing.Color.WhiteSmoke;
-      this.dataGrid8.Size = new System.Drawing.Size( 435, 63 );
+      this.dataGrid8.Size = new System.Drawing.Size(435, 63);
       this.dataGrid8.TabIndex = 6;
       // 
       // dataGrid1
       // 
-      this.dataGrid1.Anchor = ( (System.Windows.Forms.AnchorStyles)( ( ( ( System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom )
-                  | System.Windows.Forms.AnchorStyles.Left )
-                  | System.Windows.Forms.AnchorStyles.Right ) ) );
+      this.dataGrid1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                  | System.Windows.Forms.AnchorStyles.Left)
+                  | System.Windows.Forms.AnchorStyles.Right)));
       this.dataGrid1.CaptionText = "Stations";
       this.dataGrid1.DataMember = "";
       this.dataGrid1.HeaderForeColor = System.Drawing.SystemColors.ControlText;
-      this.dataGrid1.Location = new System.Drawing.Point( 444, 3 );
+      this.dataGrid1.Location = new System.Drawing.Point(444, 3);
       this.dataGrid1.Name = "dataGrid1";
-      this.dataGrid1.Size = new System.Drawing.Size( 436, 63 );
+      this.dataGrid1.Size = new System.Drawing.Size(436, 63);
       this.dataGrid1.TabIndex = 5;
       // 
       // tabData
       // 
-      this.tabData.Controls.Add( this.tableLayoutPanel2 );
-      this.tabData.Location = new System.Drawing.Point( 4, 22 );
+      this.tabData.Controls.Add(this.tableLayoutPanel2);
+      this.tabData.Location = new System.Drawing.Point(4, 22);
       this.tabData.Name = "tabData";
-      this.tabData.Size = new System.Drawing.Size( 895, 227 );
+      this.tabData.Size = new System.Drawing.Size(895, 227);
       this.tabData.TabIndex = 1;
       this.tabData.Text = "Data Groups/Blocks";
       // 
       // tableLayoutPanel2
       // 
-      this.tableLayoutPanel2.Anchor = ( (System.Windows.Forms.AnchorStyles)( ( ( ( System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom )
-                  | System.Windows.Forms.AnchorStyles.Left )
-                  | System.Windows.Forms.AnchorStyles.Right ) ) );
+      this.tableLayoutPanel2.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                  | System.Windows.Forms.AnchorStyles.Left)
+                  | System.Windows.Forms.AnchorStyles.Right)));
       this.tableLayoutPanel2.ColumnCount = 1;
-      this.tableLayoutPanel2.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 100F ) );
-      this.tableLayoutPanel2.Controls.Add( this.dataGrid_datablocks, 0, 1 );
-      this.tableLayoutPanel2.Controls.Add( this.dataGrid_Groups, 0, 0 );
-      this.tableLayoutPanel2.Location = new System.Drawing.Point( 3, 4 );
+      this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
+      this.tableLayoutPanel2.Controls.Add(this.dataGrid_datablocks, 0, 1);
+      this.tableLayoutPanel2.Controls.Add(this.dataGrid_Groups, 0, 0);
+      this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 4);
       this.tableLayoutPanel2.Name = "tableLayoutPanel2";
       this.tableLayoutPanel2.RowCount = 2;
-      this.tableLayoutPanel2.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
-      this.tableLayoutPanel2.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
-      this.tableLayoutPanel2.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Absolute, 20F ) );
-      this.tableLayoutPanel2.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Absolute, 20F ) );
-      this.tableLayoutPanel2.Size = new System.Drawing.Size( 889, 220 );
+      this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+      this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+      this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+      this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+      this.tableLayoutPanel2.Size = new System.Drawing.Size(889, 220);
       this.tableLayoutPanel2.TabIndex = 10;
       // 
       // dataGrid_datablocks
       // 
-      this.dataGrid_datablocks.Anchor = ( (System.Windows.Forms.AnchorStyles)( ( ( ( System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom )
-                  | System.Windows.Forms.AnchorStyles.Left )
-                  | System.Windows.Forms.AnchorStyles.Right ) ) );
+      this.dataGrid_datablocks.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                  | System.Windows.Forms.AnchorStyles.Left)
+                  | System.Windows.Forms.AnchorStyles.Right)));
       this.dataGrid_datablocks.CaptionText = "Data bloks";
       this.dataGrid_datablocks.DataMember = "";
       this.dataGrid_datablocks.DataSource = this.dataBlocksBindingSource;
       this.dataGrid_datablocks.HeaderForeColor = System.Drawing.SystemColors.ControlText;
-      this.dataGrid_datablocks.Location = new System.Drawing.Point( 3, 113 );
+      this.dataGrid_datablocks.Location = new System.Drawing.Point(3, 113);
       this.dataGrid_datablocks.Name = "dataGrid_datablocks";
-      this.dataGrid_datablocks.Size = new System.Drawing.Size( 883, 104 );
+      this.dataGrid_datablocks.Size = new System.Drawing.Size(883, 104);
       this.dataGrid_datablocks.TabIndex = 7;
-      this.dataGrid_datablocks.TableStyles.AddRange( new System.Windows.Forms.DataGridTableStyle[] {
-            this.DataBlocksTableStyle} );
+      this.dataGrid_datablocks.TableStyles.AddRange(new System.Windows.Forms.DataGridTableStyle[] {
+            this.DataBlocksTableStyle});
       // 
       // DataBlocksTableStyle
       // 
       this.DataBlocksTableStyle.DataGrid = this.dataGrid_datablocks;
-      this.DataBlocksTableStyle.GridColumnStyles.AddRange( new System.Windows.Forms.DataGridColumnStyle[] {
+      this.DataBlocksTableStyle.GridColumnStyles.AddRange(new System.Windows.Forms.DataGridColumnStyle[] {
             this.DataBlocks_NameColumn,
             this.DataBlocks_StationIDColumn,
             this.DataBlocks_AddressColumn,
             this.DataBlocks_GroupIDColumn,
             this.DataBlocks_DataTypeColumn,
-            this.dataGridTextBoxColumn1} );
+            this.dataGridTextBoxColumn1});
       this.DataBlocksTableStyle.HeaderForeColor = System.Drawing.SystemColors.ControlText;
       this.DataBlocksTableStyle.MappingName = "DataBlocks";
       // 
@@ -1454,30 +1445,30 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
       // 
       // dataGrid_Groups
       // 
-      this.dataGrid_Groups.Anchor = ( (System.Windows.Forms.AnchorStyles)( ( ( ( System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom )
-                  | System.Windows.Forms.AnchorStyles.Left )
-                  | System.Windows.Forms.AnchorStyles.Right ) ) );
+      this.dataGrid_Groups.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                  | System.Windows.Forms.AnchorStyles.Left)
+                  | System.Windows.Forms.AnchorStyles.Right)));
       this.dataGrid_Groups.CaptionText = "Tag groups";
       this.dataGrid_Groups.DataMember = "";
       this.dataGrid_Groups.HeaderForeColor = System.Drawing.SystemColors.ControlText;
-      this.dataGrid_Groups.Location = new System.Drawing.Point( 3, 3 );
+      this.dataGrid_Groups.Location = new System.Drawing.Point(3, 3);
       this.dataGrid_Groups.Name = "dataGrid_Groups";
-      this.dataGrid_Groups.Size = new System.Drawing.Size( 883, 104 );
+      this.dataGrid_Groups.Size = new System.Drawing.Size(883, 104);
       this.dataGrid_Groups.TabIndex = 5;
-      this.dataGrid_Groups.TableStyles.AddRange( new System.Windows.Forms.DataGridTableStyle[] {
-            this.GroupsTableStyle} );
+      this.dataGrid_Groups.TableStyles.AddRange(new System.Windows.Forms.DataGridTableStyle[] {
+            this.GroupsTableStyle});
       // 
       // GroupsTableStyle
       // 
       this.GroupsTableStyle.DataGrid = this.dataGrid_Groups;
-      this.GroupsTableStyle.GridColumnStyles.AddRange( new System.Windows.Forms.DataGridColumnStyle[] {
+      this.GroupsTableStyle.GridColumnStyles.AddRange(new System.Windows.Forms.DataGridColumnStyle[] {
             this.Groups_NameColumn,
             this.Groups_StationIDColumn,
             this.Groups_GroupIDColumn,
             this.Groups_TimeScanColumn,
             this.Groups_TimeOutColumn,
             this.Groups_TimeScanFastColumn,
-            this.Groups_TimeOutFastColumn} );
+            this.Groups_TimeOutFastColumn});
       this.GroupsTableStyle.HeaderForeColor = System.Drawing.SystemColors.ControlText;
       this.GroupsTableStyle.MappingName = "Groups";
       // 
@@ -1537,54 +1528,54 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
       // 
       // tabData2
       // 
-      this.tabData2.Controls.Add( this.tableLayoutPanel5 );
-      this.tabData2.Location = new System.Drawing.Point( 4, 22 );
+      this.tabData2.Controls.Add(this.tableLayoutPanel5);
+      this.tabData2.Location = new System.Drawing.Point(4, 22);
       this.tabData2.Name = "tabData2";
-      this.tabData2.Size = new System.Drawing.Size( 895, 227 );
+      this.tabData2.Size = new System.Drawing.Size(895, 227);
       this.tabData2.TabIndex = 3;
       this.tabData2.Text = "DataTags";
       // 
       // tableLayoutPanel5
       // 
-      this.tableLayoutPanel5.Anchor = ( (System.Windows.Forms.AnchorStyles)( ( ( ( System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom )
-                  | System.Windows.Forms.AnchorStyles.Left )
-                  | System.Windows.Forms.AnchorStyles.Right ) ) );
+      this.tableLayoutPanel5.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                  | System.Windows.Forms.AnchorStyles.Left)
+                  | System.Windows.Forms.AnchorStyles.Right)));
       this.tableLayoutPanel5.ColumnCount = 1;
-      this.tableLayoutPanel5.ColumnStyles.Add( new System.Windows.Forms.ColumnStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
-      this.tableLayoutPanel5.Controls.Add( this.dataGrid_tagbits, 0, 1 );
-      this.tableLayoutPanel5.Controls.Add( this.dataGrid_tags, 0, 0 );
-      this.tableLayoutPanel5.Location = new System.Drawing.Point( 3, 3 );
+      this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+      this.tableLayoutPanel5.Controls.Add(this.dataGrid_tagbits, 0, 1);
+      this.tableLayoutPanel5.Controls.Add(this.dataGrid_tags, 0, 0);
+      this.tableLayoutPanel5.Location = new System.Drawing.Point(3, 3);
       this.tableLayoutPanel5.Name = "tableLayoutPanel5";
       this.tableLayoutPanel5.RowCount = 2;
-      this.tableLayoutPanel5.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
-      this.tableLayoutPanel5.RowStyles.Add( new System.Windows.Forms.RowStyle( System.Windows.Forms.SizeType.Percent, 50F ) );
-      this.tableLayoutPanel5.Size = new System.Drawing.Size( 889, 221 );
+      this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+      this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
+      this.tableLayoutPanel5.Size = new System.Drawing.Size(889, 221);
       this.tableLayoutPanel5.TabIndex = 11;
       // 
       // dataGrid_tagbits
       // 
-      this.dataGrid_tagbits.Anchor = ( (System.Windows.Forms.AnchorStyles)( ( ( ( System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom )
-                  | System.Windows.Forms.AnchorStyles.Left )
-                  | System.Windows.Forms.AnchorStyles.Right ) ) );
+      this.dataGrid_tagbits.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                  | System.Windows.Forms.AnchorStyles.Left)
+                  | System.Windows.Forms.AnchorStyles.Right)));
       this.dataGrid_tagbits.CaptionText = "Bits definition";
       this.dataGrid_tagbits.DataMember = "";
       this.dataGrid_tagbits.HeaderForeColor = System.Drawing.SystemColors.ControlText;
-      this.dataGrid_tagbits.Location = new System.Drawing.Point( 3, 113 );
+      this.dataGrid_tagbits.Location = new System.Drawing.Point(3, 113);
       this.dataGrid_tagbits.Name = "dataGrid_tagbits";
-      this.dataGrid_tagbits.Size = new System.Drawing.Size( 883, 105 );
+      this.dataGrid_tagbits.Size = new System.Drawing.Size(883, 105);
       this.dataGrid_tagbits.TabIndex = 12;
       // 
       // dataGrid_tags
       // 
-      this.dataGrid_tags.Anchor = ( (System.Windows.Forms.AnchorStyles)( ( ( ( System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom )
-                  | System.Windows.Forms.AnchorStyles.Left )
-                  | System.Windows.Forms.AnchorStyles.Right ) ) );
+      this.dataGrid_tags.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                  | System.Windows.Forms.AnchorStyles.Left)
+                  | System.Windows.Forms.AnchorStyles.Right)));
       this.dataGrid_tags.CaptionText = "Tags definition";
       this.dataGrid_tags.DataMember = "";
       this.dataGrid_tags.HeaderForeColor = System.Drawing.SystemColors.ControlText;
-      this.dataGrid_tags.Location = new System.Drawing.Point( 3, 3 );
+      this.dataGrid_tags.Location = new System.Drawing.Point(3, 3);
       this.dataGrid_tags.Name = "dataGrid_tags";
-      this.dataGrid_tags.Size = new System.Drawing.Size( 883, 104 );
+      this.dataGrid_tags.Size = new System.Drawing.Size(883, 104);
       this.dataGrid_tags.TabIndex = 11;
       // 
       // openFileDialogXMLFile
@@ -1606,20 +1597,20 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
       // 
       // mainMenu1
       // 
-      this.mainMenu1.MenuItems.AddRange( new System.Windows.Forms.MenuItem[] {
+      this.mainMenu1.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
             this.menuFile,
             this.menuItem3,
-            this.menuItem4} );
+            this.menuItem4});
       // 
       // menuFile
       // 
       this.menuFile.Index = 0;
-      this.menuFile.MenuItems.AddRange( new System.Windows.Forms.MenuItem[] {
+      this.menuFile.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
             this.menuFile_Open,
             this.menuFile_Clear_All,
             this.menuFile_Save,
             this.menuItem1,
-            this.menuFile_exit} );
+            this.menuFile_exit});
       this.menuFile.Shortcut = System.Windows.Forms.Shortcut.CtrlF;
       this.menuFile.Text = "File";
       // 
@@ -1627,19 +1618,19 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
       // 
       this.menuFile_Open.Index = 0;
       this.menuFile_Open.Text = "Open";
-      this.menuFile_Open.Click += new System.EventHandler( this.ReadXML_Click );
+      this.menuFile_Open.Click += new System.EventHandler(this.ReadXML_Click);
       // 
       // menuFile_Clear_All
       // 
       this.menuFile_Clear_All.Index = 1;
       this.menuFile_Clear_All.Text = "Clear_All";
-      this.menuFile_Clear_All.Click += new System.EventHandler( this.menuFile_Clear_All_Click );
+      this.menuFile_Clear_All.Click += new System.EventHandler(this.menuFile_Clear_All_Click);
       // 
       // menuFile_Save
       // 
       this.menuFile_Save.Index = 2;
       this.menuFile_Save.Text = "Save";
-      this.menuFile_Save.Click += new System.EventHandler( this.Button_SaveXML_Click );
+      this.menuFile_Save.Click += new System.EventHandler(this.Button_SaveXML_Click);
       // 
       // menuItem1
       // 
@@ -1650,25 +1641,25 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
       // 
       this.menuFile_exit.Index = 4;
       this.menuFile_exit.Text = "Exit";
-      this.menuFile_exit.Click += new System.EventHandler( this.menuItem_exit_Click );
+      this.menuFile_exit.Click += new System.EventHandler(this.menuItem_exit_Click);
       // 
       // menuItem3
       // 
       this.menuItem3.Index = 1;
-      this.menuItem3.MenuItems.AddRange( new System.Windows.Forms.MenuItem[] {
-            this.menuItem6} );
+      this.menuItem3.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
+            this.menuItem6});
       this.menuItem3.Text = "Edit";
       // 
       // menuItem6
       // 
       this.menuItem6.Index = 0;
       this.menuItem6.Text = "Clear config";
-      this.menuItem6.Click += new System.EventHandler( this.clearButton_Click );
+      this.menuItem6.Click += new System.EventHandler(this.clearButton_Click);
       // 
       // menuItem4
       // 
       this.menuItem4.Index = 2;
-      this.menuItem4.MenuItems.AddRange( new System.Windows.Forms.MenuItem[] {
+      this.menuItem4.MenuItems.AddRange(new System.Windows.Forms.MenuItem[] {
             this.menuItemSBUS_bls,
             this.menuItemTagblosks_csv,
             this.menuItemTagBit_csv,
@@ -1676,38 +1667,38 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
             this.menuItemScanSettings_txt,
             this.menuItem10,
             this.menuItemMODBUS_bls,
-            this.menuItemTags_for_Simulation} );
+            this.menuItemTags_for_Simulation});
       this.menuItem4.Text = "Import";
       // 
       // menuItemSBUS_bls
       // 
       this.menuItemSBUS_bls.Index = 0;
       this.menuItemSBUS_bls.Text = "SBUS.bls";
-      this.menuItemSBUS_bls.Click += new System.EventHandler( this.menuItemSBUS_bls_Click );
+      this.menuItemSBUS_bls.Click += new System.EventHandler(this.menuItemSBUS_bls_Click);
       // 
       // menuItemTagblosks_csv
       // 
       this.menuItemTagblosks_csv.Index = 1;
       this.menuItemTagblosks_csv.Text = "Tagblosks.csv";
-      this.menuItemTagblosks_csv.Click += new System.EventHandler( this.menuItemTagblosks_csv_Click );
+      this.menuItemTagblosks_csv.Click += new System.EventHandler(this.menuItemTagblosks_csv_Click);
       // 
       // menuItemTagBit_csv
       // 
       this.menuItemTagBit_csv.Index = 2;
       this.menuItemTagBit_csv.Text = "TagBit.csv";
-      this.menuItemTagBit_csv.Click += new System.EventHandler( this.menuItemTagBit_csv_Click );
+      this.menuItemTagBit_csv.Click += new System.EventHandler(this.menuItemTagBit_csv_Click);
       // 
       // menuItemTagMappings_csv
       // 
       this.menuItemTagMappings_csv.Index = 3;
       this.menuItemTagMappings_csv.Text = "TagMappings.csv";
-      this.menuItemTagMappings_csv.Click += new System.EventHandler( this.menuItemTagMappings_csv_Click );
+      this.menuItemTagMappings_csv.Click += new System.EventHandler(this.menuItemTagMappings_csv_Click);
       // 
       // menuItemScanSettings_txt
       // 
       this.menuItemScanSettings_txt.Index = 4;
       this.menuItemScanSettings_txt.Text = " ScanSettings.txt";
-      this.menuItemScanSettings_txt.Click += new System.EventHandler( this.menuItemScanSettings_txt_Click );
+      this.menuItemScanSettings_txt.Click += new System.EventHandler(this.menuItemScanSettings_txt_Click);
       // 
       // menuItem10
       // 
@@ -1718,13 +1709,13 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
       // 
       this.menuItemMODBUS_bls.Index = 6;
       this.menuItemMODBUS_bls.Text = "MODBUS.bls";
-      this.menuItemMODBUS_bls.Click += new System.EventHandler( this.menuItemMODBUS_bls_Click );
+      this.menuItemMODBUS_bls.Click += new System.EventHandler(this.menuItemMODBUS_bls_Click);
       // 
       // menuItemTags_for_Simulation
       // 
       this.menuItemTags_for_Simulation.Index = 7;
       this.menuItemTags_for_Simulation.Text = "Tags for Simulation";
-      this.menuItemTags_for_Simulation.Click += new System.EventHandler( this.menuItemTags_for_Simulation_Click );
+      this.menuItemTags_for_Simulation.Click += new System.EventHandler(this.menuItemTags_for_Simulation_Click);
       // 
       // protocolBindingSource
       // 
@@ -1732,7 +1723,7 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
       // 
       // comunicationNetBindingSource
       // 
-      this.comunicationNetBindingSource.DataSource = typeof( CAS.NetworkConfigLib.ComunicationNet );
+      this.comunicationNetBindingSource.DataSource = typeof(CAS.NetworkConfigLib.ComunicationNet);
       this.comunicationNetBindingSource.Position = 0;
       // 
       // dataBlocksBindingSource
@@ -1750,53 +1741,53 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
       // 
       // AdvancedFormNetworkConfig
       // 
-      this.AutoScaleBaseSize = new System.Drawing.Size( 5, 13 );
-      this.ClientSize = new System.Drawing.Size( 927, 273 );
-      this.Controls.Add( this.TabNetworkStructure );
+      this.AutoScaleBaseSize = new System.Drawing.Size(5, 13);
+      this.ClientSize = new System.Drawing.Size(927, 273);
+      this.Controls.Add(this.TabNetworkStructure);
       this.Menu = this.mainMenu1;
-      this.MinimumSize = new System.Drawing.Size( 700, 60 );
+      this.MinimumSize = new System.Drawing.Size(700, 60);
       this.Name = "AdvancedFormNetworkConfig";
       this.Text = "Network configuration";
-      this.TabNetworkStructure.ResumeLayout( false );
-      this.tabPageProtocol.ResumeLayout( false );
-      this.tableLayoutPanel1.ResumeLayout( false );
-      ( (System.ComponentModel.ISupportInitialize)( this.dataGridSerial ) ).EndInit();
-      ( (System.ComponentModel.ISupportInitialize)( this.dataGridProtocol ) ).EndInit();
-      ( (System.ComponentModel.ISupportInitialize)( this.dataGridChannels ) ).EndInit();
-      ( (System.ComponentModel.ISupportInitialize)( this.channelsBindingSource ) ).EndInit();
-      this.tabPageCommStruc.ResumeLayout( false );
-      this.tableLayoutPanel3.ResumeLayout( false );
-      ( (System.ComponentModel.ISupportInitialize)( this.dataGrid3 ) ).EndInit();
-      ( (System.ComponentModel.ISupportInitialize)( this.dataGrid2 ) ).EndInit();
-      this.tableLayoutPanel4.ResumeLayout( false );
-      ( (System.ComponentModel.ISupportInitialize)( this.dataGrid8 ) ).EndInit();
-      ( (System.ComponentModel.ISupportInitialize)( this.dataGrid1 ) ).EndInit();
-      this.tabData.ResumeLayout( false );
-      this.tableLayoutPanel2.ResumeLayout( false );
-      ( (System.ComponentModel.ISupportInitialize)( this.dataGrid_datablocks ) ).EndInit();
-      ( (System.ComponentModel.ISupportInitialize)( this.dataGrid_Groups ) ).EndInit();
-      this.tabData2.ResumeLayout( false );
-      this.tableLayoutPanel5.ResumeLayout( false );
-      ( (System.ComponentModel.ISupportInitialize)( this.dataGrid_tagbits ) ).EndInit();
-      ( (System.ComponentModel.ISupportInitialize)( this.dataGrid_tags ) ).EndInit();
-      ( (System.ComponentModel.ISupportInitialize)( this.eventLog1 ) ).EndInit();
-      ( (System.ComponentModel.ISupportInitialize)( this.protocolsBindingSource ) ).EndInit();
-      ( (System.ComponentModel.ISupportInitialize)( this.protocolBindingSource ) ).EndInit();
-      ( (System.ComponentModel.ISupportInitialize)( this.comunicationNetBindingSource ) ).EndInit();
-      ( (System.ComponentModel.ISupportInitialize)( this.dataBlocksBindingSource ) ).EndInit();
-      this.ResumeLayout( false );
+      this.TabNetworkStructure.ResumeLayout(false);
+      this.tabPageProtocol.ResumeLayout(false);
+      this.tableLayoutPanel1.ResumeLayout(false);
+      ((System.ComponentModel.ISupportInitialize)(this.dataGridSerial)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.dataGridProtocol)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.dataGridChannels)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.channelsBindingSource)).EndInit();
+      this.tabPageCommStruc.ResumeLayout(false);
+      this.tableLayoutPanel3.ResumeLayout(false);
+      ((System.ComponentModel.ISupportInitialize)(this.dataGrid3)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.dataGrid2)).EndInit();
+      this.tableLayoutPanel4.ResumeLayout(false);
+      ((System.ComponentModel.ISupportInitialize)(this.dataGrid8)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.dataGrid1)).EndInit();
+      this.tabData.ResumeLayout(false);
+      this.tableLayoutPanel2.ResumeLayout(false);
+      ((System.ComponentModel.ISupportInitialize)(this.dataGrid_datablocks)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.dataGrid_Groups)).EndInit();
+      this.tabData2.ResumeLayout(false);
+      this.tableLayoutPanel5.ResumeLayout(false);
+      ((System.ComponentModel.ISupportInitialize)(this.dataGrid_tagbits)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.dataGrid_tags)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.eventLog1)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.protocolsBindingSource)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.protocolBindingSource)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.comunicationNetBindingSource)).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.dataBlocksBindingSource)).EndInit();
+      this.ResumeLayout(false);
 
     }
-    private void InitConfigDataBase( bool CreateNewconfigDatabase )
+    private void InitConfigDataBase(bool CreateNewconfigDatabase)
     {
       // 
       // configDataBase
       // 
-      if ( CreateNewconfigDatabase )
+      if (CreateNewconfigDatabase)
         this.configDataBase = new ComunicationNet();
-      ( (System.ComponentModel.ISupportInitialize)( this.configDataBase ) ).BeginInit();
+      ((System.ComponentModel.ISupportInitialize)(this.configDataBase)).BeginInit();
       this.configDataBase.DataSetName = "ComunicationNet";
-      this.configDataBase.Locale = new System.Globalization.CultureInfo( "en-US" );
+      this.configDataBase.Locale = new System.Globalization.CultureInfo("en-US");
       this.configDataBase.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
       this.dataGridChannels.DataSource = this.configDataBase.Channels;
       this.dataGridSerial.DataSource = this.configDataBase.SerialSetings;
@@ -1811,7 +1802,7 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
       this.dataGrid_Groups.DataSource = this.configDataBase.Groups;
       this.protocolBindingSource.DataSource = this.configDataBase;
       this.channelsBindingSource.DataSource = this.configDataBase;
-      ( (System.ComponentModel.ISupportInitialize)( this.configDataBase ) ).EndInit();
+      ((System.ComponentModel.ISupportInitialize)(this.configDataBase)).EndInit();
 
     }
     #endregion
@@ -1824,10 +1815,10 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
       AdvancedFormNetworkConfig myForm = new AdvancedFormNetworkConfig();
       //XMLManagement myConfig = new XMLManagement();
       //myForm.ReadXML.Enabled = true;
-      Application.Run( myForm );
+      Application.Run(myForm);
       //myConfig.writeXMLFile(myForm.comunicationNet1);
     }
-    private void dataGrid10_Navigate( object sender, System.Windows.Forms.NavigateEventArgs ne )
+    private void dataGrid10_Navigate(object sender, System.Windows.Forms.NavigateEventArgs ne)
     {
 
     }
@@ -1835,11 +1826,11 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
     //{
     //    //new HMI.ConfigTreeView(configDataBase).ShowDialog(this);
     //}
-    private void clearButton_Click( object sender, System.EventArgs e )
+    private void clearButton_Click(object sender, System.EventArgs e)
     {
-      if ( MessageBox.Show( this, "Clear all datagrids???", "Clear", MessageBoxButtons.YesNo, MessageBoxIcon.Question ) == DialogResult.Yes )
+      if (MessageBox.Show(this, "Clear all data-grids???", "Clear", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
       {
-        fileclear( this );
+        fileclear(this);
         //configDataBase.SerialSetings.Clear();
         //configDataBase.Interfaces.Clear();
         //configDataBase.Tags.Clear();
@@ -1852,54 +1843,52 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
         //configDataBase.Channels.Clear();
       }
     }
-    private void button_exit_Click( object sender, System.EventArgs e )
+    private void button_exit_Click(object sender, System.EventArgs e)
     {
       this.Close();
     }
-    private void menuItem_exit_Click( object sender, System.EventArgs e )
+    private void menuItem_exit_Click(object sender, System.EventArgs e)
     {
-      ConfigurationManagement.SaveProc( this );
+      ConfigurationManagement.SaveProc(this);
       this.Close();
     }
-    private void button1_Click( object sender, System.EventArgs e )
+    private void button1_Click(object sender, System.EventArgs e)
     {
-      ImportFunctionRootClass importer = new ImportTagsForSimulation( configDataBase, this );
+      ImportFunctionRootClass importer = new ImportTagsForSimulation(configDataBase, this);
       importer.Import();
     }
-    private void menuFile_Clear_All_Click( object sender, EventArgs e )
+    private void menuFile_Clear_All_Click(object sender, EventArgs e)
     {
-      if ( MessageBox.Show( this, "Clear all datagrids???", "Clear", MessageBoxButtons.YesNo, MessageBoxIcon.Question ) == DialogResult.Yes )
-      {
-        fileclear( this );
-      }
+      if (MessageBox.Show(this, "Clear all data-grids???", "Clear", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+        fileclear(this);
     }
-    private void menuItemSBUS_bls_Click( object sender, EventArgs e )
+    private void menuItemSBUS_bls_Click(object sender, EventArgs e)
     {
-      new ImportBLS( configDataBase, this ).Import();
+      new ImportBLS(configDataBase, this).Import();
     }
-    private void menuItemTagblosks_csv_Click( object sender, EventArgs e )
+    private void menuItemTagblosks_csv_Click(object sender, EventArgs e)
     {
-      new ImportBlockCSV( configDataBase, this ).Import();
+      new ImportBlockCSV(configDataBase, this).Import();
     }
-    private void menuItemTagBit_csv_Click( object sender, EventArgs e )
+    private void menuItemTagBit_csv_Click(object sender, EventArgs e)
     {
-      new ImportTagBits( configDataBase, this ).Import();
+      new ImportTagBits(configDataBase, this).Import();
     }
-    private void menuItemTagMappings_csv_Click( object sender, EventArgs e )
+    private void menuItemTagMappings_csv_Click(object sender, EventArgs e)
     {
-      new ImportTagMappings( configDataBase, this ).Import();
+      new ImportTagMappings(configDataBase, this).Import();
     }
-    private void menuItemScanSettings_txt_Click( object sender, EventArgs e )
+    private void menuItemScanSettings_txt_Click(object sender, EventArgs e)
     {
-      new ImportScanSettings( configDataBase, this ).Import();
+      new ImportScanSettings(configDataBase, this).Import();
     }
-    private void menuItemMODBUS_bls_Click( object sender, EventArgs e )
+    private void menuItemMODBUS_bls_Click(object sender, EventArgs e)
     {
-      new ImportBLS( configDataBase, this ).Import();
+      new ImportBLS(configDataBase, this).Import();
     }
-    private void menuItemTags_for_Simulation_Click( object sender, EventArgs e )
+    private void menuItemTags_for_Simulation_Click(object sender, EventArgs e)
     {
-      new Import.ImportTagsForSimulation( configDataBase, this ).Import();
+      new Import.ImportTagsForSimulation(configDataBase, this).Import();
     }
 
     private BindingSource dataBlocksBindingSource;

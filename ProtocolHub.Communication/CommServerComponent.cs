@@ -1,29 +1,20 @@
-//<summary>
-//_______________________________________________________________
-//  Title   : CommServer main component
-//  System  : Microsoft VisualStudio 2015 / C#
-//  $LastChangedDate$
-//  $Rev$
-//  $LastChangedBy$
-//  $URL$
-//  $Id$
+//___________________________________________________________________________________
 //
-//  Copyright (C) 2016, CAS LODZ POLAND.
-//  TEL: +48 (42) 686 25 47
-//  mailto://techsupp@cas.eu
-//  http://www.cas.eu
-//_______________________________________________________________
+//  Copyright (C) 2020, Mariusz Postol LODZ POLAND.
+//
+//  To be in touch join the community at GITTER: https://gitter.im/mpostol/OPC-UA-OOI
+//___________________________________________________________________________________
 
 using CAS.CommServer.ProtocolHub.Communication.BaseStation;
+using CAS.CommServer.ProtocolHub.MonitorInterface;
 using CAS.Lib.CodeProtect;
 using CAS.Lib.CodeProtect.LicenseDsc;
 using CAS.Lib.CodeProtect.Properties;
-using CAS.Lib.RTLib.Processes;
 using System;
 using System.ComponentModel;
-using System.Diagnostics;
 using System.Reflection;
 using System.Runtime.InteropServices;
+using UAOOI.ProcessObserver.RealTime.Processes;
 
 namespace CAS.CommServer.ProtocolHub.Communication
 {
@@ -37,17 +28,13 @@ namespace CAS.CommServer.ProtocolHub.Communication
     #region private
     private static bool m_isCreated = false;
     private static bool m_isInitialized = false;
-    private static Lib.RTLib.Processes.Stopwatch m_RuntimeStopWatch = new Lib.RTLib.Processes.Stopwatch();
+    private static UAOOI.ProcessObserver.RealTime.Processes.Stopwatch m_RuntimeStopWatch = new UAOOI.ProcessObserver.RealTime.Processes.Stopwatch();
     private static System.Timers.Timer m_RunTimeout;
     private void m_RunTimeout_Elapsed(object sender, System.Timers.ElapsedEventArgs e)
     {
-      EventLogMonitor.WriteToEventLog
-       ("Runtime expired – server entered demo mode – no data will be read. ",
-       System.Diagnostics.EventLogEntryType.Warning, (int)Error.CommServer_CommServerComponent, 72
-       );
+      EventLogMonitor.WriteToEventLog("Runtime expired – server entered demo mode – no data will be read. ", EventLogEntryType.Warning, (int)Error.CommServer_CommServerComponent, 72);
       Segment.DemoMode = true;
     }
-    private static TraceEvent m_traceEvent_internal = new TraceEvent("CAS.Lib.CommServer");
     #endregion
 
     #region IDisposable
@@ -61,7 +48,7 @@ namespace CAS.CommServer.ProtocolHub.Communication
       {
         components.Dispose();
       }
-      m_traceEvent_internal.TraceEventClose();
+      Tracer.TraceEventClose();
       base.Dispose(disposing);
     }
     #endregion
@@ -71,30 +58,15 @@ namespace CAS.CommServer.ProtocolHub.Communication
     /// Gets the tracer.
     /// </summary>
     /// <value>The tracer.</value>
-    internal static TraceEvent Tracer
-    {
-      get
-      {
-        return m_traceEvent_internal;
-      }
-    }
+    internal static TraceEvent Tracer { get; } = new TraceEvent("CAS.Lib.CommServer");
     /// <summary>
     /// Provides time the server is up in seconds
     /// </summary>
-    internal static uint RunTime
-    {
-      get
-      {
-        return Lib.RTLib.Processes.Stopwatch.ConvertTo_s(m_RuntimeStopWatch.Read);
-      }
-    }
+    internal static uint RunTime => UAOOI.ProcessObserver.RealTime.Processes.Stopwatch.ConvertTo_s(m_RuntimeStopWatch.Read);
     /// <summary>
     /// Provides name of the source to be used while instating to register it the EventLog engine.
     /// </summary>
-    internal static string Source
-    {
-      get { return Assembly.GetExecutingAssembly().GetName().Name; }
-    }
+    internal static string Source => Assembly.GetExecutingAssembly().GetName().Name;
     /// <summary>
     /// Adds components to components container.
     /// </summary>
@@ -114,7 +86,7 @@ namespace CAS.CommServer.ProtocolHub.Communication
     /// Initializes the Main CommServer Component using specified configuration file name.
     /// </summary>
     /// <param name="configurationFileName">The configuration file name.</param>
-    public void Initialize(string configurationFileName)
+    public void Initialize(string configurationFileName, ISettingsBase settings)
     {
       if (m_isInitialized)
         throw new ApplicationException("Only one initialization of CommServerComponent is allowed.");
@@ -123,8 +95,7 @@ namespace CAS.CommServer.ProtocolHub.Communication
       bool m_DemoVer = true;
       int cRTConstrain = 2;
       int cVConstrain = 15;
-      License lic = null;
-      LicenseManager.IsValid(this.GetType(), this, out lic);
+      LicenseManager.IsValid(this.GetType(), this, out License lic);
       LicenseFile m_license = lic as LicenseFile;
       if (m_license == null)
         EventLogMonitor.WriteToEventLog(Resources.Tx_LicNoFileErr, EventLogEntryType.Error, cEventID, 93);
@@ -134,7 +105,7 @@ namespace CAS.CommServer.ProtocolHub.Communication
           MaintenanceControlComponent mcc = new MaintenanceControlComponent();
           if (mcc.Warning != null)
             Tracer.TraceWarning(143, this.GetType().Name, "The following warning(s) appeared during loading the license: " + mcc.Warning);
-          if (m_license.FailureReason != String.Empty)
+          if (m_license.FailureReason != string.Empty)
             EventLogMonitor.WriteToEventLog(m_license.FailureReason, EventLogEntryType.Error, cEventID, 95);
           else
           {
@@ -158,11 +129,10 @@ namespace CAS.CommServer.ProtocolHub.Communication
       ulong vd = m_RuntimeStopWatch.Start;
       int cVcounter = cVConstrain;
       EventLogMonitor.WriteToEventLog("Communication server started - product name:" + cFullName, EventLogEntryType.Information, (int)Error.CommServer_CommServerComponent, 130);
-      Initialization.InitializeServer(this, m_DemoVer, ref cVcounter, configurationFileName);
+      Initialization.InitializeServer(this, m_DemoVer, ref cVcounter, configurationFileName, settings);
       ConsoleIterface.Start(cProductName, cProductVersion);
       if (cVcounter <= 0)
-        EventLogMonitor.WriteToEventLog("Some tags have not been added due to license limitation – the volume constrain have been reached",
-           EventLogEntryType.Warning, (int)Error.CommServer_CommServerComponent, 134);
+        EventLogMonitor.WriteToEventLog("Some tags have not been added due to license limitation – the volume constrain have been reached", EventLogEntryType.Warning, (int)Error.CommServer_CommServerComponent, 134);
       else
       {
         string msg = string.Format("Initiated {0} tags, The license allows you to add {1} more tags. ", cVConstrain - cVcounter, cVcounter);

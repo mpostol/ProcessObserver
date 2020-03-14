@@ -1,17 +1,9 @@
-//_______________________________________________________________
-//  Title   : Communication statistics management class
-//  System  : Microsoft VisualStudio 2015 / C#
-//  $LastChangedDate$
-//  $Rev$
-//  $LastChangedBy$
-//  $URL$
-//  $Id$
+//___________________________________________________________________________________
 //
-//  Copyright (C) 2016, CAS LODZ POLAND.
-//  TEL: +48 (42) 686 25 47
-//  mailto://techsupp@cas.eu
-//  http://www.cas.eu
-//_______________________________________________________________
+//  Copyright (C) 2020, Mariusz Postol LODZ POLAND.
+//
+//  To be in touch join the community at GITTER: https://gitter.im/mpostol/OPC-UA-OOI
+//___________________________________________________________________________________
 
 using CAS.Lib.RTLib.Management;
 using System;
@@ -33,17 +25,15 @@ namespace CAS.CommServer.ProtocolHub.MonitorInterface
       #region PRIVATE
       private IInterface2SegmentLink mySegment;
       private StationStatistics myStation;
-      private CAS.Lib.RTLib.Processes.Stopwatch failTime = new CAS.Lib.RTLib.Processes.Stopwatch();
-      private CAS.Lib.RTLib.Processes.Stopwatch activeTime = new CAS.Lib.RTLib.Processes.Stopwatch();
-      private CAS.Lib.RTLib.Processes.Stopwatch standbyTime = new CAS.Lib.RTLib.Processes.Stopwatch();
+      private UAOOI.ProcessObserver.RealTime.Processes.Stopwatch failTime = new UAOOI.ProcessObserver.RealTime.Processes.Stopwatch();
+      private UAOOI.ProcessObserver.RealTime.Processes.Stopwatch activeTime = new UAOOI.ProcessObserver.RealTime.Processes.Stopwatch();
+      private UAOOI.ProcessObserver.RealTime.Processes.Stopwatch standbyTime = new UAOOI.ProcessObserver.RealTime.Processes.Stopwatch();
 
       private void GeatProtocolStatistics(out bool isAnySuccess)
       {
         mySegment.GetProtocolStatistics(ref myStat.currCount, out isAnySuccess);
         for (ushort idx = 0; idx < myStat.currCount.Length; idx++)
-        {
           myStat.packetsCount[idx] += myStat.currCount[idx];
-        }
       }//GeatProtocolStatistics
       #endregion
 
@@ -54,6 +44,7 @@ namespace CAS.CommServer.ProtocolHub.MonitorInterface
       [Serializable]
       public class InterfaceStatisticsInternal
       {
+
         #region private
         private static ulong InternalIDCounter = 0;
         /// <summary>
@@ -64,6 +55,7 @@ namespace CAS.CommServer.ProtocolHub.MonitorInterface
         internal uint[] packetsCount = new uint[] { 0, 0, 0, 0, 0, 0 };
         internal uint[] currCount = new uint[] { 0, 0, 0, 0, 0, 0 };
         #endregion
+
         #region public
         /// <summary>
         /// Name
@@ -78,6 +70,7 @@ namespace CAS.CommServer.ProtocolHub.MonitorInterface
         /// </summary>
         public readonly ulong myID_Internal;
         #endregion
+
         #region public method
         /// <summary>
         /// Initializes a new instance of the <see cref="InterfaceStatisticsInternal"/> class.
@@ -94,73 +87,40 @@ namespace CAS.CommServer.ProtocolHub.MonitorInterface
         /// Gets the get state as  string.
         /// </summary>
         /// <value>The get state as string.</value>
-        public string GetState2String
-        {
-          get
-          {
-            return myState.ToString();
-          }
-        }//CurrentInterfaceState
+        public string GetState2String => myState.ToString();//CurrentInterfaceState
         /// <summary>
         /// Gets a value indicating whether this <see cref="InterfaceStatisticsInternal"/> is active.
         /// </summary>
         /// <value><c>true</c> if active; otherwise, <c>false</c>.</value>
-        public bool Active
-        {
-          get
-          {
-            return (myState == InterfaceState.Active);
-          }
-        }
+        public bool Active => (myState == InterfaceState.Active);
         /// <summary>
         /// Gets  state.
         /// </summary>
         /// <value> state.</value>
-        public InterfaceState MyState
-        {
-          get
-          {
-            return myState;
-          }
-        }
+        public InterfaceState MyState => myState;
         /// <summary>
         /// Gets the active time.
         /// </summary>
         /// <value>The active time.</value>
-        public ulong ActiveTime
-        {
-          get { return activeTime; }
-        }
+        public ulong ActiveTime => activeTime;
         /// <summary>
         /// Gets the fail time.
         /// </summary>
         /// <value>The fail time.</value>
-        public ulong FailTime
-        {
-          get { return failTime; }
-        }
+        public ulong FailTime => failTime;
         /// <summary>
         /// Gets the standby time.
         /// </summary>
         /// <value>The standby time.</value>
-        public ulong StandbyTime
-        {
-          get { return standbyTime; }
-        }
+        public ulong StandbyTime => standbyTime;
         /// <summary>
         /// Gets the state .
         /// </summary>
         /// <value>The state .</value>
         public InterfaceState State
         {
-          get
-          {
-            return myState;
-          }
-          internal set
-          {
-            myState = value;
-          }
+          get => myState;
+          internal set => myState = value;
         }
         /// <summary>
         /// Returns a <see cref="T:System.String"/> that represents the current <see cref="T:System.Object"/>.
@@ -179,6 +139,7 @@ namespace CAS.CommServer.ProtocolHub.MonitorInterface
           standbyTime = StandbyTime;
         }
         #endregion public method
+
       };
       /// <summary>
       /// access to statistic internal
@@ -188,24 +149,12 @@ namespace CAS.CommServer.ProtocolHub.MonitorInterface
       /// Gets  name.
       /// </summary>
       /// <value>name.</value>
-      private string myName
-      {
-        get
-        {
-          return myStat.myName;
-        }
-      }
+      private string myName => myStat.myName;
       /// <summary>
       /// Gets my ID interface num.
       /// </summary>
       /// <value>My ID interface num.</value>
-      public ulong myID_InterfaceNum
-      {
-        get
-        {
-          return myStat.myID_InterfaceNum;
-        }
-      }
+      public ulong myID_InterfaceNum => myStat.myID_InterfaceNum;
       /// <summary>
       /// states of the interfaces
       /// </summary>
@@ -274,29 +223,17 @@ namespace CAS.CommServer.ProtocolHub.MonitorInterface
       /// Gets the state .
       /// </summary>
       /// <value>The state .</value>
-      public InterfaceState GetState { get { return myStat.MyState; } }
+      public InterfaceState GetState => myStat.MyState;
       /// <summary>
       /// Gets the get state as string.
       /// </summary>
       /// <value>The get state as string.</value>
-      public string GetState2String
-      {
-        get
-        {
-          return myStat.GetState2String;
-        }
-      }//CurrentInterfaceState
+      public string GetState2String => myStat.GetState2String;//CurrentInterfaceState
       /// <summary>
       /// Gets a value indicating whether this <see cref="InterfaceStatistics"/> is active.
       /// </summary>
       /// <value><c>true</c> if active; otherwise, <c>false</c>.</value>
-      public bool Active
-      {
-        get
-        {
-          return myStat.Active;
-        }
-      }
+      public bool Active => myStat.Active;
       /// <summary>
       /// Returns a <see cref="T:System.String"/> that represents the current <see cref="T:System.Object"/>.
       /// </summary>
@@ -311,13 +248,7 @@ namespace CAS.CommServer.ProtocolHub.MonitorInterface
       /// Gets the NAME.
       /// </summary>
       /// <value>The NAME.</value>
-      public string NAME
-      {
-        get
-        {
-          return myName;
-        }
-      }
+      public string NAME => myName;
       #endregion
 
       #region PARENT
@@ -421,6 +352,7 @@ namespace CAS.CommServer.ProtocolHub.MonitorInterface
         myStat = new InterfaceStatisticsInternal(name, interfaceNumber);
       }
       #endregion
+
       #endregion
 
       #region IHtmlOutput Members
@@ -466,11 +398,11 @@ namespace CAS.CommServer.ProtocolHub.MonitorInterface
         string RowClassAct = RowClass;
         string ret = "";
         ret += "<tr>";
-        ret += "<td class='" + RowClassAct + "'>&nbsp;" + this.ToString() + "</td>";
-        ret += "<td class='" + RowClassAct + "'>&nbsp;" + this.GetState + "</td>";
-        ret += "<td class='" + RowClassAct + "'>&nbsp;" + this.ActiveTime.ToString() + "</td>";
-        ret += "<td class='" + RowClassAct + "'>&nbsp;" + this.FailTime.ToString() + "</td>";
-        ret += "<td class='" + RowClassAct + "'>&nbsp;" + this.StandbyTime.ToString() + "</td>";
+        ret += "<td class='" + RowClassAct + "'>&nbsp;" + ToString() + "</td>";
+        ret += "<td class='" + RowClassAct + "'>&nbsp;" + GetState + "</td>";
+        ret += "<td class='" + RowClassAct + "'>&nbsp;" + ActiveTime.ToString() + "</td>";
+        ret += "<td class='" + RowClassAct + "'>&nbsp;" + FailTime.ToString() + "</td>";
+        ret += "<td class='" + RowClassAct + "'>&nbsp;" + StandbyTime.ToString() + "</td>";
         ret += "</tr>";
         return ret;
       }
@@ -488,9 +420,9 @@ namespace CAS.CommServer.ProtocolHub.MonitorInterface
 
       void IUpdateInternalStatistics.UpdateInternal()
       {
-        myStat.UpdateTimers(CAS.Lib.RTLib.Processes.Stopwatch.ConvertTo_s(activeTime.Read),
-          CAS.Lib.RTLib.Processes.Stopwatch.ConvertTo_s(failTime.Read),
-          CAS.Lib.RTLib.Processes.Stopwatch.ConvertTo_s(standbyTime.Read));
+        myStat.UpdateTimers(UAOOI.ProcessObserver.RealTime.Processes.Stopwatch.ConvertTo_s(activeTime.Read),
+          UAOOI.ProcessObserver.RealTime.Processes.Stopwatch.ConvertTo_s(failTime.Read),
+          UAOOI.ProcessObserver.RealTime.Processes.Stopwatch.ConvertTo_s(standbyTime.Read));
       }
 
       #endregion

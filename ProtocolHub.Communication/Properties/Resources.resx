@@ -112,10 +112,10 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="ConsoleInterface_ChannelRegistrationError" xml:space="preserve">
     <value>Unable to register channel for communication with CommServer Monitor (reason: {0}). 
@@ -129,9 +129,21 @@ Please also check "ConsoleRemotingHTTPport" configuration parameter, that indica
     <value>During report creation the following error has occurred: </value>
     <comment>PR21-CommServer/CommServer/SRC/BaseStation/ConsoleIterface.cs</comment>
   </data>
+  <data name="InsideWatchdogMessageFormat" xml:space="preserve">
+    <value>There are {0} processes inside Watchdog.</value>
+    <comment>from RealTime</comment>
+  </data>
+  <data name="MaxDelayMessageFormat" xml:space="preserve">
+    <value>New maximum delay = {0} mS reached at {1} while calling {2}</value>
+    <comment>from RealTime</comment>
+  </data>
   <data name="ReadWriteOperationsReadDataAssertion" xml:space="preserve">
     <value>Assertion during read from dataAddress: {0}|{1}|{2} , pipeInterface.address {3}, case {4}.</value>
     <comment>Assert Message in CAS.Lib.CommServer.SegmentStateMachine.ReadWriteOperations</comment>
+  </data>
+  <data name="RestartMessageFormat" xml:space="preserve">
+    <value>I had to reboot the system at: {0} while calling {1}</value>
+    <comment>from RealTime</comment>
   </data>
   <data name="TraceALRes_DatTransferEr" xml:space="preserve">
     <value>AL_ReadData_Result.ALRes_DatTransferErrr occurred during myMachine.myProtocol.ReadData in SegmentStateMachine (interface: number {0} address {1})</value>
@@ -152,5 +164,9 @@ Please also check "ConsoleRemotingHTTPport" configuration parameter, that indica
   <data name="TraceStateEntered" xml:space="preserve">
     <value>State = State{0} entered.</value>
     <comment>Trace message in CAS.Lib.CommServer.SegmentStateMachine</comment>
+  </data>
+  <data name="WatchdogStopwatchIsNotZeroMessageFormat" xml:space="preserve">
+    <value>Stopwatch expected value should be 0, but the value is {0} ms.</value>
+    <comment>from RealTime</comment>
   </data>
 </root>

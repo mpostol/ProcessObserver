@@ -10,7 +10,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>CAS.CommServer.ProtocolHub.CommunicationUnitTests</RootNamespace>
     <AssemblyName>CAS.CommServer.ProtocolHub.CommunicationUnitTests</AssemblyName>
-    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <SignAssembly>true</SignAssembly>
@@ -46,23 +46,17 @@
     <Reference Include="CAS.CodeProtect, Version=7.0.0.18157, Culture=neutral, PublicKeyToken=8832ff1a67ea61a3, processorArchitecture=MSIL">
       <HintPath>..\packages\CAS.CodeProtect.7.0.1-Bravo\lib\net451\CAS.CodeProtect.dll</HintPath>
     </Reference>
-    <Reference Include="CAS.CommServer.CommonBus, Version=5.1.6.38674, Culture=neutral, PublicKeyToken=8832ff1a67ea61a3, processorArchitecture=MSIL">
-      <HintPath>..\packages\CAS.CommServer.CommonBus.5.01.07\lib\net451\CAS.CommServer.CommonBus.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="CAS.CommServer.CommonBus, Version=6.20.0.42031, Culture=neutral, PublicKeyToken=8832ff1a67ea61a3, processorArchitecture=MSIL">
+      <HintPath>..\packages\CAS.CommServer.CommonBus.6.20.0-Echo\lib\net472\CAS.CommServer.CommonBus.dll</HintPath>
     </Reference>
-    <Reference Include="CAS.CommServer.DAServerConfiguration, Version=5.2.2.26942, Culture=neutral, PublicKeyToken=8832ff1a67ea61a3, processorArchitecture=MSIL">
-      <HintPath>..\packages\CAS.CommServer.DAServerConfiguration.5.02.02\lib\net451\CAS.CommServer.DAServerConfiguration.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="CAS.CommServer.DAServerConfiguration, Version=6.20.0.42030, Culture=neutral, PublicKeyToken=8832ff1a67ea61a3, processorArchitecture=MSIL">
+      <HintPath>..\packages\CAS.CommServer.DAServerConfiguration.6.20.0-Echo\lib\net472\CAS.CommServer.DAServerConfiguration.dll</HintPath>
     </Reference>
     <Reference Include="CAS.CommServer.DataProvider.MODBUSCore, Version=3.100.1.762, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\CAS.CommServer.DataProvider.Package.3.100.01\lib\net461\CAS.CommServer.DataProvider.MODBUSCore.dll</HintPath>
     </Reference>
     <Reference Include="CAS.CommServer.OPCClassicSDK.Core, Version=2.1.1062.39746, Culture=neutral, PublicKeyToken=8832ff1a67ea61a3, processorArchitecture=MSIL">
       <HintPath>..\packages\CAS.CommServer.OPCClassic.SDK.Core.2.01.1062\lib\net451\CAS.CommServer.OPCClassicSDK.Core.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="CAS.CommServer.ProtocolHub.MonitorInterface, Version=4.1.0.31758, Culture=neutral, PublicKeyToken=8832ff1a67ea61a3, processorArchitecture=MSIL">
-      <HintPath>..\packages\CAS.CommServer.ProtocolHub.MonitorInterface.4.01.00\lib\net461\CAS.CommServer.ProtocolHub.MonitorInterface.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="CAS.CommSvrPlugin_DemoSimulator, Version=3.100.1.763, Culture=neutral, processorArchitecture=MSIL">
@@ -150,6 +144,9 @@
     <Reference Include="System.Windows" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
+    <Reference Include="UAOOI.ProcessObserver.RealTime, Version=6.2.0.0, Culture=neutral, PublicKeyToken=8832ff1a67ea61a3, processorArchitecture=MSIL">
+      <HintPath>..\packages\UAOOI.ProcessObserver.RealTime.6.2.0-Echo\lib\net451\UAOOI.ProcessObserver.RealTime.dll</HintPath>
+    </Reference>
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
@@ -179,6 +176,10 @@
     <ProjectReference Include="..\ProtocolHub.Communication\ProtocolHub.Communication.csproj">
       <Project>{E1351D09-7241-44C3-A292-8D46E322A61D}</Project>
       <Name>ProtocolHub.Communication</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ProtocolHub.MonitorInterface\ProtocolHub.MonitorInterface.csproj">
+      <Project>{ce7ba276-5acf-44fe-b24a-f91f6a0b0436}</Project>
+      <Name>ProtocolHub.MonitorInterface</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

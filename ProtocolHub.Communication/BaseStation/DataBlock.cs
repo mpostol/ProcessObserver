@@ -1,30 +1,23 @@
-//_______________________________________________________________
-//  Title   : Data block description for OPC client station
-//  System  : Microsoft VisualStudio 2015 / C#
-//  $LastChangedDate$
-//  $Rev$
-//  $LastChangedBy$
-//  $URL$
-//  $Id$
+//___________________________________________________________________________________
 //
-//  Copyright (C) 2016, CAS LODZ POLAND.
-//  TEL: +48 (42) 686 25 47
-//  mailto://techsupp@cas.eu
-//  http://www.cas.eu
-//_______________________________________________________________
+//  Copyright (C) 2020, Mariusz Postol LODZ POLAND.
+//
+//  To be in touch join the community at GITTER: https://gitter.im/mpostol/OPC-UA-OOI
+//___________________________________________________________________________________
 
 using CAS.Lib.CommonBus.ApplicationLayer;
 using CAS.Lib.DeviceSimulator;
-using CAS.Lib.RTLib;
-using CAS.Lib.RTLib.Processes;
 using CAS.NetworkConfigLib;
 using Opc.Da;
 using System;
 using System.Collections;
 using System.Xml;
+using UAOOI.ProcessObserver.RealTime;
+using UAOOI.ProcessObserver.RealTime.Processes;
 
 namespace CAS.CommServer.ProtocolHub.Communication.BaseStation
 {
+
   internal interface IDataWrite
   {
     bool WriteData(object data, IBlockDescription address);
@@ -37,6 +30,7 @@ namespace CAS.CommServer.ProtocolHub.Communication.BaseStation
   }
   internal abstract class DataBlock : WaitTimeList<DataBlock>.TODescriptor, IBlockDescription
   {
+
     #region PRIVATE
     private readonly int myStartAddress;
     private readonly int mylength;
@@ -182,7 +176,7 @@ namespace CAS.CommServer.ProtocolHub.Communication.BaseStation
       /// <param name="myDSC">params from Tags table</param>
       /// <param name="myStation">pointer to interface that allow to change priority of the station</param>
       internal Tag(ComunicationNet.TagsRow myDSC, IStationState myStation)
-          : base(myDSC.Name, null, Opc.Da.qualityBits.badNotConnected, (ItemAccessRights)myDSC.AccessRights, GetDataTypeFromConfig(myDSC))
+          : base(myDSC.Name, null, qualityBits.badNotConnected, (ItemAccessRights)myDSC.AccessRights, GetDataTypeFromConfig(myDSC))
       {
         switch ((StateTrigger)myDSC.StateTrigger)
         {
@@ -317,4 +311,5 @@ namespace CAS.CommServer.ProtocolHub.Communication.BaseStation
     #endregion PUBLIC
 
   }// class DataBlock
+
 }//namespace BaseStation

@@ -1,23 +1,14 @@
-//_______________________________________________________________
-//  Title   : Configuration management utilities
-//  System  : Microsoft VisualStudio 2015 / C#
-//  $LastChangedDate$
-//  $Rev$
-//  $LastChangedBy$
-//  $URL$
-//  $Id$
+//___________________________________________________________________________________
 //
-//  Copyright (C) 2016, CAS LODZ POLAND.
-//  TEL: +48 (42) 686 25 47
-//  mailto://techsupp@cas.eu
-//  http://www.cas.eu
-//_______________________________________________________________
-
+//  Copyright (C) 2020, Mariusz Postol LODZ POLAND.
+//
+//  To be in touch join the community at GITTER: https://gitter.im/mpostol/OPC-UA-OOI
+//___________________________________________________________________________________
 
 using CAS.Lib.RTLib.Database;
-using CAS.Lib.RTLib.Processes;
 using CAS.NetworkConfigLib;
 using System;
+using UAOOI.ProcessObserver.RealTime.Processes;
 
 namespace CAS.CommServer.ProtocolHub.Communication.NetworkConfig
 {
@@ -29,7 +20,7 @@ namespace CAS.CommServer.ProtocolHub.Communication.NetworkConfig
   {
 
     #region PRIVATE
-    private string filename;
+    private readonly string filename;
     #endregion
 
     #region PUBLIC
@@ -64,15 +55,11 @@ namespace CAS.CommServer.ProtocolHub.Communication.NetworkConfig
       }
       catch (System.IO.IOException ioex)
       {
-        CAS.Lib.RTLib.Processes.EventLogMonitor.WriteToEventLogError(
-          "Problem with CommServer configuration file:" + ioex.Message,
-          (int)Error.CommServer_Configuration);
+        EventLogMonitor.WriteToEventLogError("Problem with CommServer configuration file:" + ioex.Message, (int)Error.CommServer_Configuration);
       }
       catch (Exception ex)
       {
-        CAS.Lib.RTLib.Processes.EventLogMonitor.WriteToEventLogError(
-          "Problem with CommServer XML configuration file :" + filename +
-          " - in directory: " + CAS.Lib.RTLib.Win32API.Application.Path + " error: " + ex.ToString(),
+        EventLogMonitor.WriteToEventLogError("Problem with CommServer XML configuration file :" + filename + " - in directory: " + UAOOI.ProcessObserver.RealTime.Win32API.Application.Path + " error: " + ex.ToString(),
           (int)Error.CommServer_Configuration);
       }
     }

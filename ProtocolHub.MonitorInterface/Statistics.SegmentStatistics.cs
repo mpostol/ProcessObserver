@@ -1,25 +1,17 @@
-//_______________________________________________________________
-//  Title   : Communication statistics management class
-//  System  : Microsoft VisualStudio 2015 / C#
-//  $LastChangedDate$
-//  $Rev$
-//  $LastChangedBy$
-//  $URL$
-//  $Id$
+//___________________________________________________________________________________
 //
-//  Copyright (C) 2016, CAS LODZ POLAND.
-//  TEL: +48 (42) 686 25 47
-//  mailto://techsupp@cas.eu
-//  http://www.cas.eu
-//_______________________________________________________________
+//  Copyright (C) 2020, Mariusz Postol LODZ POLAND.
+//
+//  To be in touch join the community at GITTER: https://gitter.im/mpostol/OPC-UA-OOI
+//___________________________________________________________________________________
 
 using CAS.CommServer.ProtocolHub.MonitorInterface.Properties;
 using CAS.Lib.RTLib.Management;
-using CAS.Lib.RTLib.Processes;
-using CAS.Lib.RTLib.Utils;
 using System;
 using System.Collections;
 using System.Text;
+using UAOOI.ProcessObserver.RealTime.Processes;
+using UAOOI.ProcessObserver.RealTime.Utils;
 using CommunicationDSC = CAS.NetworkConfigLib.ComunicationNet;
 
 namespace CAS.CommServer.ProtocolHub.MonitorInterface
@@ -35,7 +27,7 @@ namespace CAS.CommServer.ProtocolHub.MonitorInterface
     ///  Title   : Communication statistics management class 
     /// </summary>
     [Serializable]
-    public abstract class SegmentStatistics: Metronom.RefreshAble, IHtmlOutput, ISegmentStatistics, IUpdateInternalStatistics
+    public abstract class SegmentStatistics : Metronom.RefreshAble, IHtmlOutput, ISegmentStatistics, IUpdateInternalStatistics
     {
 
       #region PRIVATE
@@ -53,36 +45,36 @@ namespace CAS.CommServer.ProtocolHub.MonitorInterface
       /// <summary>
       /// MinMaxAvr Read Delay
       /// </summary>
-      private MinMaxAvr mmaReadDelay = new MinMaxAvr( 10 );
+      private MinMaxAvr mmaReadDelay = new MinMaxAvr(10);
       /// <summary>
       /// MinMaxAvr Write Delay
       /// </summary>
-      private MinMaxAvr mmaWriteDelay = new MinMaxAvr( 10 );
+      private MinMaxAvr mmaWriteDelay = new MinMaxAvr(10);
       /// <summary>
       /// MinMaxAvr  Connect Time
       /// </summary>
-      private MinMaxAvr mmaConnectTime = new MinMaxAvr( 10 );
-      private void MMAStopWatch_markNewVal( long min, long max, long avr )
+      private MinMaxAvr mmaConnectTime = new MinMaxAvr(10);
+      private void MMAStopWatch_markNewVal(long min, long max, long avr)
       {
-        myStat.UpdateStringsWithStatisticsFromStopwatch( mmaWriteDelay.ToString(), mmaReadDelay.ToString(), mmaConnectTime.ToString() );
+        myStat.UpdateStringsWithStatisticsFromStopwatch(mmaWriteDelay.ToString(), mmaReadDelay.ToString(), mmaConnectTime.ToString());
       }
-              /// <summary>
-        /// Gets the average sampling time in ms as string.
-        /// </summary>
-        /// <value>The average sampling time in ms as string.</value>
-        private string AverageSamplingTimeInMsAsString
+      /// <summary>
+      /// Gets the average sampling time in ms as string.
+      /// </summary>
+      /// <value>The average sampling time in ms as string.</value>
+      private string AverageSamplingTimeInMsAsString
+      {
+        get
         {
-          get
+          uint numberOfConnections = myStat.ConnMadeCount + myStat.ConnFailCount;
+          if (numberOfConnections > 0)
           {
-            uint numberOfConnections = myStat.ConnMadeCount + myStat.ConnFailCount;
-            if ( numberOfConnections > 0 )
-            {
-              return ( (long)(( DateTime.Now - startTime ).TotalMilliseconds / numberOfConnections )).ToString();
-            }
-            else
-              return Resources.report_text_NA;
+            return ((long)((DateTime.Now - startTime).TotalMilliseconds / numberOfConnections)).ToString();
           }
+          else
+            return Resources.report_text_NA;
         }
+      }
       #endregion
 
       #region PUBLIC
@@ -134,18 +126,18 @@ namespace CAS.CommServer.ProtocolHub.MonitorInterface
         set
         {
           ulong voidV;
-          switch ( value )
+          switch (value)
           {
             case States.Disconnected:
               voidV = connectTime.Stop;
-              mmaConnectTime.Add = (long)CAS.Lib.RTLib.Processes.Stopwatch.ConvertTo_ms( SW_ConnectTime.Reset );
+              mmaConnectTime.Add = (long)Stopwatch.ConvertTo_ms(SW_ConnectTime.Reset);
               break;
             case States.Connected:
               myStat.ConnMadeCount++;
               voidV = SW_ReadDelay.Stop;
               voidV = SW_WriteDelay.Stop;
-              mmaReadDelay.Add = (long)Stopwatch.ConvertTo_ms( SW_ReadDelay.Reset );
-              mmaWriteDelay.Add = (long)Stopwatch.ConvertTo_ms( SW_WriteDelay.Reset );
+              mmaReadDelay.Add = (long)Stopwatch.ConvertTo_ms(SW_ReadDelay.Reset);
+              mmaWriteDelay.Add = (long)Stopwatch.ConvertTo_ms(SW_WriteDelay.Reset);
               voidV = connectTime.Start;
               SW_ConnectTime.StartReset();
               break;
@@ -159,19 +151,19 @@ namespace CAS.CommServer.ProtocolHub.MonitorInterface
           myStat.CurrentState = value;
         }
       }//NewState
-
       /// <summary>
       /// Communication statistics management class  (internal statistics - that are send through remoting)
       /// </summary>
       [Serializable]
       public class SegmentStatisticsInternal
       {
+
         #region PRIVATE
         private string mmaWriteDelayString = "", mmaReadDelayString = "", mmaConnectTimeString = "";
         private readonly long myID;
         private readonly string myName;
         private ulong connecttimeinseconds = 0;
-        private uint[] packetsCount = new uint[] { 0, 0, 0, 0, 0, 0 };
+        private readonly uint[] packetsCount = new uint[] { 0, 0, 0, 0, 0, 0 };
 
         /// <summary>
         /// overtime coefficient minimum
@@ -190,15 +182,16 @@ namespace CAS.CommServer.ProtocolHub.MonitorInterface
         /// </summary>
         private States m_State = States.Disconnected;
         #endregion private
+
         #region PUBLIC
         /// <summary>
         /// The connection fail count.
         /// </summary>
-        public uint ConnFailCount {get;private set;}
+        public uint ConnFailCount { get; private set; }
         /// <summary>
         /// the count of connection made
         /// </summary>
-        public uint ConnMadeCount { get; internal set; } 
+        public uint ConnMadeCount { get; internal set; }
         /// <summary>
         /// Gets or sets the address.
         /// </summary>
@@ -243,8 +236,8 @@ namespace CAS.CommServer.ProtocolHub.MonitorInterface
           get
           {
             StringBuilder sb = new StringBuilder();
-            if ( ConnMadeCount == 0 )
-              sb.AppendLine( Resources.report_test_segment_warning_no_connection_made );
+            if (ConnMadeCount == 0)
+              sb.AppendLine(Resources.report_test_segment_warning_no_connection_made);
             return sb.ToString();
           }
         }
@@ -257,7 +250,7 @@ namespace CAS.CommServer.ProtocolHub.MonitorInterface
           long timeIdleKeepConn,
           long timeKeepConn,
           long timeReconnect,
-          long timeScan )
+          long timeScan)
         {
           myID = id;
           myName = name;
@@ -275,38 +268,20 @@ namespace CAS.CommServer.ProtocolHub.MonitorInterface
         /// Gets  ID.
         /// </summary>
         /// <value> ID.</value>
-        public long MyID
-        {
-          get
-          {
-            return myID;
-          }
-        }
+        public long MyID => myID;
         /// <summary>
         /// Gets  name.
         /// </summary>
         /// <value> name.</value>
-        public string MyName
-        {
-          get
-          {
-            return myName;
-          }
-        }
+        public string MyName => myName;
         /// <summary>
         /// Gets or sets the <see cref="System.UInt32"/> at the specified index.
         /// </summary>
         /// <value></value>
-        public uint this[ int index ]
+        public uint this[int index]
         {
-          get
-          {
-            return packetsCount[ index ];
-          }
-          set
-          {
-            packetsCount[ index ] = value;
-          }
+          get => packetsCount[index];
+          set => packetsCount[index] = value;
         }
 
         /// <summary>
@@ -325,91 +300,64 @@ namespace CAS.CommServer.ProtocolHub.MonitorInterface
         /// <value>The connect time.</value>
         public ulong ConnectTime
         {
-          get { return connecttimeinseconds; }
-          internal set { connecttimeinseconds = value; }
+          get => connecttimeinseconds;
+          internal set => connecttimeinseconds = value;
         }
         /// <summary>
         /// Gets the write delay.
         /// </summary>
         /// <value>The write delay.</value>
-        public string WriteDelay
-        {
-          get { return mmaWriteDelayString; }
-        }
+        public string WriteDelay => mmaWriteDelayString;
         /// <summary>
         /// Gets the read delay.
         /// </summary>
         /// <value>The read delay.</value>
-        public string ReadDelay
-        {
-          get { return mmaReadDelayString; }
-        }
+        public string ReadDelay => mmaReadDelayString;
         /// <summary>
         /// Gets the  segment connection time Minimum/Maximum/Average.
         /// </summary>
         /// <value>The segment connection time Minimum/Maximum/Average.</value>
-        public string GetSegmentConnectionTimeMinimumMximumAverage
-        {
-          get { return mmaConnectTimeString; }
-        }
+        public string GetSegmentConnectionTimeMinimumMximumAverage => mmaConnectTimeString;
         /// <summary>
         /// Gets the state .
         /// </summary>
         /// <value>The state .</value>
-        public string CurrentStateAsString
-        {
-          get { return m_State.ToString(); }
-        }//CurrentState
+        public string CurrentStateAsString => m_State.ToString(); //CurrentState
         /// <summary>
         /// Gets or sets the state.
         /// </summary>
         /// <value>The state .</value>
         public States CurrentState
         {
-          get { return m_State; }
-          internal set { m_State = value; }
+          get => m_State;
+          internal set => m_State = value;
         }
         /// <summary>
         /// Gets a value indicating whether this <see cref="SegmentStatisticsInternal"/> is connected.
         /// </summary>
         /// <value><c>true</c> if connected; otherwise, <c>false</c>.</value>
-        public bool Connected
-        {
-          get { return ( m_State == States.Connected ); }
-        }
+        public bool Connected => (m_State == States.Connected);
         /// <summary>
         /// Gets the count of connection made as string.
         /// </summary>
         /// <value>the count of connection made as string.</value>
-        public string GetMadeCount
-        {
-          get { return this.ConnMadeCount.ToString(); }
-        }
+        public string GetMadeCount => ConnMadeCount.ToString();
         /// <summary>
         /// Gets the get fail count as string
         /// </summary>
         /// <value>The get fail count.</value>
-        public string GetFailCount
-        {
-          get { return this.ConnFailCount.ToString(); }
-        }
+        public string GetFailCount => ConnFailCount.ToString();
         /// <summary>
         /// Gets the get overtime coefficient as string
         /// </summary>
         /// <value>The get overtime coefficient as string.</value>
-        public string GetOvertimeCoefficient
-        {
-          get
-          {
-            return String.Format( Resources.report_test_mn_av_mx, OvertimeCoefficientMin.ToString(), OvertimeCoefficientAvr.ToString(), OvertimeCoefficientMax.ToString() );
-          }
-        }
+        public string GetOvertimeCoefficient => string.Format(Resources.report_test_mn_av_mx, OvertimeCoefficientMin.ToString(), OvertimeCoefficientAvr.ToString(), OvertimeCoefficientMax.ToString());
         /// <summary>
         /// Marks the connection fail.
         /// </summary>
         public void MarkConnFail()
         {
-          lock ( this )
+          lock (this)
             ConnFailCount++;
         }
         /// <summary>
@@ -418,17 +366,17 @@ namespace CAS.CommServer.ProtocolHub.MonitorInterface
         /// <param name="min">The min.</param>
         /// <param name="max">The max.</param>
         /// <param name="avr">The avr.</param>
-        public void SetOvertimeCoefficient( long min, long max, long avr )
+        public void SetOvertimeCoefficient(long min, long max, long avr)
         {
-          lock ( this )
+          lock (this)
           {
             OvertimeCoefficientMin = (ushort)min;
             OvertimeCoefficientMax = (ushort)max;
             OvertimeCoefficientAvr = (ushort)avr;
           }
         }
-        internal void UpdateStringsWithStatisticsFromStopwatch( string MinMaxAverageWriteDelayString,
-          string MinMaxAverageReadDelayString, string MinMaxAverageConnectTimeString )
+        internal void UpdateStringsWithStatisticsFromStopwatch(string MinMaxAverageWriteDelayString,
+          string MinMaxAverageReadDelayString, string MinMaxAverageConnectTimeString)
         {
           mmaWriteDelayString = MinMaxAverageWriteDelayString;
           mmaReadDelayString = MinMaxAverageReadDelayString;
@@ -439,39 +387,21 @@ namespace CAS.CommServer.ProtocolHub.MonitorInterface
         /// Gets the overtime coefficient  minimum.
         /// </summary>
         /// <value>The overtime coefficient_ min.</value>
-        public long OvertimeCoefficient_Min
-        {
-          get
-          {
-            return OvertimeCoefficientMin;
-          }
-        }
+        public long OvertimeCoefficient_Min => OvertimeCoefficientMin;
         /// <summary>
         /// Gets the overtime coefficient average.
         /// </summary>
         /// <value>The overtime coefficient_ avr.</value>
-        public long OvertimeCoefficient_Avr
-        {
-          get
-          {
-            return OvertimeCoefficientAvr;
-          }
-        }
+        public long OvertimeCoefficient_Avr => OvertimeCoefficientAvr;
         /// <summary>
         /// Gets the overtime coefficient_ max.
         /// </summary>
         /// <value>The overtime coefficient maximum.</value>
-        public long OvertimeCoefficient_Max
-        {
-          get
-          {
-            return OvertimeCoefficientMax;
-          }
-        }
+        public long OvertimeCoefficient_Max => OvertimeCoefficientMax;
         #endregion MinMaxAvgReaders
         #endregion
-      };//statistics internal
 
+      };//statistics internal
       /// <summary>
       /// Statistics
       /// </summary>
@@ -480,13 +410,7 @@ namespace CAS.CommServer.ProtocolHub.MonitorInterface
       /// Gets  name.
       /// </summary>
       /// <value>name.</value>
-      public string myName
-      {
-        get
-        {
-          return myStat.MyName;
-        }
-      }
+      public string myName => myStat.MyName;
 
       #region InterfaceLink
       /// <summary>
@@ -494,14 +418,14 @@ namespace CAS.CommServer.ProtocolHub.MonitorInterface
       /// </summary>
       /// <param name="counters">The counters.</param>
       /// <param name="isAnySuccess">if set to <c>true</c> if any success.</param>
-      void IInterface2SegmentLink.GetProtocolStatistics( ref uint[] counters, out bool isAnySuccess )
+      void IInterface2SegmentLink.GetProtocolStatistics(ref uint[] counters, out bool isAnySuccess)
       {
-        lock ( this )
+        lock (this)
         {
-          myChannel.GeatProtocolStatistics( ref counters, out isAnySuccess );
-          for ( ushort idx = 0; idx < counters.Length; idx++ )
+          myChannel.GeatProtocolStatistics(ref counters, out isAnySuccess);
+          for (ushort idx = 0; idx < counters.Length; idx++)
           {
-            myStat[ idx ] += counters[ idx ];
+            myStat[idx] += counters[idx];
           }
         }
       }//GeatProtocolStatistics
@@ -509,7 +433,7 @@ namespace CAS.CommServer.ProtocolHub.MonitorInterface
       /// Adds the interface.
       /// </summary>
       /// <param name="interfaceStatistics">An object encapsulating interface statistic.</param>
-      void IInterface2SegmentLink.AddInterface( InterfaceStatistics interfaceStatistics)
+      void IInterface2SegmentLink.AddInterface(InterfaceStatistics interfaceStatistics)
       {
         interfaceList.Add(interfaceStatistics);
       }
@@ -519,11 +443,12 @@ namespace CAS.CommServer.ProtocolHub.MonitorInterface
       /// <value>The get OPC prefix.</value>
       public abstract string GetOPCPrefix { get; }
       #endregion
+
       #region HMI
       /// <summary>
       /// Delegate that is used when state is changed
       /// </summary>
-      public delegate void StateChanged( States currState );
+      public delegate void StateChanged(States currState);
       /// <summary>
       /// Occurs when [mark new state].
       /// </summary>
@@ -536,7 +461,7 @@ namespace CAS.CommServer.ProtocolHub.MonitorInterface
       {
         get
         {
-          myStat.ConnectTime = Stopwatch.ConvertTo_s( connectTime.Read );
+          myStat.ConnectTime = Stopwatch.ConvertTo_s(connectTime.Read);
           return myStat.ConnectTime;
         }
       }
@@ -544,74 +469,47 @@ namespace CAS.CommServer.ProtocolHub.MonitorInterface
       /// Gets the write delay.
       /// </summary>
       /// <value>The write delay.</value>
-      private string WriteDelay
-      {
-        get { return mmaWriteDelay.ToString(); }
-      }
+      private string WriteDelay => mmaWriteDelay.ToString();
       /// <summary>
       /// Gets the read delay.
       /// </summary>
       /// <value>The read delay.</value>
-      private string ReadDelay
-      {
-        get { return mmaReadDelay.ToString(); }
-      }
+      private string ReadDelay => mmaReadDelay.ToString();
       /// <summary>
       /// Gets the get segment connection minimum/maximum/average.
       /// </summary>
       /// <value>The get segment connection minimum/maximum/average.</value>
-      private string GetSegmentConnMMA
-      {
-        get { return mmaConnectTime.ToString(); }
-      }
+      private string GetSegmentConnMMA => mmaConnectTime.ToString();
       /// <summary>
       /// Gets the state .
       /// </summary>
       /// <value>The state .</value>
-      public string CurrentStateAsString
-      {
-        get { return myStat.CurrentStateAsString; }
-      }//CurrentState
+      public string CurrentStateAsString => myStat.CurrentStateAsString; //CurrentState
       /// <summary>
       /// Gets the state .
       /// </summary>
       /// <value>The state .</value>
-      public States GetCurrentState { get { return myStat.CurrentState; } }
+      public States GetCurrentState => myStat.CurrentState;
       /// <summary>
       /// Gets a value indicating whether this <see cref="SegmentStatistics"/> is connected.
       /// </summary>
       /// <value><c>true</c> if connected; otherwise, <c>false</c>.</value>
-      public bool Connected
-      {
-        get { return myStat.Connected; }
-      }
+      public bool Connected => myStat.Connected;
       /// <summary>
       /// Gets the get made (successful connections) count.
       /// </summary>
       /// <value>The get made(successful connections)  count.</value>
-      public string GetMadeCount
-      {
-        get { return myStat.GetMadeCount; }
-      }
+      public string GetMadeCount => myStat.GetMadeCount;
       /// <summary>
       /// Gets the get fail count.
       /// </summary>
       /// <value>The get fail count.</value>
-      public string GetFailCount
-      {
-        get { return myStat.GetFailCount; }
-      }
+      public string GetFailCount => myStat.GetFailCount;
       /// <summary>
       /// Gets the get overtime coefficient.
       /// </summary>
       /// <value>The get overtime coefficient.</value>
-      public string GetOvertimeCoefficient
-      {
-        get
-        {
-          return myStat.GetOvertimeCoefficient;
-        }
-      }
+      public string GetOvertimeCoefficient => myStat.GetOvertimeCoefficient;
 
       #region MinMaxAvgReaders
       //WriteDelay
@@ -619,123 +517,70 @@ namespace CAS.CommServer.ProtocolHub.MonitorInterface
       /// Gets the write delay minimum.
       /// </summary>
       /// <value>The write delay min.</value>
-      public long WriteDelayMin
-      {
-        get
-        {
-          return mmaWriteDelay.Min;
-        }
-      }
+      public long WriteDelayMin => mmaWriteDelay.Min;
       /// <summary>
       /// Gets the write delay average.
       /// </summary>
       /// <value>The write delay avr.</value>
-      public long WriteDelayAvr
-      {
-        get
-        {
-          return mmaWriteDelay.Avr;
-        }
-      }
+      public long WriteDelayAvr => mmaWriteDelay.Avr;
       /// <summary>
       /// Gets the write delay maximum.
       /// </summary>
       /// <value>The write delay max.</value>
-      public long WriteDelayMax
-      {
-        get
-        {
-          return mmaWriteDelay.Max;
-        }
-      }
+      public long WriteDelayMax => mmaWriteDelay.Max;
       //ReadDelay
       /// <summary>
       /// Gets the read delay minimum.
       /// </summary>
       /// <value>The read delay min.</value>
-      public long ReadDelayMin
-      {
-        get
-        {
-          return mmaReadDelay.Min;
-        }
-      }
+      public long ReadDelayMin => mmaReadDelay.Min;
       /// <summary>
       /// Gets the read delay average.
       /// </summary>
       /// <value>The read delay avr.</value>
-      public long ReadDelayAvr
-      {
-        get
-        {
-          return mmaReadDelay.Avr;
-        }
-      }
+      public long ReadDelayAvr => mmaReadDelay.Avr;
       /// <summary>
       /// Gets the read delay maximum.
       /// </summary>
       /// <value>The read delay max.</value>
-      public long ReadDelayMax
-      {
-        get
-        {
-          return mmaReadDelay.Max;
-        }
-      }
+      public long ReadDelayMax => mmaReadDelay.Max;
       //ConnectTime
       /// <summary>
       /// Gets the connect time minimum.
       /// </summary>
       /// <value>The connect time min.</value>
-      public long ConnectTimeMin
-      {
-        get
-        {
-          return mmaConnectTime.Min;
-        }
-      }
+      public long ConnectTimeMin => mmaConnectTime.Min;
       /// <summary>
       /// Gets the connect time average.
       /// </summary>
       /// <value>The connect time avr.</value>
-      public long ConnectTimeAvr
-      {
-        get
-        {
-          return mmaConnectTime.Avr;
-        }
-      }
+      public long ConnectTimeAvr => mmaConnectTime.Avr;
       /// <summary>
       /// Gets the connect time maximum.
       /// </summary>
       /// <value>The connect time max.</value>
-      public long ConnectTimeMax
-      {
-        get
-        {
-          return mmaConnectTime.Max;
-        }
-      }
+      public long ConnectTimeMax => mmaConnectTime.Max;
       #endregion MinMaxAvgReaders
 
       #endregion
+
       #region ISegmentStatistics Members
       States ISegmentStatistics.NewState
       {
         set
         {
           NewStateUpdateStatistics = value;
-          if ( MarkNewState != null )
-            MarkNewState( value );
+          if (MarkNewState != null)
+            MarkNewState(value);
         }
       }//NewState
       void ISegmentStatistics.MarkConnFail()
       {
         myStat.MarkConnFail();
       }
-      void ISegmentStatistics.SetOvertimeCoefficient( long min, long max, long avr )
+      void ISegmentStatistics.SetOvertimeCoefficient(long min, long max, long avr)
       {
-        myStat.SetOvertimeCoefficient( min, max, avr );
+        myStat.SetOvertimeCoefficient(min, max, avr);
       }
       #endregion
 
@@ -745,7 +590,7 @@ namespace CAS.CommServer.ProtocolHub.MonitorInterface
       /// </summary>
       /// <param name="currDsc">The segment row descriptor.</param>
       /// <param name="chn">The channel statistics</param>
-      public SegmentStatistics( CommunicationDSC.SegmentsRow currDsc, ChannelStatistics chn )
+      public SegmentStatistics(CommunicationDSC.SegmentsRow currDsc, ChannelStatistics chn)
       {
         myStat = new SegmentStatisticsInternal(
           currDsc.Name,
@@ -756,26 +601,26 @@ namespace CAS.CommServer.ProtocolHub.MonitorInterface
           currDsc.TimeIdleKeepConn,
           currDsc.timeKeepConn,
           currDsc.TimeReconnect,
-          currDsc.TimeScan );
+          currDsc.TimeScan);
         Reset();
-        segmentList.Add( this );
+        segmentList.Add(this);
         myChannel = chn;
-        myChannel.AddSegment( this );
-        mmaConnectTime.markNewVal += new MinMaxAvr.newVal( MMAStopWatch_markNewVal );
-        mmaReadDelay.markNewVal += new MinMaxAvr.newVal( MMAStopWatch_markNewVal );
-        mmaWriteDelay.markNewVal += new MinMaxAvr.newVal( MMAStopWatch_markNewVal );
-        MMAStopWatch_markNewVal( 0, 0, 0 );
+        myChannel.AddSegment(this);
+        mmaConnectTime.MarkNewVal += new MinMaxAvr.newVal(MMAStopWatch_markNewVal);
+        mmaReadDelay.MarkNewVal += new MinMaxAvr.newVal(MMAStopWatch_markNewVal);
+        mmaWriteDelay.MarkNewVal += new MinMaxAvr.newVal(MMAStopWatch_markNewVal);
+        MMAStopWatch_markNewVal(0, 0, 0);
       }
 
       #endregion
-      
+
       #endregion PUBLIC
 
       #region IHtmlOutput Members
       /// <summary>
       /// variable resposible for row color changing
       /// </summary>
-      static bool changecolor = true;
+      private static bool changecolor = true;
       /// <summary>
       /// returns row color class
       /// </summary>
@@ -784,33 +629,33 @@ namespace CAS.CommServer.ProtocolHub.MonitorInterface
         get
         {
           changecolor = !changecolor;
-          if ( changecolor )
+          if (changecolor)
             return "k41";
           return "k4";
         }
       }
-      private static string GetHtmlCell( string rowclass, string cellValue )
+      private static string GetHtmlCell(string rowclass, string cellValue)
       {
-        return GetHtmlCell( rowclass, cellValue, 1 );
+        return GetHtmlCell(rowclass, cellValue, 1);
       }
-      private static string GetHtmlCell( string rowclass, string cellValue, int rowspan )
+      private static string GetHtmlCell(string rowclass, string cellValue, int rowspan)
       {
         StringBuilder sb = new StringBuilder();
-        sb.Append( "<td class='" );
-        sb.Append( rowclass );
-        sb.Append( "' " );
-        if ( rowspan > 1 )
+        sb.Append("<td class='");
+        sb.Append(rowclass);
+        sb.Append("' ");
+        if (rowspan > 1)
         {
-          sb.Append( "rowspan='" );
-          sb.Append( rowspan );
-          sb.Append( "' " );
+          sb.Append("rowspan='");
+          sb.Append(rowspan);
+          sb.Append("' ");
         }
-        sb.Append( ">" );
-        if ( !string.IsNullOrEmpty( cellValue ) )
-          sb.Append( cellValue );
+        sb.Append(">");
+        if (!string.IsNullOrEmpty(cellValue))
+          sb.Append(cellValue);
         else
-          sb.Append( "&nbsp;" );
-        sb.Append( "</td>" );
+          sb.Append("&nbsp;");
+        sb.Append("</td>");
         return sb.ToString();
       }
       /// <summary>
@@ -820,26 +665,26 @@ namespace CAS.CommServer.ProtocolHub.MonitorInterface
       public string GetHtmlTableRowDescription()
       {
         StringBuilder ret = new StringBuilder();
-        ret.Append( "<tr>" );
-        ret.Append( GetHtmlCell( "k3", "Name", 2 ) );
-        ret.Append( GetHtmlCell( "k3", "Segment state" ) );
-        ret.Append( GetHtmlCell( "k3", "Number of successful connections" ) );
-        ret.Append( GetHtmlCell( "k3", "Sampling time [ms] <br/>(from config)" ) );
-        ret.Append( GetHtmlCell( "k3", "KeepConnect / PickupConnect <br/>(from config)" ) );
-        ret.Append( GetHtmlCell( "k3", "Time keep connect [ms] <br/>(from config)" ) );
-        ret.Append( GetHtmlCell( "k3", "Connect time [ms] *" ) );
-        ret.Append( GetHtmlCell( "k3", "Write delay [ms] *" ) );
-        ret.Append( GetHtmlCell( "k3", "Additional information", 2 ) );
-        ret.Append( "</tr>" );
-        ret.Append( "<tr>" );
-        ret.Append( GetHtmlCell( "k3", "Total connect time [s]" ) );
-        ret.Append( GetHtmlCell( "k3", "Number of connections failed" ) );
-        ret.Append( GetHtmlCell( "k3", "Average sampling time [ms] <br/>(from real)" ) );
-        ret.Append( GetHtmlCell( "k3", "Time reconnect [ms] <br/>(from config)" ) );
-        ret.Append( GetHtmlCell( "k3", "Time idle keep connect [ms] <br/>(from config)" ) );
-        ret.Append( GetHtmlCell( "k3", "Data overtime (Min/Avr/Max) [%] **" ) );
-        ret.Append( GetHtmlCell( "k3", "Read delay [ms] *" ) );
-        ret.Append( "</tr>" );
+        ret.Append("<tr>");
+        ret.Append(GetHtmlCell("k3", "Name", 2));
+        ret.Append(GetHtmlCell("k3", "Segment state"));
+        ret.Append(GetHtmlCell("k3", "Number of successful connections"));
+        ret.Append(GetHtmlCell("k3", "Sampling time [ms] <br/>(from config)"));
+        ret.Append(GetHtmlCell("k3", "KeepConnect / PickupConnect <br/>(from config)"));
+        ret.Append(GetHtmlCell("k3", "Time keep connect [ms] <br/>(from config)"));
+        ret.Append(GetHtmlCell("k3", "Connect time [ms] *"));
+        ret.Append(GetHtmlCell("k3", "Write delay [ms] *"));
+        ret.Append(GetHtmlCell("k3", "Additional information", 2));
+        ret.Append("</tr>");
+        ret.Append("<tr>");
+        ret.Append(GetHtmlCell("k3", "Total connect time [s]"));
+        ret.Append(GetHtmlCell("k3", "Number of connections failed"));
+        ret.Append(GetHtmlCell("k3", "Average sampling time [ms] <br/>(from real)"));
+        ret.Append(GetHtmlCell("k3", "Time reconnect [ms] <br/>(from config)"));
+        ret.Append(GetHtmlCell("k3", "Time idle keep connect [ms] <br/>(from config)"));
+        ret.Append(GetHtmlCell("k3", "Data overtime (Min/Avr/Max) [%] **"));
+        ret.Append(GetHtmlCell("k3", "Read delay [ms] *"));
+        ret.Append("</tr>");
         return ret.ToString();
       }
       /// <summary>
@@ -850,26 +695,26 @@ namespace CAS.CommServer.ProtocolHub.MonitorInterface
       {
         StringBuilder ret = new StringBuilder();
         string RowClassAct = RowClass;
-        ret.Append( "<tr>" );
-        ret.Append( GetHtmlCell( RowClassAct, String.Format( "{0}<br/>(address: '{1}')", this.myName, this.myStat.Address ), 2 ) );
-        ret.Append( GetHtmlCell( RowClassAct, this.CurrentStateAsString ) );
-        ret.Append( GetHtmlCell( RowClassAct, this.GetMadeCount.ToString() ) );
-        ret.Append( GetHtmlCell( RowClassAct, this.myStat.TimeScan.ToString() ) );
-        ret.Append( GetHtmlCell( RowClassAct, this.myStat.KeepConnect.ToString() + " / " + this.myStat.PickupConnect.ToString() ) );
-        ret.Append( GetHtmlCell( RowClassAct, this.myStat.TimeKeepConn.ToString() ) );
-        ret.Append( GetHtmlCell( RowClassAct, this.GetSegmentConnMMA.ToString() ) );
-        ret.Append( GetHtmlCell( RowClassAct, this.WriteDelay.ToString() ) );
-        ret.Append( GetHtmlCell( RowClassAct, this.myStat.AddtionalInformation, 2 ) );
-        ret.Append( "</tr>" );
-        ret.Append( "<tr>" );
-        ret.Append( GetHtmlCell( RowClassAct, this.ConnectTime.ToString() ) );
-        ret.Append( GetHtmlCell( RowClassAct, this.GetFailCount.ToString() ) );
-        ret.Append( GetHtmlCell( RowClassAct, this.AverageSamplingTimeInMsAsString ) );
-        ret.Append( GetHtmlCell( RowClassAct, this.myStat.TimeReconnect.ToString() ) );
-        ret.Append( GetHtmlCell( RowClassAct, this.myStat.TimeIdleKeepConn.ToString() ) );
-        ret.Append( GetHtmlCell( RowClassAct, this.GetOvertimeCoefficient ) );
-        ret.Append( GetHtmlCell( RowClassAct, this.ReadDelay.ToString() ) );
-        ret.Append( "</tr>" );
+        ret.Append("<tr>");
+        ret.Append(GetHtmlCell(RowClassAct, string.Format("{0}<br/>(address: '{1}')", myName, myStat.Address), 2));
+        ret.Append(GetHtmlCell(RowClassAct, CurrentStateAsString));
+        ret.Append(GetHtmlCell(RowClassAct, GetMadeCount.ToString()));
+        ret.Append(GetHtmlCell(RowClassAct, myStat.TimeScan.ToString()));
+        ret.Append(GetHtmlCell(RowClassAct, myStat.KeepConnect.ToString() + " / " + myStat.PickupConnect.ToString()));
+        ret.Append(GetHtmlCell(RowClassAct, myStat.TimeKeepConn.ToString()));
+        ret.Append(GetHtmlCell(RowClassAct, GetSegmentConnMMA.ToString()));
+        ret.Append(GetHtmlCell(RowClassAct, WriteDelay.ToString()));
+        ret.Append(GetHtmlCell(RowClassAct, myStat.AddtionalInformation, 2));
+        ret.Append("</tr>");
+        ret.Append("<tr>");
+        ret.Append(GetHtmlCell(RowClassAct, ConnectTime.ToString()));
+        ret.Append(GetHtmlCell(RowClassAct, GetFailCount.ToString()));
+        ret.Append(GetHtmlCell(RowClassAct, AverageSamplingTimeInMsAsString));
+        ret.Append(GetHtmlCell(RowClassAct, myStat.TimeReconnect.ToString()));
+        ret.Append(GetHtmlCell(RowClassAct, myStat.TimeIdleKeepConn.ToString()));
+        ret.Append(GetHtmlCell(RowClassAct, GetOvertimeCoefficient));
+        ret.Append(GetHtmlCell(RowClassAct, ReadDelay.ToString()));
+        ret.Append("</tr>");
         return ret.ToString();
       }
       /// <summary>
@@ -886,7 +731,7 @@ namespace CAS.CommServer.ProtocolHub.MonitorInterface
 
       void IUpdateInternalStatistics.UpdateInternal()
       {
-        myStat.ConnectTime = CAS.Lib.RTLib.Processes.Stopwatch.ConvertTo_s( connectTime.Read );
+        myStat.ConnectTime = Stopwatch.ConvertTo_s(connectTime.Read);
       }
 
       #endregion

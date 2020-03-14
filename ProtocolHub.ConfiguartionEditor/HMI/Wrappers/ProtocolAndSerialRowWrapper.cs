@@ -1,25 +1,12 @@
-//<summary>
-//  Title   : NetworkConfig.Wrappers
-//  System  : Microsoft Visual C# .NET 2005
-//  $LastChangedDate$
-//  $Rev$
-//  $LastChangedBy$
-//  $URL$
-//  $Id$
-//  History :
-//  20081003: mzbrzezny: AddressSpaceDescriptor implementation
-//   Tomek Siwecki - 26.12.2006 - Integrated porotocol and serial row wrappers 
-//    
+//___________________________________________________________________________________
 //
-//  Copyright (C)2006, CAS LODZ POLAND.
-//  TEL: +48 (42) 686 25 47
-//  mailto:techsupp@cas.eu
-//  http://www.cas.eu
-//</summary>
+//  Copyright (C) 2020, Mariusz Postol LODZ POLAND.
+//
+//  To be in touch join the community at GITTER: https://gitter.im/mpostol/OPC-UA-OOI
+//___________________________________________________________________________________
 
 using CAS.Lib.CommonBus;
 using CAS.Lib.CommonBus.Components;
-using CAS.Lib.ControlLibrary;
 using CAS.NetworkConfigLib;
 using System;
 using System.Collections.Generic;
@@ -28,6 +15,7 @@ using System.Data;
 using System.Drawing.Design;
 using System.Windows.Forms;
 using System.Windows.Forms.Design;
+using UAOOI.Windows.Forms;
 
 namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
 {
@@ -56,6 +44,7 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
     private IDataProviderID m_DataProvider = null;
     private SortedList<short, IAddressSpaceDescriptor> m_DataProviderAddressSpaces = null;
     #endregion
+
     #region Constructor
     /// <summary>
     /// Creats new <see cref="ProtocolAndSerialRowWrapper"/> based on specified Protocol nad Serial rows
@@ -79,6 +68,7 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
       }
     }
     #endregion
+
     #region public
     internal SortedList<short, IAddressSpaceDescriptor> DataProviderAddressSpaces
     {
@@ -96,6 +86,7 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
       }
     }
     #endregion
+
     #region Properties for PropertyGrid
     [
     DisplayName( "Data Provider" ),
@@ -190,6 +181,7 @@ CategoryAttribute( "XXX debug" ),
     //}
     #endregion
     #endregion properties for PropertyGrid
+
     #region Overrides
     #region object override
     /// <summary>
@@ -270,6 +262,7 @@ CategoryAttribute( "XXX debug" ),
     }
     #endregion
     #endregion
+
     #region TypeConverter & UITypeEditor classes
     private class ProtocolUI: UITypeEditor
     {

@@ -1,40 +1,32 @@
-//_______________________________________________________________
-//  Title   : Report Generator for CommServer
-//  System  : Microsoft VisualStudio 2015 / C#
-//  $LastChangedDate$
-//  $Rev$
-//  $LastChangedBy$
-//  $URL$
-//  $Id$
+//___________________________________________________________________________________
 //
-//  Copyright (C) 2016, CAS LODZ POLAND.
-//  TEL: +48 (42) 686 25 47
-//  mailto://techsupp@cas.eu
-//  http://www.cas.eu
-//_______________________________________________________________
-
+//  Copyright (C) 2020, Mariusz Postol LODZ POLAND.
+//
+//  To be in touch join the community at GITTER: https://gitter.im/mpostol/OPC-UA-OOI
+//___________________________________________________________________________________
 
 using CAS.CommServer.ProtocolHub.Communication.Properties;
 using CAS.CommServer.ProtocolHub.MonitorInterface;
 using CAS.Lib.RTLib.Management;
-using CAS.Lib.RTLib.Utils;
 using System;
 using System.IO;
 using System.Text;
+using UAOOI.ProcessObserver.RealTime.Utils;
 
 namespace CAS.CommServer.ProtocolHub.Communication.Diagnostic
 {
   /// <summary>
-  /// Class that generate html report about CommServer state
+  /// Class that generate HTML report about CommServer state
   /// </summary>
   public class ReportGenerator : CAS.Lib.RTLib.Utils.ReportGenerator
   {
     /// <summary>
     /// Gets the string that represents the report.
     /// </summary>
-    /// <returns>html report</returns>
+    /// <returns>HTML report</returns>
     public override string GetReportString()
     {
+      DateTimeProvider _DateTimeProvider = new DateTimeProvider(true);
       StringBuilder sb = new StringBuilder();
       //wpisujemy nag³ówek
       sb.Append(this.getHeader());
@@ -47,7 +39,7 @@ namespace CAS.CommServer.ProtocolHub.Communication.Diagnostic
         //
         //Miejsce na wlasciwe dane
         sb.Append(@"<table border='0' align='center' width='1200' class='t1'>");
-        sb.Append(@"<tr><td  class='k1'>Report time </td><td  class='k2'>" + DateTimeProvider.GetCurrentTime().ToString() + "</td></tr>");
+        sb.Append(@"<tr><td  class='k1'>Report time </td><td  class='k2'>" + _DateTimeProvider.GetCurrentTime().ToString() + "</td></tr>");
         sb.Append(@"<tr><td  class='k1'>Run Time [s] </td><td class='k2'>" + CommServerComponent.RunTime.ToString() + "</td></tr>");
         sb.Append(@"<tr><td  class='k1'>Configuration file </td><td class='k2'>" + CAS.Lib.RTLib.Management.AppConfigManagement.filename + "</td></tr>");
         sb.Append(@"<tr><td  class='k1'>Program Name </td><td class='k2'>" + System.Reflection.Assembly.GetExecutingAssembly().GetName().FullName + "</td></tr>");

@@ -1,22 +1,14 @@
-//_______________________________________________________________
-//  Title   : ImportTagMappings
-//  System  : Microsoft VisualStudio 2015 / C#
-//  $LastChangedDate$
-//  $Rev$
-//  $LastChangedBy$
-//  $URL$
-//  $Id$
+//___________________________________________________________________________________
 //
-//  Copyright (C) 2016, CAS LODZ POLAND.
-//  TEL: +48 (42) 686 25 47
-//  mailto://techsupp@cas.eu
-//  http://www.cas.eu
-//_______________________________________________________________
+//  Copyright (C) 2020, Mariusz Postol LODZ POLAND.
+//
+//  To be in touch join the community at GITTER: https://gitter.im/mpostol/OPC-UA-OOI
+//___________________________________________________________________________________
 
 using CAS.NetworkConfigLib;
-using CAS.Windows.Forms;
 using System;
 using System.Windows.Forms;
+using UAOOI.Windows.Forms;
 
 namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI.Import
 {
@@ -28,7 +20,7 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI.Import
   {
 
     #region ImportTagMappingsInfo
-    internal class ImportTagMappingsInfo : CAS.Lib.ControlLibrary.ImportFileControll.ImportInfo
+    internal class ImportTagMappingsInfo : ImportFileControll.ImportInfo
     {
       public override string ImportName
       {
@@ -42,7 +34,7 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI.Import
         }
       }
       /// <summary>
-      /// deafult browse filter for the dialog which is used for selecting a file
+      /// default browse filter for the dialog which is used for selecting a file
       /// </summary>
       public override string BrowseFilter
       {
@@ -52,7 +44,7 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI.Import
         }
       }
       /// <summary>
-      /// deafult extension for the dialog which is used for selecting a file
+      /// default extension for the dialog which is used for selecting a file
       /// </summary>
       public override string DefaultExt
       {
@@ -68,7 +60,7 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI.Import
       {
         get
         {
-          return "This function changes the names of tak - each line format: PreviousName;NewName";
+          return "This function changes the names of tag - each line format: PreviousName;NewName";
         }
       }
     }
