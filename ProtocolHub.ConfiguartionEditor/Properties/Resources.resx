@@ -112,10 +112,10 @@
     <value>2.0</value>
   </resheader>
   <resheader name="reader">
-    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <resheader name="writer">
-    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Tx_DemoModeInfo" xml:space="preserve">
     <value>Program will run in demo version.</value>
@@ -175,5 +175,13 @@ This message may occurs many until you resolv this issue.</value>
   <data name="tx_configtreeview_error_messagebox_title" xml:space="preserve">
     <value>Error while creating new object</value>
     <comment>NetworkConfig.HMI.ConfigTreeView.add()</comment>
+  </data>
+  <data name="SessionFileOpenError" xml:space="preserve">
+    <value>CommServer Configuration File Open Error</value>
+    <comment>Moved from CommServer.DAServerConfiguration</comment>
+  </data>
+  <data name="SessionFileSaveError" xml:space="preserve">
+    <value>CommServer Configuration File Save Error</value>
+    <comment>Moved from CommServer.DAServerConfiguration</comment>
   </data>
 </root>

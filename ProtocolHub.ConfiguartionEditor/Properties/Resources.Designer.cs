@@ -61,6 +61,24 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.Properties {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to CommServer Configuration File Open Error.
+        /// </summary>
+        internal static string SessionFileOpenError {
+            get {
+                return ResourceManager.GetString("SessionFileOpenError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to CommServer Configuration File Save Error.
+        /// </summary>
+        internal static string SessionFileSaveError {
+            get {
+                return ResourceManager.GetString("SessionFileSaveError", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Please select station first..
         /// </summary>
         internal static string tx_AddInterfaceAndStation_pleaseselectstationfirst {

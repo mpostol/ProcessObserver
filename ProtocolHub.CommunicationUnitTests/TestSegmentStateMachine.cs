@@ -10,6 +10,7 @@
 using CAS.CommServer.ProtocolHub.Communication;
 using CAS.CommServer.ProtocolHub.Communication.BaseStation;
 using CAS.CommServer.ProtocolHub.CommunicationUnitTests.Instrumentation;
+using CAS.CommServer.ProtocolHub.ConfigurationEditor.Components;
 using CAS.CommServer.ProtocolHub.MonitorInterface;
 using CAS.Lib.CommonBus.ApplicationLayer;
 using CAS.NetworkConfigLib;
