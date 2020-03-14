@@ -5,8 +5,8 @@
 //  To be in touch join the community at GITTER: https://gitter.im/mpostol/OPC-UA-OOI
 //___________________________________________________________________________________
 
+using CAS.CommServer.ProtocolHub.ConfigurationEditor.Components;
 using CAS.Lib.CommonBus;
-using CAS.Lib.CommonBus.Components;
 using CAS.NetworkConfigLib;
 using System;
 using System.Collections.Generic;
