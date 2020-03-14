@@ -1,5 +1,12 @@
-﻿
+﻿//___________________________________________________________________________________
+//
+//  Copyright (C) 2020, Mariusz Postol LODZ POLAND.
+//
+//  To be in touch join the community at GITTER: https://gitter.im/mpostol/OPC-UA-OOI
+//___________________________________________________________________________________
+
 using CAS.CommServer.ProtocolHub.Communication;
+using CAS.CommServer.ProtocolHub.MonitorInterface;
 using CAS.Lib.CodeProtect;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Diagnostics;
@@ -7,6 +14,7 @@ using System.IO;
 
 namespace CAS.CommServer.ProtocolHub.CommunicationUnitTests
 {
+
   [TestClass()]
   [DeploymentItem("CAS.License.lic")]
   [DeploymentItem("DefaultConfig.xml")]
@@ -22,7 +30,8 @@ namespace CAS.CommServer.ProtocolHub.CommunicationUnitTests
       {
         LibInstaller.InstallLicense(false);
         CommServerComponent = new CommServerComponent();
-        CommServerComponent.Initialize("DefaultConfig.xml");
+        SettingsBaseFixture _settings = new SettingsBaseFixture();
+        CommServerComponent.Initialize("DefaultConfig.xml", _settings);
       }
       catch (System.Exception _ex)
       {
@@ -46,6 +55,10 @@ namespace CAS.CommServer.ProtocolHub.CommunicationUnitTests
     public void AssemblyInitializeTestMethod()
     {
       Assert.IsTrue(string.IsNullOrEmpty(m_InstallLicenseError), m_InstallLicenseError);
+    }
+    private class SettingsBaseFixture : ISettingsBase
+    {
+      public object this[string propertyName] { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
     }
 
   }
