@@ -49,8 +49,8 @@
     <Reference Include="CAS.CommServer.CommonBus, Version=6.21.0.29494, Culture=neutral, PublicKeyToken=8832ff1a67ea61a3, processorArchitecture=MSIL">
       <HintPath>..\packages\CAS.CommServer.CommonBus.6.21.0-Foxtrot\lib\net472\CAS.CommServer.CommonBus.dll</HintPath>
     </Reference>
-    <Reference Include="CAS.CommServer.DAServerConfiguration, Version=6.20.0.42030, Culture=neutral, PublicKeyToken=8832ff1a67ea61a3, processorArchitecture=MSIL">
-      <HintPath>..\packages\CAS.CommServer.DAServerConfiguration.6.20.0-Echo\lib\net472\CAS.CommServer.DAServerConfiguration.dll</HintPath>
+    <Reference Include="CAS.CommServer.DAServerConfiguration, Version=6.21.1.38452, Culture=neutral, PublicKeyToken=8832ff1a67ea61a3, processorArchitecture=MSIL">
+      <HintPath>..\packages\CAS.CommServer.DAServerConfiguration.6.21.1-Golf\lib\net472\CAS.CommServer.DAServerConfiguration.dll</HintPath>
     </Reference>
     <Reference Include="CAS.CommServer.DataProvider.MODBUSCore, Version=3.100.1.762, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\CAS.CommServer.DataProvider.Package.3.100.01\lib\net461\CAS.CommServer.DataProvider.MODBUSCore.dll</HintPath>
@@ -176,6 +176,10 @@
     <ProjectReference Include="..\ProtocolHub.Communication\ProtocolHub.Communication.csproj">
       <Project>{E1351D09-7241-44C3-A292-8D46E322A61D}</Project>
       <Name>ProtocolHub.Communication</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ProtocolHub.ConfiguartionEditor\ProtocolHub.ConfiguartionEditor.csproj">
+      <Project>{C0F2A363-B200-4713-8EC3-4A2A98A96A1B}</Project>
+      <Name>ProtocolHub.ConfiguartionEditor</Name>
     </ProjectReference>
     <ProjectReference Include="..\ProtocolHub.MonitorInterface\ProtocolHub.MonitorInterface.csproj">
       <Project>{ce7ba276-5acf-44fe-b24a-f91f6a0b0436}</Project>
