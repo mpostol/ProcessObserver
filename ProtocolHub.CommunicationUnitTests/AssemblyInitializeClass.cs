@@ -56,10 +56,14 @@ namespace CAS.CommServer.ProtocolHub.CommunicationUnitTests
     {
       Assert.IsTrue(string.IsNullOrEmpty(m_InstallLicenseError), m_InstallLicenseError);
     }
+
+    #region instrumentation
     private class SettingsBaseFixture : ISettingsBase
     {
       public object this[string propertyName] { get => throw new System.NotImplementedException(); set => throw new System.NotImplementedException(); }
     }
+    #endregion
 
   }
+
 }

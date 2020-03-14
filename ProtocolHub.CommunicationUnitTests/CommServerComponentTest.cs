@@ -61,7 +61,7 @@ namespace CAS.CommServer.ProtocolHub.CommunicationUnitTests
     {
       public object this[string propertyName] { get => throw new NotImplementedException(); set => throw new NotImplementedException(); }
     }
-
     #endregion
+
   }
 }
