@@ -1,20 +1,9 @@
-//<summary>
-//  Title   : Guarded Data Provider
-//  System  : Microsoft Visual C# .NET 2005
-//  $LastChangedDate$
-//  $Rev$
-//  $LastChangedBy$
-//  $URL$
-//  $Id$
-//  History :
-//    20081007: mzbrzezny: when exception occurs the out IReadValue or ref IWriteValue should be returned to pool and changed to null
-//    20071008: mpostol: implementation
+//___________________________________________________________________________________
 //
-//  Copyright (C)2006, CAS LODZ POLAND.
-//  TEL: +48 (42) 686 25 47
-//  mailto:techsupp@cas.eu
-//  http://www.cas.eu
-//</summary>
+//  Copyright (C) 2020, Mariusz Postol LODZ POLAND.
+//
+//  To be in touch join the community at GITTER: https://gitter.im/mpostol/OPC-UA-OOI
+//___________________________________________________________________________________
 
 using CAS.CommServer.ProtocolHub.Communication.Properties;
 using CAS.Lib.CommonBus;
@@ -41,6 +30,7 @@ namespace CAS.CommServer.ProtocolHub.Communication
         ( System.Diagnostics.TraceEventType.Error, line, m_Source, message );
     }
     #endregion
+
     #region IApplicationLayerMaster Members
     /// <summary>
     /// Reads process data from the selected location and device resources.
@@ -112,6 +102,7 @@ namespace CAS.CommServer.ProtocolHub.Communication
       }
     }
     #endregion
+
     #region IConnectionManagement Members
     public TConnectReqRes ConnectReq( IAddress remoteAddress )
     {
@@ -164,6 +155,7 @@ namespace CAS.CommServer.ProtocolHub.Communication
       }
     }
     #endregion
+
     #region IDisposable Members
     /// <summary>
     /// Performs application-defined tasks associated with freeing, releasing, or resetting unmanaged resources.
@@ -173,6 +165,7 @@ namespace CAS.CommServer.ProtocolHub.Communication
       mDataProvider.Dispose();
     }
     #endregion
+
     #region object
     /// <summary>
     /// Returns a <see cref="T:System.String"></see> that represents the current <see cref="T:System.Object"></see>.
@@ -185,6 +178,7 @@ namespace CAS.CommServer.ProtocolHub.Communication
       return mDataProvider.ToString();
     }
     #endregion
+
     #region constructor
     /// <summary>
     /// Initializes a new instance of the <see cref="GuardedDataProvider"/> class.

@@ -34,8 +34,7 @@ namespace CAS.CommServer.ProtocolHub.Communication.NetworkConfig
     /// <param name="ConfigurationFilename">The configuration filename.</param>
     public ProtocolHubConfiguration(string ConfigurationFilename)
       : this(ConfigurationFilename, false)
-    {
-    }
+    { }
     /// <summary>
     /// Initializes a new instance of the <see cref="ProtocolHubConfiguration"/> class.
     /// </summary>
@@ -59,8 +58,8 @@ namespace CAS.CommServer.ProtocolHub.Communication.NetworkConfig
       }
       catch (Exception ex)
       {
-        EventLogMonitor.WriteToEventLogError("Problem with CommServer XML configuration file :" + filename + " - in directory: " + UAOOI.ProcessObserver.RealTime.Win32API.Application.Path + " error: " + ex.ToString(),
-          (int)Error.CommServer_Configuration);
+        string _path = Environment.CurrentDirectory;
+        EventLogMonitor.WriteToEventLogError($"Problem with CommServer XML configuration file : {filename} - in directory: {_path } error: {ex.ToString()}", (int)Error.CommServer_Configuration);
       }
     }
     #endregion
