@@ -23,18 +23,20 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
     #region Properties
     public static string ConfigFileName
     {
-      get { return m_ProtocolHubConfigurationSIngleton; }
-      set { m_ProtocolHubConfigurationSIngleton = value; }
+      get => m_ProtocolHubConfigurationSIngleton;
+      set => m_ProtocolHubConfigurationSIngleton = value;
     }
     #endregion
 
     #region Constructors
     static ConfigurationManagement()
     {
-      ProtocolHubConfiguration = new ComunicationNet();
-      ProtocolHubConfiguration.DataSetName = "ComunicationNet";
-      ProtocolHubConfiguration.Locale = new CultureInfo("en-US");
-      ProtocolHubConfiguration.SchemaSerializationMode = SchemaSerializationMode.IncludeSchema;
+      ProtocolHubConfiguration = new ComunicationNet
+      {
+        DataSetName = "ComunicationNet",
+        Locale = new CultureInfo("en-US"),
+        SchemaSerializationMode = SchemaSerializationMode.IncludeSchema
+      };
     }
     #endregion
 
@@ -51,11 +53,13 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
     }
     public static void SaveProc(Form form)
     {
-      SaveFileDialog saveXMLFileDialog = new SaveFileDialog();
-      saveXMLFileDialog.OverwritePrompt = true;
-      saveXMLFileDialog.Filter = "XML files|*.xml";
-      saveXMLFileDialog.DefaultExt = "xml";
-      saveXMLFileDialog.InitialDirectory = CAS.Lib.CodeProtect.InstallContextNames.ApplicationDataPath;
+      SaveFileDialog saveXMLFileDialog = new SaveFileDialog
+      {
+        OverwritePrompt = true,
+        Filter = "XML files|*.xml",
+        DefaultExt = "xml",
+        InitialDirectory = CAS.Lib.CodeProtect.InstallContextNames.ApplicationDataPath
+      };
       if (!string.IsNullOrEmpty(ConfigurationManagement.ConfigFileName))
         saveXMLFileDialog.FileName = ConfigurationManagement.ConfigFileName;
       switch (saveXMLFileDialog.ShowDialog())
