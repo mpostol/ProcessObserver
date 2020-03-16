@@ -25,6 +25,7 @@ using UAOOI.Windows.Forms.CodeProtectControls;
 
 namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
 {
+
   /// <summary>
   /// Configuration tree view for Network Configuration
   /// </summary>
@@ -74,14 +75,13 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
     #region Constructor
     public ConfigTreeView(CAS.NetworkConfigLib.ComunicationNet configDataBase, ConfigIOHandler fileread, ConfigIOHandler filesave, ConfigIOHandler fileclear, bool AdvanceMenu)
     {
-      License lic = null;
-      LicenseManager.IsValid(this.GetType(), this, out lic);
+      LicenseManager.IsValid(this.GetType(), this, out License lic);
       m_license = lic as LicenseFile;
       if (m_license == null)
         MessageBox.Show(CAS.Lib.CodeProtect.Properties.Resources.Tx_LicNoFileErr, CAS.Lib.CodeProtect.Properties.Resources.Tx_LicCap, MessageBoxButtons.OK, MessageBoxIcon.Hand);
       else
       {
-        if (m_license.FailureReason != String.Empty)
+        if (m_license.FailureReason != string.Empty)
           ScrollableMessageBox.Instance.Show(m_license.FailureReason, CAS.Lib.CodeProtect.Properties.Resources.Tx_LicCap, MessageBoxButtons.OK, MessageBoxIcon.Hand);
         else
           m_DemoVer = false;
@@ -284,9 +284,11 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
           RTLib.DataBase.UndoRedo.UndoRedoMenager.BeginTransaction();
 #endif
           IAction newAct = currAct.CreateNewChildObject();
-          AddObject<IAction> fm_AddObj = new AddObject<IAction>();
-          fm_AddObj.Text = "Add new object for: " + currAct;
-          fm_AddObj.Object = newAct;
+          AddObject<IAction> fm_AddObj = new AddObject<IAction>
+          {
+            Text = "Add new object for: " + currAct,
+            Object = newAct
+          };
           bool ok;
           do
           {
@@ -383,7 +385,7 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
 
     #region EventHandlers
     #region Keyboard shortcuts
-    void cn_TreeView_KeyDown(object sender, KeyEventArgs e)
+    private void cn_TreeView_KeyDown(object sender, KeyEventArgs e)
     {
       // if Ctrl+C
       switch (e.KeyData)
@@ -423,7 +425,7 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
     }
     #endregion
     #region Hidding buttons
-    void cn_TreeView_AfterSelect(object sender, TreeViewEventArgs e)
+    private void cn_TreeView_AfterSelect(object sender, TreeViewEventArgs e)
     {
       if (m_PNavigator.cn_TreeView.SelectedNode == null)
       {
@@ -441,7 +443,7 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
       {
         pasteToolStripButton.Enabled = true;
         pasteToolStripMenuItem.Enabled = true;
-        pasteToolStripMenuItem.Text = String.Format("Paste: {0}", m_PNavigator.GetPasteString);
+        pasteToolStripMenuItem.Text = string.Format("Paste: {0}", m_PNavigator.GetPasteString);
       }
       else
       {
