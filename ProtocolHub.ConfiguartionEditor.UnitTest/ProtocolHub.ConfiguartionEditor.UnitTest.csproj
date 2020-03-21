@@ -39,8 +39,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="CAS.CommServer.DAServerConfiguration, Version=6.21.4.40492, Culture=neutral, PublicKeyToken=8832ff1a67ea61a3, processorArchitecture=MSIL">
-      <HintPath>..\packages\CAS.CommServer.DAServerConfiguration.6.21.4-Juliet\lib\net472\CAS.CommServer.DAServerConfiguration.dll</HintPath>
+    <Reference Include="CAS.CommServer.DAServerConfiguration, Version=6.21.5.37824, Culture=neutral, PublicKeyToken=8832ff1a67ea61a3, processorArchitecture=MSIL">
+      <HintPath>..\packages\CAS.CommServer.DAServerConfiguration.6.21.5-Kilo\lib\net472\CAS.CommServer.DAServerConfiguration.dll</HintPath>
     </Reference>
     <Reference Include="CAS.CommServer.OPCClassicSDK.Core, Version=2.1.1062.39746, Culture=neutral, PublicKeyToken=8832ff1a67ea61a3, processorArchitecture=MSIL">
       <HintPath>..\packages\CAS.CommServer.OPCClassic.SDK.Core.2.01.1062\lib\net451\CAS.CommServer.OPCClassicSDK.Core.dll</HintPath>
@@ -56,8 +56,8 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
-    <Reference Include="UAOOI.ProcessObserver.RealTime, Version=6.5.0.0, Culture=neutral, PublicKeyToken=8832ff1a67ea61a3, processorArchitecture=MSIL">
-      <HintPath>..\packages\UAOOI.ProcessObserver.RealTime.6.5.0-Hotel\lib\net451\UAOOI.ProcessObserver.RealTime.dll</HintPath>
+    <Reference Include="UAOOI.ProcessObserver.RealTime, Version=6.6.0.0, Culture=neutral, PublicKeyToken=8832ff1a67ea61a3, processorArchitecture=MSIL">
+      <HintPath>..\packages\UAOOI.ProcessObserver.RealTime.6.6.0\lib\net451\UAOOI.ProcessObserver.RealTime.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
