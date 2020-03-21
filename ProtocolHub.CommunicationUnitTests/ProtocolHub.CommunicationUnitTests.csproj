@@ -46,11 +46,11 @@
     <Reference Include="CAS.CodeProtect, Version=7.0.0.18157, Culture=neutral, PublicKeyToken=8832ff1a67ea61a3, processorArchitecture=MSIL">
       <HintPath>..\packages\CAS.CodeProtect.7.0.1-Bravo\lib\net451\CAS.CodeProtect.dll</HintPath>
     </Reference>
-    <Reference Include="CAS.CommServer.CommonBus, Version=6.21.1.40505, Culture=neutral, PublicKeyToken=8832ff1a67ea61a3, processorArchitecture=MSIL">
-      <HintPath>..\packages\CAS.CommServer.CommonBus.6.21.2-Hotel\lib\net472\CAS.CommServer.CommonBus.dll</HintPath>
+    <Reference Include="CAS.CommServer.CommonBus, Version=6.21.4.37824, Culture=neutral, PublicKeyToken=8832ff1a67ea61a3, processorArchitecture=MSIL">
+      <HintPath>..\packages\CAS.CommServer.CommonBus.6.21.4-Juliet\lib\net472\CAS.CommServer.CommonBus.dll</HintPath>
     </Reference>
-    <Reference Include="CAS.CommServer.DAServerConfiguration, Version=6.21.2.40505, Culture=neutral, PublicKeyToken=8832ff1a67ea61a3, processorArchitecture=MSIL">
-      <HintPath>..\packages\CAS.CommServer.DAServerConfiguration.6.21.3-India\lib\net472\CAS.CommServer.DAServerConfiguration.dll</HintPath>
+    <Reference Include="CAS.CommServer.DAServerConfiguration, Version=6.21.5.37824, Culture=neutral, PublicKeyToken=8832ff1a67ea61a3, processorArchitecture=MSIL">
+      <HintPath>..\packages\CAS.CommServer.DAServerConfiguration.6.21.5-Kilo\lib\net472\CAS.CommServer.DAServerConfiguration.dll</HintPath>
     </Reference>
     <Reference Include="CAS.CommServer.DataProvider.MODBUSCore, Version=3.100.1.762, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\CAS.CommServer.DataProvider.Package.3.100.01\lib\net461\CAS.CommServer.DataProvider.MODBUSCore.dll</HintPath>
@@ -128,8 +128,8 @@
     <Reference Include="System.Reactive.Windows.Threading, Version=3.0.3000.0, Culture=neutral, PublicKeyToken=94bc3704cddfc263, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Reactive.Windows.Threading.4.3.2\lib\net46\System.Reactive.Windows.Threading.dll</HintPath>
     </Reference>
-    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.6.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
-      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.7.0\lib\netstandard2.0\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.5.0.0-preview.1.20120.5\lib\net45\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
     </Reference>
     <Reference Include="System.Runtime.Remoting" />
     <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
@@ -144,8 +144,8 @@
     <Reference Include="System.Windows" />
     <Reference Include="System.Windows.Forms" />
     <Reference Include="System.Xml" />
-    <Reference Include="UAOOI.ProcessObserver.RealTime, Version=6.4.0.0, Culture=neutral, PublicKeyToken=8832ff1a67ea61a3, processorArchitecture=MSIL">
-      <HintPath>..\packages\UAOOI.ProcessObserver.RealTime.6.4.0-Golf\lib\net451\UAOOI.ProcessObserver.RealTime.dll</HintPath>
+    <Reference Include="UAOOI.ProcessObserver.RealTime, Version=6.6.0.0, Culture=neutral, PublicKeyToken=8832ff1a67ea61a3, processorArchitecture=MSIL">
+      <HintPath>..\packages\UAOOI.ProcessObserver.RealTime.6.6.0\lib\net451\UAOOI.ProcessObserver.RealTime.dll</HintPath>
     </Reference>
     <Reference Include="WindowsBase" />
   </ItemGroup>
