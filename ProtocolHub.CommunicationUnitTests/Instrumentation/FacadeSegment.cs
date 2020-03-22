@@ -7,8 +7,8 @@
 
 using CAS.CommServer.ProtocolHub.Communication.BaseStation;
 using CAS.Lib.CommonBus.ApplicationLayer;
-using CAS.NetworkConfigLib;
 using System;
+using UAOOI.ProcessObserver.Configuration;
 using UAOOI.ProcessObserver.RealTime.Processes;
 
 namespace CAS.CommServer.ProtocolHub.CommunicationUnitTests.Instrumentation
@@ -19,11 +19,13 @@ namespace CAS.CommServer.ProtocolHub.CommunicationUnitTests.Instrumentation
     {
       protected override TimeSpan TimeOut => throw new Exception("The method or operation is not implemented.");
       internal override TimeSpan TimeScann => new TimeSpan(0, 0, 0, 0, 1000);
+
       internal FacadeDataDescription(ComunicationNet.DataBlocksRow BlocksRow, ref int constraint)
         :
         base(BlocksRow, TimeSpan.MaxValue, null, null, ref constraint)
       { }
     }
+
     internal class FacadePipeInterface : Pipe.PipeInterface
     {
       /// <summary>
@@ -35,19 +37,25 @@ namespace CAS.CommServer.ProtocolHub.CommunicationUnitTests.Instrumentation
           : base(waitTimeList, dataDescription, pipeInterface)
         { }
       }
+
       protected internal override bool WriteData(object data, IBlockDescription dataAddress)
       {
         throw new NotImplementedException("The method or operation is not implemented.");
       }
+
       protected internal override bool ReadData(out object data, IBlockDescription dataAddress)
       {
         throw new Exception("The method or operation is not implemented.");
       }
+
       internal FacadePipeInterface(InterfaceParameters interfaceDSC, FacadePipe pipe, CAS.CommServer.ProtocolHub.Communication.Diagnostic.Segment segment)
         :
         base(interfaceDSC, pipe, null, segment, 10)
       { }
     }//FacadePipeInterface
-    internal FacadeSegment() : base("NUnitTestFacadeSegment") { }
+
+    internal FacadeSegment() : base("NUnitTestFacadeSegment")
+    {
+    }
   }
 }

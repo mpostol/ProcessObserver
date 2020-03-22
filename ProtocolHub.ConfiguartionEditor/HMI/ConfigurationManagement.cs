@@ -6,29 +6,30 @@
 //___________________________________________________________________________________
 
 using CAS.CommServer.ProtocolHub.ConfigurationEditor.Properties;
-using CAS.Lib.RTLib.Database;
-using CAS.NetworkConfigLib;
 using System;
 using System.Data;
 using System.Globalization;
 using System.Windows.Forms;
+using UAOOI.ProcessObserver.Configuration;
 
 namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
 {
-
   public delegate void ConfigIOHandler(Form form);
+
   public static class ConfigurationManagement
   {
-
     #region Properties
+
     public static string ConfigFileName
     {
       get => m_ProtocolHubConfigurationSIngleton;
       set => m_ProtocolHubConfigurationSIngleton = value;
     }
-    #endregion
+
+    #endregion Properties
 
     #region Constructors
+
     static ConfigurationManagement()
     {
       ProtocolHubConfiguration = new ComunicationNet
@@ -38,19 +39,24 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
         SchemaSerializationMode = SchemaSerializationMode.IncludeSchema
       };
     }
-    #endregion
+
+    #endregion Constructors
 
     #region public
+
     public static ComunicationNet ProtocolHubConfiguration { get; private set; }
+
     public static void ClearConfig(Form form)
     {
       if (MessageBox.Show(form, "Clear all data grids???", "Clear", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
         ClearProtocolHubConfiguration(form);
     }
+
     internal static void SaveDemoProc(Form form)
     {
       MessageBox.Show(Resources.tx_DemoWriteErr, Resources.tx_licenseCap, MessageBoxButtons.OK, MessageBoxIcon.Hand);
     }
+
     public static void SaveProc(Form form)
     {
       SaveFileDialog saveXMLFileDialog = new SaveFileDialog
@@ -86,10 +92,12 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
             MessageBox.Show("Error", "I cant save file to this location because: " + e.Message, MessageBoxButtons.OK, MessageBoxIcon.Error);
           }
           break;
+
         default:
           break;
       }
     }
+
     public static void ReadConfiguration(Form form)
     {
       OpenFileDialog openFileDialogXMLFile = new OpenFileDialog();
@@ -149,20 +157,25 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
           RTLib.DataBase.UndoRedo.UndoRedoMenager.ClearLog();
 #endif
           break;
+
         default:
           break;
       }
     }
-    #endregion //public
+
+    #endregion public
 
     #region private
+
     private static string m_ProtocolHubConfigurationSIngleton;
+
     private static void UpdateFormName(Form form, string filename)
     {
       form.Text = "Network configuration ";
       if (!string.IsNullOrEmpty(filename))
         form.Text += filename;
     }
+
     /// <summary>
     /// Clears curent configuration dataset
     /// </summary>
@@ -172,8 +185,7 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
       UpdateFormName(form, null);
       ConfigFileName = null;
     }
-    #endregion
 
+    #endregion private
   }
-
 }

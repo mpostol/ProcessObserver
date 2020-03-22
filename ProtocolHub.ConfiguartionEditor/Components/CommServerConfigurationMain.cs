@@ -7,11 +7,11 @@
 
 using CAS.CommServer.ProtocolHub.ConfigurationEditor.Properties;
 using CAS.Lib.CodeProtect;
-using CAS.NetworkConfigLib;
 using System;
 using System.ComponentModel;
 using System.IO;
 using System.Windows.Forms;
+using UAOOI.ProcessObserver.Configuration;
 
 namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.Components
 {
@@ -20,10 +20,10 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.Components
   /// </summary>
   public partial class CommServerConfigurationMain : Component
   {
+    #region constructor
 
-    #region creators
     /// <summary>
-    /// Initializes a new instance of the <see cref="CommServerConfigurationMain"/> class that is a main 
+    /// Initializes a new instance of the <see cref="CommServerConfigurationMain"/> class that is a main
     /// entry point to use and manage the configuration file.
     /// </summary>
     public CommServerConfigurationMain()
@@ -31,8 +31,9 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.Components
       InitializeComponent();
       InitializeThis();
     }
+
     /// <summary>
-    /// Initializes a new instance of the <see cref="CommServerConfigurationMain"/> class that is a main 
+    /// Initializes a new instance of the <see cref="CommServerConfigurationMain"/> class that is a main
     /// entry point to use and manage the configuration file.
     /// </summary>
     /// <param name="container">The container to add this component.</param>
@@ -41,14 +42,17 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.Components
     {
       container.Add(this);
     }
-    #endregion
+
+    #endregion constructor
 
     #region public
+
     /// <summary>
     /// Gets the configuration.
     /// </summary>
     /// <value>The configuration <see cref="ComunicationNet"/>.</value>
     public ComunicationNet Configuartion { get; private set; }
+
     /// <summary>
     /// Gets the menu.
     /// </summary>
@@ -73,6 +77,7 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.Components
         return ret;
       }
     }
+
     /// <summary>
     /// Specialized Event Argument <see cref="EventArgs"/> sent as parameter to events
     /// </summary>
@@ -83,6 +88,7 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.Components
       /// </summary>
       /// <value>The configuration.</value>
       public ComunicationNet Configuration { get; private set; }
+
       /// <summary>
       /// Initializes a new instance of the <see cref="ConfigurationEventArg"/> class.
       /// </summary>
@@ -92,14 +98,17 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.Components
         Configuration = config;
       }
     }
+
     /// <summary>
     /// Occurs when configuration has been changed.
     /// </summary>
     public event EventHandler<ConfigurationEventArg> ConfigurationChnged;
+
     /// <summary>
     /// Is called before configuration saving.
     /// </summary>
     public EventHandler<ConfigurationEventArg> ConfigurationSaving;
+
     /// <summary>
     /// Gets or sets the default name of the file.
     /// </summary>
@@ -113,6 +122,7 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.Components
       }
       get => m_OpenFileDialog.FileName;
     }
+
     /// <summary>
     /// Read the CommServer configuration from an external dictionary file. If file name not set it opens the file open
     /// dialog to choose the file.
@@ -122,8 +132,9 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.Components
     {
       return Open(string.Empty);
     }
+
     /// <summary>
-    /// Opens the specified file name and reads the CommServer configuration from an external dictionary file. 
+    /// Opens the specified file name and reads the CommServer configuration from an external dictionary file.
     /// If <paramref name="FileName"/> parameter is empty, it opens the file dialog to choose the file
     /// </summary>
     /// <param name="FileName">Name of the file with the CommServer configuration.</param>
@@ -163,14 +174,15 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.Components
         Cursor.Current = myPreviousCursor;
       }
     }
+
     /// <summary>
     /// Reads the configuration.
     /// </summary>
     /// <param name="fileName">The fully qualified name of the file, or the relative file name.</param>
-    /// <exception cref="FileNotFoundException">The exception that is thrown when an attempt to access a file 
+    /// <exception cref="FileNotFoundException">The exception that is thrown when an attempt to access a file
     /// that does not exist or read operation fails.
     /// </exception>
-    /// <exception cref="System.Security.SecurityException">System.Security.Permissions.FileIOPermission is not 
+    /// <exception cref="System.Security.SecurityException">System.Security.Permissions.FileIOPermission is not
     /// set to System.Security.Permissions.FileIOPermissionAccess.Read.</exception>
     /// <exception cref="System.Data.ConstraintException">One or more constraints cannot be enforced.</exception>
     public void ReadConfiguration(string fileName)
@@ -185,10 +197,11 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.Components
       m_SaveFileDialog.FileName = m_OpenFileDialog.FileName = fileName;
       RaiseConfigurationChnged();
     }
+
     /// <summary>
-    /// Save the CommServer configuration file in an external dictionary file. 
+    /// Save the CommServer configuration file in an external dictionary file.
     /// </summary>
-    /// <remarks>It calls the ConfigurationSaving delegate to allow user to update the configuration and flush all changes 
+    /// <remarks>It calls the ConfigurationSaving delegate to allow user to update the configuration and flush all changes
     /// just before file saving.</remarks>
     /// <param name="prompt">If set to <c>true</c> show prompt to enter a file name.</param>
     /// <returns></returns>
@@ -224,12 +237,14 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.Components
       }
       return true;
     }
+
     /// <summary>
     /// Gets the open file dialog - can be used to copy all properties.
     /// </summary>
     /// <value>The open file dialog.</value>
     //TODO DAServerConfiguration - remove dependency on `System.Windows.Forms` #14
     public OpenFileDialog OpenFileDialog => m_OpenFileDialog;
+
     /// <summary>
     /// Returns a <see cref="T:System.String"/> containing the name of the <see cref="T:System.ComponentModel.Component"/>, if any. This method should not be overridden.
     /// </summary>
@@ -240,9 +255,11 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.Components
     {
       return "CommServer configuration management";
     }
-    #endregion
+
+    #endregion public
 
     #region private
+
     private void InitializeThis()
     {
       m_TSMI_Open.Click += new EventHandler(OnOpen_Click);
@@ -254,7 +271,9 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.Components
       m_OpenFileDialog.InitialDirectory = InstallContextNames.ApplicationDataPath;
       m_SaveFileDialog.InitialDirectory = InstallContextNames.ApplicationDataPath;
     }
+
     private bool m_Empty = true;
+
     //TODO DAServerConfiguration - remove dependency on `System.Windows.Forms` #14
     private void UpdateCurrentDirectoryInConfigurationFile(FileDialog fileDialog)
     {
@@ -276,6 +295,7 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.Components
       }
       catch { }
     }
+
     private void RaiseConfigurationChnged()
     {
       if (ConfigurationChnged != null)
@@ -283,12 +303,14 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.Components
     }
 
     #region private menu handlers
+
     private void m_TSMI_New_Click(object sender, EventArgs e)
     {
       Configuartion.Clear();
       m_Empty = true;
       RaiseConfigurationChnged();
     }
+
     /// <summary>
     /// Called when SaveAs was clicked].
     /// </summary>
@@ -298,6 +320,7 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.Components
     {
       Save(true);
     }
+
     /// <summary>
     /// Called when Save was clicked.
     /// </summary>
@@ -307,6 +330,7 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.Components
     {
       Save(false);
     }
+
     /// <summary>
     /// Called when Open was clicked.
     /// </summary>
@@ -316,9 +340,9 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.Components
     {
       Open();
     }
-    #endregion
 
-    #endregion
+    #endregion private menu handlers
 
+    #endregion private
   }
 }

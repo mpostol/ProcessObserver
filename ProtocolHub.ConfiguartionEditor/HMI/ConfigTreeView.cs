@@ -10,7 +10,6 @@ using CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI.Import;
 using CAS.CommServer.ProtocolHub.ConfigurationEditor.Properties;
 using CAS.Lib.CodeProtect;
 using CAS.Lib.CodeProtect.LicenseDsc;
-using CAS.Lib.RTLib.Database;
 using System;
 using System.ComponentModel;
 using System.Data;
@@ -19,13 +18,13 @@ using System.IO;
 using System.Reflection;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
+using UAOOI.ProcessObserver.Configuration;
 using UAOOI.ProcessObserver.RealTime.Processes;
 using UAOOI.Windows.Forms;
 using UAOOI.Windows.Forms.CodeProtectControls;
 
 namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
 {
-
   /// <summary>
   /// Configuration tree view for Network Configuration
   /// </summary>
@@ -33,16 +32,18 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
   [GuidAttribute("577750FC-CF14-406f-B367-41CE15563265")]
   public partial class ConfigTreeView : Form
   {
-
     #region private
+
     //vars
-    private static CAS.NetworkConfigLib.ComunicationNet m_configDataBase;
+    private static ComunicationNet m_configDataBase;
+
     private readonly bool m_DemoVer = true;
     private bool m_UAPackage = false;
     private LicenseFile m_license = null;
     private ConfigIOHandler m_FileRead;
     private ConfigIOHandler m_FileSave;
     private ConfigIOHandler m_FileClear;
+
     //methods
     private void ShowAboutDialog()
     {
@@ -55,25 +56,32 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
         cAboutForm.ShowDialog(this);
       }
     }
+
     private void UpdateTagNumberInfo()
     {
       this.toolStripStatusLabel_tagamount.Text = "No. of Tags: " + m_configDataBase.Tags.Count.ToString();
     }
 
 #if UNDOREDO
+
     #region UndoRedo fields
+
     private bool columnErrorOnChange;
     private bool rowErrorOnChange;
     private bool revertFieldValue;
     private RTLib.DataBase.UndoRedo.UndoRedoMenager tlog;
     private DataTable dt;
     private int undoRow = 0;
-    #endregion
+
+    #endregion UndoRedo fields
+
 #endif
-    #endregion
+
+    #endregion private
 
     #region Constructor
-    public ConfigTreeView(CAS.NetworkConfigLib.ComunicationNet configDataBase, ConfigIOHandler fileread, ConfigIOHandler filesave, ConfigIOHandler fileclear, bool AdvanceMenu)
+
+    public ConfigTreeView(ComunicationNet configDataBase, ConfigIOHandler fileread, ConfigIOHandler filesave, ConfigIOHandler fileclear, bool AdvanceMenu)
     {
       LicenseManager.IsValid(this.GetType(), this, out License lic);
       m_license = lic as LicenseFile;
@@ -142,6 +150,7 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
         toolsToolStripMenuItem_Tools.Visible = false;
       }
     }
+
     private void configDataBaseDataTable_Changed(object sender, DataRowChangeEventArgs e)
     {
       if (!saveToolStripButton.Enabled)
@@ -150,14 +159,18 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
         saveToolStripButton.Enabled = true;
       }
     }
+
     private void cn_TreeView_MouseDown(object sender, MouseEventArgs e)
     {
       m_PNavigator.cn_TreeView.SelectedNode = m_PNavigator.cn_TreeView.GetNodeAt(e.X, e.Y);
     }
-    #endregion
+
+    #endregion Constructor
 
     #region Methods
+
     #region TreeView type changing
+
     private void StationView()
     {
       TreeBuilder.CreateTree(m_configDataBase, m_PNavigator.cn_TreeView, TreeBuilderTreeViewType.Stations);
@@ -167,8 +180,8 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
       stationToolStripMenuItem.Checked = true;
       channelToolStripMenuItem.Checked = false;
       channelsAndStationsToolStripMenuItem.Checked = false;
-
     }
+
     private void ChannelView()
     {
       TreeBuilder.CreateTree(m_configDataBase, m_PNavigator.cn_TreeView, TreeBuilderTreeViewType.Channels);
@@ -179,6 +192,7 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
       stationToolStripMenuItem.Checked = false;
       channelsAndStationsToolStripMenuItem.Checked = false;
     }
+
     private void ChannelAndStationView()
     {
       TreeBuilder.CreateTree(m_configDataBase, m_PNavigator.cn_TreeView, TreeBuilderTreeViewType.StationsAndChannels);
@@ -189,6 +203,7 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
       stationToolStripMenuItem.Checked = false;
       channelsAndStationsToolStripMenuItem.Checked = true;
     }
+
     private void IntTreeViewCheckBoxes()
     {
       switch (TreeBuilder.TreeViewType)
@@ -201,6 +216,7 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
           stationToolStripMenuItem.Checked = false;
           channelsAndStationsToolStripMenuItem.Checked = true;
           break;
+
         case TreeBuilderTreeViewType.Stations:
           channelsAndStationsToolStripMenuItem1.Checked = false;
           channelsToolStripMenuItem.Checked = false;
@@ -209,6 +225,7 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
           channelToolStripMenuItem.Checked = false;
           channelsAndStationsToolStripMenuItem.Checked = false;
           break;
+
         case TreeBuilderTreeViewType.Channels:
           channelsAndStationsToolStripMenuItem1.Checked = false;
           channelsToolStripMenuItem.Checked = true;
@@ -219,8 +236,11 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
           break;
       }
     }
-    #endregion
+
+    #endregion TreeView type changing
+
     #region Open/Save
+
     private void Open()
     {
       m_FileRead(this);
@@ -231,6 +251,7 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
       tsbUndo.Enabled = false;
       UpdateTagNumberInfo();
     }
+
     private void save()
     {
       if (m_DemoVer)
@@ -252,8 +273,11 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
             (Resources.tx_SaveErr + e.Message, Resources.tx_IOErrCap, MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
     }
-    #endregion
+
+    #endregion Open/Save
+
     #region Add/Delete
+
     private void add()
     {
       TreeNode tn = m_PNavigator.cn_TreeView.SelectedNode;
@@ -339,12 +363,15 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
         }
       }
       ((IAction)m_PNavigator.cn_TreeView.SelectedNode.Tag).CreateNodes();
-      //m_PNavigator.cn_TreeView.SelectedNode = 
+      //m_PNavigator.cn_TreeView.SelectedNode =
       tn.Expand();
       UpdateTagNumberInfo();
     }
-    #endregion
+
+    #endregion Add/Delete
+
     #region UndoRedo
+
 #if UNDOREDO
     private void deleteLastTransaction()
     {
@@ -380,11 +407,15 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
       }
     }
 #endif
-    #endregion
-    #endregion
+
+    #endregion UndoRedo
+
+    #endregion Methods
 
     #region EventHandlers
+
     #region Keyboard shortcuts
+
     private void cn_TreeView_KeyDown(object sender, KeyEventArgs e)
     {
       // if Ctrl+C
@@ -393,12 +424,15 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
         case (Keys.C | Keys.Control):
           m_PNavigator.Copy();
           break;
+
         case (Keys.V | Keys.Control):
           m_PNavigator.Paste();
           break;
+
         case (Keys.X | Keys.Control):
           m_PNavigator.Cut();
           break;
+
         case (Keys.Delete):
           m_PNavigator.Delate();
           break;
@@ -406,6 +440,7 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
        case ( Keys.Z | Keys.Control ):
           Undo();
           break;
+
         case ( Keys.Y | Keys.Control ):
           Redo();
           break;
@@ -413,18 +448,23 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
         case (Keys.S | Keys.Control):
           bwSave.RunWorkerAsync();
           break;
+
         case (Keys.O | Keys.Control):
           Open();
           saveToolStripButton.Enabled = false;
           saveToolStripMenuItem.Enabled = false;
           break;
+
         default:
           base.OnKeyDown(e);
           break;
       }
     }
-    #endregion
+
+    #endregion Keyboard shortcuts
+
     #region Hidding buttons
+
     private void cn_TreeView_AfterSelect(object sender, TreeViewEventArgs e)
     {
       if (m_PNavigator.cn_TreeView.SelectedNode == null)
@@ -483,10 +523,12 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
         deleteToolStripMenuItem.Enabled = false;
     }
 
+    #endregion Hidding buttons
 
-    #endregion
 #if UNDOREDO
+
     #region UndoRedo handlers
+
     void OnColumnChanging( object sender, DataColumnChangeEventArgs e )
     {
       saveToolStripButton.Enabled = true;
@@ -542,7 +584,6 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
       tsbUndo.Enabled = true;
     }
 
-
     void OnAcceptChanges( object sender, EventArgs e )
     {
       tlog.AcceptChanges();
@@ -568,75 +609,93 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
     {
       tlog.CollectUncommittedRows();
     }
-    #endregion
+
+    #endregion UndoRedo handlers
+
 #endif
-    #region Ather control eventhandler
+
+    #region control event-handler
+
     private void openToolStripMenuItem_Click(object sender, EventArgs e)
     {
       Open();
     }
+
     private void openToolStripButton_Click(object sender, EventArgs e)
     {
       Open();
     }
+
     private void saveAsToolStripMenuItem_Click(object sender, EventArgs e)
     {
       m_FileSave(this);
       saveToolStripButton.Enabled = false;
       saveToolStripMenuItem.Enabled = false;
     }
+
     private void saveToolStripMenuItem_Click(object sender, EventArgs e)
     {
       save();
       saveToolStripButton.Enabled = false;
       saveToolStripMenuItem.Enabled = false;
     }
+
     private void saveToolStripButton_Click(object sender, EventArgs e)
     {
       save();
       saveToolStripButton.Enabled = false;
       saveToolStripMenuItem.Enabled = false;
     }
+
     private void clearToolStripMenuItem_Click(object sender, EventArgs e)
     {
       m_FileClear(this);
       m_PNavigator.Refresh(m_configDataBase);
     }
+
     private void newToolStripButton_Click(object sender, EventArgs e)
     {
       m_FileClear(this);
       m_PNavigator.Refresh(m_configDataBase);
     }
+
     private void stationToolStripMenuItem_Click(object sender, EventArgs e)
     {
       StationView();
     }
+
     private void cannelToolStripMenuItem_Click(object sender, EventArgs e)
     {
       ChannelView();
     }
+
     private void refreshToolStripMenuItem1_Click(object sender, EventArgs e)
     {
       m_PNavigator.Refresh(m_configDataBase);
       UpdateTagNumberInfo();
     }
+
     private void toolStripButton_refresh_Click(object sender, EventArgs e)
     {
       m_PNavigator.Refresh(m_configDataBase);
       UpdateTagNumberInfo();
     }
+
     private void addToolStripMenuItem_Click(object sender, EventArgs e)
     {
       add();
     }
+
     private void exitToolStripMenuItem_Click(object sender, EventArgs e)
     {
       Close();
     }
+
     private void deleteToolStripMenuItem_Click(object sender, EventArgs e)
     {
       m_PNavigator.Delate();
     }
+
     private void tsbUndo_Click(object sender, EventArgs e)
     {
 #if UNDOREDO
@@ -645,6 +704,7 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
       MessageBox.Show("This functionality is not yet implemented");
 #endif
     }
+
     private void tsbRedo_Click(object sender, EventArgs e)
     {
 #if UNDOREDO
@@ -653,49 +713,60 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
       MessageBox.Show("This functionality is not yet implemented");
 #endif
     }
+
     private void copyToolStripMenuItem_Click(object sender, EventArgs e)
     {
       m_PNavigator.Copy();
     }
+
     private void pasteToolStripMenuItem_Click(object sender, EventArgs e)
     {
       m_PNavigator.Paste();
     }
+
     private void cutToolStripMenuItem_Click(object sender, EventArgs e)
     {
       m_PNavigator.Cut();
     }
+
     private void showAllToolStripMenuItem_Click(object sender, EventArgs e)
     {
       TreeNode tn = m_PNavigator.cn_TreeView.SelectedNode;
       if (tn != null)
         tn.ExpandAll();
     }
+
     private void channelsAndStationsToolStripMenuItem_Click(object sender, EventArgs e)
     {
       ChannelAndStationView();
     }
+
     private void cutToolStripButton_Click(object sender, EventArgs e)
     {
       m_PNavigator.Cut();
     }
+
     private void copyToolStripButton_Click(object sender, EventArgs e)
     {
       m_PNavigator.Copy();
     }
+
     private void pasteToolStripButton_Click(object sender, EventArgs e)
     {
       m_PNavigator.Paste();
     }
+
     private void bwSave_DoWork(object sender, DoWorkEventArgs e)
     {
       if (!m_DemoVer)
         save();
     }
+
     private void bwSave_ProgressChanged(object sender, ProgressChangedEventArgs e)
     {
       toolStripProgressBar1.ProgressBar.Value = e.ProgressPercentage;
     }
+
     private void bwSave_RunWorkerCompleted(object sender, RunWorkerCompletedEventArgs e)
     {
       m_configDataBase.Channels.AcceptChanges();
@@ -709,22 +780,27 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
       m_configDataBase.TagBit.AcceptChanges();
       m_configDataBase.DataBlocks.AcceptChanges();
     }
+
     private void channelsToolStripMenuItem_Click(object sender, EventArgs e)
     {
       ChannelView();
     }
+
     private void channelsAndStationsToolStripMenuItem1_Click(object sender, EventArgs e)
     {
       ChannelAndStationView();
     }
+
     private void stationsToolStripMenuItem_Click(object sender, EventArgs e)
     {
       StationView();
     }
+
     private void aboutToolStripMenuItem_Click(object sender, EventArgs e)
     {
       ShowAboutDialog();
     }
+
     private void undoCtrlZToolStripMenuItem_Click(object sender, EventArgs e)
     {
 #if UNDOREDO
@@ -733,6 +809,7 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
       MessageBox.Show("This functionality is not yet implemented");
 #endif
     }
+
     private void redoCtrlYToolStripMenuItem_Click(object sender, EventArgs e)
     {
 #if UNDOREDO
@@ -741,22 +818,27 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
       MessageBox.Show("This functionality is not yet implemented");
 #endif
     }
+
     private void cutCtrlXToolStripMenuItem_Click(object sender, EventArgs e)
     {
       m_PNavigator.Cut();
     }
+
     private void copyCtrlCToolStripMenuItem_Click(object sender, EventArgs e)
     {
       m_PNavigator.Copy();
     }
+
     private void pasteCtrlVToolStripMenuItem_Click(object sender, EventArgs e)
     {
       m_PNavigator.Paste();
     }
+
     private void deleteDelToolStripMenuItem_Click(object sender, EventArgs e)
     {
       m_PNavigator.Delate();
     }
+
     private void m_helpToolStripButton_Click(object sender, EventArgs e)
     {
       if (m_UAPackage)
@@ -764,45 +846,55 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
       else
         Help.ShowHelp(this, Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "help\\CommServerOPCHelp.chm"), HelpNavigator.TableOfContents);
     }
-    #endregion
+
+    #endregion control event-handler
 
     private void advanceToolStripMenuItem_Click(object sender, EventArgs e)
     {
       new AdvancedFormNetworkConfig(m_configDataBase, m_FileRead, m_FileSave, m_FileClear).ShowDialog(this);
     }
+
     private void sBLSToolStripMenuItem_Click_1(object sender, EventArgs e)
     {
       new ImportBLS(m_configDataBase, this).Import();
     }
+
     private void tagbloksToolStripMenuItem_Click_1(object sender, EventArgs e)
     {
       new ImportBlockCSV(m_configDataBase, this).Import();
     }
+
     private void tagBitToolStripMenuItem_Click_1(object sender, EventArgs e)
     {
       new ImportTagBits(m_configDataBase, this).Import();
     }
+
     private void tagToolStripMenuItem_Click_1(object sender, EventArgs e)
     {
       new ImportTagMappings(m_configDataBase, this).Import();
     }
+
     private void scanSettingsToolStripMenuItem_Click_1(object sender, EventArgs e)
     {
       new ImportScanSettings(m_configDataBase, this).Import();
     }
+
     private void tagsForSimulationToolStripMenuItem_Click_1(object sender, EventArgs e)
     {
       new ImportTagsForSimulation(m_configDataBase, this).Import();
     }
+
     private void xBUSMeasureToolStripMenuItem_Click(object sender, EventArgs e)
     {
       StartAppAsync("CAS.DPDiagnostics.exe", "XBUS measurement (Data Provider Diagnostic tool)");
     }
+
     private void dCOMConfiguratorToolStripMenuItem_Click(object sender, EventArgs e)
     {
       //dcomcnfg
       StartAppAsync("dcomcnfg", "DCOM configuration console");
     }
+
     private static void StartAppAsync(string appname, string longappname)
     {
       RunMethodAsynchronously runasync = new RunMethodAsynchronously(delegate (object[] o)
@@ -819,6 +911,7 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
       );
       runasync.RunAsync();
     }
+
     private void licenseInformationToolStripMenuItem_Click(object sender, EventArgs e)
     {
       string usr = null;
@@ -862,7 +955,8 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
       }
     }
 
-    #region Thinks i dont use (commented)
+    #region Thinks i don't use (commented)
+
     //TS: Do czego to niby mialo sluzyc ????????????????
     // Updates all child tree nodes recursively.
     //private void CheckAllChildNodes( TreeNode treeNode, bool nodeChecked )
@@ -886,15 +980,15 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
     //  {
     //    if ( e.Node.Nodes.Count > 0 )
     //    {
-    //      //Calls the CheckAllChildNodes method, passing in the current 
+    //      //Calls the CheckAllChildNodes method, passing in the current
     //      //Checked value of the TreeNode whose checked state changed.
     //      this.CheckAllChildNodes( e.Node, e.Node.Checked );
     //    }
     //  }
     //}
-    #endregion
 
-    #endregion
+    #endregion Thinks i dont use (commented)
+
+    #endregion EventHandlers
   }
-
 }

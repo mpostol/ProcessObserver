@@ -6,12 +6,12 @@
 //___________________________________________________________________________________
 
 using CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI.Import;
-using CAS.NetworkConfigLib;
 using System;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Windows.Forms;
+using UAOOI.ProcessObserver.Configuration;
 using UAOOI.Windows.Forms;
 
 namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
@@ -34,7 +34,7 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
     private System.Diagnostics.EventLog eventLog1;
     private System.Windows.Forms.TabPage tabPageCommStruc;
     private System.Windows.Forms.TabPage tabPageProtocol;
-    internal CAS.NetworkConfigLib.ComunicationNet configDataBase;
+    internal ComunicationNet configDataBase;
     private System.Windows.Forms.DataGrid dataGridChannels;
     private System.Windows.Forms.DataGridTableStyle ProtocolsTableStyle;
     private System.Windows.Forms.DataGridTextBoxColumn Protocols_ProtocolIDColumn;
@@ -1053,7 +1053,7 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
       // channelsBindingSource
       // 
       this.channelsBindingSource.DataMember = "Channels";
-      this.channelsBindingSource.DataSource = typeof(CAS.NetworkConfigLib.ComunicationNet);
+      this.channelsBindingSource.DataSource = typeof(ComunicationNet);
       // 
       // tabPageCommStruc
       // 
@@ -1723,7 +1723,7 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
       // 
       // comunicationNetBindingSource
       // 
-      this.comunicationNetBindingSource.DataSource = typeof(CAS.NetworkConfigLib.ComunicationNet);
+      this.comunicationNetBindingSource.DataSource = typeof(ComunicationNet);
       this.comunicationNetBindingSource.Position = 0;
       // 
       // dataBlocksBindingSource

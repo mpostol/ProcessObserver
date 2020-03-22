@@ -5,77 +5,57 @@
 //  To be in touch join the community at GITTER: https://gitter.im/mpostol/OPC-UA-OOI
 //___________________________________________________________________________________
 
-using CAS.NetworkConfigLib;
 using System;
 using System.ComponentModel;
 using System.Windows.Forms;
+using UAOOI.ProcessObserver.Configuration;
 using UAOOI.ProcessObserver.RealTime;
 using UAOOI.Windows.Forms;
 
 namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI.Import
 {
-  class ImportBlockCSV : ImportFunctionRootClass
+  internal class ImportBlockCSV : ImportFunctionRootClass
   {
-
     #region private fields
+
     private ImportBlockCSVInfo m_ImportBlockCSVInfo;
     private ComunicationNet m_Database;
     private CSVManagement m_CSVContainer;
     private int m_TagsAddedNumber;
     private ProgressBarWindow m_ProgressBarWindow;
-    #endregion
+
+    #endregion private fields
 
     #region ImportBlockCSVInfo
+
     internal class ImportBlockCSVInfo : ImportFileControll.ImportInfo
     {
-      public override string ImportName
-      {
-        get { return "Import Block CSV"; }
-      }
-      public override string InitialDirectory
-      {
-        get
-        {
-          return AppDomain.CurrentDomain.BaseDirectory;
-        }
-      }
+      public override string ImportName => "Import Block CSV";
+      public override string InitialDirectory => AppDomain.CurrentDomain.BaseDirectory;
+
       /// <summary>
       /// default browse filter for the dialog which is used for selecting a file
       /// </summary>
-      public override string BrowseFilter
-      {
-        get
-        {
-          return "Blocks CSV files (*.CSV)|*.CSV";
-        }
-      }
+      public override string BrowseFilter => "Blocks CSV files (*.CSV)|*.CSV";
+
       /// <summary>
       /// default extension for the dialog which is used for selecting a file
       /// </summary>
-      public override string DefaultExt
-      {
-        get
-        {
-          return ".CSV";
-        }
-      }
+      public override string DefaultExt => ".CSV";
+
       /// <summary>
       /// text that is used to show the information about this importing function
       /// </summary>
-      public override string InformationText
-      {
-        get
-        {
-          return "This import tool is adding tags based on block definition i CSV file."
+      public override string InformationText => "This import tool is adding tags based on block definition i CSV file."
           + "\r\n Each line format:\r\n"
           + " StationID;TimeScan;Timeout;TimeScanFast;TimeoutFast;Address;DataType;BlockLength"
           + "\r\n It omits first line";
-        }
-      }
     }
-    #endregion
+
+    #endregion ImportBlockCSVInfo
 
     #region ImportFunctionRootClass
+
     protected override void DoTheImport()
     {
       m_TagsAddedNumber = 0;
@@ -158,16 +138,18 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI.Import
         }
       }
     }
-    #endregion
+
+    #endregion ImportFunctionRootClass
 
     #region creator
+
     public ImportBlockCSV(ComunicationNet database, Form parentForm) : base(parentForm)
     {
       m_Database = database;
       m_ImportBlockCSVInfo = new ImportBlockCSVInfo();
       SetImportInfo(m_ImportBlockCSVInfo);
     }
-    #endregion
 
+    #endregion creator
   }
 }

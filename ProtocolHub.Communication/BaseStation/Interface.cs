@@ -7,33 +7,33 @@
 
 using CAS.CommServer.ProtocolHub.MonitorInterface;
 using CAS.Lib.CommonBus.ApplicationLayer;
-using CAS.NetworkConfigLib;
+using UAOOI.ProcessObserver.Configuration;
 using UAOOI.ProcessObserver.RealTime.Processes;
 
 namespace CAS.CommServer.ProtocolHub.Communication.BaseStation
 {
-
   /// <summary>
   /// Abstract class describing interface functionality of the station pipe
   /// </summary>
   public abstract class Interface : WaitTimeList<Interface>.TODescriptor
   {
-
     #region private
+
     private readonly CAS.CommServer.ProtocolHub.Communication.Diagnostic.Interface myStatistics;
     private readonly InterfaceParameters myParameters;
-    #endregion
 
-    #region PUBLIC
-    internal ushort address { get { return myParameters.Address; } }
+    #endregion private
+
+    #region public
+
+    internal ushort address => myParameters.Address;
+
     /// <summary>
     /// Gets the interface number.
     /// </summary>
     /// <value>The interface number.</value>
-    internal ushort InterfaceNumber
-    {
-      get { return (ushort)myStatistics.myID_InterfaceNum; }
-    }
+    internal ushort InterfaceNumber => (ushort)myStatistics.myID_InterfaceNum;
+
     /// <summary>
     /// Switches the Interface off after communication failure.
     /// </summary>
@@ -43,6 +43,7 @@ namespace CAS.CommServer.ProtocolHub.Communication.BaseStation
       Cycle = myParameters.InactivityAfterFailureTime;
       ResetCounter();
     }
+
     /// <summary>
     /// Switches the interface off.
     /// </summary>
@@ -52,6 +53,7 @@ namespace CAS.CommServer.ProtocolHub.Communication.BaseStation
       Cycle = myParameters.InactivityTime;
       ResetCounter();
     }
+
     /// <summary>
     /// Switches the interface on.
     /// </summary>
@@ -60,6 +62,7 @@ namespace CAS.CommServer.ProtocolHub.Communication.BaseStation
       myStatistics.CurrentInterfaceState = Statistics.InterfaceStatistics.InterfaceState.Active;
       Remove();
     }
+
     /// <summary>
     /// Marks the end of RW operation.
     /// </summary>
@@ -67,26 +70,31 @@ namespace CAS.CommServer.ProtocolHub.Communication.BaseStation
     {
       myStatistics.MarkRWOperationResult();
     }
+
     /// <summary>
     /// Gets the retries.
     /// </summary>
     /// <value>The get retries.</value>
-    internal protected abstract RetryFilter Retries { get; }
+    protected internal abstract RetryFilter Retries { get; }
+
     /// <summary>
     /// Writes the data.
     /// </summary>
     /// <param name="data">The data.</param>
     /// <param name="dataAddress">The data address.</param>
     /// <returns></returns>
-    internal protected abstract bool WriteData(object data, IBlockDescription dataAddress);
+    protected internal abstract bool WriteData(object data, IBlockDescription dataAddress);
+
     /// <summary>
     /// Reads the data.
     /// </summary>
     /// <param name="data">The data.</param>
     /// <param name="dataAddress">The data address.</param>
     /// <returns></returns>
-    internal protected abstract bool ReadData(out object data, IBlockDescription dataAddress);
+    protected internal abstract bool ReadData(out object data, IBlockDescription dataAddress);
+
 #if COMMSERVER
+
     /// <summary>
     /// Initializes a new instance of the <see cref="Interface"/> class.
     /// </summary>
@@ -99,7 +107,7 @@ namespace CAS.CommServer.ProtocolHub.Communication.BaseStation
 #if SNIFFER
     internal Interface
       (
-      InterfaceDsc interfaceDSC, WaitTimeList myWTimeList, Management.Statistics.Segment statSegment, 
+      InterfaceDsc interfaceDSC, WaitTimeList myWTimeList, Management.Statistics.Segment statSegment,
       Management.Station statStation
       )
 #endif
@@ -108,7 +116,7 @@ namespace CAS.CommServer.ProtocolHub.Communication.BaseStation
       myParameters = parameters;
       myStatistics = new Diagnostic.Interface(parameters.Name, parameters.InterfaceNumber, segmentStatistic, stationStatistic);
     }//Interface
-    #endregion
 
+    #endregion public
   }
 }

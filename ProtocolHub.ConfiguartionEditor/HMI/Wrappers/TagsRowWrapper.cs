@@ -7,12 +7,12 @@
 
 using CAS.CommServer.ProtocolHub.ConfigurationEditor.Properties;
 using CAS.Lib.CommonBus;
-using CAS.NetworkConfigLib;
 using System;
 using System.ComponentModel;
 using System.Data;
 using System.Text;
 using System.Windows.Forms;
+using UAOOI.ProcessObserver.Configuration;
 using UAOOI.ProcessObserver.RealTime;
 using UAOOI.ProcessObserver.RealTime.Utils;
 
@@ -24,21 +24,22 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
   /// <seealso cref="TagBitRowWrapper">TagBitRowWrapper is the child object in TreeView</seealso>
   /// <remarks>
   /// Attributes for property grid:
-  /// DescriptionAttribute. Sets the text for the property that is displayed in the description help pane below the properties. This is a useful way to provide help text for the active property (the property that has focus). Apply this attribute to the MaxRepeatRate property. 
-  /// CategoryAttribute. Sets the category that the property is under in the grid. This is useful when you want a property grouped by a category name. If a property does not have a category specified, then it will be assigned to the Misc category. Apply this attribute to all properties. 
-  /// BrowsableAttribute – Indicates whether the property is shown in the grid. This is useful when you want to hide a property from the grid. By default, a public property is always shown in the grid. Apply this attribute to the SettingsChanged property. 
-  /// ReadOnlyAttribute – Indicates whether the property is read-only. This is useful when you want to keep a property from being editable in the grid. By default, a public property with get and set accessor functions is editable in the grid. Apply this attribute to the AppVersion property. 
-  /// DefaultValueAttribute – Identifies the property's default value. This is useful when you want to provide a default value for a property and later determine if the property's value is different than the default. Apply this attribute to all properties. 
-  /// DefaultPropertyAttribute – Identifies the default property for the class. The default property for a class gets the focus first when the class is selected in the grid. Apply this attribute to the AppSettings class. 
+  /// DescriptionAttribute. Sets the text for the property that is displayed in the description help pane below the properties. This is a useful way to provide help text for the active property (the property that has focus). Apply this attribute to the MaxRepeatRate property.
+  /// CategoryAttribute. Sets the category that the property is under in the grid. This is useful when you want a property grouped by a category name. If a property does not have a category specified, then it will be assigned to the Misc category. Apply this attribute to all properties.
+  /// BrowsableAttribute – Indicates whether the property is shown in the grid. This is useful when you want to hide a property from the grid. By default, a public property is always shown in the grid. Apply this attribute to the SettingsChanged property.
+  /// ReadOnlyAttribute – Indicates whether the property is read-only. This is useful when you want to keep a property from being editable in the grid. By default, a public property with get and set accessor functions is editable in the grid. Apply this attribute to the AppVersion property.
+  /// DefaultValueAttribute – Identifies the property's default value. This is useful when you want to provide a default value for a property and later determine if the property's value is different than the default. Apply this attribute to all properties.
+  /// DefaultPropertyAttribute – Identifies the default property for the class. The default property for a class gets the focus first when the class is selected in the grid. Apply this attribute to the AppSettings class.
   /// </remarks>
   [DefaultProperty("Name")]
   internal partial class TagsRowWrapper : Action<ComunicationNet.TagsRow>
   {
-
     #region private
+
     private DataBlocksRowWrapper dataBlockRowWrapper;
     private IItemDefaultSettings DefaultSettings => dataBlockRowWrapper.GetItemDefaultSettings(RealAddress);
-    #endregion
+
+    #endregion private
 
     #region Constructor
 
@@ -59,7 +60,8 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
         AccessRights = DefaultSettings.AccessRights.ToString();
       }
     }
-    #endregion
+
+    #endregion Constructor
 
     #region Properties for PropertyGrid
 
@@ -93,6 +95,7 @@ CategoryAttribute("XXX debug"),
 DescriptionAttribute("Station identifier that the tag is coupled  with")
 ]
     public long StationID => (m_Parent.DataBlocksRow.GroupsRow.StationID);
+
     /// <summary>
     /// Gets the tag identifier
     /// </summary>
@@ -112,6 +115,7 @@ CategoryAttribute("XXX debug"),
       get => (m_Parent.TagID);
       set => m_Parent.TagID = value;
     }
+
     /// <summary>
     /// Gets the address of the block the tag belongs to
     /// </summary>
@@ -127,6 +131,7 @@ CategoryAttribute("XXX debug"),
     DescriptionAttribute("Address of the block the tag belongs to. The block with selected address must be previously defined. There is one to one relation between process variables located in the physical device and tags holding current value of the equivalent variable in the OPC server. Actual position of the process variable in the continuous address space represented by the block is determined by the tag numerical identifier. Tags are sorted in the block using these identifiers, and the actual variable address is a sum of the block address and position of the tag in the block. Therefore, the block length is determined by the number of tags belonging to it, and there are no gaps between process variables, whose values are held in the equivalent tags.")
     ]
     public ulong Address => (m_Parent.DataBlocksRow.Address);
+
     /// <summary>
     /// Gets the value informs that it indicates that the corresponding tag is inherently writable. For example, a value representing physical output or an adjustable parameter such as a setpoint or alarm limit would generally be writable.
     /// </summary>
@@ -154,6 +159,7 @@ CategoryAttribute("XXX debug"),
       }
       set => m_Parent.AccessRights = (sbyte)GenericEnumTypeConverterHelper<ItemAccessRights>.GetValueFromString(value);
     }
+
     /// <summary>
     /// Gets the value informs that this tag is used to switch on the FAST scanning mode (see StateMask for additional details)
     /// </summary>
@@ -162,7 +168,7 @@ CategoryAttribute("XXX debug"),
     CategoryAttribute("Special functions"),
     DefaultValueAttribute(false),
     TypeConverter(typeof(GenericEnumTypeConverterHelper<StateTrigger>)),
-    DescriptionAttribute("Indicates wheter there is any state trigger associated with this item. The triggers could be low or high or none.")
+    DescriptionAttribute("Indicates whether there is any state trigger associated with this item. The triggers could be low or high or none.")
     ]
     public string StateTrigger
     {
@@ -175,13 +181,13 @@ CategoryAttribute("XXX debug"),
         catch (Exception ex)
         {
           MessageBox.Show(string.Format(Resources.tx_TagRowWrapper_StateTrigger, ex.Message));
-          m_Parent.StateTrigger = (sbyte)CAS.NetworkConfigLib.StateTrigger.None;
-          return CAS.NetworkConfigLib.StateTrigger.None.ToString();
+          m_Parent.StateTrigger = (sbyte)UAOOI.ProcessObserver.Configuration.StateTrigger.None;
+          return UAOOI.ProcessObserver.Configuration.StateTrigger.None.ToString();
         }
-
       }
       set => m_Parent.StateTrigger = (sbyte)GenericEnumTypeConverterHelper<StateTrigger>.GetValueFromString(value);
     }
+
     /// <summary>
     /// Gets the value that informs if there is an alarm linked with  this tag (the server is obligated to listen on the channel this tag belongs to and pick up incoming connection)
     /// </summary>
@@ -196,6 +202,7 @@ CategoryAttribute("XXX debug"),
       get => (m_Parent.Alarm);
       set => m_Parent.Alarm = value;
     }
+
     /// <summary>
     /// Gets the alarm mask that defines condition when the remote station is in the alarm state, and as a result should start to establish connection to the server in an independent alarm channel (e.g. the second ISDN B channel)
     /// </summary>
@@ -210,8 +217,9 @@ CategoryAttribute("XXX debug"),
       get => (m_Parent.AlarmMask);
       set => m_Parent.AlarmMask = value;
     }
+
     /// <summary>
-    /// Gets the value that defines conditions when the remote station is to enter the alarm state and the scan mode should be switched  – this conditions are used to switch between the fast and normal scan modes. 
+    /// Gets the value that defines conditions when the remote station is to enter the alarm state and the scan mode should be switched  – this conditions are used to switch between the fast and normal scan modes.
     /// </summary>
     [
     BrowsableAttribute(true),
@@ -224,16 +232,17 @@ CategoryAttribute("XXX debug"),
       get => (m_Parent.StateMask);
       set => m_Parent.StateMask = value;
     }
+
     /// <summary>
-    /// Gets or sets Conversion requirements in human readable format. 
-    /// DataTypeConversion identifiers are converted to string format based on OPCTypes 
+    /// Gets or sets Conversion requirements in human readable format.
+    /// DataTypeConversion identifiers are converted to string format based on OPCTypes
     /// </summary>
     [
     BrowsableAttribute(true),
     TypeConverter(typeof(TagsRowWrapper.OPCDataTypeConverter)),
     CategoryAttribute("Special functions"),
     DefaultValueAttribute(0),
-    DescriptionAttribute("Coversion requirements. Data will be available in required type (if conversion is possible).")
+    DescriptionAttribute("Conversion requirements. Data will be available in required type (if conversion is possible).")
     ]
     public string DataTypeConversion
     {
@@ -246,6 +255,7 @@ CategoryAttribute("XXX debug"),
       }
       set => m_Parent.DataTypeConversion = value;
     }
+
     /// <summary>
     /// Gets the real address.
     /// </summary>
@@ -257,6 +267,7 @@ CategoryAttribute("XXX debug"),
     DescriptionAttribute("Real Address in the address space")
     ]
     public ulong RealAddress => dataBlockRowWrapper.CaclculateTagRealAddressBasedOnTagID(this.TagID);
+
     /// <summary>
     /// Gets the name of the default.
     /// </summary>
@@ -276,6 +287,7 @@ DescriptionAttribute("Default (suggested) name from DataProvider ")
         return DefaultSettings.Name;
       }
     }
+
     /// <summary>
     /// Gets the type of the default.
     /// </summary>
@@ -295,6 +307,7 @@ DescriptionAttribute("Default (suggested) data type from DataProvider ")
         return DefaultSettings.DefaultType.ToString();
       }
     }
+
     [
 BrowsableAttribute(true),
 CategoryAttribute("Information"),
@@ -310,6 +323,7 @@ DescriptionAttribute("Default (suggested) access rights from DataProvider ")
         return DefaultSettings.AccessRights.ToString();
       }
     }
+
     /// <summary>
     /// AdditionalInfo from DataProvider
     /// </summary>
@@ -348,17 +362,23 @@ DescriptionAttribute("AdditionalInfo from DataProvider")
         return (sb.ToString());
       }
     }
-    #endregion //Properties for PropertyGrid
+
+    #endregion Properties for PropertyGrid
 
     #region Overrides
+
     #region Object override
+
     /// <summary>
     /// Overrides to string method
     /// </summary>
     /// <returns>Returns tag row name and tag identifier in specified string format</returns>
     public override string ToString() { return "Tag: " + Name; }
-    #endregion
+
+    #endregion Object override
+
     #region Action overrides
+
     public override void AddUnfinishedCleanup()
     {
       //musimy wyczyscic wszystkie properties
@@ -366,6 +386,7 @@ DescriptionAttribute("AdditionalInfo from DataProvider")
       foreach (ComunicationNet.ItemPropertiesTableRow iptr in myproperties)
         iptr.Delete();
     }
+
     /// <summary>
     /// Creates new tagbit row
     /// </summary>
@@ -375,6 +396,7 @@ DescriptionAttribute("AdditionalInfo from DataProvider")
       ComunicationNet.TagBitDataTable dt = ((ComunicationNet)(m_Parent.Table.DataSet)).TagBit;
       return new TagBitRowWrapper(dt.NewTagBitRow(m_Parent, string.Empty));
     }
+
     /// <summary>
     /// Creates tagbit row in treeview
     /// </summary>
@@ -388,6 +410,7 @@ DescriptionAttribute("AdditionalInfo from DataProvider")
           newWrapper.AddActionTreeNode(m_Node, 16, 16);
         }
     }
+
     /// <summary>
     /// Pastes specified <see cref="TagBitRowWrapper"/> object under this wrapper
     /// </summary>
@@ -402,6 +425,7 @@ DescriptionAttribute("AdditionalInfo from DataProvider")
         dt.NewTagBitRow(m_Parent, rowToPaste);
       }
     }
+
     /// <summary>
     /// Checks if specified <see cref="IAction"></see> interface is <see cref="TagBitRowWrapper"></see>
     /// </summary>
@@ -415,11 +439,13 @@ DescriptionAttribute("AdditionalInfo from DataProvider")
       ComunicationNet.TagBitDataTable cTab = ((ComunicationNet)m_Parent.Table.DataSet).TagBit;
       return !cTab.Contain(TagID, cRTP.DataRow.Name);
     }
+
     /// <summary>
-    /// Checks if specified <see cref="IAction"/> object can be moved 
+    /// Checks if specified <see cref="IAction"/> object can be moved
     /// </summary>
     /// <returns>True if specified object can be moved </returns>
     public override bool CanBeMoved() { return true; }
+
     /// <summary>
     /// Moves specified <see cref="TagsRowWrapper"/> object under this wrapper
     /// </summary>
@@ -434,18 +460,20 @@ DescriptionAttribute("AdditionalInfo from DataProvider")
       rowToPaste.TagID = m_Parent.TagID;
       rowToPaste.EndEdit();
     }
-    #endregion
-    #endregion
+
+    #endregion Action overrides
+
+    #endregion Overrides
 
     #region TypeConverter class
 
     /// <summary>
-    /// This class is used in DataTypeConverter dropdown list 
+    /// This class is used in DataTypeConverter dropdown list
     /// </summary>
     private class OPCDataTypeConverter : StringConverter
     {
       /// <summary>
-      /// Gets a value indicating whether this object supports a standard set of values that can be picked from a list. 
+      /// Gets a value indicating whether this object supports a standard set of values that can be picked from a list.
       /// </summary>
       /// <param name="context">An <see cref="ITypeDescriptorContext"/> that provides a format context. </param>
       /// <returns>Always returns <b>true</b> - means show a combobox </returns>
@@ -454,8 +482,9 @@ DescriptionAttribute("AdditionalInfo from DataProvider")
         //true means show a combobox
         return true;
       }
+
       /// <summary>
-      /// Gets a value indicating whether the list of standard values returned from the GetStandardValues method is an exclusive list. 
+      /// Gets a value indicating whether the list of standard values returned from the GetStandardValues method is an exclusive list.
       /// </summary>
       /// <param name="context">An <see cref="ITypeDescriptorContext"/> that provides a format context. </param>
       /// <returns>Always returns <b>true</b> - means it limits to list</returns>
@@ -464,8 +493,9 @@ DescriptionAttribute("AdditionalInfo from DataProvider")
         //true will limit to list. false will show the list, but allow free-form entry
         return false;
       }
+
       /// <summary>
-      /// Gets a collection of standard values for the data type this validator is designed for. 
+      /// Gets a collection of standard values for the data type this validator is designed for.
       /// </summary>
       /// <param name="context">An <see cref="ITypeDescriptorContext"/> that provides a format context. </param>
       /// <returns>A <see cref="TypeConverter.StandardValuesCollection"/>  that holds a standard set of valid values </returns>
@@ -480,7 +510,7 @@ DescriptionAttribute("AdditionalInfo from DataProvider")
           return null;
       }
     }
-    #endregion
 
+    #endregion TypeConverter class
   }
 }

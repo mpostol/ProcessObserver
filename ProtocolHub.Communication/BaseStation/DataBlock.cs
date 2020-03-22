@@ -7,36 +7,41 @@
 
 using CAS.Lib.CommonBus.ApplicationLayer;
 using CAS.Lib.DeviceSimulator;
-using CAS.NetworkConfigLib;
 using Opc.Da;
 using System;
 using System.Collections;
 using System.Xml;
+using UAOOI.ProcessObserver.Configuration;
 using UAOOI.ProcessObserver.RealTime;
 using UAOOI.ProcessObserver.RealTime.Processes;
 
 namespace CAS.CommServer.ProtocolHub.Communication.BaseStation
 {
-
   internal interface IDataWrite
   {
     bool WriteData(object data, IBlockDescription address);
+
     bool ReadData(out object data, IBlockDescription address);
   }
+
   internal interface IStationState
   {
     void ChangeToHighPriority();
+
     void ChangeToLowPriority();
   }
+
   internal abstract class DataBlock : WaitTimeList<DataBlock>.TODescriptor, IBlockDescription
   {
+    #region private
 
-    #region PRIVATE
     private readonly int myStartAddress;
     private readonly int mylength;
     private readonly short myDataType;
     private Tag[] tagHendlers;
+
     protected abstract Tag newTag(ComunicationNet.TagsRow currRow, IStationState myStationState, int myAddress, short myDataType, IDataWrite myWriteInt);
+
     private void CreateAllTags(ComunicationNet.TagsRow[] tagsDsc, out int length, IDataWrite myWriteInt, int myAddress, short myDataType, IStationState myStationState, ref int cVConstrain)
     {
       SortedList sortedTgs = new SortedList();
@@ -57,30 +62,35 @@ namespace CAS.CommServer.ProtocolHub.Communication.BaseStation
         tagHendlers[idx] = newTag(currRow, myStationState, myAddress + idx, myDataType, myWriteInt);
       }
     }//CreateAllTags
-    protected Tag[] createdTags
-    {
-      get { return tagHendlers; }
-    }
-    #endregion PRIVATE
+
+    protected Tag[] createdTags => tagHendlers;
+
+    #endregion private
 
     #region IBlockDescription
-    int IBlockDescription.startAddress { get { return myStartAddress; } }
-    int IBlockDescription.length { get { return mylength; } }
-    short IBlockDescription.dataType { get { return myDataType; } }
-    #endregion //IBlockDescription
 
-    #region PUBLIC
+    int IBlockDescription.startAddress => myStartAddress;
+    int IBlockDescription.length => mylength;
+    short IBlockDescription.dataType => myDataType;
+
+    #endregion IBlockDescription
+
+    #region public
+
     internal abstract class Tag : Device.TagInDevice
     {
-
       #region PRIVATE
+
       private IStationState myStation;
-      private bool stateHihgTriger = false;
-      private bool stateLowTriger = false;
-      private int stateMask;
-      //      private System.Type destinationtype;
-      private bool initState = true; // prevents the situation that prevVal is not properly initialised in the ChechTagAlarm function
+      private readonly bool stateHihgTriger = false;
+      private readonly bool stateLowTriger = false;
+      private readonly int stateMask;
+
+      //      private System.Type destination type;
+      private bool initState = true; // prevents the situation that prevVal is not properly initialized in the ChechTagAlarm function
+
       private object prevVal;
+
       private void CheckTagAlarm(object val)
       {
         if (stateHihgTriger | stateLowTriger)
@@ -89,7 +99,7 @@ namespace CAS.CommServer.ProtocolHub.Communication.BaseStation
           {
             if (val is int)
             {
-              //            if      (stateHihgTriger && (( ((int)val ^ (int)prevVal ^ ~(int)prevVal) & stateMask ) != 0 )) 
+              //            if      (stateHihgTriger && (( ((int)val ^ (int)prevVal ^ ~(int)prevVal) & stateMask ) != 0 ))
               //              myStation.ChangeToHihgPriority();
               //            else if (stateLowTriger  && (( ((int)val ^ (int)prevVal ^  (int)prevVal) & stateMask ) != 0 ))
               //              myStation.ChangeToLowPriority();
@@ -124,14 +134,15 @@ namespace CAS.CommServer.ProtocolHub.Communication.BaseStation
               else if (stateLowTriger && (bool)val)
                 myStation.ChangeToLowPriority();
             }
-
           }
           prevVal = val;
         }
       }
+
       #endregion PRIVATE
 
-      #region PUBLIC
+      #region public
+
       /// <summary>
       /// Gets the data type from configuration row.
       /// </summary>
@@ -158,11 +169,13 @@ namespace CAS.CommServer.ProtocolHub.Communication.BaseStation
         else
           return typeof(object);
       }
+
       public override void UpdateTag(object Val)
       {
         base.UpdateTag(Val);
         CheckTagAlarm(Val);
       }
+
       public override bool GetVal(ref object Val)
       {
         if (!base.GetVal(ref Val))
@@ -170,10 +183,11 @@ namespace CAS.CommServer.ProtocolHub.Communication.BaseStation
         CheckTagAlarm(Val);
         return true;
       }
+
       /// <summary>
       /// Tag constructor
       /// </summary>
-      /// <param name="myDSC">params from Tags table</param>
+      /// <param name="myDSC">parameters from Tags table</param>
       /// <param name="myStation">pointer to interface that allow to change priority of the station</param>
       internal Tag(ComunicationNet.TagsRow myDSC, IStationState myStation)
           : base(myDSC.Name, null, qualityBits.badNotConnected, (ItemAccessRights)myDSC.AccessRights, GetDataTypeFromConfig(myDSC))
@@ -183,9 +197,11 @@ namespace CAS.CommServer.ProtocolHub.Communication.BaseStation
           case StateTrigger.StateHigh:
             stateHihgTriger = true;
             break;
+
           case StateTrigger.StateLow:
             stateLowTriger = true;
             break;
+
           default:
             break;
         }
@@ -202,11 +218,13 @@ namespace CAS.CommServer.ProtocolHub.Communication.BaseStation
                 new PropertyID(
                     new XmlQualifiedName(row_property.ID_Name_Name, row_property.ID_Name_Namespace)
                     ));
-            ItemProperty _itemProperty = new ItemProperty();
-            _itemProperty.ID = prop_dsc.ID;
-            _itemProperty.Value = row_property.Value;
-            if (prop_dsc.ID != Opc.Da.Property.DATATYPE) //this property is managed differently 
-                                                         // as GetDataTypeFromConfig( myDSC ) 
+            ItemProperty _itemProperty = new ItemProperty
+            {
+              ID = prop_dsc.ID,
+              Value = row_property.Value
+            };
+            if (prop_dsc.ID != Opc.Da.Property.DATATYPE) //this property is managed differently
+                                                         // as GetDataTypeFromConfig( myDSC )
                                                          // at the constructor
             {
               if (prop_dsc.ID == Opc.Da.Property.HI_LIMIT ||
@@ -219,8 +237,7 @@ namespace CAS.CommServer.ProtocolHub.Communication.BaseStation
                 )
               {
                 // this property contains double value
-                double prop_value = 0;
-                if (double.TryParse(row_property.Value, out prop_value))
+                if (double.TryParse(row_property.Value, out double prop_value))
                   _itemProperty.Value = prop_value;
               }
               if (prop_dsc.ID == Opc.Da.Property.EUTYPE)
@@ -259,8 +276,8 @@ namespace CAS.CommServer.ProtocolHub.Communication.BaseStation
             TraceEvent.GetMessageWithExceptionNameFromExceptionIncludingInnerException(ex));
         }
       }
-      #endregion PUBLIC
 
+      #endregion public
     }//Tag
 
     internal virtual void UpdateAllTags(IReadValue val)
@@ -297,6 +314,7 @@ namespace CAS.CommServer.ProtocolHub.Communication.BaseStation
       CreateAllTags
         (myRow.GetTagsRows(), out mylength, myWriteInt, myStartAddress, myDataType, myStationState, ref cVConstrain);
     }
+
     /// <summary>
     /// Returns a <see cref="T:System.String"/> that represents the current <see cref="T:System.Object"/>.
     /// </summary>
@@ -305,11 +323,10 @@ namespace CAS.CommServer.ProtocolHub.Communication.BaseStation
     /// </returns>
     public override string ToString()
     {
-      return String.Format("{0}: start address={1}; data type={2}; length={3};", base.ToString(),
+      return string.Format("{0}: start address={1}; data type={2}; length={3};", base.ToString(),
         myStartAddress, myDataType, mylength);
     }
-    #endregion PUBLIC
 
+    #endregion public
   }// class DataBlock
-
 }//namespace BaseStation

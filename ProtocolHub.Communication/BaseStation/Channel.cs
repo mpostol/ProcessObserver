@@ -10,11 +10,11 @@ using CAS.CommServer.ProtocolHub.MonitorInterface;
 using CAS.Lib.CommonBus;
 using CAS.Lib.CommonBus.ApplicationLayer;
 using CAS.Lib.CommonBus.Management;
-using CAS.NetworkConfigLib;
 using System;
 using System.Collections;
 using System.ComponentModel;
 using System.Xml;
+using UAOOI.ProcessObserver.Configuration;
 using UAOOI.ProcessObserver.RealTime.Management;
 using UAOOI.ProcessObserver.RealTime.Processes;
 
@@ -25,11 +25,12 @@ namespace CAS.CommServer.ProtocolHub.Communication.BaseStation
   /// </summary>
   internal class Channel : HandlerWaitTimeList<SegmentStateMachine>
   {
-
     #region private
+
     private const string m_src = "CAS.Lib.CommServer.Channel";
     private readonly Statistics.ChannelStatistics myStatistics;
     private static ArrayList myChannels = new ArrayList();
+
     private IApplicationLayerMaster CreateApplicationProtocol(ComunicationNet.ProtocolRow protocol, CommServerComponent parent, PluginCollection plugins, ISettingsBase settings)
     {
       CommServerComponent.Tracer.TraceVerbose(60, m_src, "Creating protocol: " + protocol.Name);
@@ -83,13 +84,16 @@ namespace CAS.CommServer.ProtocolHub.Communication.BaseStation
       }
       return null;
     }
+
     private SegmentStateMachine CurrSegment = null;
 
-    #region 
+    #region
+
     public override void NewOvertimeCoefficient(long min, long max, long avr)
     {
       //      base.NewOvertimeCoefficient (min, max, avr);
     }
+
     protected override void Handler(SegmentStateMachine myDsc)
     {
       //if ( !myDsc.NeedsChannelAccess )
@@ -99,9 +103,11 @@ namespace CAS.CommServer.ProtocolHub.Communication.BaseStation
       CurrSegment = myDsc;
       CurrSegment.ConnectRequest();
     }//Scanner
-    #endregion
+
+    #endregion private
 
     #region creator
+
     private Channel(ComunicationNet.ChannelsRow myCDsc, CommServerComponent parent, bool demoVersion, ISettingsBase settings)
       : base(false, "ChannelSegTOL_" + myCDsc.Name)
     {
@@ -134,11 +140,13 @@ namespace CAS.CommServer.ProtocolHub.Communication.BaseStation
       }//foreach (NetworkConfig.ComunicationNet.ProtocolRow proto in myCDsc.GetProtocolRows)
       CommServerComponent.Tracer.TraceVerbose(203, m_src, "Channel: " + myCDsc.Name + " has been created.");
     }//Channel
-    #endregion
+
+    #endregion creator
 
     #endregion
 
     #region API
+
     internal static void InitializeChannels(ComunicationNet.ChannelsDataTable channelsConfigTable, CommServerComponent parent, bool demoVersion, ISettingsBase settings)
     {
       Segment.DemoMode = demoVersion;
@@ -153,7 +161,7 @@ namespace CAS.CommServer.ProtocolHub.Communication.BaseStation
           CommServerComponent.Tracer.TraceVerbose(220, m_src, string.Format(msg, currRow.Name, ex.Message));
         }
     }
-    #endregion
 
+    #endregion
   }
 }

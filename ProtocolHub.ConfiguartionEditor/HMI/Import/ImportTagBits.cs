@@ -5,9 +5,9 @@
 //  To be in touch join the community at GITTER: https://gitter.im/mpostol/OPC-UA-OOI
 //___________________________________________________________________________________
 
-using CAS.NetworkConfigLib;
 using System;
 using System.Windows.Forms;
+using UAOOI.ProcessObserver.Configuration;
 using UAOOI.Windows.Forms;
 
 namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI.Import
@@ -17,61 +17,41 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI.Import
   /// </summary>
   internal class ImportTagBits : ImportFunctionRootClass
   {
-
     #region ImportTagBitsInfo
+
     internal class ImportTagBitsInfo : ImportFileControll.ImportInfo
     {
-      public override string ImportName
-      {
-        get { return "Import Tag Bits information"; }
-      }
-      public override string InitialDirectory
-      {
-        get
-        {
-          return AppDomain.CurrentDomain.BaseDirectory;
-        }
-      }
+      public override string ImportName => "Import Tag Bits information";
+      public override string InitialDirectory => AppDomain.CurrentDomain.BaseDirectory;
+
       /// <summary>
       /// default browse filter for the dialog which is used for selecting a file
       /// </summary>
-      public override string BrowseFilter
-      {
-        get
-        {
-          return "CSV Tag bits definition file (*.CSV)|*.CSV";
-        }
-      }
+      public override string BrowseFilter => "CSV Tag bits definition file (*.CSV)|*.CSV";
+
       /// <summary>
       /// default extension for the dialog which is used for selecting a file
       /// </summary>
-      public override string DefaultExt
-      {
-        get
-        {
-          return ".CSV";
-        }
-      }
+      public override string DefaultExt => ".CSV";
+
       /// <summary>
       /// text that is used to show the information about this importing function
       /// </summary>
-      public override string InformationText
-      {
-        get
-        {
-          return "This function import tab-bits from file - each line format: BaseTagName;Bitnumber;Name";
-        }
-      }
+      public override string InformationText => "This function import tab-bits from file - each line format: BaseTagName;Bitnumber;Name";
     }
-    #endregion
+
+    #endregion ImportTagBitsInfo
 
     #region private
+
     private ComunicationNet m_database;
-    private ImportTagBitsInfo m_ImportTagBitsInfo;
+    private readonly ImportTagBitsInfo m_ImportTagBitsInfo;
     private int m_numberofTagBitsadded = 0;
-    #endregion
+
+    #endregion private
 
     #region ImportFunctionRootClass
+
     protected override void DoTheImport()
     {
       m_numberofTagBitsadded = 0;
@@ -106,7 +86,7 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI.Import
             if (trow.Name.Equals(BaseTagName))
             {
               //znalezlismy odpowiedniego base taga - dodajmy tagbita
-              ComunicationNet.TagBitRow tagbitrow = m_database.TagBit.NewTagBitRow(trow, String.Empty);
+              ComunicationNet.TagBitRow tagbitrow = m_database.TagBit.NewTagBitRow(trow, string.Empty);
               tagbitrow.Name = Name;
               tagbitrow.BitNumber = System.Convert.ToInt16(Bitnumber);
               m_database.TagBit.AddTagBitRow(tagbitrow);
@@ -131,9 +111,10 @@ Exception
       AppendToLog("Number of TagBits added: " + m_numberofTagBitsadded.ToString());
     }
 
-    #endregion
+    #endregion ImportFunctionRootClass
 
     #region creator
+
     public ImportTagBits(ComunicationNet database, Form parentForm)
       : base(parentForm)
     {
@@ -141,7 +122,7 @@ Exception
       m_ImportTagBitsInfo = new ImportTagBitsInfo();
       SetImportInfo(m_ImportTagBitsInfo);
     }
-    #endregion
 
+    #endregion creator
   }
 }

@@ -9,7 +9,7 @@ using CAS.Lib.RTLib.Management;
 using System;
 using System.Threading;
 using UAOOI.ProcessObserver.RealTime.Processes;
-using CommunicationDSC = CAS.NetworkConfigLib.ComunicationNet;
+using CommunicationDSC = UAOOI.ProcessObserver.Configuration.ComunicationNet;
 
 namespace CAS.CommServer.ProtocolHub.MonitorInterface
 {
@@ -23,6 +23,7 @@ namespace CAS.CommServer.ProtocolHub.MonitorInterface
     /// </summary>
     internal static readonly TraceEvent TraceSource = new TraceEvent("CAS.BaseStation.Management.Statistics");
   }
+
   /// <summary>
   /// Interface Update Internal Statistics
   /// </summary>
@@ -33,17 +34,21 @@ namespace CAS.CommServer.ProtocolHub.MonitorInterface
     /// </summary>
     void UpdateInternal();
   }
+
   /// <summary>
   /// Provides statistic information to management level - human machine interface (HMI)
   /// </summary>
   [Serializable]
   public class Metronom
   {
-
     #region private
+
     private delegate void StateChanged();
+
     private static event StateChanged stateChangedEvnt;
+
     private static MonitoredThread clock;
+
     private static void MonitoringMet()
     {
       while (true)
@@ -54,9 +59,11 @@ namespace CAS.CommServer.ProtocolHub.MonitorInterface
           stateChangedEvnt();
       }
     }
-    #endregion
+
+    #endregion private
 
     #region public
+
     /// <summary>
     /// Provides statistic information to management level - human machine interface (HMI)
     /// </summary>
@@ -67,6 +74,7 @@ namespace CAS.CommServer.ProtocolHub.MonitorInterface
       /// Refreshes this instance.
       /// </summary>
       protected abstract void refresh();
+
       private void RefreshHandler()
       {
         string mySource = "Metronom.RefreshAble:" + GetType().Name;
@@ -84,11 +92,13 @@ namespace CAS.CommServer.ProtocolHub.MonitorInterface
           StatisticsTracer.TraceSource.TraceError(104, mySource, message);
         }
       }
+
       internal RefreshAble()
       {
         stateChangedEvnt += new StateChanged(RefreshHandler);
       }
     }
+
     static Metronom()
     {
       clock = new MonitoredThread
@@ -102,54 +112,65 @@ namespace CAS.CommServer.ProtocolHub.MonitorInterface
         ThreadPriority.Normal
         );
     }
-    #endregion
 
+    #endregion public
   }
+
   /// <summary>
   /// Communication statistics management class
   /// </summary>
   [Serializable]
   public partial class Statistics
   {
-
     #region PRIVATE
+
     private enum RWOperationRes : ushort
     { ORReadGood, ORWriteGood, ORCRCError, ORIncoplete, ORTimeout, ORMaxTimeRound };
+
     /// <summary>
     ///  Title   : Communication statistics management class
     /// </summary>
-    #endregion PUBLIC
+
+    #endregion PRIVATE
 
     #region PUBLIC refresh
+
     public delegate void StateChanged(bool currState);
+
     /// <summary>
     /// list of station see:<see cref="StationStatistics"/>
     /// </summary>
     public static System.Collections.ArrayList stationList = new System.Collections.ArrayList();
+
     /// <summary>
     /// list of channels see: <see cref="ChannelStatistics"/>
     /// </summary>
     public static System.Collections.ArrayList channelList = new System.Collections.ArrayList();
+
     /// <summary>
     /// list of segments <see cref="SegmentStatistics"/>
     /// </summary>
     public static System.Collections.ArrayList segmentList = new System.Collections.ArrayList();
+
     /// <summary>
     /// list of interfaces <see cref="InterfaceStatistics"/>
     /// </summary>
     public static System.Collections.ArrayList interfaceList = new System.Collections.ArrayList();
+
     /// <summary>
     /// Provides statistic information to management level - human machine interface (HMI)
     /// </summary>
     [Serializable]
     public abstract class StationStatistics : Metronom.RefreshAble, IHtmlOutput
     {
-
       #region PRIVATE
+
       private System.Collections.ArrayList myInterfaceList = new System.Collections.ArrayList();
-      #endregion
+
+      #endregion PRIVATE
 
       #region PUBLIC
+
       /// <summary>
       /// Provides statistic informaton to management level - human mascine interface (HMI) (internal statistics - that are send through remoting)
       /// </summary>
@@ -158,24 +179,29 @@ namespace CAS.CommServer.ProtocolHub.MonitorInterface
       {
         internal bool myPriority;
         internal bool myOn = false;
+
         /// <summary>
         /// name
         /// </summary>
         public readonly string myName;
+
         /// <summary>
         /// Identifier
         /// </summary>
         public readonly long myID;
+
         /// <summary>
         /// Gets a value indicating whether priority is set.
         /// </summary>
         /// <value><c>true</c> if priority otherwise, <c>false</c>.</value>
         public bool MyPriority => myPriority;
+
         /// <summary>
         /// Gets a value indicating whether station is on.
         /// </summary>
         /// <value><c>true</c> if station is on otherwise, <c>false</c>.</value>
         internal bool MyOn => myOn;
+
         /// <summary>
         /// Gets the state of the station.
         /// </summary>
@@ -192,6 +218,7 @@ namespace CAS.CommServer.ProtocolHub.MonitorInterface
             return state;
           }
         }
+
         /// <summary>
         /// Gets the station state as string.
         /// </summary>
@@ -210,6 +237,7 @@ namespace CAS.CommServer.ProtocolHub.MonitorInterface
             return state;
           }
         }
+
         /// <summary>
         /// Returns a <see cref="T:System.String"/> that represents the current <see cref="T:System.Object"/>.
         /// </summary>
@@ -232,14 +260,17 @@ namespace CAS.CommServer.ProtocolHub.MonitorInterface
           myID = ID;
         }
       };
+
       /// <summary>
       /// internal statistics <see cref="StationStatisticsInternal"/>
       /// </summary>
       public StationStatisticsInternal myStat;
+
       /// <summary>
       /// Occurs when [mark new state].
       /// </summary>
       public event StateChanged MarkNewState;
+
       /// <summary>
       /// Adds the interface.
       /// </summary>
@@ -248,16 +279,19 @@ namespace CAS.CommServer.ProtocolHub.MonitorInterface
       {
         myInterfaceList.Add(intr);
       }
+
       /// <summary>
       /// Gets  name.
       /// </summary>
       /// <value> name.</value>
       public string myName => myStat.myName;
+
       /// <summary>
       /// Gets a value indicating whether  on.
       /// </summary>
       /// <value><c>true</c> if station is on otherwise, <c>false</c>.</value>
       protected bool myOn => myStat.myOn;
+
       /// <summary>
       /// Gets or sets a value indicating whether [station state].
       /// </summary>
@@ -272,6 +306,7 @@ namespace CAS.CommServer.ProtocolHub.MonitorInterface
         }
         get => myStat.myOn;
       }
+
       /// <summary>
       /// Gets or sets a value indicating whether this <see cref="StationStatistics"/> is priority.
       /// </summary>
@@ -281,6 +316,7 @@ namespace CAS.CommServer.ProtocolHub.MonitorInterface
         set => myStat.myPriority = value;
         get => myStat.myPriority;
       } //Station
+
       /// <summary>
       /// Initializes a new instance of the <see cref="StationStatistics"/> class.
       /// </summary>
@@ -290,11 +326,14 @@ namespace CAS.CommServer.ProtocolHub.MonitorInterface
         stationList.Add(this);
         myStat = new StationStatisticsInternal(currDsc.Name, currDsc.StationID);
       }
+
       #region IHtmlOutput Members
+
       /// <summary>
-      /// variable resposible for row color changing
+      /// variable responsible for row color changing
       /// </summary>
       private static bool changecolor = true;
+
       /// <summary>
       /// returns row color class
       /// </summary>
@@ -308,8 +347,9 @@ namespace CAS.CommServer.ProtocolHub.MonitorInterface
           return "k4";
         }
       }
+
       /// <summary>
-      /// this function is for retreiving description fot this object in the HTML
+      /// this function is for retrieving description fot this object in the HTML
       /// </summary>
       /// <returns>string with HTML output</returns>
       public string GetHtmlTableRowDescription()
@@ -323,6 +363,7 @@ namespace CAS.CommServer.ProtocolHub.MonitorInterface
         ret += "</tr>";
         return ret;
       }
+
       /// <summary>
       /// this function is for retreiving data that represens that object
       /// </summary>
@@ -339,6 +380,7 @@ namespace CAS.CommServer.ProtocolHub.MonitorInterface
         ret += "</tr>";
         return ret;
       }
+
       /// <summary>
       /// this function is for retreiving data that represens that object (data + description)
       /// </summary>
@@ -347,11 +389,12 @@ namespace CAS.CommServer.ProtocolHub.MonitorInterface
       {
         return "<table border='1' class='t2'>" + GetHtmlTableRowDescription() + ToHtmlTableRow() + "</table>";
       }
-      #endregion
 
-      #endregion
+      #endregion IHtmlOutput Members
 
+      #endregion PUBLIC
     }//Station
+
     /// <summary>
     /// this is helper class to add refresh possibility to Protocol class
     /// </summary>
@@ -359,22 +402,27 @@ namespace CAS.CommServer.ProtocolHub.MonitorInterface
     public abstract class ProtocolStatisticsUpdater : Protocol
     {
       private readonly MyStatisticsRefresh MyRefresher;
+
       /// <summary>
       /// Refreshes this instance.
       /// </summary>
       protected internal abstract void refresh();
+
       private class MyStatisticsRefresh : Metronom.RefreshAble
       {
         private ProtocolStatisticsUpdater m_parent;
+
         protected override void refresh()
         {
           m_parent.refresh();
         }
+
         internal MyStatisticsRefresh(ProtocolStatisticsUpdater parent)
         {
           m_parent = parent;
         }
       }
+
       /// <summary>
       /// Initializes a new instance of the <see cref="ProtocolStatisticsUpdater" /> class.
       /// </summary>
@@ -389,18 +437,21 @@ namespace CAS.CommServer.ProtocolHub.MonitorInterface
         MyRefresher = new MyStatisticsRefresh(this);
       }
     }
+
     /// <summary>
     ///  Title   : Channel statistics management class
     /// </summary>
     [Serializable]
     public class ChannelStatistics
     {
-
       #region PRIVATE
+
       private System.Collections.ArrayList mySegmentList = new System.Collections.ArrayList();
-      #endregion
+
+      #endregion PRIVATE
 
       #region PUBLIC
+
       /// <summary>
       /// Channel statistics management class (internal statistics - that are send through remoting)
       /// </summary>
@@ -408,16 +459,20 @@ namespace CAS.CommServer.ProtocolHub.MonitorInterface
       public class ChannelStatisticsInternal
       {
         private readonly string myName;
+
         /// <summary>
         /// ID
         /// </summary>
         public readonly long myID;
+
         /// <summary>
         /// Gets name.
         /// </summary>
         /// <value>name.</value>
         public string MyName => myName;
+
         private readonly uint[] packetsCount = new uint[] { 0, 0, 0, 0, 0, 0 };
+
         /// <summary>
         /// Returns a <see cref="T:System.String"/> that represents the current <see cref="T:System.Object"/>.
         /// </summary>
@@ -428,6 +483,7 @@ namespace CAS.CommServer.ProtocolHub.MonitorInterface
         {
           return myName + "(" + myID.ToString() + ")";
         }
+
         /// <summary>
         /// Initializes a new instance of the <see cref="ChannelStatisticsInternal"/> class.
         /// </summary>
@@ -438,6 +494,7 @@ namespace CAS.CommServer.ProtocolHub.MonitorInterface
           myName = name;
           myID = id;
         }
+
         /// <summary>
         /// Gets or sets the <see cref="System.UInt32"/> at the specified index.
         /// </summary>
@@ -450,16 +507,19 @@ namespace CAS.CommServer.ProtocolHub.MonitorInterface
       };
 
       private ChannelStatisticsInternal myStat;
+
       /// <summary>
       /// Gets name.
       /// </summary>
       /// <value>name.</value>
       public string myName => myStat.MyName;
+
       /// <summary>
       /// Gets ID.
       /// </summary>
       /// <value>ID.</value>
       public long myID => myStat.myID;
+
       /// <summary>
       /// Returns a <see cref="T:System.String"/> that represents the current <see cref="T:System.Object"/>.
       /// </summary>
@@ -467,6 +527,7 @@ namespace CAS.CommServer.ProtocolHub.MonitorInterface
       /// A <see cref="T:System.String"/> that represents the current <see cref="T:System.Object"/>.
       /// </returns>
       public override string ToString() { return myName; }
+
       /// <summary>
       /// Gets the protocol statistics.
       /// </summary>
@@ -485,6 +546,7 @@ namespace CAS.CommServer.ProtocolHub.MonitorInterface
             myStat[idx] += counters[idx];
         }
       }//GeatProtocolStatistics
+
       /// <summary>
       /// Adds the segment.
       /// </summary>
@@ -493,6 +555,7 @@ namespace CAS.CommServer.ProtocolHub.MonitorInterface
       {
         mySegmentList.Add(sgmt);
       }
+
       /// <summary>
       /// Initializes a new instance of the <see cref="ChannelStatistics"/> class.
       /// </summary>
@@ -502,9 +565,10 @@ namespace CAS.CommServer.ProtocolHub.MonitorInterface
         channelList.Add(this);
         myStat = new ChannelStatisticsInternal(currDsc.Name, currDsc.ChannelID);
       }
-      #endregion
 
+      #endregion PUBLIC
     }//Channel
-    #endregion
+
+    #endregion PUBLIC refresh
   }//Interface
 }

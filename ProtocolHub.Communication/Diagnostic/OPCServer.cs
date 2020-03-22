@@ -6,14 +6,13 @@
 //___________________________________________________________________________________
 
 using CAS.CommServer.ProtocolHub.MonitorInterface;
-using CAS.NetworkConfigLib;
 using System;
+using UAOOI.ProcessObserver.Configuration;
 using UAOOI.ProcessObserver.RealTime;
 using UAOOI.ProcessObserver.RealTime.Management;
 
 namespace CAS.CommServer.ProtocolHub.Communication.Diagnostic
 {
-
   /// <summary>
   /// Summary description for Interface.
   /// </summary>
@@ -24,36 +23,42 @@ namespace CAS.CommServer.ProtocolHub.Communication.Diagnostic
     {
       return false;
     }
+
     protected override bool ReadRemote(out object data)
     {
       data = null;
       return false;
     }
+
     public object Val
     {
       set => base.UpdateTag(value);
     }
+
     public OPCValTag(string Name, Type datatype)
       : base(Name, null, Opc.Da.qualityBits.bad, ItemAccessRights.ReadOnly, datatype)
     {
       this.EuType = Opc.Da.euType.noEnum;
     }
   }
+
   /// <summary>
   /// Interface
   /// </summary>
   [Serializable]
   public class Interface : Statistics.InterfaceStatistics
   {
-
     #region private
+
     private OPCValTag ActiveTimeTag;
     private OPCValTag FailTimeTag;
     private OPCValTag StandbyTag;
     private OPCValTag StateTag;
+
     #endregion private
 
     #region internal
+
     /// <summary>
     /// Refreshes this instance.
     /// </summary>
@@ -64,6 +69,7 @@ namespace CAS.CommServer.ProtocolHub.Communication.Diagnostic
       FailTimeTag.Val = (int)(System.Math.Min(FailTime, int.MaxValue));
       StandbyTag.Val = (int)(System.Math.Min(StandbyTime, int.MaxValue));
     }
+
     /// <summary>
     /// Initializes a new instance of the <see cref="Interface"/> class.
     /// </summary>
@@ -81,9 +87,10 @@ namespace CAS.CommServer.ProtocolHub.Communication.Diagnostic
       StandbyTag = new OPCValTag(prefix + "/Standby", typeof(int));
       StateTag = new OPCValTag(prefix + "/State", typeof(bool));
     }
-    #endregion internal
 
+    #endregion internal
   }//Interface
+
   /// <summary>
   /// Publishes statistics as OPC tags.
   /// </summary>
@@ -91,6 +98,7 @@ namespace CAS.CommServer.ProtocolHub.Communication.Diagnostic
   public class Segment : Statistics.SegmentStatistics
   {
     #region private
+
     private OPCValTag Tag_WriteDelayMin;
     private OPCValTag Tag_WriteDelayAvr;
     private OPCValTag Tag_WriteDelayMax;
@@ -108,9 +116,11 @@ namespace CAS.CommServer.ProtocolHub.Communication.Diagnostic
     private OPCValTag Tag_State;
     private OPCValTag Tag_TotalConnTime;
     private readonly string m_prefix;
-    #endregion
+
+    #endregion private
 
     #region public
+
     /// <summary>
     /// Refreshes this instance.
     /// </summary>
@@ -133,11 +143,13 @@ namespace CAS.CommServer.ProtocolHub.Communication.Diagnostic
       Tag_State.Val = (ushort)this.myStat.CurrentState;
       Tag_TotalConnTime.Val = ConnectTime;
     }
+
     /// <summary>
     /// Gets the get OPC prefix.
     /// </summary>
     /// <value>The get OPC prefix.</value>
     public override string GetOPCPrefix => m_prefix;
+
     /// <summary>
     /// Initializes a new instance of the <see cref="Segment" /> class.
     /// </summary>
@@ -164,8 +176,10 @@ namespace CAS.CommServer.ProtocolHub.Communication.Diagnostic
       Tag_State = new OPCValTag(m_prefix + "/SegmentState", typeof(ushort));
       Tag_TotalConnTime = new OPCValTag(m_prefix + "/TotalConnectionTime", typeof(ulong));
     }
-    #endregion
+
+    #endregion public
   }
+
   /// <summary>
   /// Station
   /// </summary>
@@ -173,10 +187,12 @@ namespace CAS.CommServer.ProtocolHub.Communication.Diagnostic
   public class Station : Statistics.StationStatistics
   {
     private OPCValTag StateTag;
+
     /// <summary>
     /// Refreshes this instance.
     /// </summary>
     protected override void refresh() { StateTag.Val = myOn; }
+
     /// <summary>
     /// Initializes a new instance of the <see cref="Station"/> class.
     /// </summary>
@@ -187,6 +203,7 @@ namespace CAS.CommServer.ProtocolHub.Communication.Diagnostic
       StateTag = new OPCValTag("STT/" + myName + "/St", typeof(bool));
     }
   }
+
   /// <summary>
   /// Protocol
   /// </summary>
@@ -194,6 +211,7 @@ namespace CAS.CommServer.ProtocolHub.Communication.Diagnostic
   public class CommServerProtocol : Statistics.ProtocolStatisticsUpdater
   {
     #region private
+
     private readonly string prefix;
     private OPCValTag Tag_RXDBSucc;
     private OPCValTag Tag_RXDBFail;
@@ -211,6 +229,7 @@ namespace CAS.CommServer.ProtocolHub.Communication.Diagnostic
     private OPCValTag Tag_TimeCharGap;
     private OPCValTag Tag_RxBytesTransferred;
     private OPCValTag Tag_TxBytesTransferred;
+
     private CommServerProtocol(string protocolPar, string Name, long ID, string protocolPar_humanreadable, Statistics.ChannelStatistics MyChannelStatistics, ISettingsBase settings)
       : base(protocolPar, Name, ID, protocolPar_humanreadable, settings)
     {
@@ -232,7 +251,9 @@ namespace CAS.CommServer.ProtocolHub.Communication.Diagnostic
       Tag_RxBytesTransferred = new OPCValTag(prefix + "/BytesTransferred/RX", typeof(ulong));
       Tag_TxBytesTransferred = new OPCValTag(prefix + "/BytesTransferred/TX", typeof(ulong));
     }
+
     #endregion private
+
     /// <summary>
     /// Creating new protocol.
     /// </summary>
@@ -247,6 +268,7 @@ namespace CAS.CommServer.ProtocolHub.Communication.Diagnostic
     {
       return new CommServerProtocol(protocolPar, Name, ID, protocolPar_HumanReadable, MyChannelStatistics, settings);
     }
+
     /// <summary>
     /// Refreshes this instance.
     /// </summary>
@@ -270,5 +292,4 @@ namespace CAS.CommServer.ProtocolHub.Communication.Diagnostic
       Tag_TxBytesTransferred.Val = this.StatisticData.GetTxBytesTransferred;
     }
   }
-
 }

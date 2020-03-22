@@ -5,8 +5,8 @@
 //  To be in touch join the community at GITTER: https://gitter.im/mpostol/OPC-UA-OOI
 //___________________________________________________________________________________
 
-using CAS.NetworkConfigLib;
 using System;
+using UAOOI.ProcessObserver.Configuration;
 using UAOOI.ProcessObserver.RealTime;
 using UAOOI.Windows.Forms;
 
@@ -17,64 +17,44 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI.Import
   /// </summary>
   internal class ImportScanSettings : ImportFunctionRootClass
   {
-
     #region ImportScanSettingsInfo
+
     internal class ImportScanSettingsInfo : ImportFileControll.ImportInfo
     {
-      public override string ImportName
-      {
-        get { return "Import Scan Settings"; }
-      }
-      public override string InitialDirectory
-      {
-        get
-        {
-          return AppDomain.CurrentDomain.BaseDirectory;
-        }
-      }
+      public override string ImportName => "Import Scan Settings";
+      public override string InitialDirectory => AppDomain.CurrentDomain.BaseDirectory;
+
       /// <summary>
       /// default browse filter for the dialog which is used for selecting a file
       /// </summary>
-      public override string BrowseFilter
-      {
-        get
-        {
-          return "Scan Settings files (*.CSV)|*.CSV";
-        }
-      }
+      public override string BrowseFilter => "Scan Settings files (*.CSV)|*.CSV";
+
       /// <summary>
       /// default extension for the dialog which is used for selecting a file
       /// </summary>
-      public override string DefaultExt
-      {
-        get
-        {
-          return ".CSV";
-        }
-      }
+      public override string DefaultExt => ".CSV";
+
       /// <summary>
       /// text that is used to show the information about this importing function
       /// </summary>
-      public override string InformationText
-      {
-        get
-        {
-          return "This function imports scan settings. \r\n" +
-            " File format: tag_name;writable(0/1);StateHighTriger(0/1);StateLowTrigger(0/1);Alarm(0/1);AlarmMask;StateMask;DataTypeConv";
-        }
-      }
+      public override string InformationText => "This function imports scan settings. \r\n" + " File format: tag_name;writable(0/1);StateHighTriger(0/1);StateLowTrigger(0/1);Alarm(0/1);AlarmMask;StateMask;DataTypeConv";
     }
-    #endregion
+
+    #endregion ImportScanSettingsInfo
 
     #region private
-    private CAS.NetworkConfigLib.ComunicationNet m_database;
+
+    private ComunicationNet m_database;
     private ImportScanSettingsInfo m_ImportScanSettingsInfo;
-    #endregion
-    
+
+    #endregion private
+
     #region ImportFunctionRootClass
+
     protected override void DoTheImport()
     {
       #region IMPORT
+
       int changes_number = 0;
       //odczytanie pliku:
       CSVManagement file = CSVManagement.ReadFile(m_ImportScanSettingsInfo.Filename);
@@ -97,7 +77,7 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI.Import
           string AlarmMask_s = file.GetAndMove2NextElement();
           string StateMask_s = file.GetAndMove2NextElement();
           string DataTypeConv_s = file.GetAndMove2NextElement();
-          value_to_parse = String.Format("{0};{1};{2};{3};{4};{5};{6}", tag_name, writable_s, StateHighTriger_s, Alarm_s, AlarmMask_s, StateMask_s, DataTypeConv_s);
+          value_to_parse = string.Format("{0};{1};{2};{3};{4};{5};{6}", tag_name, writable_s, StateHighTriger_s, Alarm_s, AlarmMask_s, StateMask_s, DataTypeConv_s);
           //writable
           bool writable = false;
           if (System.Convert.ToInt16(writable_s) > 0)
@@ -170,22 +150,24 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI.Import
           AppendToLog(e.Message + " near to:" + value_to_parse);
         }
       }
+
       #endregion IMPORT
+
       AppendToLog("Number of changed lines: " + changes_number.ToString());
     }
 
-    #endregion
+    #endregion ImportFunctionRootClass
 
     #region creator
-    public ImportScanSettings(CAS.NetworkConfigLib.ComunicationNet database, System.Windows.Forms.Form parrent_form)
+
+    public ImportScanSettings(ComunicationNet database, System.Windows.Forms.Form parrent_form)
       : base(parrent_form)
     {
       m_database = database;
       m_ImportScanSettingsInfo = new ImportScanSettingsInfo();
       SetImportInfo(m_ImportScanSettingsInfo);
     }
-    #endregion
 
+    #endregion creator
   }
-
 }
