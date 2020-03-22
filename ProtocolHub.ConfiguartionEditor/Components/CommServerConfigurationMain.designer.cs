@@ -1,4 +1,6 @@
-﻿namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.Components
+﻿using UAOOI.ProcessObserver.Configuration;
+
+namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.Components
 {
   partial class CommServerConfigurationMain
   {
@@ -29,7 +31,7 @@
     private void InitializeComponent()
     {
       this.components = new System.ComponentModel.Container();
-      this.Configuartion = new CAS.NetworkConfigLib.ComunicationNet();
+      this.Configuartion = new ComunicationNet();
       this.m_OpenFileDialog = new System.Windows.Forms.OpenFileDialog();
       this.m_SaveFileDialog = new System.Windows.Forms.SaveFileDialog();
       this.m_ContextMenuStrip = new System.Windows.Forms.ContextMenuStrip( this.components );

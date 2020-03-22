@@ -6,63 +6,70 @@
 //___________________________________________________________________________________
 
 using CAS.CommServer.ProtocolHub.ConfigurationEditor.Properties;
-using CAS.NetworkConfigLib;
 using System;
 using System.Windows.Forms;
+using UAOOI.ProcessObserver.Configuration;
 using UAOOI.Windows.Forms;
 
 namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI.Editors
 {
-
   /// <summary>
   /// Form that allow to sort tags
   /// </summary>
-  public partial class TagsCollection: Form
+  public partial class TagsCollection : Form
   {
-
     #region private
-    DataBlocksRowWrapper dataBlockRowWrapper;
+
+    private DataBlocksRowWrapper dataBlockRowWrapper;
     private ComunicationNet.DataBlocksRow m_ParBlock;
     private ComunicationNet m_DB;
+
     private bool CanMoveDown()
     {
       return cn_listBox.SelectedIndex < cn_listBox.Items.Count - 1 && cn_listBox.SelectedIndex >= 0;
     }
+
     private bool CanMoveUp()
     {
       return cn_listBox.SelectedIndex > 0 && cn_listBox.SelectedIndex >= 0;
     }
+
     private void SetButtonsEnableProperty()
     {
       cn_ButtonDelete.Enabled = cn_listBox.Items.Count > 0 && cn_listBox.SelectedIndex >= 0;
       cn_ButtonUp.Enabled = CanMoveUp();
       cn_ButtonDown.Enabled = CanMoveDown();
     }
-    private void FillLlist( int pSelIdx )
+
+    private void FillLlist(int pSelIdx)
     {
       cn_listBox.Items.Clear();
-      foreach ( TagsRowWrapper cr in dataBlockRowWrapper.SortedDictionaryOfTagsRowWrapper.Values )
-        cn_listBox.Items.Add( cr );
-      if ( cn_listBox.Items.Count > 0 )
+      foreach (TagsRowWrapper cr in dataBlockRowWrapper.SortedDictionaryOfTagsRowWrapper.Values)
+        cn_listBox.Items.Add(cr);
+      if (cn_listBox.Items.Count > 0)
         cn_listBox.SelectedIndex = pSelIdx;
       SetButtonsEnableProperty();
     }
+
     private TagsCollection()
     {
       InitializeComponent();
     }
-    private void ExchangeRows( TagsRowWrapper cSelObj, TagsRowWrapper cAboveObj, int pSelIdx )
+
+    private void ExchangeRows(TagsRowWrapper cSelObj, TagsRowWrapper cAboveObj, int pSelIdx)
     {
       m_DB.EnforceConstraints = false;
       long cRowIdx = cSelObj.TagID;
       cSelObj.TagID = cAboveObj.TagID;
       cAboveObj.TagID = cRowIdx;
       m_DB.EnforceConstraints = true;
-      FillLlist( pSelIdx );
+      FillLlist(pSelIdx);
     }
-    #endregion
+
+    #endregion private
 
     #region constructor
+
     /// <summary>
     /// Creator for the Tag collection Form
     /// </summary>
@@ -79,10 +86,12 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI.Editors
       m_DB.ItemPropertiesTable.AcceptChanges();
       FillLlist(0);
     }
-    #endregion
+
+    #endregion constructor
 
     #region events handlers
-    private void cn_ButtonOK_Click( object sender, EventArgs e )
+
+    private void cn_ButtonOK_Click(object sender, EventArgs e)
     {
       this.DialogResult = DialogResult.OK;
       m_DB.Tags.AcceptChanges();
@@ -90,7 +99,8 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI.Editors
       m_DB.ItemPropertiesTable.AcceptChanges();
       this.Close();
     }
-    private void cn_ButtonCANCEL_Click( object sender, EventArgs e )
+
+    private void cn_ButtonCANCEL_Click(object sender, EventArgs e)
     {
       this.DialogResult = DialogResult.Cancel;
       m_DB.Tags.RejectChanges();
@@ -98,16 +108,18 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI.Editors
       m_DB.ItemPropertiesTable.RejectChanges();
       this.Close();
     }
-    private void cn_ButtonUp_Click( object sender, EventArgs e )
+
+    private void cn_ButtonUp_Click(object sender, EventArgs e)
     {
-      if ( !CanMoveUp() )
+      if (!CanMoveUp())
         return;
       int cSelIdx = cn_listBox.SelectedIndex;
       TagsRowWrapper cSelObj = cn_listBox.SelectedItem as TagsRowWrapper;
-      TagsRowWrapper cAboveObj = cn_listBox.Items[ cSelIdx - 1 ] as TagsRowWrapper;
-      ExchangeRows( cSelObj, cAboveObj, cSelIdx - 1 );
+      TagsRowWrapper cAboveObj = cn_listBox.Items[cSelIdx - 1] as TagsRowWrapper;
+      ExchangeRows(cSelObj, cAboveObj, cSelIdx - 1);
     }
-    private void cn_ButtonAdd_Click( object sender, EventArgs e )
+
+    private void cn_ButtonAdd_Click(object sender, EventArgs e)
     {
       try
       {
@@ -140,27 +152,29 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI.Editors
         m_DB.EnforceConstraints = true;
       }
     }
-    private void cn_ButtonDelete_Click( object sender, EventArgs e )
+
+    private void cn_ButtonDelete_Click(object sender, EventArgs e)
     {
-      ( (TagsRowWrapper)cn_listBox.SelectedItem ).DeleteObject();
-      FillLlist( 0 );
+      ((TagsRowWrapper)cn_listBox.SelectedItem).DeleteObject();
+      FillLlist(0);
     }
-    private void cn_ButtonDown_Click( object sender, EventArgs e )
+
+    private void cn_ButtonDown_Click(object sender, EventArgs e)
     {
-      if ( !CanMoveDown() )
+      if (!CanMoveDown())
         return;
       int cSelIdx = cn_listBox.SelectedIndex;
       TagsRowWrapper cSelObj = cn_listBox.SelectedItem as TagsRowWrapper;
-      TagsRowWrapper cAboveObj = cn_listBox.Items[ cSelIdx + 1 ] as TagsRowWrapper;
-      ExchangeRows( cSelObj, cAboveObj, cSelIdx + 1 );
+      TagsRowWrapper cAboveObj = cn_listBox.Items[cSelIdx + 1] as TagsRowWrapper;
+      ExchangeRows(cSelObj, cAboveObj, cSelIdx + 1);
     }
-    private void cn_listBox_SelectedIndexChanged( object sender, EventArgs e )
+
+    private void cn_listBox_SelectedIndexChanged(object sender, EventArgs e)
     {
       cn_PropertyGrid.SelectedObject = cn_listBox.SelectedItem;
       SetButtonsEnableProperty();
     }
-    #endregion
 
+    #endregion events handlers
   }
-
 }

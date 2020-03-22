@@ -8,9 +8,9 @@
 using CAS.CommServer.ProtocolHub.Communication.LicenseControl;
 using CAS.CommServer.ProtocolHub.MonitorInterface;
 using CAS.Lib.CommonBus.ApplicationLayer;
-using CAS.NetworkConfigLib;
 using System;
 using System.Collections;
+using UAOOI.ProcessObserver.Configuration;
 using UAOOI.ProcessObserver.RealTime.Processes;
 
 namespace CAS.CommServer.ProtocolHub.Communication.BaseStation
@@ -20,24 +20,31 @@ namespace CAS.CommServer.ProtocolHub.Communication.BaseStation
   /// </summary>
   public abstract class Pipe : IDataWrite
   {
-
     #region private
+
     private const string m_Src = "CAS.Lib.CommServer.Pipe";
     private byte myInterfaceCount = 0;
+
     /// <summary>
-    ///  Title   : Pipe description class  
+    ///  Title   : Pipe description class
     /// </summary>
     private class PipeHandlerWaitTimeList : HandlerWaitTimeList<Interface>
     {
-      protected override void Handler(Interface myDsc) { myDsc.SwitchIOn(); }
+      protected override void Handler(Interface myDsc)
+      {
+        myDsc.SwitchIOn();
+      }
+
       internal PipeHandlerWaitTimeList()
         : base(false, "_IntInact")
       { }
     }
+
     private const short InterfaceMaxNum = 2;
     private PipeInterface[] interfaces = new PipeInterface[InterfaceMaxNum];
     private short currInterfaceNum = -1;
     private static PipeHandlerWaitTimeList myInterfaceWTList;
+
     private void SwitchOnNext(short interfaceNum)
     {
       ushort runIdx = 0; //zabezpiecza, gdy pusta lista dostêpnych interfejsów
@@ -50,18 +57,22 @@ namespace CAS.CommServer.ProtocolHub.Communication.BaseStation
       if ((idx != interfaceNum) && (runIdx < InterfaceMaxNum))
         interfaces[idx].SwitchIOn();
     }
+
     /// <summary>
     /// Gets the get data description list.
     /// </summary>
     /// <value>The get data description list.</value>
     protected abstract IEnumerable GetDataDescriptionList { get; }
+
     /// <summary>
     /// Statistics
     /// </summary>
     protected Diagnostic.Station myStatistics;
-    #endregion
+
+    #endregion private
 
     #region IDataWrite
+
     bool IDataWrite.WriteData(object data, IBlockDescription addresss)
     {
       if (currInterfaceNum < 0)
@@ -73,6 +84,7 @@ namespace CAS.CommServer.ProtocolHub.Communication.BaseStation
         interfaces[currInterfaceNum].Retries.MarkFail();
       return result;
     }
+
     bool IDataWrite.ReadData(out object data, IBlockDescription addresss)
     {
       data = null;
@@ -85,45 +97,58 @@ namespace CAS.CommServer.ProtocolHub.Communication.BaseStation
         interfaces[currInterfaceNum].Retries.MarkFail();
       return result;
     }
-    #endregion
+
+    #endregion IDataWrite
 
     #region public
+
     /// <summary>
     /// Pipe description class.
     /// </summary>
     internal abstract class PipeInterface : Interface
     {
       #region private
+
       private RetryFilter myRetries;
+
       private enum State { Ioff, Ion, Ihold };
+
       private readonly Pipe myPipe;
       private State myInterfaceState = State.Ioff;
+
       private State interfaceState
       {
         get => myInterfaceState;
         set => myInterfaceState = value;
       }
 
-      // lista wskaŸników do kolejki TO segmentu 
+      // lista wskaŸników do kolejki TO segmentu
       private ArrayList myPipeDataBlockList = new ArrayList();
+
       private void DataBlocksScanningOff()
       {
         foreach (PipeDataBlock curr in myPipeDataBlockList)
           curr.Remove();
       }
-      #endregion
+
+      #endregion private
+
       #region PUBLIC
+
       protected internal override RetryFilter Retries => myRetries;
+
       /// <summary>
-      ///  Title   : Pipe description class 
+      ///  Title   : Pipe description class
       /// </summary>
       internal class PipeDataBlock : WaitTimeList<PipeDataBlock>.TODescriptor
       {
         #region PRIVATE
+
         private readonly DataQueue.DataDescription myData;
         private readonly PipeInterface myInterface;
+
         /// <summary>
-        /// Event handler - marks new scannin time of datablock
+        /// Event handler - marks new scanning time of data-block
         /// </summary>
         /// <param name="sender">no applicable</param>
         /// <param name="e">no applicable</param>
@@ -131,21 +156,28 @@ namespace CAS.CommServer.ProtocolHub.Communication.BaseStation
         {
           Cycle = myData.TimeScann;
         }
-        #endregion
+
+        #endregion PRIVATE
+
         #region PUBLIC
+
         internal IBlockDescription GetBlockDescription => myData;
+
         internal void UpdateAllTags(IReadValue val)
         {
           myInterface.myRetries.MarkSuccess();
           myData.UpdateAllTags(val);
         }
+
         internal ushort InterfaceAddr => myInterface.address;
         internal byte GetRetries => myInterface.Retries.Retry;
         internal PipeInterface CoupledInterface => myInterface;
+
         internal void MarkEndOfRWOperation()
         {
           myInterface.MarkEndOfRWOperation();
         }
+
         internal PipeDataBlock
           (WaitTimeList<PipeDataBlock> myTOQueue, DataQueue.DataDescription myData, PipeInterface myInterface)
           :
@@ -155,8 +187,10 @@ namespace CAS.CommServer.ProtocolHub.Communication.BaseStation
           this.myData.NotifyNewTimeScan += new EventHandler(NotifyNewTimeScan);
           this.myInterface = myInterface;
         }
-        #endregion
+
+        #endregion PUBLIC
       }
+
       /// <summary>
       /// Switches the Interface off after communication failure.
       /// </summary>
@@ -174,6 +208,7 @@ namespace CAS.CommServer.ProtocolHub.Communication.BaseStation
           myPipe.SwitchOnNext((short)InterfaceNumber);
         }
       }
+
       internal override void SwitchIOff()
       {
         lock (myPipe)
@@ -186,6 +221,7 @@ namespace CAS.CommServer.ProtocolHub.Communication.BaseStation
           DataBlocksScanningOff();
         }
       }
+
       internal override void SwitchIOn()
       {
         lock (myPipe)
@@ -200,10 +236,12 @@ namespace CAS.CommServer.ProtocolHub.Communication.BaseStation
             curr.ResetCounter();
         }
       }
+
       internal bool IsReady()
       {
         return (interfaceState == State.Ioff);
       }
+
       internal PipeInterface
         (
         InterfaceParameters interfaceParameters,
@@ -228,10 +266,12 @@ namespace CAS.CommServer.ProtocolHub.Communication.BaseStation
             block.ResetCounter();
           }
       } //internal PipeInterface
-      #endregion
+
+      #endregion PUBLIC
     } //class PipeInterface
+
     /// <summary>
-    /// It allows to switch on (true)/off (false) pipe. 
+    /// It allows to switch on (true)/off (false) pipe.
     /// </summary>
     internal bool SwitchPipe
     {
@@ -246,7 +286,8 @@ namespace CAS.CommServer.ProtocolHub.Communication.BaseStation
         }
       }
     }
-    //TODO nie u¿ywana, ale moze sie przydac prze zarzadzaniu 
+
+    //TODO nie u¿ywana, ale moze sie przydac prze zarzadzaniu
     //    internal void ExchangeInterfaces()
     //    {
     //      SwitchOnNext(currInterfaceNum);
@@ -255,8 +296,7 @@ namespace CAS.CommServer.ProtocolHub.Communication.BaseStation
     {
       myInterfaceWTList = new PipeHandlerWaitTimeList();
     }
-    #endregion
 
+    #endregion public
   } //public abstract class Pipe
 } //Pipe
-

@@ -1,39 +1,27 @@
-//_______________________________________________________________
-//  Title   : Facade implementation of Pipe
-//  System  : Microsoft VisualStudio 2015 / C#
-//  $LastChangedDate$
-//  $Rev$
-//  $LastChangedBy$
-//  $URL$
-//  $Id$
+//___________________________________________________________________________________
 //
-//  Copyright (C) 2016, CAS LODZ POLAND.
-//  TEL: +48 (42) 686 25 47
-//  mailto://techsupp@cas.eu
-//  http://www.cas.eu
-//_______________________________________________________________
-
+//  Copyright (C) 2020, Mariusz Postol LODZ POLAND.
+//
+//  To be in touch join the community at GITTER: https://gitter.im/mpostol/OPC-UA-OOI
+//___________________________________________________________________________________
 
 using CAS.CommServer.ProtocolHub.Communication.BaseStation;
-using CAS.NetworkConfigLib;
 using System.Collections;
+using UAOOI.ProcessObserver.Configuration;
 
 namespace CAS.CommServer.ProtocolHub.CommunicationUnitTests.Instrumentation
 {
-
   /// <summary>
   /// Facade implementation of Pipe
   /// </summary>
-  class FacadePipe: Pipe
+  internal class FacadePipe : Pipe
   {
-    private ArrayList myDataDescriptionsList = new ArrayList();
-    protected override IEnumerable GetDataDescriptionList
+    private readonly ArrayList myDataDescriptionsList = new ArrayList();
+    protected override IEnumerable GetDataDescriptionList => myDataDescriptionsList;
+
+    internal FacadePipe(ComunicationNet.StationRow currSDsc)
     {
-      get { return myDataDescriptionsList; }
-    }
-    internal FacadePipe( ComunicationNet.StationRow currSDsc ) 
-    {
-      myStatistics = new CAS.CommServer.ProtocolHub.Communication.Diagnostic.Station( currSDsc );
+      myStatistics = new CAS.CommServer.ProtocolHub.Communication.Diagnostic.Station(currSDsc);
     }
   }
 }

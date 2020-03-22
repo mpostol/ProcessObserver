@@ -1,39 +1,35 @@
-//_______________________________________________________________
-//  Title   : Description of distributed stations
-//  System  : Microsoft VisualStudio 2015 / C#
-//  $LastChangedDate$
-//  $Rev$
-//  $LastChangedBy$
-//  $URL$
-//  $Id$
+//___________________________________________________________________________________
 //
-//  Copyright (C) 2016, CAS LODZ POLAND.
-//  TEL: +48 (42) 686 25 47
-//  mailto://techsupp@cas.eu
-//  http://www.cas.eu
-//_______________________________________________________________
+//  Copyright (C) 2020, Mariusz Postol LODZ POLAND.
+//
+//  To be in touch join the community at GITTER: https://gitter.im/mpostol/OPC-UA-OOI
+//___________________________________________________________________________________
 
 using CAS.CommServer.ProtocolHub.Communication.LicenseControl;
 using CAS.CommServer.ProtocolHub.MonitorInterface;
 using System;
 using System.Collections;
-using CommunicationDSC = CAS.NetworkConfigLib.ComunicationNet;
+using CommunicationDSC = UAOOI.ProcessObserver.Configuration.ComunicationNet;
 
 namespace CAS.CommServer.ProtocolHub.Communication.BaseStation
 {
   internal sealed class Station : Pipe, IStationState
   {
-    #region PRIVATE
+    #region private
+
     private const string m_Src = "CAS.Lib.CommServer.Station";
+
     private sealed class Group
     {
-      #region PRIVATE
+      #region private
+
       private readonly string Name;
       private readonly ushort GroupID;
       private readonly TimeSpan TimeScann;
       private readonly TimeSpan TimeOut;
       private readonly TimeSpan TimeScanFast;
       private readonly TimeSpan TimeOutFast;
+
       /// <summary>
       /// Summary description for GroupDataDescription.
       /// </summary>
@@ -41,14 +37,17 @@ namespace CAS.CommServer.ProtocolHub.Communication.BaseStation
       {
         private Station myStation;
         private Group myGroup;
+
         internal override TimeSpan TimeScann
         {
           get { if (myStation.highPriority) return myGroup.TimeScanFast; else return myGroup.TimeScann; }
         }
+
         protected override TimeSpan TimeOut
         {
           get { if (myStation.highPriority) return myGroup.TimeOutFast; else return myGroup.TimeOut; }
         }
+
         internal GroupDataDescription
           (Group mg, CommunicationDSC.DataBlocksRow myDsc, TimeSpan timeOut, Station myStation, ref int cVConstrain)
           : base(myDsc, timeOut, myStation, myStation, ref cVConstrain)
@@ -57,9 +56,11 @@ namespace CAS.CommServer.ProtocolHub.Communication.BaseStation
           this.myStation = myStation;
         }
       }
-      #endregion
+
+      #endregion PRIVATE
 
       #region PUBLIC
+
       internal Group(CommunicationDSC.GroupsRow groupsDsc, Station myStation, IList myDataDescriptionsList, ref int cVConstrain)
       {
         ASALicense _ASALicense = new ASALicense();
@@ -83,24 +84,30 @@ namespace CAS.CommServer.ProtocolHub.Communication.BaseStation
         }
       }//internal Group
 
-      #endregion
+      #endregion PUBLIC
     }//class Group
+
     private ArrayList myGgroupsList = new ArrayList();
-    private ArrayList myDataDescriptionsList = new ArrayList();
+    private readonly ArrayList myDataDescriptionsList = new ArrayList();
     private bool highPriority = false;
     private static SortedList createdStations = new SortedList();
+
     private Station(CommunicationDSC.StationRow currSDsc, ref int cVConstrain)
     {
       createdStations.Add((uint)currSDsc.StationID, this);
       foreach (CommunicationDSC.GroupsRow currGDsc in currSDsc.GetGroupsRows())
         myGgroupsList.Add(new Group(currGDsc, this, myDataDescriptionsList, ref cVConstrain));
       //Statistics
-      myStatistics = new Diagnostic.Station(currSDsc);
-      myStatistics.priority = highPriority;
+      myStatistics = new Diagnostic.Station(currSDsc)
+      {
+        priority = highPriority
+      };
     }
-    #endregion
+
+    #endregion private
 
     #region IStationState
+
     void IStationState.ChangeToHighPriority()
     {
       highPriority = true;
@@ -110,6 +117,7 @@ namespace CAS.CommServer.ProtocolHub.Communication.BaseStation
       if (NotifyNewTimeScan != null)
         NotifyNewTimeScan(highPriority);
     }
+
     void IStationState.ChangeToLowPriority()
     {
       highPriority = false;
@@ -119,28 +127,30 @@ namespace CAS.CommServer.ProtocolHub.Communication.BaseStation
       if (NotifyNewTimeScan != null)
         NotifyNewTimeScan(highPriority);
     }
-    #endregion
+
+    #endregion IStationState
 
     #region PUBLIC
-    protected override IEnumerable GetDataDescriptionList
-    {
-      get { return this.myDataDescriptionsList; }
-    }
+
+    protected override IEnumerable GetDataDescriptionList => this.myDataDescriptionsList;
+
     internal delegate void NotifyProcedure(bool stateOfStation);
+
     internal event NotifyProcedure NotifyNewTimeScan;
-    internal Statistics.StationStatistics getStatistics
-    {
-      get { return myStatistics; }
-    }
+
+    internal Statistics.StationStatistics getStatistics => myStatistics;
+
     internal static void SwitchOnDataScanning()
     {
       foreach (DictionaryEntry currStation in createdStations)
         ((Station)currStation.Value).SwitchPipe = true;
     }
+
     internal static Station FindStation(uint stID)
     {
       return (Station)createdStations[stID];
     }
+
     internal static void InitStations(CommunicationDSC.StationDataTable myStationDataConfigTab, ref int cVConstrain)
     {
       foreach (CommunicationDSC.StationRow currSDsc in myStationDataConfigTab)
@@ -148,13 +158,14 @@ namespace CAS.CommServer.ProtocolHub.Communication.BaseStation
         Station currSt = new Station(currSDsc, ref cVConstrain);
       }
     }
+
     internal static void InitByStationId
       (CommunicationDSC.StationDataTable myStationDataConfigTab, long StationId, ref int cVConstrain)
     {
       CommunicationDSC.StationRow currSDsc = myStationDataConfigTab.FindByStationID(StationId);
       Station currSt = new Station(currSDsc, ref cVConstrain);
     }
-    #endregion
 
+    #endregion PUBLIC
   } //Station
 }

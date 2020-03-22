@@ -22,7 +22,7 @@
 //  mailto:techsupp@cas.com.pl
 //  http://www.cas.com.pl
 namespace BaseStation
-{ 
+{
   using System;
   using System.Collections;
   using System.Threading;
@@ -32,18 +32,18 @@ namespace BaseStation
   using Management;
   using ApplicationLayer;
   /// <summary>
-  /// Segment description - 
+  /// Segment description -
   /// segment is main listener thread that receives data from serial port and manages this data:
   /// - checks if all tags exists in database
   /// - update all tags
   /// Segment (in BUSSniffer) is differ from Segment from Commserver - only one segment could be situated at channel and protocol
-  /// it has no time scan - it listens the channel constantly. 
+  /// it has no time scan - it listens the channel constantly.
   /// This Segment is much more similar to Client Station OPC
   /// </summary>
   internal class Segment
   {
-
 #region PRIVATE
+
     private class SegmentAddress : CommunicationLayer.IAddress
     {
       string m_address;
@@ -75,7 +75,7 @@ namespace BaseStation
     /// <summary>
     /// !! main thread !!
     /// </summary>
-    private void Scanner() 
+    private void Scanner()
     {
       myProtocol.ConnectReq(out myPort,myTelNum);
       mySegmentState=StateEnum.Connected;
@@ -85,7 +85,7 @@ namespace BaseStation
         if(myProtocol.ListenReq(true) != 0) throw new System.Exception("Cannot listen (myProtocol)");
         while(true)
         {
-          //rozpoczêcie czekania na po³aczenie 
+          //rozpoczêcie czekania na po³aczenie
           object port;
           int conind;
           conind = myProtocol.ConnectInd(out port);
@@ -93,15 +93,18 @@ namespace BaseStation
           {
             ReadValue readvalue;
             IBlockDescription description;
+
 #region ReadCMD loop
-            while ( myProtocol.ReadData(out description,  out readvalue, myPort) )				
+
+            while ( myProtocol.ReadData(out description,  out readvalue, myPort) )
             {
               myProtocol.Statistic.TimeSlaveResponseDelayResetAndStart();
               DataQueue.UpdateAllTags(description, readvalue);
               myProtocol.Statistic.TimeSlaveResponseDelayStop();
               if (readvalue!=null) readvalue.ReturnEmptyEnvelope();
             } //while ( myProtocol.ReadCMD( port, out description, station, out cmd, out message) )
-#endregion
+
+#endregion ReadCMD loop
           }
         }//while
       }//while(mySegmentState=StateEnum.Connected)
@@ -112,8 +115,10 @@ namespace BaseStation
       mySegmentState       = StateEnum.Disconnected;
     }
 
-#endregion
+#endregion PRIVATE
+
 #region PUBLIC
+
     internal void SwitchOn()
     {
       lock(this)
@@ -134,7 +139,8 @@ namespace BaseStation
       myProtocol          = protocol;
       myTelNum=new SegmentAddress("0");
     }
-#endregion
+
+#endregion PUBLIC
   }
 }
 #endif
@@ -149,11 +155,11 @@ namespace BaseStation
 using CAS.CommServer.ProtocolHub.Communication.LicenseControl;
 using CAS.CommServer.ProtocolHub.MonitorInterface;
 using CAS.Lib.CommonBus.ApplicationLayer;
-using CAS.NetworkConfigLib;
 using System;
+using UAOOI.ProcessObserver.Configuration;
 using UAOOI.ProcessObserver.RealTime.Processes;
-using InterfacesRowDSC = CAS.NetworkConfigLib.ComunicationNet.InterfacesRow;
-using SegmentsRowDSC = CAS.NetworkConfigLib.ComunicationNet.SegmentsRow;
+using InterfacesRowDSC = UAOOI.ProcessObserver.Configuration.ComunicationNet.InterfacesRow;
+using SegmentsRowDSC = UAOOI.ProcessObserver.Configuration.ComunicationNet.SegmentsRow;
 
 namespace CAS.CommServer.ProtocolHub.Communication.BaseStation
 {
@@ -162,24 +168,28 @@ namespace CAS.CommServer.ProtocolHub.Communication.BaseStation
   /// </summary>
   internal class Segment : SegmentStateMachine
   {
-
     #region private
+
     private const string m_Src = "CAS.Lib.CommServer.Segment";
+
     /// <summary>
     /// Implementation of the Interface in the Segment.
     /// </summary>
     private sealed class SegmentInterface : Pipe.PipeInterface
     {
-
       #region private
+
       private Segment mySegment;
+
       private void myStateMachine_DisconnectedAfterFailureEntered(object sender, EventArgs e)
       {
         this.SwitchIOffAfterFailure();
       }
-      #endregion
+
+      #endregion private
 
       #region internal
+
       /// <summary>
       /// Writes the data.
       /// </summary>
@@ -190,6 +200,7 @@ namespace CAS.CommServer.ProtocolHub.Communication.BaseStation
       {
         return mySegment.WriteData(data, dataAddress, this);
       }
+
       /// <summary>
       /// Reads the data.
       /// </summary>
@@ -200,9 +211,11 @@ namespace CAS.CommServer.ProtocolHub.Communication.BaseStation
       {
         return mySegment.ReadData(out data, dataAddress, this);
       }
-      #endregion
+
+      #endregion internal
 
       #region creator
+
       /// <summary>
       /// Initializes a new instance of the <see cref="SegmentInterface"/> class.
       /// </summary>
@@ -211,24 +224,24 @@ namespace CAS.CommServer.ProtocolHub.Communication.BaseStation
       /// <param name="timeList">The time list.</param>
       /// <param name="segment">The segment.</param>
       /// <param name="defaultNumberOfRetries">The default number of retries.</param>
-      internal SegmentInterface
-        (InterfaceParameters interfaceParameters, Pipe pipe, SegmentWaitTimeList timeList, Segment segment, byte defaultNumberOfRetries)
-        :
-        base(interfaceParameters, pipe, timeList, segment.myStatistics, defaultNumberOfRetries)
+      internal SegmentInterface(InterfaceParameters interfaceParameters, Pipe pipe, SegmentWaitTimeList timeList, Segment segment, byte defaultNumberOfRetries)
+        : base(interfaceParameters, pipe, timeList, segment.myStatistics, defaultNumberOfRetries)
       {
         CommServerComponent.Tracer.TraceVerbose(237, m_Src, "Creating port: " + interfaceParameters.Name);
         this.mySegment = segment;
         segment.DisconnectedAfterFailureEntered += new EventHandler(myStateMachine_DisconnectedAfterFailureEntered);
         CommServerComponent.Tracer.TraceVerbose(240, m_Src, "Port: " + interfaceParameters.Name + " has been created");
       }
-      #endregion
 
+      #endregion creator
     }
+
     private sealed class SegmentWaitTimeList : HandlerWaitTimeList<SegmentInterface.PipeDataBlock>
     {
-
       #region private
+
       private Segment mySegment;
+
       private void AddInterfaces(InterfacesRowDSC[] interfaceList, byte defRetries)
       {
         foreach (InterfacesRowDSC currRow in interfaceList)
@@ -247,9 +260,11 @@ namespace CAS.CommServer.ProtocolHub.Communication.BaseStation
             }
         }
       }
-      #endregion
+
+      #endregion private
 
       #region HandlerWaitTimeList implementation
+
       /// <summary>
       /// Handlers the specified list item.
       /// </summary>
@@ -258,6 +273,7 @@ namespace CAS.CommServer.ProtocolHub.Communication.BaseStation
       {
         mySegment.ReadData(listItem);
       }
+
       /// <summary>
       /// New values of the overtime coefficient. Event handler triggered every time new values are available.
       /// </summary>
@@ -268,9 +284,11 @@ namespace CAS.CommServer.ProtocolHub.Communication.BaseStation
       {
         mySegment.myStatistics.SetOvertimeCoefficient(min, max, average);
       }
-      #endregion
+
+      #endregion HandlerWaitTimeList implementation
 
       #region creator
+
       /// <summary>
       /// Initializes a new instance of the <see cref="SegmentWaitTimeList"/> class.
       /// </summary>
@@ -284,17 +302,21 @@ namespace CAS.CommServer.ProtocolHub.Communication.BaseStation
         mySegment = parent;
         AddInterfaces(interfacesList, retries);
       }
-      #endregion
 
+      #endregion creator
     }//SegmentWaitTimeList
 
     private ISegmentStatistics myStatistics;
     private readonly SegmentWaitTimeList dataQueue;
-    private void PickUpHandler() { }
 
-    #endregion
+    private void PickUpHandler()
+    {
+    }
+
+    #endregion private
 
     #region creator
+
     internal Segment
       (SegmentsRowDSC segmentDSC, byte defRetries, IApplicationLayerMaster protocol, SegmentParameters parameters, bool demoVersio, ISegmentStatistics statistics, Channel myQueue)
       : base(protocol, parameters, demoVersio, statistics, myQueue)
@@ -304,8 +326,9 @@ namespace CAS.CommServer.ProtocolHub.Communication.BaseStation
       dataQueue = new SegmentWaitTimeList(this, segmentDSC.GetInterfacesRows(), defRetries, "Segment." + segmentDSC.Name);
       CommServerComponent.Tracer.TraceVerbose(318, m_Src, "The segment " + segmentDSC.Name + "has been created");
     }
-    #endregion
 
+    #endregion creator
   }
 }
+
 #endif

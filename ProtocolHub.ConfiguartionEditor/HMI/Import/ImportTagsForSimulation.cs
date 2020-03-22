@@ -5,9 +5,9 @@
 //  To be in touch join the community at GITTER: https://gitter.im/mpostol/OPC-UA-OOI
 //___________________________________________________________________________________
 
-using CAS.NetworkConfigLib;
 using System;
 using System.ComponentModel;
+using UAOOI.ProcessObserver.Configuration;
 using UAOOI.ProcessObserver.RealTime;
 using UAOOI.Windows.Forms;
 
@@ -18,31 +18,36 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI.Import
   /// </summary>
   internal class ImportTagsForSimulation : ImportFunctionRootClass
   {
-
     #region ImportTagsForSimulationInfo
+
     internal class ImportTagsForSimulationInfo : ImportFileControll.ImportInfo
     {
-
       #region private
+
       private uint m_stationID = 0;
       private uint m_address = 0;
       private uint m_datatype = 0;
-      #endregion
+
+      #endregion private
 
       public override string ImportName => "Import Tags for simulation";
       public override string InitialDirectory => AppDomain.CurrentDomain.BaseDirectory;
+
       /// <summary>
       /// default browse filter for the dialog which is used for selecting a file
       /// </summary>
       public override string BrowseFilter => "Tags for simulation TXT file (*.TXT)|*.TXT";
+
       /// <summary>
       /// default extension for the dialog which is used for selecting a file
       /// </summary>
       public override string DefaultExt => ".TXT";
+
       /// <summary>
       /// text that is used to show the information about this importing function
       /// </summary>
       public override string InformationText => "This function import tags from file - each line in file is one tag name";
+
       [
       BrowsableAttribute(true),
       CategoryAttribute("Settings"),
@@ -53,6 +58,7 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI.Import
         get => m_stationID;
         set => m_stationID = value;
       }
+
       [
       BrowsableAttribute(true),
       CategoryAttribute("Settings"),
@@ -63,6 +69,7 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI.Import
         get => m_address;
         set => m_address = value;
       }
+
       [
       BrowsableAttribute(true),
       CategoryAttribute("Settings"),
@@ -73,19 +80,23 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI.Import
         get => m_datatype;
         set => m_datatype = value;
       }
-
     }
-    #endregion
+
+    #endregion ImportTagsForSimulationInfo
 
     #region private
-    private readonly CAS.NetworkConfigLib.ComunicationNet m_database;
+
+    private readonly ComunicationNet m_database;
     private ImportTagsForSimulationInfo m_ImportTagsForSimulationInfo;
-    #endregion
+
+    #endregion private
 
     #region ImportFunctionRootClass
+
     protected override void DoTheImport()
     {
-      #region IMPORT
+      #region import
+
       //robimy jakies importowanie:
       long stationid = m_ImportTagsForSimulationInfo.StationID;
       ulong address = m_ImportTagsForSimulationInfo.Address;
@@ -150,21 +161,24 @@ Exception
  );
         }
       }
-      #endregion IMPORT
+
+      #endregion import
+
       AppendToLog("Number of changed tags: " + changes_number.ToString());
     }
 
-    #endregion
+    #endregion ImportFunctionRootClass
 
     #region creator
-    public ImportTagsForSimulation(CAS.NetworkConfigLib.ComunicationNet database, System.Windows.Forms.Form parrent_form)
+
+    public ImportTagsForSimulation(ComunicationNet database, System.Windows.Forms.Form parrent_form)
       : base(parrent_form)
     {
       m_database = database;
       m_ImportTagsForSimulationInfo = new ImportTagsForSimulationInfo();
       SetImportInfo(m_ImportTagsForSimulationInfo);
     }
-    #endregion
 
+    #endregion creator
   }
 }

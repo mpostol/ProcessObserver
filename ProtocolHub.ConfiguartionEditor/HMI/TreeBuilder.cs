@@ -1,54 +1,45 @@
-//<summary>
-//  Title   : Tree Builder
-//  System  : Microsoft Visual C# .NET 2005
-//  $LastChangedDate$
-//  $Rev$
-//  $LastChangedBy$
-//  $URL$
-//  $Id$
+//___________________________________________________________________________________
 //
-//  Copyright (C)2006, CAS LODZ POLAND.
-//  TEL: +48 (42) 686 25 47
-//  mailto:techsupp@cas.com.pl
-//  http:\\www.cas.eu
-//</summary>
+//  Copyright (C) 2020, Mariusz Postol LODZ POLAND.
+//
+//  To be in touch join the community at GITTER: https://gitter.im/mpostol/OPC-UA-OOI
+//___________________________________________________________________________________
 
 using CAS.CommServer.ProtocolHub.ConfigurationEditor.Properties;
-using CAS.NetworkConfigLib;
 using System;
 using System.Collections.Generic;
-using System.Windows.Forms;
 using System.Linq;
+using System.Windows.Forms;
+using UAOOI.ProcessObserver.Configuration;
 
 namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
 {
   internal static class TreeBuilder
   {
-
     #region private
+
     private static bool configLoadedFlag = false;
     private static TreeBuilderTreeViewType treeviewType = TreeBuilderTreeViewType.StationsAndChannels;
-    #endregion
+
+    #endregion private
 
     #region Properties
+
     /// <summary>
     /// TreeView type
     /// </summary>
     internal static TreeBuilderTreeViewType TreeViewType
     {
-      get
-      {
-        return treeviewType;
-      }
-      set
-      {
-        treeviewType = value;
-      }
+      get => treeviewType;
+      set => treeviewType = value;
     }
-    #endregion
+
+    #endregion Properties
 
     #region Methods
+
     #region Public methods
+
     /// <summary>
     /// Creates TreeView based on given parameters
     /// </summary>
@@ -60,6 +51,7 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
       treeviewType = type;
       CreateTree(configDataBase, parentNode);
     }
+
     /// <summary>
     /// Creates TreeView based on given parameters. If TreeView type was not set loads it from config file.
     /// </summary>
@@ -73,16 +65,21 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
         case TreeBuilderTreeViewType.Stations:
           CreateTreeFromStations(configDataBase, parentNode);
           break;
+
         case TreeBuilderTreeViewType.Channels:
           CreateTreeFromChannels(configDataBase, parentNode);
           break;
+
         case TreeBuilderTreeViewType.StationsAndChannels:
           CreateTreeFromStationAndChannels(configDataBase, parentNode);
           break;
       }
     }
-    #endregion
+
+    #endregion Public methods
+
     #region Private methods
+
     /// <summary>
     /// Creates the TreeView only with station view
     /// </summary>
@@ -93,6 +90,7 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
       parentNode.Nodes.Clear();
       parentNode.Nodes.Add(Wrappers.SA_TopWrapper.CreateNode(configDataBase));
     }
+
     /// <summary>
     /// Creates the TreeView only with channels view.
     /// </summary>
@@ -103,6 +101,7 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
       parentNode.Nodes.Clear();
       parentNode.Nodes.Add(Wrappers.CA_TopWrapper.CreateNode(configDataBase));
     }
+
     /// <summary>
     /// Creates the TreeView with channels and stations
     /// </summary>
@@ -117,6 +116,7 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
       parentNode.Nodes.Add(Wrappers.CA_TopWrapper.CreateNode(configDataBase));
       parentNode.Nodes.Add(Wrappers.SA_TopWrapper.CreateNode(configDataBase));
     }
+
     /// <summary>
     /// Retrives default TreeView type from app.config file
     /// </summary>
@@ -136,8 +136,9 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
         configLoadedFlag = true;
       }
     }
-    #endregion
-    #endregion
 
+    #endregion Private methods
+
+    #endregion Methods
   }
 }

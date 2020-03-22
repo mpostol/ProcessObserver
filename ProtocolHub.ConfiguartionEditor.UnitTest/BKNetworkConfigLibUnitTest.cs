@@ -6,8 +6,8 @@
 //___________________________________________________________________________________
 
 using CAS.CommServer.ProtocolHub.ConfigurationEditor.Components;
-using CAS.NetworkConfigLib;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
+using UAOOI.ProcessObserver.Configuration;
 
 namespace UAOOI.ProeessObserver.ConfiguartionEditor
 {

@@ -1,22 +1,14 @@
-//_______________________________________________________________
-//  Title   : Initialization
-//  System  : Microsoft VisualStudio 2015 / C#
-//  $LastChangedDate$
-//  $Rev$
-//  $LastChangedBy$
-//  $URL$
-//  $Id$
+//___________________________________________________________________________________
 //
-//  Copyright (C) 2016, CAS LODZ POLAND.
-//  TEL: +48 (42) 686 25 47
-//  mailto://techsupp@cas.eu
-//  http://www.cas.eu
-//_______________________________________________________________
+//  Copyright (C) 2020, Mariusz Postol LODZ POLAND.
+//
+//  To be in touch join the community at GITTER: https://gitter.im/mpostol/OPC-UA-OOI
+//___________________________________________________________________________________
 
-using BaseStation.ItemDescriber;
 using CAS.CommServer.ProtocolHub.Communication.NetworkConfig;
 using CAS.CommServer.ProtocolHub.MonitorInterface;
 using System;
+using UAOOI.ProcessObserver.Configuration.ItemDescriber;
 
 namespace CAS.CommServer.ProtocolHub.Communication.BaseStation
 {
@@ -25,13 +17,15 @@ namespace CAS.CommServer.ProtocolHub.Communication.BaseStation
   /// </summary>
   internal static class Initialization
   {
-    internal static ItemDecriberDataSet m_ds_dsc;
     private static void InitializeItemDescriber()
     {
       XMLManagement xml_desc = new XMLManagement();
       m_ds_dsc = new ItemDecriberDataSet();
       xml_desc.readXMLFile(m_ds_dsc, AppConfigManagement.ItemDsc_configfile);
     }
+
+    internal static ItemDecriberDataSet m_ds_dsc;
+
     /// <summary>
     /// Initialize the communication server
     /// </summary>
@@ -54,10 +48,6 @@ namespace CAS.CommServer.ProtocolHub.Communication.BaseStation
       Station.InitStations(xml.configuration.Station, ref valueConstrain);
       Channel.InitializeChannels(xml.configuration.Channels, parent, demoVer, settings);
       Station.SwitchOnDataScanning();
-    }
-    internal static void Finalise()
-    {
-      DataQueue.finalize();
     }
   }
 }

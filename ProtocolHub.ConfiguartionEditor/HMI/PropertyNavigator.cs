@@ -5,35 +5,40 @@
 //  To be in touch join the community at GITTER: https://gitter.im/mpostol/OPC-UA-OOI
 //___________________________________________________________________________________
 
-using CAS.NetworkConfigLib;
 using System;
 using System.Windows.Forms;
+using UAOOI.ProcessObserver.Configuration;
 
 namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
 {
   internal partial class PropertyNavigator : UserControl
   {
-
     #region private
+
     private ClipboardOperation clipboard = new ClipboardOperation();
     private IAction GetSelectedAction => (IAction)cn_TreeView.SelectedNode.Tag;
-    #endregion
+
+    #endregion private
 
     #region constructor
+
     internal PropertyNavigator()
     {
       InitializeComponent();
       //this.cn_TreeView.P += new System.EventHandler( TreeView_ParentChanged );
     }
-    #endregion
+
+    #endregion constructor
 
     #region cNode.Parent
+
     public void Refresh(ComunicationNet myConfig)
     {
       myConfig.AcceptChanges();
       TreeBuilder.CreateTree(myConfig, cn_TreeView);
       base.Refresh();
     }
+
     internal void Delate()
     {
       clipboard.Clear();
@@ -57,6 +62,7 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
       }
       //( (IAction)cNode.Parent.Tag ).CreateNodes( cNode.Parent );
     }
+
     internal bool CanBePasted()
     {
       if (clipboard.ClipboardData != null)
@@ -64,9 +70,13 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
       else
         return false;
     }
+
     internal string GetPasteString => clipboard.ToString();
-    #endregion
+
+    #endregion cNode.Parent
+
     #region Clipboard
+
     internal void Copy()
     {
       TreeNode tn = cn_TreeView.SelectedNode;
@@ -77,6 +87,7 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
       clipboardData.SetData(DataFormats.Text, true, ((IAction)tn.Tag).ToString());
       Clipboard.SetDataObject(clipboardData);
     }
+
     internal void Cut()
     {
       TreeNode tn = cn_TreeView.SelectedNode;
@@ -87,6 +98,7 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
       clipboardData.SetData(DataFormats.Text, true, ((IAction)tn.Tag).ToString());
       Clipboard.SetDataObject(clipboardData);
     }
+
     internal void Paste()
     {
 #if UNDOREDO
@@ -97,21 +109,25 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
         RTLib.DataBase.UndoRedo.UndoRedoMenager.EndTransaction();
 #endif
     }
-    #endregion
+
+    #endregion Clipboard
 
     #region Event handlers
+
     private void PropertyNavigator_Load(object sender, EventArgs e)
     {
     }
+
     private void mTreeView_AfterSelect(object sender, TreeViewEventArgs e)
     {
       m_PropertyGrid.SelectedObject = ((TreeView)sender).SelectedNode.Tag;
     }
+
     private void m_PropertyGrid_PropertyValueChanged(object s, PropertyValueChangedEventArgs e)
     {
       ((IAction)m_PropertyGrid.SelectedObject).HasChanged();
     }
-    #endregion
 
+    #endregion Event handlers
   }
 }

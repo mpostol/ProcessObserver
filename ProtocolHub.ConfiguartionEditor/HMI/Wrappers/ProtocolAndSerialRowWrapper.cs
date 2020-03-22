@@ -7,7 +7,6 @@
 
 using CAS.CommServer.ProtocolHub.ConfigurationEditor.Components;
 using CAS.Lib.CommonBus;
-using CAS.NetworkConfigLib;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,6 +14,7 @@ using System.Data;
 using System.Drawing.Design;
 using System.Windows.Forms;
 using System.Windows.Forms.Design;
+using UAOOI.ProcessObserver.Configuration;
 using UAOOI.Windows.Forms;
 
 namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
@@ -24,81 +24,89 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
     CommonBusControl GetCommonBusControl { get; }
     IDataProviderID GetCurrentDP { get; }
   }
+
   /// <summary>
   /// Wrapper classes that wrap <see cref="ComunicationNet.ProtocolRow"/> and <see cref="ComunicationNet.SerialSetingsRow"/>. It contains getters and setters to support property grid.
   /// </summary>
   /// <seealso cref="SegmentsRowWrapper">SegmentsRowWrapper is the child object in TreeView</seealso>
   /// <remarks>
   /// Attributes for property grid:
-  /// DescriptionAttribute. Sets the text for the property that is displayed in the description help pane below the properties. This is a useful way to provide help text for the active property (the property that has focus). Apply this attribute to the MaxRepeatRate property. 
-  /// CategoryAttribute. Sets the category that the property is under in the grid. This is useful when you want a property grouped by a category name. If a property does not have a category specified, then it will be assigned to the Misc category. Apply this attribute to all properties. 
-  /// BrowsableAttribute – Indicates whether the property is shown in the grid. This is useful when you want to hide a property from the grid. By default, a public property is always shown in the grid. Apply this attribute to the SettingsChanged property. 
-  /// ReadOnlyAttribute – Indicates whether the property is read-only. This is useful when you want to keep a property from being editable in the grid. By default, a public property with get and set accessor functions is editable in the grid. Apply this attribute to the AppVersion property. 
-  /// DefaultValueAttribute – Identifies the property's default value. This is useful when you want to provide a default value for a property and later determine if the property's value is different than the default. Apply this attribute to all properties. 
-  /// DefaultPropertyAttribute – Identifies the default property for the class. The default property for a class gets the focus first when the class is selected in the grid. Apply this attribute to the AppSettings class. 
+  /// DescriptionAttribute. Sets the text for the property that is displayed in the description help pane below the properties. This is a useful way to provide help text for the active property (the property that has focus). Apply this attribute to the MaxRepeatRate property.
+  /// CategoryAttribute. Sets the category that the property is under in the grid. This is useful when you want a property grouped by a category name. If a property does not have a category specified, then it will be assigned to the Misc category. Apply this attribute to all properties.
+  /// BrowsableAttribute – Indicates whether the property is shown in the grid. This is useful when you want to hide a property from the grid. By default, a public property is always shown in the grid. Apply this attribute to the SettingsChanged property.
+  /// ReadOnlyAttribute – Indicates whether the property is read-only. This is useful when you want to keep a property from being editable in the grid. By default, a public property with get and set accessor functions is editable in the grid. Apply this attribute to the AppVersion property.
+  /// DefaultValueAttribute – Identifies the property's default value. This is useful when you want to provide a default value for a property and later determine if the property's value is different than the default. Apply this attribute to all properties.
+  /// DefaultPropertyAttribute – Identifies the default property for the class. The default property for a class gets the focus first when the class is selected in the grid. Apply this attribute to the AppSettings class.
   /// </remarks>
-  [DefaultProperty( "Name" )]
-  internal partial class ProtocolAndSerialRowWrapper: Action<ComunicationNet.ProtocolRow>, IProtocolUI
+  [DefaultProperty("Name")]
+  internal partial class ProtocolAndSerialRowWrapper : Action<ComunicationNet.ProtocolRow>, IProtocolUI
   {
     #region private
+
     private IDataProviderID m_DataProvider = null;
     private SortedList<short, IAddressSpaceDescriptor> m_DataProviderAddressSpaces = null;
-    #endregion
+
+    #endregion private
 
     #region Constructor
+
     /// <summary>
     /// Creats new <see cref="ProtocolAndSerialRowWrapper"/> based on specified Protocol nad Serial rows
     /// </summary>
     /// <param name="protocol">Protocol row</param>
-    public ProtocolAndSerialRowWrapper( ComunicationNet.ProtocolRow protocol )
-      : base( protocol )
+    public ProtocolAndSerialRowWrapper(ComunicationNet.ProtocolRow protocol)
+      : base(protocol)
     {
-      if ( !protocol.IsDPIdentifierNull() )
+      if (!protocol.IsDPIdentifierNull())
       {
-        CAS.Lib.CommonBus.Management.PluginCollection cPC = new CAS.Lib.CommonBus.Management.PluginCollection( m_CommonBusControl );
+        CAS.Lib.CommonBus.Management.PluginCollection cPC = new CAS.Lib.CommonBus.Management.PluginCollection(m_CommonBusControl);
         try
         {
-          m_DataProvider = cPC[ protocol.DPIdentifier ];
-          m_DataProvider.SetSettings( protocol.DPConfig );
+          m_DataProvider = cPC[protocol.DPIdentifier];
+          m_DataProvider.SetSettings(protocol.DPConfig);
         }
-        catch ( Exception )
+        catch (Exception)
         {
-          MessageBox.Show( "One of the Data Provider cannot be loaded: \n\r " + protocol.DPConfig );
+          MessageBox.Show("One of the Data Provider cannot be loaded: \n\r " + protocol.DPConfig);
         }
       }
     }
-    #endregion
+
+    #endregion Constructor
 
     #region public
+
     internal SortedList<short, IAddressSpaceDescriptor> DataProviderAddressSpaces
     {
       get
       {
-        if ( m_DataProviderAddressSpaces == null && m_DataProvider != null )
+        if (m_DataProviderAddressSpaces == null && m_DataProvider != null)
         {
           m_DataProviderAddressSpaces = new SortedList<short, IAddressSpaceDescriptor>();
-          foreach ( IAddressSpaceDescriptor asd in m_DataProvider.GetAvailiableAddressspaces() )
+          foreach (IAddressSpaceDescriptor asd in m_DataProvider.GetAvailiableAddressspaces())
           {
-            m_DataProviderAddressSpaces.Add( asd.Identifier, asd );
+            m_DataProviderAddressSpaces.Add(asd.Identifier, asd);
           }
         }
         return m_DataProviderAddressSpaces;
       }
     }
-    #endregion
+
+    #endregion public
 
     #region Properties for PropertyGrid
+
     [
-    DisplayName( "Data Provider" ),
-    BrowsableAttribute( true ),
-    CategoryAttribute( "Protocol: Global Settings" ),
-    DescriptionAttribute( "Data provider and underlying communication layer settings." ),
-    EditorAttribute( typeof( ProtocolAndSerialRowWrapper.ProtocolUI ), typeof( System.Drawing.Design.UITypeEditor ) ),
-    TypeConverterAttribute( typeof( ExpandableObjectConverter ) )
+    DisplayName("Data Provider"),
+    BrowsableAttribute(true),
+    CategoryAttribute("Protocol: Global Settings"),
+    DescriptionAttribute("Data provider and underlying communication layer settings."),
+    EditorAttribute(typeof(ProtocolAndSerialRowWrapper.ProtocolUI), typeof(System.Drawing.Design.UITypeEditor)),
+    TypeConverterAttribute(typeof(ExpandableObjectConverter))
     ]
     public IDataProviderID DataProvider
     {
-      get { return m_DataProvider; }
+      get => m_DataProvider;
       set
       {
         m_DataProvider = value;
@@ -106,62 +114,49 @@ namespace CAS.CommServer.ProtocolHub.ConfigurationEditor.HMI
         m_Parent.DPConfig = m_DataProvider.GetSettings();
       }
     }
+
     #region Protocol settings
+
     /// <summary>
     /// Gets protocol unique numerical identifier
     /// </summary>
     [
-    BrowsableAttribute( false ),
-    CategoryAttribute( "XXX debug" ),
-    DefaultValueAttribute( 0 ),
-    DescriptionAttribute( "Protocol unique numerical identifier" )
+    BrowsableAttribute(false),
+    CategoryAttribute("XXX debug"),
+    DefaultValueAttribute(0),
+    DescriptionAttribute("Protocol unique numerical identifier")
     ]
-    public long ProtocolID
-    {
-      get
-      {
-        return ( m_Parent.ProtocolID );
-      }
-    }
+    public long ProtocolID => (m_Parent.ProtocolID);
+
     /// <summary>
     /// Gets or sets human readable protocol name
     /// </summary>
     [
-    BrowsableAttribute( true ),
-    CategoryAttribute( "Protocol: Global Settings" ),
-    DescriptionAttribute( "Human readable protocol name." )
+    BrowsableAttribute(true),
+    CategoryAttribute("Protocol: Global Settings"),
+    DescriptionAttribute("Human readable protocol name.")
     ]
     public string Name
     {
-      get
-      {
-        return ( m_Parent.Name );
-      }
-      set
-      {
-        m_Parent.Name = value;
-      }
+      get => (m_Parent.Name);
+      set => m_Parent.Name = value;
     }
+
     /// <summary>
     /// Gets channel unique numerical identifier (name of the channel)
     /// </summary>
     [
 #if DEBUG
-BrowsableAttribute( true ),
-CategoryAttribute( "XXX debug" ),
+BrowsableAttribute(true),
+CategoryAttribute("XXX debug"),
 #else
     BrowsableAttribute( false ),
     CategoryAttribute( "General Settings" ),
 #endif
- DescriptionAttribute( "Channel unique numerical identifier (name of the channel)" )
+ DescriptionAttribute("Channel unique numerical identifier (name of the channel)")
     ]
-    public long ChannelID
-    {
-      get
-      {
-        return ( m_Parent.ChannelID );
-      }
-    }
+    public long ChannelID => (m_Parent.ChannelID);
+
     ///// <summary>
     ///// Gets or sets maximal number of retries getting the response.
     ///// </summary>
@@ -179,78 +174,91 @@ CategoryAttribute( "XXX debug" ),
     //  }
     //  set { m_Parent1.MaxNumberOfRetries = value; }
     //}
-    #endregion
-    #endregion properties for PropertyGrid
+
+    #endregion Protocol settings
+
+    #endregion Properties for PropertyGrid
 
     #region Overrides
+
     #region object override
+
     /// <summary>
-    /// Override to string method 
+    /// Override to string method
     /// </summary>
     /// <returns>Protocol identifier, protocol name and serial number in specified string format </returns>
     public override string ToString()
     {
-      return String.Format( "Protocol: {0}[{1}]", Name, m_DataProvider == null ? "Not set" : m_DataProvider.Title );
+      return string.Format("Protocol: {0}[{1}]", Name, m_DataProvider == null ? "Not set" : m_DataProvider.Title);
     }
-    #endregion
+
+    #endregion object override
+
     #region Action Overrides
+
     /// <summary>
     /// Creates new segment row
     /// </summary>
     /// <returns><see cref="SegmentsRowWrapper"/> object</returns>
     public override IAction CreateNewChildObject()
     {
-      ComunicationNet.SegmentsDataTable dt = ( (ComunicationNet)( m_Parent.Table.DataSet ) ).Segments;
-      return new SegmentsRowWrapper( dt.NewSegmentsRow( m_Parent.ProtocolID, Name ), this );
+      ComunicationNet.SegmentsDataTable dt = ((ComunicationNet)(m_Parent.Table.DataSet)).Segments;
+      return new SegmentsRowWrapper(dt.NewSegmentsRow(m_Parent.ProtocolID, Name), this);
     }
+
     /// <summary>
     /// Creates segments rows in treeview
     /// </summary>
     public override void CreateNodes()
     {
       base.CreateNodes();
-      foreach ( ComunicationNet.SegmentsRow curr in m_Parent.GetSegmentsRows() )
-        if ( curr.RowState != DataRowState.Deleted )
+      foreach (ComunicationNet.SegmentsRow curr in m_Parent.GetSegmentsRows())
+        if (curr.RowState != DataRowState.Deleted)
         {
-          SegmentsRowWrapper newWrapper = new SegmentsRowWrapper( curr, this );
-          newWrapper.AddActionTreeNode( m_Node, 17, 17 );
+          SegmentsRowWrapper newWrapper = new SegmentsRowWrapper(curr, this);
+          newWrapper.AddActionTreeNode(m_Node, 17, 17);
           newWrapper.CreateNodes();
         }
     }
-    public override void PasteChildObject( IAction objToPaste )
+
+    public override void PasteChildObject(IAction objToPaste)
     {
-      if ( objToPaste is SegmentsRowWrapper )
+      if (objToPaste is SegmentsRowWrapper)
       {
         SegmentsRowWrapper wrapperToPaste = objToPaste as SegmentsRowWrapper;
-        ComunicationNet.SegmentsDataTable st = ( (ComunicationNet)( m_Parent.Table.DataSet ) ).Segments;
-        st.NewSegmentsRow( m_Parent.ProtocolID, wrapperToPaste.DataRow, Name );
+        ComunicationNet.SegmentsDataTable st = ((ComunicationNet)(m_Parent.Table.DataSet)).Segments;
+        st.NewSegmentsRow(m_Parent.ProtocolID, wrapperToPaste.DataRow, Name);
       }
     }
+
     /// <summary>
     /// Checks if specified <see cref="IAction"></see> interface is <see cref="SegmentsRowWrapper"></see>
     /// </summary>
     /// <param name="objToPaste">Object to check</param>
     /// <returns>True if specified object is <see cref="SegmentsRowWrapper"/></returns>
-    public override bool CanBePastedAsChild( IAction objToPaste ) { return objToPaste is SegmentsRowWrapper; }
+    public override bool CanBePastedAsChild(IAction objToPaste) { return objToPaste is SegmentsRowWrapper; }
+
     /// <summary>
-    /// Checks if specified <see cref="IAction"/> object can be moved 
+    /// Checks if specified <see cref="IAction"/> object can be moved
     /// </summary>
     /// <returns>True if specified object can be moved </returns>
     public override bool CanBeMoved() { return true; }
+
     /// <summary>
     /// Moves specified <see cref="SegmentsRowWrapper"/> object under this wrapper
     /// </summary>
     /// <param name="objToPaste"><see cref="SegmentsRowWrapper"/> object to be pasted</param>
-    public override void MoveChildObject( IAction objToPaste )
+    public override void MoveChildObject(IAction objToPaste)
     {
       SegmentsRowWrapper wrapperToPaste = objToPaste as SegmentsRowWrapper;
-      if ( wrapperToPaste == null )
+      if (wrapperToPaste == null)
         return;
       ComunicationNet.SegmentsRow rowToPaste = wrapperToPaste.DataRow;
       rowToPaste.BeginEdit();
       rowToPaste.ProtocolID = m_Parent.ProtocolID;
       rowToPaste.EndEdit();
     }
+
     /// <summary>
     /// Inform the object that some values have been changed.
     /// </summary>
@@ -260,65 +268,68 @@ CategoryAttribute( "XXX debug" ),
       m_Parent.DPIdentifier = m_DataProvider.GetDataProviderDescription.Identifier;
       base.HasChanged();
     }
-    #endregion
-    #endregion
+
+    #endregion Action Overrides
+
+    #endregion Overrides
 
     #region TypeConverter & UITypeEditor classes
-    private class ProtocolUI: UITypeEditor
+
+    private class ProtocolUI : UITypeEditor
     {
-      private IDataProviderID DPSelectConfig( IProtocolUI m_Wrraper, IWindowsFormsEditorService cProvider )
+      private IDataProviderID DPSelectConfig(IProtocolUI m_Wrraper, IWindowsFormsEditorService cProvider)
       {
         IDataProviderID cDataProviderID;
         IDataProviderID cPreviousDP = m_Wrraper.GetCurrentDP;
-        using ( OKCancelForm okcan = new OKCancelForm( "Data Provider Configuration" ) )
+        using (OKCancelForm okcan = new OKCancelForm("Data Provider Configuration"))
         {
           AvailableDPTree c_AvailableDPTree;
-          if ( cPreviousDP == null )
-            c_AvailableDPTree = new AvailableDPTree( m_Wrraper.GetCommonBusControl, okcan );
+          if (cPreviousDP == null)
+            c_AvailableDPTree = new AvailableDPTree(m_Wrraper.GetCommonBusControl, okcan);
           else
           {
             string cSettings = cPreviousDP.GetSettings();
             Guid cPreviousDPIdent = cPreviousDP.GetDataProviderDescription.Identifier;
-            c_AvailableDPTree = new AvailableDPTree( m_Wrraper.GetCommonBusControl, okcan, cSettings, cPreviousDPIdent );
+            c_AvailableDPTree = new AvailableDPTree(m_Wrraper.GetCommonBusControl, okcan, cSettings, cPreviousDPIdent);
           }
           okcan.SetUserControl = c_AvailableDPTree;
-          using ( c_AvailableDPTree )
+          using (c_AvailableDPTree)
           {
-            cProvider.ShowDialog( okcan );
-            if ( okcan.DialogResult != DialogResult.OK )
+            cProvider.ShowDialog(okcan);
+            if (okcan.DialogResult != DialogResult.OK)
               return cPreviousDP;
             cDataProviderID = c_AvailableDPTree.GetSelectedDPID;
           }
         }
-        using ( AddObject<IDataProviderID> c_DPSettings = new AddObject<IDataProviderID>() )
+        using (AddObject<IDataProviderID> c_DPSettings = new AddObject<IDataProviderID>())
         {
           c_DPSettings.Object = cDataProviderID;
-          cProvider.ShowDialog( c_DPSettings );
-          if ( c_DPSettings.DialogResult != DialogResult.OK )
+          cProvider.ShowDialog(c_DPSettings);
+          if (c_DPSettings.DialogResult != DialogResult.OK)
             return cPreviousDP;
         }
         return cDataProviderID;
       }
-      public override object EditValue( ITypeDescriptorContext context, IServiceProvider provider, object value )
+
+      public override object EditValue(ITypeDescriptorContext context, IServiceProvider provider, object value)
       {
-        IWindowsFormsEditorService cProvider = provider.GetService( typeof( IWindowsFormsEditorService ) ) as IWindowsFormsEditorService;
-        return DPSelectConfig( context.Instance as IProtocolUI, cProvider );
+        IWindowsFormsEditorService cProvider = provider.GetService(typeof(IWindowsFormsEditorService)) as IWindowsFormsEditorService;
+        return DPSelectConfig(context.Instance as IProtocolUI, cProvider);
       }
-      public override UITypeEditorEditStyle GetEditStyle( ITypeDescriptorContext context )
+
+      public override UITypeEditorEditStyle GetEditStyle(ITypeDescriptorContext context)
       {
         return UITypeEditorEditStyle.Modal;
       }
     }
-    #endregion
+
+    #endregion TypeConverter & UITypeEditor classes
+
     #region IProtocolUI Members
-    CommonBusControl IProtocolUI.GetCommonBusControl
-    {
-      get { return m_CommonBusControl; }
-    }
-    IDataProviderID IProtocolUI.GetCurrentDP
-    {
-      get { return m_DataProvider; }
-    }
-    #endregion
+
+    CommonBusControl IProtocolUI.GetCommonBusControl => m_CommonBusControl;
+    IDataProviderID IProtocolUI.GetCurrentDP => m_DataProvider;
+
+    #endregion IProtocolUI Members
   }
 }

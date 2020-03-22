@@ -13,23 +13,21 @@ using CAS.CommServer.ProtocolHub.CommunicationUnitTests.Instrumentation;
 using CAS.CommServer.ProtocolHub.ConfigurationEditor.Components;
 using CAS.CommServer.ProtocolHub.MonitorInterface;
 using CAS.Lib.CommonBus.ApplicationLayer;
-using CAS.NetworkConfigLib;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System;
 using System.Diagnostics;
 using System.IO;
 using System.Threading;
+using UAOOI.ProcessObserver.Configuration;
 using UAOOI.ProcessObserver.RealTime.Processes;
 using DiagnosticSegment = CAS.CommServer.ProtocolHub.Communication.Diagnostic.Segment;
 
 namespace CAS.CommServer.ProtocolHub.CommunicationUnitTests
 {
-
   [TestClass]
   [DeploymentItem("DefaultConfig.xml")]
   public class TestSegmentStateMachine
   {
-
     [ClassInitialize]
     public static void OnceExecutedSetUp(TestContext context)
     {
@@ -45,6 +43,7 @@ namespace CAS.CommServer.ProtocolHub.CommunicationUnitTests
       SetUp();
       m_OnceExecutedSetUpFinished = true;
     }
+
     [ClassCleanup]
     public static void OnceExecutedTearDown()
     {
@@ -52,6 +51,7 @@ namespace CAS.CommServer.ProtocolHub.CommunicationUnitTests
       myMaster.CheckConsistency();
       myConfig.Dispose();
     }
+
     private static void SetUp()
     {
       FacadePipe myPipe = new FacadePipe(myConfig.Station[0]);
@@ -76,14 +76,18 @@ namespace CAS.CommServer.ProtocolHub.CommunicationUnitTests
     }
 
     #region private
+
     private class FacadeWaitTimeList : WaitTimeList<SegmentStateMachine>
     {
-      internal FacadeWaitTimeList() : base("TestSegmentStateMachine") { }
+      internal FacadeWaitTimeList() : base("TestSegmentStateMachine")
+      {
+      }
     }
+
     private static bool m_OnceExecutedSetUpFinished = false;
     private static CommServerConfigurationMain m_ConfigurationMain = new CommServerConfigurationMain();
-    private static ComunicationNet myConfig { get { return m_ConfigurationMain.Configuartion; } }
-    private static FacadeWaitTimeList myTimeList = new FacadeWaitTimeList();
+    private static ComunicationNet myConfig => m_ConfigurationMain.Configuartion;
+    private static readonly FacadeWaitTimeList myTimeList = new FacadeWaitTimeList();
     private static SegmentStateMachine myMachine;
     private static FacadeSegment.FacadePipeInterface.FacadePipeDataBlock myPipeDataBlock;
     private static FacadeApplicationLayerMaster myMaster;
@@ -92,9 +96,10 @@ namespace CAS.CommServer.ProtocolHub.CommunicationUnitTests
     private static SegmentParameters parameters;
     private static bool myMachine_DisconnectedAfterFailureEnteredExecuted = false;
 
-    private IBlockDescription myBlockDescription = new FacadeBlockDescription(int.MaxValue, int.MaxValue, 0);
+    private readonly IBlockDescription myBlockDescription = new FacadeBlockDescription(int.MaxValue, int.MaxValue, 0);
     private TimeSpan FiveSeconds = new TimeSpan(0, 0, 0, 5, 0);
     private int myNumberOfThreads = 0;
+
     private void MakeConnection()
     {
       myMachine.ConnectRequest();
@@ -104,33 +109,39 @@ namespace CAS.CommServer.ProtocolHub.CommunicationUnitTests
       TestWriteData();
       Assert.AreEqual(SegmentStateMachine.State.KeepConnection, myMachine.CurrentState);
     }
+
     private static void myMachine_DisconnectedAfterFailureEntered(object sender, EventArgs e)
     {
       myMachine_DisconnectedAfterFailureEnteredExecuted = true;
     }
+
     private void TestRead()
     {
       //myMachine.ReadData( myPipeDataBlock );
-      object data;
       IBlockDescription dataAddress = new FacadeBlockDescription(int.MaxValue, int.MaxValue, short.MaxValue);
-      myMachine.ReadData(out data, dataAddress, myInterface);
+      myMachine.ReadData(out object data, dataAddress, myInterface);
     }
+
     private void TestWriteData()
     {
       myMachine.WriteData(0, myBlockDescription, myInterface);
     }
+
     private void AssertConnected()
     {
       Assert.AreEqual(SegmentStateMachine.State.Connected, myMachine.CurrentState);
     }
+
     private void AssertDisconnected()
     {
       Assert.AreEqual(SegmentStateMachine.State.Disconnected, myMachine.CurrentState);
     }
+
     private void AssertKeepConnection()
     {
       Assert.AreEqual(SegmentStateMachine.State.KeepConnection, myMachine.CurrentState);
     }
+
     private void WaitCallbackHandle(object state)
     {
       System.Diagnostics.Stopwatch myStopwatch = new System.Diagnostics.Stopwatch();
@@ -144,6 +155,7 @@ namespace CAS.CommServer.ProtocolHub.CommunicationUnitTests
       }
       System.Threading.Interlocked.Decrement(ref myParent.myNumberOfThreads);
     }
+
     private static void SegmentTiming()
     {
       ComunicationNet.SegmentsRow segmentRow = myConfig.Segments[0];
@@ -154,7 +166,8 @@ namespace CAS.CommServer.ProtocolHub.CommunicationUnitTests
       segmentRow.TimeScan = 10000;
       parameters = new SegmentParameters(segmentRow);
     }
-    #endregion
+
+    #endregion private
 
     [TestMethod]
     public void TestSuccess()
@@ -228,9 +241,7 @@ namespace CAS.CommServer.ProtocolHub.CommunicationUnitTests
     public void TestAsynchronousDisconnect()
     {
       Assert.Inconclusive();
-      int workerThreads;
-      int completionPortThreads;
-      System.Threading.ThreadPool.GetAvailableThreads(out workerThreads, out completionPortThreads);
+      System.Threading.ThreadPool.GetAvailableThreads(out int workerThreads, out int completionPortThreads);
       Console.WriteLine("number of available threads worker= {0}; CompletionPort= {1}", workerThreads, completionPortThreads);
       Assert.IsFalse(myMachine.NeedsChannelAccess, "inconsistency of the myMachine.NeedsChannelAccess");
       myNumberOfThreads = workerThreads;
@@ -307,6 +318,5 @@ namespace CAS.CommServer.ProtocolHub.CommunicationUnitTests
       myMachine_DisconnectedAfterFailureEnteredExecuted = false;
       Assert.IsFalse(myMachine.NeedsChannelAccess, "inconsistency of the myMachine.NeedsChannelAccess");
     }
-
   }
 }

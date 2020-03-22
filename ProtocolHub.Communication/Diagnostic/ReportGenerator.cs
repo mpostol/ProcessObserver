@@ -41,7 +41,7 @@ namespace CAS.CommServer.ProtocolHub.Communication.Diagnostic
         sb.Append(@"<table border='0' align='center' width='1200' class='t1'>");
         sb.Append(@"<tr><td  class='k1'>Report time </td><td  class='k2'>" + _DateTimeProvider.GetCurrentTime().ToString() + "</td></tr>");
         sb.Append(@"<tr><td  class='k1'>Run Time [s] </td><td class='k2'>" + CommServerComponent.RunTime.ToString() + "</td></tr>");
-        sb.Append(@"<tr><td  class='k1'>Configuration file </td><td class='k2'>" + CAS.Lib.RTLib.Management.AppConfigManagement.filename + "</td></tr>");
+        sb.Append(@"<tr><td  class='k1'>Configuration file </td><td class='k2'>" + UAOOI.ProcessObserver.Configuration.Settings.AppConfigManagement.filename + "</td></tr>");
         sb.Append(@"<tr><td  class='k1'>Program Name </td><td class='k2'>" + System.Reflection.Assembly.GetExecutingAssembly().GetName().FullName + "</td></tr>");
         sb.Append(@"</table>");
       }
@@ -159,12 +159,14 @@ namespace CAS.CommServer.ProtocolHub.Communication.Diagnostic
       sb.Append(this.getFooter());
       return sb.ToString();
     }
+
     private static void SignalError(StringBuilder sb, Exception ex)
     {
       sb.Append(Resources.ExceptionDuringReportCreation);
       sb.Append(": ");
       sb.Append(ex.ToString());
     }
+
     /// <summary>
     /// Do the report
     /// </summary>
@@ -173,12 +175,12 @@ namespace CAS.CommServer.ProtocolHub.Communication.Diagnostic
       using (StreamWriter sw = File.CreateText(DestFilename))
         sw.WriteLine(this.GetReportString());
     }
+
     /// <summary>
     /// Initializes a new instance of the <see cref="ReportGenerator"/> class.
     /// </summary>
     /// <param name="title">The title of the report.</param>
     public ReportGenerator(string title)
       : base(title) { }
-
   }
 }
