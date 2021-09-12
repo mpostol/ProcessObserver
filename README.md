@@ -58,6 +58,23 @@ Id | Title
 `CAS.CommServer.DAClientConfiguration` | OPC Classic Client Configuration Library
 `CAS.CommServer.CommonBus` | CAS CommServer Family Common Communication Functionality
 
+## Partnership program
+
+I am a researcher and University associate who is passionate about applying knowledge and experience in building a Machine to Machine (M2M) meaningful interoperability based on OPC UA. Let's build it with you and for you. To join our effort and create an organizational context I have launched an open-access **Object-Oriented Internet Partnership Program**. Hence, maintenance of this repository and further development of the OPC UA Information Model Domain-Specific Language will be carried out under a broader concept described in the following article
+
+[Object-Oriented Internet Partnership Program][Sponsorship]
+
+**Consider joining**. Visit the section [How to be involved][SponsorshipToBeInvolved] to get more. I hope that thanks to this partnership program we will establish long-term mutually beneficial cooperation. Your participation is needed to make sure that the work will continue as expected. As a rule of thumb, the work priority is derived from community feedback.
+
+I strongly encourage community participation and contribution to this project. First, please fork the repository and commit your changes there. Once happy with your changes you can generate a 'pull request'.
+
+When contributing to this repository, please first discuss the change you wish to make via issue, email, or any other method with the owners of this repository before making a change.
+
+Please note we have a code of conduct, please follow it in all your interactions with the project.
+
+- [Object-Oriented Internet Partnership Program][Sponsorship]
+- [How to be involved][SponsorshipToBeInvolved]
+
 ## See also
 
 - Mariusz Postol, [Object Oriented Internet](https://ieeexplore.ieee.org/abstract/document/7321562), [3rd International Conference on Innovative Network Systems and Applications](https://fedcsis.org/2015/inetsapp), 2015, [IEEE Xplore Digital Library](https://ieeexplore.ieee.org/abstract/document/7321562) [![DOI](https://img.shields.io/badge/DOI-10.15439%2F2015F160-blue)](https://fedcsis.org/proceedings/2015/pliks/160.pdf)
@@ -66,6 +83,8 @@ Id | Title
 - [CommServer\Theory of operation][CommSvr.Help]
 - [OPC UA Makes Process Observer Archetype Possible](https://mpostol.wordpress.com/2014/05/13/opc-ua-makes-process-observer-archetype-possible/)
 
+[Sponsorship]: https://github.commsvr.com/AboutPartnershipProgram.md.html
+[SponsorshipToBeInvolved]: https://github.commsvr.com/AboutPartnershipProgram.md.html#how-to-be-involved
 [CommSvr.Help]:https://commsvr-com.github.io/Documentation/CommServer
 [OOI.ieeexplore]:https://ieeexplore.ieee.org/abstract/document/7321562
 
